@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+</head>
+
+<body>
+    <form>
+        <!-- datalist tag - native autocomplete dropdown feature -->
+        <input type="text" list="skill">
+        <datalist id="skill">
+            <option>HTML</option>
+            <option>CSS</option>
+            <option>SCSS</option>
+            <option>JS</option>
+        </datalist>
+        <br> <br>
+        <!-- Dropdown Tag -->
+        <select>
+            <optgroup label="Front-end">
+                <option>HTML</option>
+                <option>CSS</option>
+                <option>JS</option>
+            </optgroup>
+            <optgroup label="Back-end">
+                <option>MySQL</option>
+                <option>JAVA</option>
+                <option>Python</option>
+            </optgroup>
+        </select>
+        <br><br>
+        <input placeholder="text" type="text" value="Monisha" readonly>
+        <br> <br>
+
+        <!-- <p>Email</p> this line used means when user clicks cursor cannot go inside email & not   -->
+        <label for="abc">Email</label>
+        <input type="email" id="abc" maxlength="10" required>
+        <br> <br>
+        <input placeholder="number" type="number" min="5" max="10">
+        <br> <br>
+        <input placeholder="password" type="password" autofocus>
+        <br> <br>
+        <input type="file">
+        <br> <br>
+        <input type="color">
+        <br> <br>
+        <label for="rad">RADIO BUTTON</label>
+        <input type="radio" id="rad">
+        <br> <br>
+        <input type="checkbox">
+        <br> <br>
+        <input type="range">
+        <br> <br>
+        <input type="date">
+        <br> <br>
+        <!-- Type Max 100 letters input from user in this box & create a form input to enter a msg that spans multiple lines-->
+        <textarea placeholder="message/comments(max 200 letters)" cols="30" rows="10" maxlength="100"
+            name="msg"></textarea>
+        <br> <br>
+        <button disabled>SUBMIT</button>
+    </form>
+</body>
+
+</html>

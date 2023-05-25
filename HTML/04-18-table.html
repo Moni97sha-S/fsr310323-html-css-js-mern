@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table</title>
+</head>
+
+<body>
+    <table border="1" width="200">
+        <caption>Marks of Batch A</caption>
+        <!-- Till HTML4, only th, tr, td are used | from HTML5 thead>tr>th, tbody>tr>td & tfoot>tr>th  -->
+        <thead>
+            <tr>
+                <th>Person</th>
+                <th>Marks</th>
+            </tr>
+        </thead>
+
+        <tbody align="center">
+            <tr>
+                <td>Chris</td>
+                <td>85</td>
+            </tr>
+            <tr>
+                <td>Dennis</td>
+                <td>80</td>
+            </tr>
+        </tbody>
+
+        <tfoot>
+            <tr>
+                <th>Total</th>
+                <th>165</th>
+            </tr>
+        </tfoot>
+    </table>
+    <br><br>
+
+    <!-- 4rx3c -->
+    <table border="1" width="200">
+        <tr>
+            <th>r1c1</th>
+            <th>r1c2</th>
+            <th>r1</th>
+        </tr>
+        <tr align="center">
+            <td rowspan="2">r2c1</td>
+            <td>r2c2</td>
+            <td>r2c3</td>
+        </tr>
+        <tr align="center">
+            <!--removed <td>r3c1</td> -->
+            <td>r3c2</td>
+            <td>r3c3</td>
+        </tr>
+        <tr align="center">
+            <td colspan="3">r4c1</td>
+            <!-- <td>r4c2</td>
+            <td>r4c3</td> -->
+        </tr>
+    </table>
+    <br><br>
+    <!-- 4rx3c -->
+    <table border="1" width="300">
+        <tr align="center">
+            <th>Columns 1</th>
+            <th>Columns 2</th>
+            <th>Columns 3</th>
+        </tr>
+        <tr align="center">
+            <td rowspan="2">Row 1 Cell 1</td>
+            <td>Row 1 Cell 2</td>
+            <td>Row 1 Cell 3</td>
+        </tr>
+        <tr align="center">
+            <!--removed <td>r3c1</td> -->
+            <td>Row 2 Cell 2</td>
+            <td>Row 2 Cell 3</td>
+        </tr>
+        <tr align="center">
+            <td colspan="3">Row 3 Cell 1</td>
+            <!-- <td>r4c2</td>
+            <td>r4c3</td> -->
+        </tr>
+    </table>
+    <br><br>
+    <table border="1" width="200">
+        <tr align="center">
+            <td colspan="4">1</td>
+        </tr>
+        <tr align="center">
+            <td rowspan="2">2</td>
+            <td rowspan="2">3</td>
+            <td colspan="2">4</td>
+        </tr>
+        <tr align="center">
+            <td>5</td>
+            <td>6</td>
+        </tr>
+        <tr align="center">
+            <td colspan="4">7</td>
+        </tr>
+    </table>
+    <br><br>
+    <table border="1" width="400">
+        <caption>Students</caption>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Score</th>
+            <th>Actions</th>
+        </tr>
+        <tr align="center">
+            <td>1</td>
+            <td>Ajay</td>
+            <td>ajay@email.com</td>
+            <td>90</td>
+            <td>
+                <button type="submit">Edit</button>
+                <button type="submit">Delete</button>
+            </td>
+        </tr>
+        <tr align="center">
+            <td>2</td>
+            <td>Ram</td>
+            <td>ram@mail.com</td>
+            <td>75</td>
+            <td>
+                <button type="submit">Edit</button>
+                <button type="submit">Delete</button>
+            </td>
+        </tr>
+        <tr align="center">
+            <td>3</td>
+            <td>Pinky</td>
+            <td>pinky@email.com</td>
+            <td>90</td>
+            <td>
+                <button type="submit">Edit</button>
+                <button type="submit">Delete</button>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

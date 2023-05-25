@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio / Video</title>
+</head>
+
+<body>
+    <h1>Audio tag</h1>
+    <audio src="sample-audio.mp3" controls autoplay loop muted preload></audio>
+    <!-- by default controls="true" autoplay not works in general in browser - if u want change browser settings-->
+    <!-- <audio controls>
+        <source src="sample-audio.mp3" type="audio/mp3">
+        <source src="sample-audio.ogg" type="audio/ogg">
+        Audio is not supported
+    </audio> -->
+
+    <h1>Video tag</h1>
+    <video src="sample-video.mp4" controls height poster="icons_23-03-16.png"></video>
+    <!-- <video controls>
+        <source src="sample-video.mp4" type="video/mp4">
+        <track src="sub.vtt" type="subtitles">
+        Audio is not supported
+    </video> -->
+
+    <h1>iframe tag-YouTube</h1>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/-aNpThucuvE" title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+    </iframe>
+</body>
+
+</html>
