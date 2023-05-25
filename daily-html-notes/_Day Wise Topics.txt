@@ -1,0 +1,600 @@
+----------------
+13th May Topics
+----------------
+⏹️ Selectors
+⏹️ Pseudo Elements:
+   - Pseudo means fake (not real)
+   1. :first-child we should use div's class name followed by <p> tag name when many same <p> tags r thr
+   2. p:nth-of-type(2) means it makes sense of tag name only among <p> tag.
+   3. p:nth-child(2) means it takes 2nd tag on whole div among <span>, <p> regardless of any tag name in between
+⏹️ Pseudo Class
+⏹️ Parallax Effect
+⏹️ Overlay Effect
+⏹️ display:grid
+
+----------------
+10th May Topics
+----------------
+⏹️ Responsive Design (RWD)
+   - Layout: flex layout | 
+   - Mobile responsive min. 400px means min-width:400px; property can be used in every parent div
+   - According to user's screen size our content should adjust without any content loss
+   - As we use pixels in general, we will loose the content if screen size changes. In order to overcome this issue, we use below vw & vh instead of px.
+   <!-- Units -->
+   - 
+   - In order to be flexible, we use vh, vw, vmin etc.
+   - viewport width (vw)
+      > occupy available width & adjustable even when screen size shirnks or enlarges
+   - viewport height (vh)
+   - Note: we should not give display:inline in topnav
+         > Don't give max-width in parent container
+
+⏹️ Media Query
+   - @media screen and (min-width:400px)
+   <!-- properties -->
+   - min-width
+   - min-height
+   - max-width property
+   - max-height property
+   - we can't give more than 1 max-width simply as it overrides.There is some condition
+   - But my req 0 to 400px gives blue; after 400px to 800px gives gray; after 800px gives violet
+⏹️ refer
+   - https://www.w3schools.com/css/css3_mediaqueries_ex.asp
+⏹️
+⏹️
+----------------
+9th May Topics
+----------------
+⏹️ Pseudo-classes | used to access in different states (refer pag 74 in edyoda-css ppt) | it will apply the styles on the special state
+   - :hover
+      > mouse on click it changes
+      > 
+   - :link
+      > when unvisited an anchor tag
+   - :visited
+      > After visited an anchor tag link
+   - :active
+      > when we pressed the link & it starts to run
+⏹️ pseudo elements
+   - content-wise alterations
+   - U can insert content or target particular element.
+      > ::first-line
+      > ::first-letter
+      > ::before
+      > ::after
+⏹️ how to insert cover background-image 
+   - background: url ('https://picsum.photos/40/40') should be along with content:'text'
+⏹️ How to center align vertically for block element?
+⏹️ Hover line-effect using transition, :hover, ::after & ::before
+
+----------------
+8th May Topics
+----------------
+⏹️ Animation shorthand property sequence
+   - animation: name duration timing-function delay direction iteration-count fill-mode play-state;
+⏹️ Animation rules / queries
+   - @keyframes
+      > in each frame by frame our rule works
+⏹️ Animation properties
+   - By default, gets back to original position / origin after animation 
+   - animation-name:ABC;
+      > we should name the animation to connect rules and html elements (tag), class, id etc inside CSS selectors
+   - animation-duration:2s; | without above two property animation won't works
+      > says for how long the animation should work
+   - animation-timing function:ease-in-out | ease-in | ease-out | linear | ease;
+      > we can also control the animation speed curve using this property
+      > ease-in: starts slowly then go faster
+      > ease-out: starts fastly then turns into slowly
+      > ease-in-out: combination of above both values
+   - animation-delay: 2s;
+      > It delays the animation by 2 seconds.
+   - animation-direction:alternate / reverse;
+      > Assume that from (0%) we give bg-color as blue & in 100% complete to we give bg-color as coral
+      > alternate means blue to coral, coral to blue etc.
+      > reverse means starts from 100% to 0% like coral to blue
+   - animation-iteration-count: 3 or infinite; 
+      > work as loop
+      > tells how many times animation should run
+   - animation-fill-mode: forwards; | we can see animation stops at coral bg-color not in white bg-color
+      > let's say we want to stay in the last state of animation
+      > we need to stop from default reaching its default origin for that purpose we use this property
+   - animation-play-state: paused;
+      > used to pause/stops an animation state while hovering means mouse on div
+      > when we remove it resumes/starts continuing animation
+   - transform:rotateZ('angle');
+      > (inside rule under from)
+      > element rotates along with Z axis
+      > used to rotate along with Z-axis with bg-color change in below example
+      > | rotateY | rotateZ | rotate3d
+⏹️ w3schools website ref | infinte means runs continously without stopping like loop
+   - div{
+      background-color:red;
+      /* animation-properties */
+      animation-name:abc;
+      animation-duration: infinite;
+     }
+     div:hover{
+      animation-play-state:paused;
+     }
+     /* animation-rules */
+     @keyframes abc{
+      from{
+         background-color:green;
+         transform:rotateZ(0deg); /* starts from 0 degrees */
+      }
+      to{
+         background-color:blue;
+         transform:rotateZ(180deg); /* ends in 180 degrees */
+
+      }
+     }
+
+----------------
+6th May Topics
+----------------
+⏹️ Background
+⏹️ Gradients
+⏹️ Transition
+⏹️ Animation
+⏹️ after & before
+⏹️ CSS Practice
+⏹️ Q & A Session
+----------------
+5th May Topics
+----------------
+⏹️ Challenge: https://community.edyoda.com/t/welcome-to-the-visionary-challenge-for-fullstack-program/4958
+⏹️ Assignment discussion
+   - Favicon is used to display near title of file name
+   - div class=container is given for wrap the different content in one division
+   - To make the whole content in the center even when we ctrl- also.
+   - Table can't take transitions and animations.
+   - Responsive > Mobile first approach (in code 1st banner pic & then content)
+   - Class can have 2 classnames
+   - To bring a div has some width in order to bring center given margin:0 auto; for this only we given container class
+⏹️ Box-sizing
+   - box-sizing: border-box; inside Universal Selector
+   - In above property, width & height is same & padding will adjust within given width
+   - padding: 0 50px (TB LR); + width:100%
+   - padding + width makes overflows of text & horizontal scrollbar is added 
+   - padding + width = Actual width of this p becomes widht: 100% + 100px; (50px for left & 50px for right) 
+   - so in order to overcome this problem consider above when padding is within the width
+⏹️ Q & A Session
+
+----------------
+4th May Topics
+----------------
+⏹ Selectors
+⏹ Overflow
+⏹ Box shadows
+⏹ Underline on hover
+⏹ Box Model - CPBM
+⏹ Quiz question
+⏹ Q & A session
+----------------
+3rd May Topics
+----------------
+⏹ Difference between display, visibility & opacity
+⏹ Aligning elements
+   📌 using Text-align (most-commonly used)
+      💡 if we have block element inside it inline element then use this property
+   📌 using flex (commonly) | Go through website flexbox playground in codepen
+      💡 when aligning multiple elements use this property.
+      💡 can't make ur img outside of the box using this. In that case use position:relative;
+      💡 display:flex; | always remain in center irrespective of changes in height, width
+      💡 Responsive web-design for mobiles, tabs etc.
+      💡 Supporting properties of flex are:
+      💡 justify-content:right/center/left; | without this img gets left by default
+      💡 align-items:start/center/end; | without this img gets enlarges
+   📌 using position properties (rarely)
+      💡 position: relative is used for parent & absolute is used for child
+      💡 position: relative is used when img is used outside of the box container.
+      💡 never use position:relative; for aligning items left & ri8
+      💡 position:relative; is used only when position:absolute; is used
+      💡 can't make ur img outside of the box using this. In that case use position:relative;
+
+⏹ paragraph tag doesn't have left right margins by default. It is body's margin.
+⏹ Quiz updates
+⏹ Q & A Session 
+----------------
+2nd May Topics
+----------------
+⏹ CSS Comments
+⏹ Cascading meaning in CSS?
+   📍 given to same tag elements
+   📍 Overrides
+   📍 Whatever property repeats with different value, then the last one that is given 1st priority
+⏹ Box Model [CPBM in that order]
+   📍 content ✅ Highlighted center 
+   📍 padding (top, right, bottom & left ) ✅ space between the content and border (inner-space)
+   📍 border ✅ between padding & margin
+   📍 margin ✅ space outside of the element/border (outer-space)
+⏹ Display properties
+   📍 block ✅ Always starts with a new line & as div tag is block level element, it doesn't mean browser automatically add some space like a margin before and after the element
+           ✅ takes 100% width relative to the parent
+   📍 Inline ✅ takes space according to it's content
+            ✅ padding, width, height will not work properly (overlaps) for inline element
+   📍 Inline-block ✅ it makes overlaps in aligned manner
+                  ✅ mix of inline & blocks | padding, width & height works properly
+   📍 flex (layout ✅ nav, header, footer,  + align) / grid (layout)
+⏹ Position properties
+   📍 static ✅ by default value | (Ri8 Top Bottom Left - TRBL will not work)
+   📍 relative ✅ relative & absolute always work together | (TRBL will work)
+              ✅ element moves from its original position
+   📍 absolute ✅ position is related to the parent
+              ✅ TRBL will work, element move relative to the parent (having value relative)
+   📍 none ✅ hide the content & remove the element space
+   📍 fixed ✅ position is related to the browser
+           ✅ position is fixed as top-nav bar and top button even we scroll it doesn't move
+           ✅ here TRBL works
+           ✅ element moves relative to the browser
+           ✅ if no TRBL given by default 'go to top' button will be bottom-left out of the browser
+Notes: Relative is for parent & absolute is for child
+       Fixed position is by default outside of the browser window
+
+⏹ CSS - ToolTip
+⏹ Q & A Session
+----------------
+28th Apr Topics
+----------------
+⏹ Breakdown a website into pages
+   - div by default in block level display
+⏹ Descendent Selector: parent tag/class with its child name in css
+⏹ div is a block level element so we need to change display element into flex
+⏹ justify-content: space-between; > equal spacing between logo, list & icons
+⏹ align-items: center; > vertically items get at center spacing
+⏹ border-radius: 5px; > box's border at corners get rounded
+⏹️ <ul> -- <a> - text-decoration: none; > underline from hyperlinks of anchor tag
+⏹️ <li> - list-style-type: none; > takes off bulletins
+----------------
+26th Apr Topics
+----------------
+⏹ In input tag, type="file" is allows use to attach a file like govt. docs
+⏹ 
+⏹
+⏹
+⏹
+⏹
+
+----------------
+25th Apr Topics CSS tue 2nd class till fri (next 1 week) by Hiral Khakhariya
+----------------
+⏹ User Interface - the look of the website (HTML & CSS)
+⏹ User Experience- interaction of the website with user (JavaScript)
+⏹ Back-end Development - JS with Node.js
+⏹ In html tags, attributes are giving additional information to entire tag.
+⏹ We always code attribute inside the opening tag.
+⏹ property:text; pairs in CSS
+⏹ Inline CSS Disadvantages: repeat same property-value pair for each & every tags slows down the website speed.
+   > Style act as attribute
+   > On highest priority condition, we use Inline CSS.
+⏹ Internal CSS:
+   - Style act as tag inside which we write internal CSS
+   - No repetition as we call elements by tag name
+   Disadvantages of Internal CSS:
+   - Again slows down the run time as it reads code one line by line
+   - Scrolling long codes creates chaotic for developer
+⏹ External CSS:
+   > link tag used to link once ur CSS file in HTML file (i.e) <link>
+   > rel means relation between css & HTML is StyleSheet (i.e) rel="stylesheet"
+   > type attribute informs HTML page what type of CSS file we are going to attach with HTML (i.e) type="text/css"
+   > href attribute informs path of that CSS file in our system. (i.e) href="style.css"
+⏹ class vary colors for particular tag among same name tags; prefer not to use - while in naming convention instead use _ or 2nd word capitalize 1st letter; called by .
+⏹ id means individual identity; can't give same id repeatedly; is for single element styling; Called by #; prefer not to use - while naming instead use _ or 2nd word capitalize 1st letter
+⏹ Cascading meaning
+⏹ CSS Comments
+
+----------------
+24th Apr Topics
+----------------
+⏹ Intro to CSS - Cascading Style Sheet
+⏹ How to add CSS
+   - Inline: Highest priority
+   - internal: Medium Priority
+   - External: Lowest Priority; Bootstrap is also CSS from internet
+⏹ Which type of CSS in projects?
+   > Readability
+   > Complexity
+   > Maintain
+   > Reuse
+   > Specificity : Highest, Medium & Lowest
+   > When same tag is used with all 3 CSS for color then system depends on priority; Inline is the quickest one to access
+⏹ Text Properties
+⏹ How to use Google Fonts: Roboto(famous)
+   - We shld not use system font as OS differs from Windows to Mac to Linux
+   - Select regular 400
+   - download family
+   - link (add this link in HTML before style link)
+⏹ Q & A session
+
+----------------
+20th Apr Topics
+----------------
+⏹ Remaining HTML tags
+   - Formatting tags
+   - Canvas using with help of JS
+   - SVG: Scalar Vector Graphics is an image format
+⏹ HTML Practice
+⏹ Assignment 2 Discussion
+⏹ Q & A Session
+
+----------------
+19th Apr Topics
+----------------
+⏹ Multimedia Tags
+⏹ img
+    - Audio tag
+    - Video tag
+    - iframe tag
+⏹ Assignment 2 discussion
+   - div tag to group big & span tag is used to group small in that big
+⏹
+⏹ Q & A Session
+
+
+----------------
+18th Apr Topics
+----------------
+⏹ Tables
+⏹ th (table head)
+     > tr (table row)
+       > td (table data)
+       
+⏹ 'caption' tag used for heading of a table
+⏹ In HTML5, thead, tbody, tfoot: th tag is used till html4 while fetching data according to speed if foot part reached before head part then foot will become head 
+⏹ Rowspan used for merging 2 rows together
+⏹ Colspan used for merging 2 colums together
+⏹ Assignment 2
+⏹ Q & A session
+⏹
+
+Ask doubt from checkbox & radio: how to add required in input tags 
+
+
+----------------
+17th Apr Topics
+----------------
+⏹ Whole GitHub Class
+   - Sign up
+   - Log In
+   - Create a Repository (only small characters & hyphen can be used to name a repository)
+      > private / public can be changed later too in danger zone
+      > Public (Code can be accessed by anyone, you can createlive url) 
+      > Private (code is private, complete ur control to whom to share | u can't create live url, unless you purchase github paid plan)
+      > ReadMe file is when we work in a team for a project or big projects
+   - Upload files
+   - Make repo live (Creating a link/url to share)
+      > How to rename the files
+      > Update files
+      > Delete a repo
+   - GitHub desktop (Manage multiple projects at a time)
+      > Create a repo on github.com
+      > Clone it on ur system
+      > Make any changes (add/delete/update/rename)
+      > Commit ur changes
+      > Pushes
+   - Q & A Session
+
+⏹ How to share output as well using Live server
+
+----------------
+14th Apr Topics
+----------------
+⏹ Quiz 1 due today
+⏹ Live YouTube Session
+⏹ Doubt Session (10-15 mins)
+⏹ Practice (30 mins)
+⏹ Code Review (10-15 mins)
+⏹ Q & A session
+- If img is not visible to the user at that time alt is useful for user to know about what img it is
+- img tag alt attribute is for alternate text on image if img url path is wrong atleast we could know img is about what
+- To come out of folder in order to access img outside the html's folder use "../"
+
+
+Why you should not use Google drive for assignment submissions:
+Difference between google drive link & github link
+- Download each file
+- asset links (img) will break while using live server in google drive
+- according to ur upload type like absolute or relative URL 
+- u can't share ur 100% effort
+- In GD, you can't update the code/folder without changing the link
+
+----------------
+13th Apr Topics
+----------------
+⏹ Live Server
+⏹ Forms
+    - select + option + optgroup | required, label
+    - input + datalist + option | required, list, id, value
+    - fieldset + legend
+    - radio vs checkbox
+⏹ Forms Practice
+⏹ Q & A Session
+----------------
+12th Apr Topics
+----------------
+⏹ How many of you went through PPTs?
+⏹ Assignment 1 REMINDER | 11:59 PM Today
+⏹ Quiz 1 REMINDER
+⏹ Whatsapp link
+⏹ Forms
+   ✅ What are forms?
+   ✅ form | action, method,
+   ✅ input | types (text, email,number, password, date, color, file, radio, checkbox, range), 
+      placeholder, value, read-only, id, autofocus, required, name
+          - Placeholder means light colored text in text box
+          - Readonly means no changes can be made by user
+          - Auotfocus means make user's cursor to focus on/highlights the border of an important field
+   ✅ label | for
+   ✅ button | disabled, type(submit)
+   - text vs email attribute
+   - textarea | rols, cols, required
+   <!-- Select Tag used for dropdown -->
+   - select + option + optgroup | required, label
+   - input + datalist + option | required, list, id, value
+   - fieldset + legend
+⏹ Q & A Session
+
+radio, checkbox, 
+
+----------------
+11th Apr Topics
+----------------
+⏹ Quiz 1 walkthrough
+⏹ br tag > break tag
+⏹ <!DOCTYPE html> : Means we are latest version of HTML i.e. HTML5
+⏹ meta > Search Engine Optimization (SEO) and providing extra information to the browser
+⏹ HTML Comments > <!-- _____ --> reference to the developer, unused code
+⏹ HTML Features from PPT-1: In css, (SVG) Scalable Vector Graphic images are crisp, clear & sharp 
+   even after zoom than .png, .jpg etc used mostly in logos.
+                  <!-- HTML 5 tags are not  Older version of HTML tags -->
+⏹ HTML semantic tags: <header> - <div class ="header">, 
+                       <nav> - <div id ="menu">, 
+                       <article> - <div class ="post"> & 
+                       <footer> - <div class ="footer">
+⏹ Assignment 1 walkthrough
+⏹ Live session and link
+⏹ How to upload assignment
+⏹ Q & A session
+
+// 04-11-quiz1-overview.html
+ul - unordered list (bullet-in) 
+ol - ordered list (numbered)
+<hr /> - make a line at header section under <h1> tag if u mention this tag
+<br /> - break tag (to break a paragraph into small lines)
+In CSS,
+<style> tag inside head tag
+<nav> --- </nav> for navigation among the pages (top blocks).
+Difference between svg (Scale vector graphic) & jpg?
+❣ html5 semantic tags (80:20 law)
+shortcut: Alt + ⬆ (move a line up)
+          Alt + ⬇ (move a line down)
+          shift + ! + tab/Enter (to get html skeleton : doctype)
+          ctrl + / (comment & uncomment)
+----------------
+07th Apr Topics
+----------------
+⏹️ Empty elements: 
+   - hr means horizontal
+   - img means image tag <img />
+   - br
+   - Meta
+   - input
+⏹ img tag 
+   ✔ src is source called as attribute similar to <a> tag's href
+⏹ align = "center" ---> name = "value" in attribute <a> tag
+⏹ <center> </center> is not supported in HTML5
+⏹ <div align="center"> </div> div tag is used to group some items.
+⏹ # means internal links & within the same page
+⏹ How to add smooth scrolling using css?
+   - Inside Head section, under Title section, add <style> tag from CSS
+----------------
+06th Apr Topics
+----------------
+⏹️ Share code files
+⏹️ HTML basics
+   - syntax
+   - open tag
+   - contents : Text between the open & close tags
+   - close tag
+   - element
+   - attributes (name:"value") : whatever we write inside open tag; extra information
+   - formating
+⏹️ Basic tags 
+   - html, head, body, 
+   - h1-h6 (Heading in Descending sizes), 
+   - p (paragraph), 
+   - ul (unordered list), 
+   - ol (ordered list), 
+   - li (list items) always used within ul or ol tags, 
+   - a (anchor tag ; inside open tags), href (hyperlink reference)
+⏹️ Q & A session
+
+   - html (Hyper Text Markup Language): tells that it is a html code ; structure, context 
+         Hyper Text means going from one place to another
+         Markup means what we write & the way of writing
+   - css (Cascading StyleSheet): SEO, Meta data; color, alignment, style
+   - js (JavaScript): content which is visible to user ; validation, interaction
+
+----------------
+05th Apr Topics
+----------------
+⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ 
+⚠️ ALWAYS NAME YOUR FILES & FOLDER WITH SMALL LETTERS ONLY! - _ 0-9
+⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ 
+✅ Share the PPT links
+✅ How to import file or folder to VS Code
+✅ https://www.justdecode.me/connect/
+✅ FEEDBACK
+✅ PRACTICE*♾️
+✅ GitHub Intro | project/code management
+✅ Launching first webpage
+✅ Share the code
+✅ File & Folder naming convension
+✅ Q & A session
+
+----------------
+04th Apr Topics
+----------------
+✅ Introduction
+    - Check MIC & Screen 🎤
+    - English, Hindi | Punjabi, Odisha | Japanese... 🗣️
+    - Little bit about your instructor background 😜
+    - Please connect to the same link in case of internet issue 📶
+    - Turn off camera and mute 📸
+    - Always clear your doubts before leaving the session 🙋‍♂️🙋‍♀️
+    - 100% attendance & I'll make 200% effort 💪
+    - From tomorrow, I'll play some music before 5 min of the class 🎶
+    - Always join on/before time ⌚
+    - FEEDBACK IS MUST 📝
+    - Be polite and respecting each other skill level 🙌
+✅ Course structure | Full Stack > Front End + Back End
+✅ Requirements
+   - Code Editor Setup (VS Code)
+   - Browser Setup (Chrome)
+   - LLL MINDSET
+✅ Basics of WEB DEVLOPMENT (full form, purpose, filename extension)
+   - Webpage > any url on browser
+   - Web Development > process of creating these web pages is called web development
+   - HTML (HyperText Markup Language) > content | .html
+   - CSS (Cascading StyleSheet) > color, layout, alignment | .css
+   - JS (JavaScript) > validation, interaction, dynamic | .js
+   - MASTER THESE THINGS, YES PLEASE MASTER THESE 3 THINGS
+   - Web Designin (creating mockups)g vs Web Development
+✅ Creating our 1st HTML file
+    - Create a .txt document then rename it to index.html
+✅ Watch recordings
+✅ FEEDBACK
+✅ TA (Athira) will join us at 9:15pm
+✅ Q & A session
+
+Filename extensions: resume.pdf, song1.mp3, movie1.mp4
+.jpg, .png, .txt, .cpp, .docx, .exe, .psd, .ai,
+
+Date: 20.05.2023 sat session by TA
+Properties
+1) Background
+background-image
+2) Overflow
+For overflow to work we need to give width & height sometimes margin.
+   - Overflow: hidden; This hides rest of img & takes only img size. cropped
+   - Overflow: scroll; remaining space is scroll & see using scroll bar
+   - Overflow: auto; means height is fulfill then overflow works which depends on image size.
+   - Overflow:visible; means normal visibility
+3) Transform 
+It means change or tranformation
+For transform to work we need to give width, height & on hover-effect only it works with random text to check if it works or not.
+sometimes margin: 0 auto to bring it center,  background-color & 
+display:flex, justify-content:center & align-items:center;
+   - deg
+   - tansform:rotateX(60deg), rotateY(180deg);
+   - rotate: rotates the item
+   - skew: it tilts the item on different axes, values -> deg
+   - translate: used to shift the element in xy plane by providing values in pixel.
+   - scale:used to zoom in/out effect
+4) translate:    
+   - translate: used to position shift of the element in xy plane by providing values in pixel (both +ve & -ve).
+   - translate: 50px 100px -150px;
+
+5) Responsive Web Design (RwD)
+Web pages changes according to our screen size.
+

@@ -1,0 +1,145 @@
+HTML Classes content will go here.
+
+-------
+ LINKS
+-------
+5th Apr (HTML)
+
+Email: hashrakeshkumar@gmail.com
+
+HTML-1 PPT-1:
+https://docs.google.com/presentation/d/1QRy1Y8AjWaodD2kkQPKjcOOFXcUi0KAUdE6zg-kDW9s/edit#slide=id.g212e9a1dfda_0_0
+
+HTML-2 PPT-2:
+https://docs.google.com/presentation/d/1jAyAEsduMUbPO5PKUFNYpAd3iqxyEd6xv7REANr656k/edit#slide=id.p1
+
+CSS PPT 1:
+https://docs.google.com/presentation/d/1Mp-Sver-5SLI5YpKD3-oJd_JfcEwCKKFzPgi60PeWGU/edit?usp=sharing
+
+CSS Notes links:
+https://codepen.io/patilsagar99047/pen/GRYWJyd
+
+ColorpickerEyeDropper (Extension):
+https://chrome.google.com/webstore/detail/colorpick-eyedropper/ohcpnigalekghcmgcdcenkpelffpdolg?hl=en
+
+Google Fonts:
+https://fonts.google.com/
+
+Insert FontAwesome Icons: (Library - only with single color)
+https://fontawesome.com/search
+
+Flat Icon: (Edit color of the icon to gradient)
+https://www.flaticon.com/
+
+Find Website used Fonts: (Extension)
+https://chrome.google.com/webstore/detail/find-website-used-fonts/lnebjgioddkafaldaaeooeghlcholnnp/related?hl=en&gclid=CjwKCAjwuqiiBhBtEiwATgvixAhLcjnCr6QuWz8X-bEaoAsJzagkk4azkMyi5-ix3ec9DjF_PS5iRRoCT9wQAvD_BwE
+
+Free Formatter:
+https://www.freeformatter.com/html-formatter.html
+
+Flexbox playground: container means parent | items means child
+https://codepen.io/enxaneta/full/adLPwv/
+
+Javascript (implicit & explicit practice):
+https://betterprogramming.pub/implicit-and-explicit-coercion-in-javascript-b23d0cb1a750
+
+Javascript Reference:
+https://www.youtube.com/watch?v=pN6jk0uUrD8&list=PLlasXeu85E9cQ32gLCvAvr9vNaUccPVNP
+
+https://www.youtube.com/watch?v=hdI2bqOjy3c&ab_channel=TraversyMedia
+
+Image Placeholder:
+https://placehold.co/
+
+Portfolio:
+https://justdecodeme.github.io/portfolio/
+
+Class Files:
+0) Doubt clarification TA - Athira
+https://github.com/Athiras231996/FSR310323Js
+
+1) HTML & CSS - Rakesh
+https://github.com/justdecodeme/edyoda-classes/tree/master/FSR310323 
+
+2) JS - Mayilsamy Thangaraj
+https://github.com/Thangarajcs/js-notes/
+
+Whatsapp Group: 
+https://chat.whatsapp.com/GBacdv15wsVKu1Ll4ugQcb
+
+Assignment:
+https://codepen.io/qaifikhan/pen/XWpreem?editors=0012
+
+-----------
+ SHORTCUTS
+-----------
+../ is for adding link of document outside your folder (to come out of your folder)
+Ctrl + Z > Undo
+Shift + Tab | Ctrl + [ > Move code to left side
+Tab | Ctrl + ] > Move code to right side
+Win + .  > Smily window
+<!--Duplicate a line multiple times lines (need to select)-->
+Alt + Shift + ⬇ > Copy and move code to one line down
+Alt + Shift + ⬆ > Copy and move code to one line up
+! + Tab/Enter > Create HTML skeleton
+Alt + ⬇ > Move line down
+Alt + ⬆ > Move line up
+Starting letter of tag + Tab > Automatically open & close tags 
+<!-- If it is 1 line then no need to select just keep ur cursor in that line; Select for multiple lines & then -->
+Ctrl + / > Toggle comments [HTML, CSS, JS] (comment & uncomment)
+Ctrl + D > Select next highlighted & Ctrl + C & Ctrl + V
+Win + Arrow keys for parallel screen in Win 10
+Ctrl + D Select whole word & replace it with backspace
+Ctrl+ D & ctrl + D & ctrl + D then type simueltaneously
+Ctrl + Enter : make cursor to move to next line (below)
+Ctrl + Shift + Enter : Create a new line above
+ul>li*6 : create 6 li tag lines inside one ul tag
+ul>(li+a)*6 : create 6 li in one line & anchor tags in next line to li tag line inside a ul tag
+ul>li*6>a : create 6 li & anchor tags inside a ul tag -> called as 'Emmet'
+(tr>td*18 -rows)*10 - columns in periodic table 10 rows & 18 columns
+Alt + Z folds a long line in vs code
+embed means copy the youtube link and merge in our website
+--------
+💡NOTES
+--------
+✌ &nbsp; > means non-breaking space, code for adding one single space in html
+✌ type: 'Lorem' to bring dummy paragraph text
+✌ toggle means on/off
+✌ radio button there is no toggle feature once selected can't be unselect
+✌ But in checkbox select & unselect can be done
+✌ datalist tag > native autocomplete dropdown feature
+✌ Scalable Vector Graphics (SVG)
+✌ By default, any elements behaviour is to be at right & top.
+✌ 100vh; vh means viewport height
+✌ 100px; px means pixels
+
+⭐Don't try to remember the code, understand the logic
+
+📢 NO CLOSING TAGS:
+<input> & <img>
+
+📢 EMPTY TAGS:
+<hr /> ✅, <br />
+<hr>lsjdffsd</hr> ❌ | / stands for closure
+
+📢 HTML Comments:
+<!--Single line HTML Comments -->
+<!-- Multiple
+ line 
+ HTML 
+ Comments -->
+
+📢 CSS Comments:
+/* CSS Comments */
+/* Multiple 
+line 
+comments */
+
+📢 ALIGNING ELEMENTS:
+Case 1. If we've parent as block element and child as inline element, and you want to 
+
+CAse 2. If we've 
+
+📢 Purpose:
+VS CODE > Editing
+Browser > Rendering
