@@ -1,0 +1,25 @@
+.main_form{
+    border: 5px double navy;
+    width: 400px;
+    padding: 20px;
+    margin: 40px;
+}
+.label_css{
+    color: brown;
+    font-weight: bold;
+    display: block;
+      margin: 20px;
+    padding: 5px;
+}
+.input_css{
+    display: block;
+    margin: 20px;
+    padding: 10px;
+    width: 80%;
+    border: 5px double darkgoldenrod;
+}
+.input_css:focus{
+    outline: 5px double darkolivegreen;
+    /* border: none; */
+    outline: none;
+}

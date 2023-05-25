@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS-Arrays</title>
+    <script>
+        console.log("Arrays");
+        var name = "John";
+        var name1 = "Johny";
+        var name2 = "Johne";
+        console.log(name, name1, name2);
+
+        // Array of strings datatypes
+        var names = ["John", "Alice", "Julie", "Doe", "Ann", "1"];
+
+        // Array of numbers
+        var age = [25, 45, 35, 65, 57];
+
+        // Array of Boolean values
+        var isChecked = [true, false, true, false];
+        // John, Alice, Julie, Doe, Ann
+
+        // Object
+        var product = {
+            name: "Ram",
+            "rollno": 18,
+            "isStudent": true
+        }
+
+        // Array of Objects
+        var products = [
+            { name4: "Moni", Mark: 100 },
+            { name4: "Monisha", RollNo: 4444 }
+        ]
+
+        // Array of users - example
+        var users = ["Kajal", "Asin", "Hansika", "Genelia", "Keerthy", "Deepika Padukone"];
+        console.log(users);
+        console.log(users[4]);
+        console.log(users[6]); //undefined
+
+        // Adding an item in an array
+        users[6] = "Tammanah";
+        console.log(users);
+        users[8] = "Shreya";
+        console.log(users);
+        console.log(users[7]); // empty or undefined
+
+        // To find length of an array
+        console.log(users.length);
+
+        // Add an item at last postn without knowing exact postn
+        users[users.length] = "Trisha";
+        console.log(users);
+
+        // push method - To insert an element into an array
+        users.push("Nayanthara");
+        console.log(users);
+
+        //delete an item from an array end using pop method
+        users.pop();
+        console.log(users);
+
+        // insert an item into an array at the beginning - unshift
+        // unshift -> insert at begin
+        users.unshift("Meena");
+        console.log(users);
+
+        // remove an item into an array at the beginning - shift
+        // shift -> delete from begin
+        users.shift();
+        console.log(users);
+
+        // splice() - To add an item in middle
+        users.splice(4, 0, "Sneha", "Laila");
+        console.log(users);
+
+        //Replace any item from middle
+        users.splice(7, 1, "Simran", "Jyothika");
+        console.log(users);
+
+        //Delete an item from middle
+        users.splice(11, 1);
+        console.log(users);
+
+        //sort() => Ascending order
+        users.sort();
+        console.log(users);
+
+        //sort() & reverse() => Descending order - chaining of methods
+        /* users.sort();
+         console.log(users);
+         // &
+         users.reverse();
+         console.log(users); */
+        // OR
+        users.sort().reverse();
+        console.log(users);
+
+        //Merge two array 
+        // CamelCase -> newUser
+        var newUser = ["A", "B", "C"];
+        var newUser1 = ["D", "E", "F"];
+        var user4 = users.concat(newUser, newUser1);
+        console.log(user4);
+
+        var user4 = newUser.concat(users);
+        console.log(user4);
+
+        //To find datatype of var-names
+        console.log(typeof users); //object
+
+        //isArray -> returns True or False
+        console.log(Array.isArray(users));
+
+        //Change array into string
+        var str = users.toString();
+        console.log(str);
+
+        //Change string to array 
+        var arr = str.split();
+        console.log(arr);
+
+        var arr1 = str.split('e');
+        console.log(arr1);
+
+        var arr2 = str.split(',');
+        console.log(arr2);
+
+        //Ass-1 testing
+        let str44 = "today is";
+        let str55 = " rainy day   ";
+        let result = str44.concat(' ', str55.trim());
+        console.log(result);
+    </script>
+</head>
+
+<body>
+    <div>Hi dude</div>
+    <h1>Arrays</h1>
+    <!-- <script src="script.js"></script> -->
+
+</body>
+
+</html>

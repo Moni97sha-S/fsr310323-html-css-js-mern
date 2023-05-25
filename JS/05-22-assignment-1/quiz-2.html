@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz-2 JS</title>
+    <script>
+        //Q-1
+        console.log(parseInt(true));
+        console.log(Number(true));
+        /* Logic: As there is no integer in 1st, this returns Not a number and true means 1 in number */
+        //Res: NaN and 1
+
+        //Q-2
+        console.log(parseInt('123axy'));
+        console.log(Number('123axy'));
+        /* Logic: parseInt returns 1st encountered integer. Here is 123 and Number returns only whole numbers not mixed with str */
+        //Res: 123 and NaN
+
+        //Q-3
+        var num1 = 123.4567;
+        console.log(typeof num1.toFixed(2));
+        /* Logic: toFixed(2) method which fixes decimal upto 2 places after point & converts decimal number into str */
+        //Res: String
+
+        //Q-4
+        console.log(parseFloat(10));
+        /* Logic: Float returns float digit. Here 10 means 10.0 so returns as it is 10 */
+        //Res: 10
+
+        //Q-5
+        var num2 = 123.4567;
+        console.log(num2.toFixed());
+        /* Logic: toFixed() method converts decimal number into str with numbers before decimal point */
+        //Res: "123" 
+
+        //Q-6
+        var mStr = " Hello World ";
+        mStr.trim();
+        console.log(mStr);
+        /* Logic: As we only prints var not trimmed one into console.log(), so it just prints original str */
+        //console.log(mStr.trim()); -> "Hello World"
+        //But here console.log(mStr); -> " Hello World " without trim
+        //Res: " Hello World "
+
+        //Q-7
+        var mStr1 = "Mo Tu We Th Fr Sa Su";
+        console.log(mStr1.slice(6, 10));
+        /* Logic: It slices from 6th to 9th position which is (10-1) Note: gaps also considerd as one of position */
+        //Res: We T
+
+        //Q-8
+        console.log(undefined == null);
+        console.log(undefined === null);
+        /* Logic: == stands only for just equal or not but === means for truthfullness which is really true or not */
+        //Res: true and false
+
+        //Q-9
+        var day = "FR";
+        switch (day) {
+            case "Mo":
+                console.log("Monday");
+            case "Tu":
+                console.log("Tuesday");
+            case "We":
+                console.log("Wednesday");
+            case "Th":
+                console.log("Thursday");
+            case "Fr":
+                console.log("Friday");
+            case "Sa":
+                console.log("Saturday");
+            case "Su":
+                console.log("Sunday");
+        }
+        /* Logic: As FR is not equal to Fr, there will no output. It is not syntax compilation error. */
+        //Res: Nothing will be printed
+
+        //Q-10
+        console.log(!!"false" == !!"true");
+        /* Logic: If there is something in a string is considered as true always. So T==T is T */
+        //Res: true
+    </script>
+</head>
+
+<body>
+    <div>Hi Dude!!!!!</div>
+</body>
+
+</html>

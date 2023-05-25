@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Small Profile Creation</title>
+    <style>
+        body {
+            background-color: lightblue;
+        }
+
+        .profile {
+            background-color: orange;
+            width: 400px;
+            margin: 30px auto;
+        }
+
+        /* top image-container Parent-1 */
+        .image {
+            background-color: #CC83C7;
+            height: 120px;
+            position: relative;
+        }
+
+        /* profile photo Child-1 */
+        .user {
+            width: 120px;
+            /* border-radius: 20px; */
+            border-radius: 50%;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .content {
+            /* margin: 40px; */
+            text-align: center;
+            /* padding:top right&left bottom */
+            padding: 60px 30px 30px;
+            background-color: antiquewhite;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /* social bottom-container Parent- 2 */
+        .social {
+            text-align: center;
+            padding: 10px;
+            background-color: rgb(84, 84, 241);
+            position: relative;
+        }
+
+        /* icons Child-2 */
+        .social-img {
+            width: 15px;
+            margin: 0 15px;
+        }
+
+        .arrow {
+            /* background-color: red; */
+            background-color: transparent;
+            /* As span is a inline element, we need to change it into partial block */
+            display: inline-block;
+            /* Otherwise in inline element width & height will not work */
+
+            /* width: 20px;
+            height: 20px; */
+            border: 15px solid;
+            /* Shorthand Property of bottom-color:top right bottom left */
+            /* border-color: yellowgreen salmon lightgreen yellow; */
+            border-color: transparent transparent rgb(84, 84, 241)transparent;
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="profile">
+        <div class="image">
+            <img class="user" src="./img/user.png" alt="">
+        </div>
+        <div class="content">
+            <h1>Manuel B. Garcia</h1>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Et ad sequi esse quo.</p>
+        </div>
+        <div class="social">
+            <img class="social-img" src="./img/facebook-logo.png" alt="">
+            <img class="social-img" src="./img/linkedin-logo.png" alt="">
+            <img class="social-img" src="./img/twitter-logo.png" alt="">
+            <img class="social-img" src="./img/instagram-logo.png" alt="">
+            <span class="arrow"></span>
+        </div>
+    </div>
+</body>
+
+</html>

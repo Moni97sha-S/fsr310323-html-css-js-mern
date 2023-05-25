@@ -1,0 +1,292 @@
+body {
+    /* max-width: 1200px; */
+    margin: 0;
+    background-position: bottom;
+    width: 1500px;
+}
+
+/* * {
+    box-sizing: border-box;
+} */
+
+.heading1 {
+    /* margin: 10px; */
+    padding: 5px;
+}
+
+form {
+    background-color: yellowgreen;
+    border: 25px solid white;
+    /* align-items: center; */
+
+}
+
+.name {
+
+    display: block;
+    background: rgba(255, 255, 255, 0.3);
+    padding: 20px;
+    margin: 5px;
+    margin-left: 50px;
+    border: 5px solid whitesmoke;
+    width: 91%;
+    border-radius: 5px;
+}
+
+.names {
+    color: rgba(0, 0, 0);
+    font-weight: bold;
+    /* background: rgba(79, 175, 76, 0.3); */
+}
+
+.labelName {
+    width: 250px;
+    height: 30px;
+    margin-left: 100px;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    font-size: medium;
+
+}
+
+.email {
+    display: flex;
+    padding: 20px;
+    margin: 5px;
+    margin-left: 50px;
+    width: 91%;
+    /* background-image: linear-gradient(269deg, #d2d5db, #f7f7f7); */
+    border: 5px solid lightcyan;
+    background: rgba(255, 255, 255, 0.3);
+
+    border-radius: 5px;
+
+}
+
+.email .eMail {
+    /* justify-content: center; */
+    width: 250px;
+    height: 30px;
+    margin-left: 105px;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    font-size: medium;
+}
+
+.phone {
+    display: block;
+    width: 91%;
+    padding: 20px;
+    margin: 5px;
+    margin-left: 50px;
+    /* background-image: linear-gradient(269deg, #d2d5db, #f7f7f7); */
+    border: 5px solid lightcyan;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.phoneNumber {
+    width: 250px;
+    height: 30px;
+    margin-left: 100px;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    font-size: medium;
+
+}
+
+.heading2 {
+    /* margin: 10px; */
+    padding: 5px;
+
+}
+
+.address {
+    display: inline-flex;
+    background: rgba(255, 255, 255, 0.3);
+    width: 91%;
+    padding: 20px;
+    margin: 5px;
+    margin-left: 50px;
+    /* background-image: linear-gradient(269deg, #d2d5db, #f7f7f7); */
+    border: 5px solid lightcyan;
+    border-radius: 5px;
+}
+
+.addRess {
+    width: 250px;
+    height: 30px;
+    margin-left: 90px;
+}
+
+.postcode {
+    display: block;
+    background: rgba(255, 255, 255, 0.3);
+    width: 91%;
+    padding: 20px;
+    margin: 5px;
+    margin-left: 50px;
+    /* background-image: linear-gradient(269deg, #d2d5db, #f7f7f7); */
+    border: 5px solid lightcyan;
+    border-radius: 5px;
+}
+
+.postCode {
+    width: 250px;
+    height: 30px;
+    margin-left: 80px;
+}
+
+.country {
+    display: block;
+    background: rgba(255, 255, 255, 0.3);
+    width: 91%;
+    padding: 20px;
+    margin: 5px;
+    margin-left: 50px;
+    /* background-image: linear-gradient(269deg, #d2d5db, #f7f7f7); */
+    border: 5px solid lightcyan;
+    border-radius: 5px;
+}
+
+.counTry {
+    width: 250px;
+    height: 30px;
+    margin-left: 90px;
+}
+
+.heading3 {
+    /* margin: 10px; */
+    padding: 5px;
+}
+
+.cardType {
+    display: grid;
+    background: rgba(255, 255, 255, 0.3);
+    width: 91%;
+    padding: 20px;
+    margin: 5px;
+    margin-left: 50px;
+    /* background-image: linear-gradient(269deg, #d2d5db, #f7f7f7); */
+    border: 5px solid lightcyan;
+    border-radius: 5px;
+
+}
+
+.cT {
+    padding-bottom: 10px;
+
+}
+
+.mc {
+    height: 50px;
+    width: 50px;
+}
+
+.visa {
+    height: 50px;
+    width: 50px;
+}
+
+.ax {
+    height: 60px;
+    width: 50px;
+}
+
+.card {
+    /* border: 1px solid red; */
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    /* padding-right: 20px; */
+}
+
+.card .paymentOption1 {
+    padding-right: 20px;
+    /* border: 1px solid red; */
+}
+
+.card .paymentOption2 {
+    padding-right: 20px;
+    /* border: 1px solid red; */
+}
+
+.card .paymentOption3 {
+    padding-right: 30px;
+    /* border: 1px solid red; */
+}
+
+
+.cardNumber {
+    display: block;
+    background: rgba(255, 255, 255, 0.3);
+    width: 91%;
+    padding: 20px;
+    margin: 10px;
+    margin-left: 50px;
+    /* background-image: linear-gradient(269deg, #d2d5db, #f7f7f7); */
+    border: 5px solid lightcyan;
+    border-radius: 5px;
+}
+
+.cardNum {
+    width: 250px;
+    height: 30px;
+    margin-left: 90px;
+}
+
+.securityCode {
+    display: block;
+    background: rgba(255, 255, 255, 0.3);
+    width: 91%;
+    padding: 20px;
+    margin: 5px;
+    margin-left: 50px;
+    /* background-image: linear-gradient(269deg, #d2d5db, #f7f7f7); */
+    border: 5px solid lightcyan;
+    border-radius: 5px;
+}
+
+.secCode {
+    width: 250px;
+    height: 30px;
+    margin-left: 90px;
+}
+
+.nameOnCard {
+    display: block;
+    background: rgba(255, 255, 255, 0.3);
+    width: 91%;
+    padding: 20px;
+    margin: 5px;
+    margin-left: 50px;
+    /* background-image: linear-gradient(269deg, #d2d5db, #f7f7f7); */
+    border: 5px solid lightcyan;
+    border-radius: 5px;
+
+}
+
+.nmeOnCd {
+    width: 250px;
+    height: 30px;
+    margin-left: 90px;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    font-size: medium;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+
+    width: 15%;
+    margin: 25px;
+    margin-left: 450px;
+    padding: 15px;
+    background-color: rgb(59, 53, 53);
+    border-radius: 200px;
+    color: white;
+    font-size: xx-large;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 200;
+}

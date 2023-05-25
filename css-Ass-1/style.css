@@ -1,0 +1,170 @@
+/* *********** */
+/*   COMMON    */
+/* *********** */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: antiquewhite;
+}
+
+/* *********** */
+/*   HEADER    */
+/* *********** */
+header {
+    /* background-color: aqua; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    width: 150px;
+    height: 60px;
+}
+
+.link {
+    list-style-type: none;
+}
+
+.link li {
+    display: inline-block;
+    padding: 10px 20px;
+}
+
+.link a {
+    text-decoration: none;
+    color: grey;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+
+.link a:hover,
+.link a.active {
+    color: black;
+    text-decoration: underline solid #8071D0 3px;
+
+}
+
+.common-btn {
+    width: 150px;
+    height: 70px;
+    text-decoration: none;
+    border-radius: 30px;
+    background-color: #FFD8DB;
+    color: #A389CC;
+    font-weight: bold;
+    border: none;
+}
+
+/* *********** */
+/*    MAIN     */
+/* *********** */
+.content ul {
+    list-style: none;
+}
+
+.content li {}
+
+.date {
+    color: grey;
+}
+
+.color1,
+.color2,
+.color3,
+.color4 {
+    height: 10px;
+    width: 20px;
+    display: inline-flex;
+    border-radius: 50px;
+}
+
+.color1 {
+    background-color: #FED7DA;
+}
+
+.color2 {
+    background-color: #FD6534;
+}
+
+.color3 {
+    background-color: #9ED095;
+}
+
+.color4 {
+    background-color: #FFE4A0;
+}
+
+/* .left h1 {
+    font-size: 100px;
+}
+
+.change {
+    color: #5243C0;
+}
+
+.left h1,
+p {
+    font-family: Arial, Helvetica, sans-serif;
+    text-size-adjust: calc();
+}
+
+.left p {
+    width: 50%;
+    overflow-wrap: break-word;
+    color: grey;
+}
+
+.left button {
+    width: 150px;
+    height: 50px;
+    border-radius: 20px;
+    background-color: #5243C0;
+    color: #ffffff;
+    font-weight: bold;
+    border: none;
+}
+
+.banner {
+    width: 70px;
+}
+
+.row1,
+.row2,
+.row3,
+.row4 {
+    margin-right: 50px;
+    padding: none;
+    list-style-type: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.btn1,
+.btn2,
+.btn3,
+.btn4 {
+    height: 10px;
+    width: 20px;
+    display: inline-block;
+    border-radius: 50px;
+}
+
+.btn1 {
+    background-color: #FED7DA;
+}
+
+.btn2 {
+    background-color: #FD6534;
+}
+
+.btn3 {
+    background-color: #9ED095
+}
+
+.btn4 {
+    background-color: #FFE4A0;
+} */

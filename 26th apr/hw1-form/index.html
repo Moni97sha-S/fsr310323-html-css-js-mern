@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form1-CSS</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/e388c14e91.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <form>
+        <h3 class="heading1">Step 1: Your details</h3>
+        <div class="name">
+            <label for="nme" class="names">Name</label>
+            <input type="text" id="nme" class="labelName" placeholder="First and last name">
+        </div>
+        <div class="email">
+            <label for="mail">Email</label>
+            <input type="Email" id="mail" class="eMail" placeholder="example@domain.com">
+        </div>
+        <div class="phone">
+            <label for="phn">Phone</label>
+            <input type="text" id="phn" class="phoneNumber" placeholder=" Eg.+447500000000">
+        </div>
+        <h3 class="heading2">Step 2: Delivery address</h3>
+        <div class="address">
+            <label>Address</label>
+            <textarea class="addRess"></textarea>
+        </div>
+        <div class="postcode">
+            <label for="pc">Post code</label>
+            <input type="search" id="pc" class="postCode">
+        </div>
+        <div class="country">
+            <label for="coun">Country</label>
+            <input type="text" id="coun" class="counTry">
+        </div>
+
+        <h3 class="heading3">Step 3: Card details</h3>
+        <div class="cardType">
+            <label class="cT">Card type</label>
+            <div class="card">
+                <div class="paymentOption1">
+                    <input type="radio" id="vis" name="card_type">
+                    <a href="#" target="_blank"><img src="images/visa.png" class="visa" alt="Visa-Icon"></a>
+                    <!-- <i class="fa-brands fa-cc-visa fa-2xl"></i> -->
+                    <label for="vis">Visa</label>
+                </div>
+                <div class="paymentOption2">
+                    <input type="radio" id="amex" name="card_type">
+                    <a href="#" target="_blank"><img src="images/amex.png" class="ax" alt="Amex_Icons"></a>
+                    <!-- <i class="fa-brands fa-cc-amex fa-2xl"></i> -->
+                    <label for="amex">AmEx</label>
+                </div>
+                <div class="paymentOption3">
+                    <input type="radio" id="mcd" name="card_type">
+                    <a href="#" target="_blank"><img src="images/icons8-mastercard-64.png" class="mc" alt=" Master card
+                    Icon"></a>
+                    <!-- <i class="fa-brands fa-cc-mastercard fa-2xl"></i> -->
+                    <label for="mcd">Mastercard</label>
+                </div>
+            </div>
+        </div>
+        <div class="cardNumber">
+            <label for="cn">Card number</label>
+            <input type="text" id="cn" class="cardNum">
+        </div>
+        <div class="securityCode">
+            <label for="sec">Security code</label>
+            <input type="Email" id="sec" class="secCode">
+        </div>
+        <div class="nameOnCard">
+            <label for="noc">Name on card</label>
+            <input type="text" id="noc" class="nmeOnCd" placeholder="Exact name as on the card">
+        </div>
+        <input type="submit" value="BUY IT!" class="btn">
+    </form>
+</body>
+
+</html>

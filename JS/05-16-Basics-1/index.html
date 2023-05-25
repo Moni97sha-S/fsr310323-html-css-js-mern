@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Basics</title>
+    <script>
+        //redeclare in same scope.
+        var name1 = 'water';
+        var name1 = 'soda';
+        console.log(name1);
+
+        /* let name2 = 'juice';
+        //Global variable scope
+        {
+            let name2 = 'soda';
+            //Block scope variable
+            console.log(name2);
+        }
+        console.log(name2);
+        Res: juice soda soda | var doesn't give privacy for blocks*/
+
+        //reassign 
+        /*var name1 = 'soda';
+        name1 = '1';
+        console.log(name1);*/
+        // confusion comes when we use var as redeclare & reassign both can be done
+
+        // let & const - 2015
+        // redeclare in same scope
+        /*let name2 = 'juice';
+        let name2 = 'water';
+        console.log(name2);*/
+        //In let, we cannot redeclare block-scoped variables in same scope
+
+        //let - redeclare in different scope✅
+       /* let name2 = 'juice';
+        //Global variable scope
+        {
+            let name2 = 'soda';
+            //Block scope variable
+            console.log(name2);
+        }
+        console.log(name2);
+        Result: juice soda juice refer line 23& to compare with var*/
+        
+        //let - reassign✅
+
+        //In Const, we can redeclare same as let but cannot reassign.
+
+
+    </script>
+</head>
+
+<body>
+    <div>Hii</div>
+</body>
+
+</html>

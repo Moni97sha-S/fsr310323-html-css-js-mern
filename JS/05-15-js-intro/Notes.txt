@@ -1,0 +1,596 @@
+
+/*******************************🚨 means important topic for Exam***********************************/
+
+Day 1 : 15.05.2023 -------------------------------------
+Curriculum:
+📍Introduction to Javascript
+📍Language Basics: Variables, Data Types - Primitive and Reference, Number (Add, Sub, Mul, NaN, Infinity), Inbuilt Functions - Numbers
+📍Dialogs: Alert, Confirm, Input
+📍Control Flow
+----------------------------------------------------------
+Intoduction:-
+    - Javascript file u must have .js extension
+    - JS is case-sensitive language.
+    - JS is a script language which needs an interpreter
+    - It can change HTML & CSS dynamically.
+    - Can do events (click, key press etc.)
+    - Sending & receiving data to server.
+    - Storing the data in cloud/
+        ? 1st old JS is client-side.
+        ? Became server-side by using Node.js
+    - It can perform an action, validation & adds functionality.
+    - We can create dynamic web page.
+    - We can interact with web page through JS.
+    - Without JS web pages are called as Static & dummy pages.
+
+Lang Basics:
+    - Ways to insert js code into HTML file:
+        1. Using script tag:
+            <script>
+            //your js code
+            </script>
+        2. External script (Insert it after body tag):
+            <script src="./style.js"></script>
+    - Diff between scripting & programming language?
+        + Script:
+            > Scripting lang is high-level language.
+            > Works according to the script like do this & that.
+            > Script works on the programming lang.
+            > Executes dependently inside the parent. That parent has to be a programming lang.
+        + Programming: 
+            > Programming lang is low-level language.
+            > Executes independently.
+    - Where to Practice :
+       > VS Code, Browser console in source tb.
+       > Its result will be in browser's console tab.
+
+Dialogs: Alert, Confirm, Input
+    - alert('Hi, how are you?');
+
+Control Flow
+    -
+
+Variables:
+    - It is a container to hold some data that can be used that can be used by the program.
+    - It means to store some data in memory address.
+    - var name = 'Moni';
+        -> var means keywordVariable
+        -> name means variableName
+        -> = means Assignment operator
+        -> Moni means variableValue string should be mentioned inside '' | number can be simple given without inside ''| boolean means true & false | array means [] | object means {}
+
+Declare a variable (Syntax):
+        -> keywordVariable yourVarName = yourVarValue;
+
+Types of keyword Variables:-
+1. var - Global scope variable. | Global means for easy understanding public but we shld not mention like that
+------ came after 2015 ES6 (express.js)
+2. let - Block scope variables. {}
+3. const means never change - Block scope variables. {} | Block means for easy understanding private but we shld not mention like that
+
+What kind of data u r going to store & declaration + initialization of different data.
+(5) Types of Data-types:-----------------
+1. number - 12233 | Eg: var mathMark = 95;
+2. string - 'nsffd' | Eg: var engMark = 'wwww';
+3. boolean - true or false | Eg: var tamilMark = true;
+4. array - [] | Eg: var socialMark = [];
+5. object - {} | Eg: let engMark = {};
+//0 means atleast last empty roll is thr 
+    5.1 null means one of object nothing empty toilet roll only it's holder
+6. undefined means not clearly defined i dont know what is thr in past no holder
+
+💡 console.log(var-name);
+    - gives result at browser console
+    - it cannot access var-name before its initialization.
+    - always we need to declare variables before accessing it.
+    - always takes from bottom to top approach.
+    - In othr words, last come first according to the rules below.
+
+🚨Main concept & rules:
+💡 redeclare means declare again with same var keyword & variable-name with different value.
+    Eg: var name = 'qwe';
+        var name = '123';
+
+💡 reassign means assign again without repeating variable keyword but with same variable name with different value.
+    Eg: var total = 'qwe';
+        total = '123';
+📌Rules:-
+    1. Var
+        > We can redeclare in same & different scopes & reassign.
+    2. let 
+        > We cannot redeclare in same scope.
+        > We can redeclare in different scope.
+        > We can reassign.
+    3. const
+        > We cannot redeclare in same scope.
+        > We can redeclare in different scope.
+        > We cannot reassign.
+   📢Notes: scope means a set of code inside a block {}.
+
+Main difference among var, let & const?
+    - Var
+        > redeclare
+            ✅ We can redeclare in same & different scope.
+            ✅ Eg: var name = '123'
+                    var name = 'abc'
+                    console.log(name);
+                    Res: abc \\ We can redeclare a global scope variable-name again & again.
+        > reassign
+            ✅ We can reassign.
+            ✅ Eg: var total = '123';
+                    var total = 'abc';
+                    total = 'wwww';
+                    console.log(total);
+                    Res: wwww \\ We can reassign a global scope variable-name without mention it's type again.
+    - 'let' works on scope-level.
+        > redeclare 
+            ✅ We cannot redeclare in same scope which will result in error.
+                    Eg: let tot = '234';
+                        let tot = 'abc';
+                   ❌ Warning: We cannot redeclare a block scope variable-name again & again.
+            ✅ We cannot redeclare in different scope.
+               Eg: let name = '123';
+                   {
+                    let name = 'abc'; //Block of code
+                   }
+                    Res: abc
+            
+        > reassign
+            ✅ We can reassign.
+                Eg: let total = 'abc';
+                    total = 'wwww';
+                    console.log(total);
+                    // Res: wwww
+
+                    if{
+                    var a=10;
+                    var b=20;
+                    let c=a+b;
+                    }
+                    console.log(c); //Res: ?
+
+    - 'const' means constant
+        > redeclare 
+            ✅ We cannot redeclare in same scope which will result in error.
+                Eg: const pi = 3.14;
+                    pi = 5;
+                    console.log(pi);
+                     // Res: Error
+                ❌ Warning: We cannot redeclare a block scope variable-name again & again.
+            ✅ We can redeclare in different scope.
+                Eg: const name = 'Ravi';
+                    {
+                        const name = 'Ravi One';
+                        console.log(name);
+                        // Res: Ravi One 
+                        // like in scenarios like school attendance register
+                    }
+        > reassign
+            ✅ We cannot reassign.
+
+Day 2 : 16-05-2023 agenda: -----------------
+    Basic revise (From Day 1)
+    Doubts related to Variable and data type-
+    Q&A:
+    Strings (One of the data type)
+    Control Flow statements
+-------------------------------
+JS handles all the controls in the website
+    - how brain controls human body
+    - how human contorls the car
+What is Variable?
+    - It is a container to hold some data.
+    - To create a variable, there are some keywords.
+What is hoisting?
+    - It is moving declaration to the top of the assignment & console and executes the result with value.
+    - var name -> declaration
+    - name = 'raj'; -> value initialization
+    - Eg: name = 123;
+          console.log(name);
+          var name; // res:123
+    - In let & const (more strict & brought discipline in variable declaration), so hoisting is not possible.
+Datatype - What type of data u are storing?
+    - string: 'name', 'address'
+        Eg: var tyre = 'name';
+    - number: 12324 ex-phone num, adhaar card not
+        Eg: let phone = 123545;
+    - boolean: true or false
+        Eg: let isTodayMonday = false;
+    - object: {} group of related items like variables etc.
+        Eg: let tyre = {
+            name: 'moni',
+            color: 'red',
+            owner: 'MRF'
+            }
+    - array: [] collection of related value
+        Eg: let carBrand = [maruthi, tata, java, ]
+
+Day 3 : 17-05-2023 ------------------
+Datatypes:
+    - string | number | boolean | array |object
+In-built methods:
+    - predefined rules/codes
+    - starts with .
+    - Gives us result based on the input
+
+String Methods:-
+    >.length
+        - It tells how many characters are there in the string.
+    >.toUpperCase()
+        - It turns all small letter into capital letter.
+    >.toLowerCase()
+        - It turns all capital letter into small letter.
+    >.charAt(3)
+        - It shows exact letter at mentioned position.
+    >.charCodeAt(4)
+        - It shows computer understandable binary (ASCII) code at mentioned position.
+        - ASCII -> American Standard Code Information Interchange 
+        - If 'm' at 4th position from 0 then it executes m's ascii value 101
+    >.trim()
+        - It trims from whitespaces before and after of a string.
+        - to remove leading and trailing whitespace
+    >.trimStart()
+        - It trims from whitespaces before of a string.
+    >.trimEnd()
+        - It trims from whitespaces after of a string.
+    >.concat('Morning')
+        - It adds two strings (+)
+        - adding a string into another string
+    >.slice(from, end) 
+        - .slice(7,10) or .slice(-3)
+        - It takes negative value and start from end position
+        - negative number given means it takes from end
+    >.substring(3)
+        - it won't take negative
+        - It don't take negative value and result will be from 0th position always.
+    >.indexof('how') 
+        - search exactly with word/characters in strings
+        - whereas .charAt() mtd will differ as we can mention position in numbers.
+    >.startswith('e') 
+        - it shows res in boolean T/F if that string starts with given str then true orelse F
+    >.
+
+Control Flow
+    - how ur code execution happens based on the variables or some operators
+    - Conditional statements: if, if-else, switch
+        > true or false
+        > Eg if-else:   
+                let rajesh = 23;
+                if(23>18){
+                    console.log('He can vote')
+                }
+                else{
+                    console.log('He cannot vote')
+                }
+        > Eg else-if:   
+                let mark = 400;
+                if(mark<=400){
+                    console.log('C');
+                }
+                else if(mark <=450){
+                    console.log('B')
+                }
+                else{
+                    cosole.log('F')
+                }
+    - looping statements: for, while , do-while
+
+Day 4 : 18.05.2023 -----------------------
+Curriculum:
+    - Switch statement
+    - for loop
+    - while loop
+    - do-while loop statement
+    - Operators
+--------------------------------------
+1. Diff between Document.write() & console.log?
+    - document.write() used in UI
+    - console.log() used in browser/VS code
+
+2. Control flow :-
+If-else is used for 2-3 conditions & gives True/False.
+Switch Statement
+    - It is used for more than 3 conditions
+
+3. Operators :-
+    - operators do some operations on operands.
+   Types of Operators :-
+    1) Arithmetic Operators (+,-,*,/,++a,a++,--a,a--)
+        > BODMAS rule (bracket, order means power or roots, division, multiplication, addition, substraction) is the order of operations in calculations.
+        > Increment & decrement
+            - Pre-Increment - It will increase add 1 and then post value.
+            eg:-
+            let aa=11;
+            console.log(++aa); //Res:12
+            console.log(aa); //Res:12
+            - Post-Increment - It will post as it is & then increase value for next iteration.
+            eg:-
+            let aa=11;
+            console.log(aa++); //Res:11
+            console.log(aa); //Res:12
+            - Pre-Decrement - It will decrease and then post value. 
+            - Post-Decrement - It will post as it is & then decrease value for next iteration.
+
+            ❌ Dont's
+            - we cannot assign increment & decrement to a variable.
+            
+    2) Assignment Operators (+=,-=,*=,/=,%=)
+        > a+=1 shorthand for a=a+1; 
+    3) Comparison Operators (<, >, =, <=, >=, ==, ===, !=)
+        > we have to determine equality between 2 values.
+    4) Logical Operators (&&, ||, !)
+        [and, or & not]
+        > rule for and: Both shld be T means T, anyone F means F.
+        > rule for or: Both T means T , anyone T means T, both F means F.
+        > rule for not: T ----> F ; F ----> T.
+    5) Conditional (Ternary) Operator
+        > Syntax () ? T/F : F/T
+        > It assigns the value to the variable based on the condition.
+    
+Day 5 : 19.05.2023-------------------------------
+    Curriculum:-
+        - Type Conversion / Coersion
+        - Objects
+-------------------------------------------------
+Type Conversion: One data type to another data type.
+    1) Implicit Conversion:-
+        - Js will take care
+        - Eg: let a = 12 + "";
+              console.log(typeof(a)); //Res: string
+        - add: if we have add a number and string then a string.
+        - mul, div: if we have sub/mul/div a number and string then a number.
+    2) Explicit Conversion:-
+        - We tell the js to covert into particular type.
+        - String(), Number() & Boolean()
+        - Eg: convert number to string
+              let age = 35;
+              let str = String(age);
+              console.log(str);
+              console.log(typeof(str));
+        - Eg: convert string to number
+              let person = 'moni';
+              let name = Number(person);
+              console.log(name);
+              console.log(typeof(name));
+
+              Number('') //Res: 0 [Empty String is equal to 0 number]
+        - Eg: convert number into boolean
+              let a = 0;
+              console.log(Boolean(a)); //Res: false
+
+Objects: 
+    - A container has group of properties with key & value pairs.
+    - collects 2 or more no of information of a variable name.
+    - Here variable-name is known as Object.
+
+// Creation of an object
+Skeleton/Syntax:-
+    let var-name = {
+        key:value,
+        key1:value1
+    }
+
+//how to access particular key from an Object
+//Ways to access are (.) & ['']
+    i) console.log(var-name.key1);
+    ii) console.log(var-name['key']);
+              
+Day 6 : 22.05.2023 -----------------------------
+Curriculum:
+    - Assignment 1 discussion
+------------------------------------------------
+Q-1 
+let Result = str1.concat(' '),str2.trim(),str3.trimEnd()
+
+Q-2
+let enteredAlphabet = '123';
+if(typeof enteredAlphabet === 'string'){
+    enteredAlphabet = enteredAlphabet.toLowerCase();
+}
+else if(typeof enteredAlphabet === 'number'){
+    enteredAlphabet = 'number';
+}
+switch(enteredAlphabet){
+    case 'a':
+    case 'e':
+    case 'i':
+    case 'o':
+    case 'u':
+    console.log(Vowel);
+    break();
+    case 'number':
+    console.log(Non-Alphabet);
+    break;
+    default:
+    console.log(Consonant);
+} 
+
+Q-3 (55:00)
+
+Q-4
+
+Q-5
+Q-6
+
+Day 7 : 23.05.2023 -----------------------------
+Curriculum:
+    - Object
+    - Arrays
+------------------------------------------------
+Object
+    - It is a heterogeneous datatypes.
+
+Arrays
+    - Collection of homogeneous (same kind of) datatypes
+    - storing group of values with same references
+    - It is denoted by [].
+    - Two types of datatypes:
+        1. Primitive datatypes => String, Number, Boolean
+        2. Non-primitive datatypes => Array & Object is also called as reference data types
+    - Declaration of array (Syntax)
+      var <array-name> = [comma separated values];
+    - Normally we store one by one in each declaration.
+    - But using array we can store many values.
+    - We no need to assign size for an array in JS.
+
+JSON
+    - Javascript Object Notation
+    - Array of Objects
+
+Index
+    - Position/location of values/items.
+    - index starts from 0 to n-1, where n is the number of items
+    - Eg: var users = ["Kajal", "Asin", "Hansika", "Genelia", "Keerthy", "Deepika Padukone"];
+          console.log(users);
+          n=6 & n-1=5
+          console.log(users[6]); //undefined
+    - Identify an Item using Index postn values
+          console.log(users[1]); //Asin
+    - Adding an item in an array
+          users[6]="Tammanah";
+          console.log(users);
+    - Length of an array => arr.length;
+
+Methods
+    - Push method to insert an array & it will always adds at end => <arr_name>.push("value");
+    - Pop method to remove an items from the end => <arr_name>.pop("value");
+    - shift & pop won't accept any item in its argument ().
+    - push() => it will insert a new item at the end of array
+    - pop() => remove an item from the end
+    - unshift() => insert an item at the beginning of an array
+    - shift() => Delete/remove an item at the beginning of an array
+    - problem of using index for adding an item at middle is it removes before item and store new one.
+    - To overcome this we use .splice()
+    - sort() => sort / arrange items only in ascending/alphabetical order
+
+**********ANYTHING IN JAVASCRIPT IS CONSIDERED AS AN OBJECT NOT LIKE DATATYPE'S OBJ LIKE IN OOPS CONCEPT*********
+
+    - reverse() => Reverse an array of items by chaining of methods -> .sort().reverse()
+    - concat() => It will merge arrays
+    - isArray() => to identify array is an array
+    - toString() => converts array to string
+    - split() => It will convert string to an array
+    - 🚨 splice()
+       > It is mutable (changes original array)
+       > arr.splice(start-index, delete/remove how many items, "what new item we need to add"); 
+       > it will allow us to add an item at any specific position of an array
+       > Syntax: arr.splice(start_index, remove_index, "new-item");
+       > We can directly edit the original array.
+       > We can delete from any index just we have to mention it as 1st parameter.
+       > We can add new item in array.
+
+Find/Search in net that object is object or not?
+
+Day 8 : 24.05.2023 -----------------------------
+Curriculum:
+    - slice()
+    🚨 Difference between slice & splice methods? 
+    - constant arrays
+    - Loops
+    - Types of Loops:-
+        - For Loop
+        - While Loop
+    - break statement
+    - continue statement
+------------------------------------------------
+🚨 slice():
+    > Immutable means not change original array
+    > Syntax: let newArr = arr.slice(no_of_items_to_delete);
+    > Syntax: let newArr = arr.slice(start_index_as_arr_starts_from_[0], normal_position_starts_from_1);
+🚨Main diff btn slice & splice methods:-
+    slice():
+        > Immutable means not change original array.
+                    // pass one argument deletes slice of original array & returns in new array.
+        > Syntax: let newArr = arr.slice(no_of_items_to_delete); 
+                    // passes 2 arguments gives subarray
+        > Syntax: let newArr = arr.slice(start_index_as_arr_starts_from_[0], normal_position_starts_from_1);
+        > We need to assign it to a new array by creating new one. We can't edit in original array.
+        > It takes some slice from original array & distribute it via new array & remaining all items get deleted.
+        > Here we can delete from any start (eg:-0) array index & normal position if 3 means it deletes till 2nd postn.
+        > We cannot add new item in array.
+        > It will take some part from that array index & return it as sub-array from original array.
+        > 2nd parameter minus 1st parameter gives position value which counts from 1st parameter.
+    splice()
+       > Syntax: arr.splice(start_index, remove_index, "new-item");
+       > Syntax meaning arr.splice(start-index, delete/remove how many items, "what new item we need to add"); 
+       > It is mutable (changes original array).
+       > it will allow us to add an item at any specific position of an array
+       > We can directly edit the original array.
+       > We can delete from any index just we have to mention it as 1st parameter.
+       > We can add new item in array.
+
+Constant Arrays:
+    > constant means permanent/fixed/stable/can't change
+    > We cannot redeclare in same scope with same arr_name.
+    > When only one item need to be selected in an array or some array we don't want to change in those cases we use const (keyword means reserved word).
+
+Loops:
+    > Cycle
+    > Repeating something in a particular manner.
+    > Efficient method
+    > In order to avoid wasting memory and time, we use loops.
+    > Types: Only two i. while loop & ii. for loop
+
+While Loop:
+    - Syntax: while(condition){ 
+                logic for repeat
+                optional: increment / decrement; for next iteration
+              }
+    - Optimized & efficient one.
+
+For Loop:
+    - Syntax: for(initialization;condition;increment/decrement operator){
+                    logic for code;
+              }
+    - 
+
+Break statement:
+    - To break at some point and completely come out of it.
+
+Continue statement:
+    - continue => To skip the items
+
+Day 9 : 25.05.2023 -----------------------------
+Curriculum:
+    - Function
+    - 
+------------------------------------------------
+
+Function
+- What is function?
+    > set of reusable code - that we use to perform some action
+    > Inbuilt Functions/methods means do some task which already mentioned in that code | We dont need to do any code or write statements Eg:- slice(), toString() 
+    > User defined functions are developer created functions.
+
+- How to create a function?
+    > function is a keyword
+    > sum() is a function_name(parameter/arguments)
+    Eg:- function sumOfTwo(){ //Function Declaration | Accelerator or rules
+          let a=10;
+          let b=10;
+          let c=a+b;
+          console.log(c);
+         } //Res: No execution
+- How to call a function?
+    > console.log(c); -----> not defined
+    > To execute, we need to call the function. Until & unless we call function code will not executed.
+    > sumOfTwo(); //Above code executes | Function call 
+- How to pass the parameters to the function?
+    > Reusability
+- how we can get result from the function?
+    > return keyword is used to returns the result to function call.
+    > If return is spotted immediately comes out and gives the result. This won't checks for code lines after return keyword.
+    > return is optional.
+
+-  How to print at console using function call - invoke?
+    > using return keyword at end within function block of code 
+    > And (outside the function block) variable declaration = function call();
+    > 'return' value will store at variable declared outside the function when variable mapped with function call.
+    > Without return keyword if we call the function after variable declaration and console it becomes undefined datatype.
+
+- function hoisting:
+    > function declaration are hoisted at the top
+    > It is similar to var keyword
+
+- Link: https://github.com/Thangarajcs/js-notes/blob/main/day-9
+

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Loops</title>
+    <script>
+        console.log("Loops");
+        // let users = ["Rajini", "KamalHasan", "Vikram", "vijay", "Siva", "Dhanush", "Suriya", "Ajith", "Atharva", "VJS", "Manikandan"];
+        // console.log(users);
+
+        //splice()
+        /* users.splice(0, 2);
+        console.log(users); */
+
+        //slice() =>
+        /* var newUser = users.slice(1);
+        console.log(newUser);
+        console.log(users); */
+
+        /* var newUser = users.slice(8, 10); //(10-8=2)
+        // 2 positions from 8th index is removed & created into new sub array.
+        console.log(newUser); // it counts from start_index Atharva as 1 and then 2 as VJS
+        console.log(users); */
+
+        //constant arrays
+        /* var fruits = ["apple", "mango", "banana", "pomogranate", "pineapple"];
+        console.log(fruits);
+        var fruits = ["kiwi", "strawberry"];
+        console.log(fruits); // Overrides 1st by 2nd */
+
+        /* var/const fruits = ["apple", "mango", "banana", "pomogranate", "pineapple"];
+        console.log(fruits);
+        //const fruits = ["kiwi", "strawberry"];
+        console.log(fruits); // Shows error as already declared immutable can't change */
+
+        //while loop - efficient method to print 100 times
+        //var counter = 0; means printed for 101 times
+        /* var counter = 1;
+        while (counter <= 100) { //1 <= 100 -> true
+            console.log("Hi there"); //prints
+            counter++; // counter = counter+1
+        } */
+
+        // To print values from 1 to 100 using while loop
+        /* var num = 1;
+        while (num <= 100) {
+            console.log(num);
+            num++;
+        } */
+
+        // To print values from 2 to 101 using while loop
+        /* var num = 1;
+        while (num <= 100) {
+            num++;
+            console.log(num);
+        } */
+
+        // To print values from 1 to 101 using while loop
+        /* var num = 0;
+        while (num <= 100) {
+            num++;
+            console.log(num);
+        } */
+
+        // To print values from 1 to 100 using while loop
+        /* var num = 0;
+        while (num < 100) {
+            num++; // best practice is to use increment/decrement at last
+            console.log(num);
+        } */
+
+        // To print values from 2 to 101 using while loop
+        /* var num = 1;
+        while (num <= 100) {
+            ++num;
+            console.log(num);
+        } */
+
+        // To print values from 100 to 1 using while loop
+        /* var num = 100;
+        while (num >= 1) {
+            console.log(num);
+            num--;
+        } */
+
+        // Q Print all even numbers within 100 using while loop
+        /* var j = 0;
+        while (j <= 100) {
+            console.log(j);
+            //j = j + 2;
+            j += 2;
+        } */
+        //OR due to efficiency/optimized we choose 2nd method
+        /* var i = 1;
+        while (i <= 100) {
+            if (i % 2 == 0)
+                console.log("Even Numbers:", i);
+            else if (i % 1 == 0)
+                console.log("Odd Numbers:", i);
+            i++;
+        } */
+
+        // Exercise for while loop - print 5 tables till 5x10=50
+        /* var num = 5;
+        while (num <= 50) {
+            if (num % 5 == 0) {
+                var res = num * i;
+                console.log("5" + "x" + i + "=" + res);
+            }
+            for (var i = 1; i <= 10; i++)
+            num++;
+        } */
+
+        //for loop - more efficient method than while loop
+        // To print values from 1 to 100 using for loop
+        /* for (var i = 1; i <= 100; i++) {
+            console.log(i);
+        } */
+
+        // To print values from 100 to 1 using for loop
+        /* for (var i = 100; i >= 1; i--) {
+            console.log(i);
+        } */
+
+        // Q Print all the even numbers
+        /* for(var count=1; count<=100; count++){
+            if(count%2==0)
+            console.log("Even numbers are:",count);
+            else
+            console.log("Odd numbers are:",count); */
+
+        let users = ["Rajini", "KamalHasan", "Vikram", "vijay", "Siva", "Dhanush", "Suriya", "Ajith", "Atharva", "VJS", "Manikandan"];
+        // Res: Hi John
+        // console.log(users[0]);
+        /* for(var i=0; i<=users.length;i++)
+        console.log("Hi",users[i]); */
+        /*
+        //break
+        for (var int = 1; int <= 50; int++) {
+            if (int > 20) //21>20 -> F
+                break; //stops execution
+            console.log(int);
+        } */
+
+        //check if user vijay is present in the array and print index of that
+        // In real time scenario like searching/finding product's index at that time we don't want to waste memory
+        // So break is used
+        /* for (var v = 0; v < users.length; v++) {
+            if (users[v] == 'vijay') {
+                console.log("Index of vijay:", v);
+                console.log("Index of 3:", users[v]);
+                break;
+            }
+            console.log(users[v]);
+        } */
+
+        // continue => To skip the items
+        // To skip number from 51 to 59 between 50 to 60
+        for (var j = 1; j <= 100; j++) {
+            if (j > 50 && j < 60)
+                continue; //skip above items
+            console.log(j);
+        }
+    </script>
+</head>
+
+<body>
+    <h1>LOOPS</h1>
+</body>
+
+</html>

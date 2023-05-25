@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coercion & Objects</title>
+    <script>
+        let a = 12 + "";
+        console.log(typeof (a));
+        let b = "" + 12;
+        console.log(typeof (b));
+        let c = "" * 12;
+        console.log(typeof (c));
+        let d = 12 * "";
+        console.log(typeof (d));
+
+        //Objects
+        let car = {
+            brand: 'bmw',
+            num: '223344',
+            color: 'black'
+        }
+        let home = {
+            members: '4',
+            noofroom: '2bhk'
+        }
+
+        //how to access particular key
+        //Ways to access are (.) & ['']
+        console.log(car.num);
+        console.log(home['members']);
+    </script>
+</head>
+
+<body>
+    <div>hey!!!!!
+    </div>
+</body>
+
+</html>

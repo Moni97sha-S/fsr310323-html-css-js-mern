@@ -1,0 +1,28 @@
+/* calling elements by tag name */
+button{
+    color: brown;
+    background-color: pink;
+}
+h2{
+    color: blue;
+    background-color: yellowgreen;
+}
+/* body{
+    background-color: lightblue;
+} */
+.odd_heading{
+    color: green;
+    background-color:burlywood;
+   
+}
+.even_heading{
+    color: blue;
+}
+
+#demo1{
+    color: pink;
+    background-color: brown;
+}
+
+
+

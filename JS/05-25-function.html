@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Function</title>
+    <script>
+        /* function sumOfTwo() { //Function Declaration 
+            let a = 10;
+            let b = 10;
+            let c = a + b;
+            console.log(c);
+        } //Res: No execution
+        sumOfTwo(); // Function call */
+
+        /* function sumOfTwo(x, y) {  // Reusability
+            let a = x;
+            let b = y;
+            let c = a + b;
+            console.log(c);
+        }
+        sumOfTwo(100, 543); */
+
+        /* function avgOfFive(aa, bb, cc, dd, ee) {
+            let total = aa + bb + cc + dd + ee;
+            let Avg = total / 5;
+            console.log(Avg);
+        }
+        avgOfFive(10, 10, 10, 10, 10); */
+
+        // ******* function call - invoke*************
+        // function avgOfFive(aa, bb, cc, dd, ee) {
+        //     var total = aa + bb + cc + dd + ee;
+        //     var Avg = total / 5;
+        //     // return Avg; --------> undefined
+        // }
+        // let avg_mark = avgOfFive(20, 20, 20, 20, 20);
+        // console.log(avg_mark); 
+
+        function avgOfFive(aa, bb, cc, dd, ee) {
+            let total = aa + bb + cc + dd + ee;
+            let Avg = total / 5;
+            return Avg;
+        }
+        let res = avgOfFive(10, 10, 10, 10, 10);
+        console.log(res);
+
+        function wish() {
+            return "Hello";
+        }
+        let output = wish();
+        console.log(output);
+
+        function wishwithname(name) {
+            if (1) {
+                return "Hello " + name + "!";
+            }
+            else {
+                return "Hello guy";
+            }
+        }
+        let output1 = wishwithname("Moni");
+        console.log(output1);
+
+        //normal variable hoisting
+
+        // xx = 100;
+        // console.log(xx);
+        // var xx; ----------> Res: 100
+
+        // yy = 100;
+        // console.log(yy);
+        // let yy; //----------> Res: Syntax Error: cannot access 'yy' before initialization
+
+        // zz = 100;
+        // console.log(zz);
+        // const zz; //----------> Res: Syntax Error: Missing initializer in const declaration
+
+
+        //function hoist 
+
+        // if no parameter is passed
+        // undefined +undefined = NaN ----> To avoid this problem give default value like below program
+        /* let result = sayHello();
+        function sayHello() {
+            return a + b;
+        }
+        console.log(result); */
+
+        // default parameter => To avoid undefined problem give default value like this program for safer side
+        /* function sayAdd(m = 10, n = 2) {
+            return m + n;
+        }
+        let result4 = sayAdd(12);
+        console.log(result4); */
+
+        // Practice prob1
+        /* function sayHello(name = 'naveen', city = 'agra') {
+            return 'hello ' + name + ". " + "Welcome " + "to " + city;
+        }
+        let result5 = sayHello("Moni");
+        console.log(result5); */
+
+        // Practice prob2
+        /* function myFunction(){
+            alert("Hello World!");
+        }
+        myFunction(); */
+
+        // Practice prob2
+        function myFunction(str1) {
+            return str1;
+        }
+        let ans = myFunction('india');
+        console.log(ans);
+
+        //Link: https://github.com/Thangarajcs/js-notes/blob/main/day-9
+    </script>
+</head>
+
+<body>
+    <h1>Function</h1>
+</body>
+
+</html>

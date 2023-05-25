@@ -1,0 +1,32 @@
+/* calling elements by tag name */
+/* body {
+    background-color: aquamarine;
+} */
+
+button {
+    color: brown;
+    background-color: pink;
+}
+
+h2 {
+    color: blue;
+    background-color: yellowgreen;
+}
+
+.odd_heading {
+    color: green;
+    background-color: burlywood;
+}
+
+.evenHeading {
+    color: red;
+}
+
+.demo_p {
+    color: blue;
+}
+
+#demo1 {
+    color: purple;
+    background-color: lightpink;
+}

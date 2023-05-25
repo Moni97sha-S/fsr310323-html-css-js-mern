@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS String and Control Flow</title>
+    <script>
+        let myname = 'rajesh kumar';
+        let aadhaarNo = "A23frhg465"; //alphanumeric
+
+        // .length | .toUpperCase() | .toLowerCase()
+        console.log(myname.length);
+        console.log(myname.toUpperCase());
+        console.log(aadhaarNo.toLowerCase());
+
+        //.charAt()
+        console.log(myname.charAt(1));
+        console.log(myname.charCodeAt(3));
+
+        //.trim()- to remove leading and trailing whitespace
+        let text = '    hey how are you      ';
+        console.log(text.trim());
+        console.log(text.trimStart());
+        console.log(text.trimEnd());
+
+        //.concat() - adding a string into another string
+        /*let text1='hello GM' + 'how are you'*/
+        let text1 = 'hello GM ';
+        console.log(text1.concat('how are you'));
+
+        //.slice(start, end) | negative no given means it takes from end
+        let text2 = 'appleandorange';
+        let result = text2.slice(7, 10);
+        console.log(result);
+
+        //.substring(from to last) | it won't take negative
+        let result1 = text2.substring(11);
+        console.log(result1);
+
+        let result2 = text2.substring(-3);
+        console.log(result2);
+
+        //.indexof() - search exactly with word/characters in strings
+        let result3 = text2.indexof('and');
+        console.log(result3);
+
+        //startswith() - it shows res in boolean T/F if that string starts with given str then true orelse F
+        let result4 = text2.startsWith('and');
+        console.log(result4);
+    </script>
+</head>
+
+<body>
+    <div>Hey!!!</div>
+
+</body>
+
+</html>

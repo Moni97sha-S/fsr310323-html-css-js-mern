@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz-1</title>
+    <script>
+        //Q-1
+        console.log(true && false);
+        console.log(true || false);
+        //Res: F & T
+
+        //Q-2
+        console.log("string" ? true : false);
+        console.log("" ? true : false);
+        //Res: T & F
+
+        //Q-3
+        console.log(0 ? true : false);
+        console.log("0" ? true : false);
+        //Res: F & T
+
+        //Q-4
+        /* How to include a JS file in a HTML file?
+        Ans: via script tag */
+
+        //Q-5
+        console.log(parseInt("123xyz"));
+        //Res: 123
+
+        //Q-6
+        console.log(parseInt("A123xyz"));
+        //Res: NaN [on console]
+
+        //Q-7
+        /* How to take values as input from user?
+        Ans: window.prompt() */
+
+        //Q-8
+        var i = 7;
+        var o1 = ++i + ++i + ++i;
+        var o2 = i++ + i++ + i++;
+        var o3 = i++ + ++i + i++;
+        console.log(o1 + '' + o2 + '' + o3);
+        //Wrong Res: (8+8+8=24) (7+7+7=21) (7+8+7=22)
+        //Logic: (8+9+10 = 27) (10+11+12 = 33) (13+15+15 = 43)
+        //Res: 27 + 33 + 43
+
+        //Q-9
+        var A = 10;
+        var B = 5;
+        var C = 12;
+        var E = 8;
+        var D;
+        D = parseInt((A * (C - B) / E + (B + C)) <= (E * (C + A) / (B + C) + A));
+        console.log(D);
+        if (D == 1)
+            console.log(parseInt(A * (C - B) / E + (B + C)));
+        else {
+            console.log(parseInt(E * (C + A) / (B + C) + A));
+        }
+        /* Logic: parseInt just takes first encountered integer orelse returns Nan
+        = (10*(12-5) / 8 + (5+12)) <= (8*(12+10) / (5+12)+10)
+        = (10 * 7)/(8+17) <= (8*(22/17))+10
+        = (70/25) <= (8*(1.294))+10
+        =2.8 <= (10.35+10)
+        = 2.8 <= 20.35 = False for console.log(D) */
+        /* 20 is the 1st encountered integer in 20.35 as if condition fails (D==1), else part executed */
+        //Res: NaN-not a number & 20
+
+        //Q-10
+        var valA = "true";
+        var valB = "false";
+        var valC = true;
+        var valD = false;
+        console.log(!!valA == !!valB);
+        console.log(!!valC == !!valD);
+        /* Logic: (When it is string, this returns true == true[as there is some str which returns as 1-T] which is true but in 2nd console, this returns just str val true == false means false) */
+        // true==true -> true
+        // true==false -> false
+        //Res: True & False
+    </script>
+</head>
+
+<body>
+    <div>HEy!!!</div>
+
+</body>
+
+</html>

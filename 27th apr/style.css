@@ -1,0 +1,39 @@
+p {
+    color: #077E5F;
+    font-family: 'Bruno Ace SC', cursive;
+}
+
+/* h1 {
+    color: rgb(191, 78, 143);
+    font-family: 'Dancing Script', cursive;
+}
+
+h3 {
+    font-family: 'Lobster', cursive;
+}
+
+.icon_style_1 {
+    color: darkgreen;
+    font-size: 50px;
+}
+
+.icon_style_2 {
+    color: rgb(50, 0, 100);
+    font-size: 50px;
+}
+
+.icon_style_3 {
+    color: rgb(100, 0, 18);
+    font-size: 50px;
+} */
+
+.icon_style_4 {
+    height: 100px;
+    width: 130px;
+}
+
+.div_1 {
+    height: 300px;
+    width: 400px;
+    background-color: rgba(141, 246, 220, 0.6);
+}
