@@ -509,7 +509,7 @@ Curriculum:
         > It takes some slice from original array & distribute it via new array & remaining all items get deleted.
         > Here we can delete from any start (eg:-0) array index & normal position if 3 means it deletes till 2nd postn.
         > We cannot add new item in array.
-        > It will take some part from that array index & return it as sub-array from original array.
+        > It will take some part from that original array index & return it as subset as new-array from original array.
         > 2nd parameter minus 1st parameter gives position value which counts from 1st parameter.
     splice()
        > Syntax: arr.splice(start_index, remove_index, "new-item");

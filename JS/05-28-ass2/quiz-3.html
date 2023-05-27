@@ -1,15 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS Quiz-3</title>
     <script>
+        // Q-1
+        /* What are the possible ways to create object in Javascript?
+        var object = new Object();
+        var object = Object.create(null);
+        var object = {};
+        All of the above */ // Res: All of the above
+
+        // Q-2
+        /* Slice method mutates(meaning updates) the original array and it returns the subset as new array. => Res: False */
+
+        // Q-3
+        /* Splice method does not mutate(meaning updates) the original array and returns the deleted array. => Res: False */
+
+        // Q-4 - What will be printed in the console?
+        var mArr = [1, 2, 3, 4, 5];
+        console.log(mArr.toString()); //Res: 1,2,3,4,5
+
+        // Q-5 What will be the output of the following code?(delete operator removes a property from an object)
+        var output = function (x) {
+            delete x;
+            return x;
+        };
+        console.log(output(9)); //Res: 9
+
+        // Q-6 What will be the output of the following code?
+        var dummy = true;
+        console.log(dummy + 0); //Res: 1
+        console.log(dummy + 'xyz'); //Res: truexyz
+        console.log(dummy + true); //Res: 2
+        console.log(dummy + false); //Res: 1
+
+        // Q-7 What will be the output of the following code?
+        for (var i = 0; i < 5; i++) {
+            setTimeout(function () {
+                console.log(i);
+            }, 1000);
+        }
+
+        // Q-8
+        var mArr1 = [1, 2, 3]
+        var mArr2 = [4, 5, 6]
+        mArr1.concat(mArr2);
+        console.log(mArr1); // Res: [1,2,3]
+
+        // Q-9 Which of the following is true for global and local variables?
+        /*
+        ❌ Global variables can only be accessed inside functions
+        
+        ✅ Global variables can be accessed inside functions as well as main program
+        
+        ✅ Local variables can only be accessed inside function and sub-functions
+        
+        ❌ Local variables can only be accessed inside function but not subfunctions
+
+        ❌ Global variables can not be accessed inside loops
+        */
+
+        // Q-10 What will be printed in the console?
+        var mArr2 = [10, 22, 31, 47, 53];
+        var pos = 5;
+        console.log(mArr2[pos]); // Res: undefined
 
     </script>
 </head>
+
 <body>
     <h1>JS Quiz-3</h1>
 </body>
+
 </html>
