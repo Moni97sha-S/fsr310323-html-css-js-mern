@@ -329,7 +329,7 @@ Switch Statement
     
 Day 5 : 19.05.2023-------------------------------
     Curriculum:-
-        - Type Conversion / Coersion
+        - Type Conversion is also called as Coercion.
         - Objects
 -------------------------------------------------
 Type Conversion: One data type to another data type.
@@ -410,6 +410,7 @@ Q-3 (55:00)
 Q-4
 
 Q-5
+
 Q-6
 
 Day 7 : 23.05.2023 -----------------------------
@@ -553,7 +554,6 @@ Continue statement:
 Day 9 : 25.05.2023 -----------------------------
 Curriculum:
     - Function
-    - 
 ------------------------------------------------
 
 Function
@@ -594,3 +594,109 @@ Function
 
 - Link: https://github.com/Thangarajcs/js-notes/blob/main/day-9
 
+Day 10 : 26.05.2023 -----------------------------
+Curriculum:
+    - Objects continuation
+    - Function continuation
+    - Doubt clarification Q&A
+------------------------------------------------
+Practice:
+    - Square of a Number using dynamic function
+      var i;
+      function squareOfNum(10){
+        var j = i * i;
+        return j;
+      }
+        res = squareOfNum(i);
+        console.log(res);
+    - https://contactmentor.com/js-function-exercises-solution/
+Function (fn):
+    - For parameters, we don't need to store in a variables as we are already directly passing the parameter in fn.
+    - Because we directly use parameters which are already defined.
+    - Always use return in place of console.log inside function so it will come out of fn block which assigns to a var outside and we can reuse it many number of times outside fn block.
+    - "===" => compares even datatype of two sides too which evaluates strictly.
+    - Scope of Function is within {}
+    - Function Hoisting (from Day 2):     
+        > Hoisting means moving declaration to the top of the assignment & console and executes the result with value.
+        > When fn call placed before fn declaration & executes.
+     🚨 > Function declaration is Hoisted.
+    - Function Expression:
+        > When we explicitly assign a func to a variable its called fn expression.
+        > Instead of fn name that name comes in place of variable_name
+        > Syntax: let variable_name = function(a){
+                    return a='Hai';
+                  }
+                  console.log(variable_name());
+        > Eg:- const sum = function (){
+               return 'hai';
+               }
+               console.log(sum());
+        > If we try to access this con.log() before fn block, it will show "Cannot access 'sum' before intialization" -> Reference Error
+        > So we cannot Hoist around fn expression.
+    🚨 > Function expression is not Hoisted becoz it is strict validation.
+
+🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟
+Conclusion: 🚩🚩🚩🚩 FN EXPRESSION ARE NOT HOISTED ONLY FN DECLARATION ARE HOISTED AT THE TOP LEVEL   🚩🚩🚩🚩
+🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟
+    - typeof operator of function => object but it returns function in browser console.
+    - 'arguments' is a predefined keyword for inbuilt functions like add() etc. 
+        <!----------------PARAM VS ARGUMENTS---------------------------------->
+        > Eg:- function sum(gettingReceiveParameters -> a,b,c){
+               console.log(arguments <- 10,'Hai", 50);
+               }
+               sum(givingSendArguments -> 10,'Hai", 50);
+        > Eg:- function sum(a,b,c){
+               console.log(c); => prints one of parameter named as c => 50
+               }
+               sum(10,'Hai", 50);
+        > Eg:- function sum(a,b,c){
+               console.log(arguments); => prints entire list which is stored like array
+               }
+               sum(10,'Hai", 50);
+               //arguments[0] => 10
+               //arguments[1] => 'Hai'
+               //arguments[2] => 50
+Exercise for Function Expression:
+    - Odd/even
+    - Square of 2 nos
+
+Objects Datatype (obj):
+    - Obj is a basic building block of a program.
+    - It is a collection of properties in key='value' pairs which are separated by (,)
+    - Eg: let car = {
+            model:"bmw",
+            color:'blue',
+            type:'automatic'
+          }
+          console.log(car.color) => Access above object properties using (. operator) | Printing an obj in console
+    - Update an object:
+      --------------------------------------------------------------------------------------------------------
+        > Now I want to change the color of car
+        > Eg: car.color ='red';
+              console.log(car.color); 
+              console.log(car); => How to get all values from an obj?
+        > So best way is to use OBJECT LITERALS means obj={}
+        > const student = {
+            rollNo: "0024",
+            name: 'Ravi',
+            mark: 240
+         }
+    - Three ways to create an obj: new Object(), Object.create(), mObj={}
+        1. using 'new' keyword:
+        ------------------------------------------------------------------------------------------------------------
+        > Syntax: const student = new Object();
+                  student.class='first';
+        > We can create new pair and make it sit at last inside obj collection of pairs. But it is not correct way of approach which reduces performance.
+    -  2. Copy Obj 
+      --------------------------------------------------------------------------------------------------------
+        > Syntax => let newObjName = Object.create(existingObjName);
+       3. 
+
+
+    - How to get all keys from an obj?
+    
+    - Remove key-value pair from obj
+
+
+
+    

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obj-continuation</title>
+    <script>
+        // My Own Code
+        var i;
+        function squareOfNum(i) {
+            var j = i * i;
+            return j;
+        }
+        res = squareOfNum(10);
+        console.log(res);
+
+        // Write a function that returns the square of a number
+        // Sir's code
+        function squareoftwo(num) {
+            return num * num;
+        }
+        let ans = squareoftwo(9);
+        console.log(ans);
+
+        function squareoftwo(a = 20) {
+            return a * a;
+        }
+        let ans1 = squareoftwo();
+        console.log(ans1);
+
+        // Write a function that returns you given number is odd or even
+        // My Own Code
+        function oddOrEven(number) {
+            if (number % 2 == 0)
+                return number + " is Even";
+            else
+                return number + " is Odd";
+        }
+        let output = oddOrEven(7);
+        console.log(output);
+
+        // Sir's code
+        function oddEven(entry) {
+            if (entry % 2 === 0)
+                //=> === is safest operator in use case like ph-no user inputs a string then returns false
+                return "even"
+            else
+                return "odd"
+        }
+        let op = oddEven(26);
+        console.log(op);
+
+        // Function Hoisting - When fn call placed before fn declaration 
+        let answer = oddeven(33); // => Function call
+        console.log(answer);
+        function oddeven(m) { // => Function declaration
+            return (m % 2 === 0) ? "even" : "odd";
+        }
+
+        //Function Expression - When we explicitly assign a func to a variable its called fn expression. Cannot be hoisted as it is strict validation.
+        const sum = function () {
+            return 'hai';
+        }
+        console.log(sum());
+
+        /* console.log(sumS());
+        const sumS = function () {
+            return 'hai';
+        } // o/p is Error */
+
+        // Inbuilt functions - typeof these functions are object as per JS 
+        function add() {
+            console.log(arguments);
+        }
+        add(1, 2, 3);
+        // O/P: Arguments(3) [1, 2, 3, callee: ƒ, Symbol(Symbol.iterator): ƒ]
+        /* 0: 1
+           1: 2
+           2: 3 -> read user values in array wise
+           callee: ƒ add()
+           length: 3
+           Symbol(Symbol.iterator): ƒ values()
+           [[Prototype]]: Object */
+
+        // Write a function expression that returns you given number is odd or even
+        let v = function (n) {
+            return (n % 2 === 0) ? 'Even' : 'Odd';
+        }
+        console.log(v(4));
+
+        // Passing a String using function expression 
+        let variable_name = function (a) {
+            return a;
+        }
+        console.log(variable_name('Hai'));
+
+        // Object - continuation Eg1:
+        let car = {
+            model: "bmw",
+            color: 'blue',
+            type: 'automatic'
+        }
+        console.log(car); // => objects are pointing to the memory so below changes will be displayed here.
+        console.log(car.color);
+
+        // Update an Obj - is not reassign - reassign means let car full changed
+        car.color = 'red';
+        console.log(car.color); //-> prints only changes
+        /* console.log(car); //-> prints whole set of pairs in obj */
+
+        //Eg2:- We can Update new key-val pair which does not exist - OBJECT LITERALS
+        const student = {
+            rollNo: "0024",
+            name: 'Ravi',
+            mark: 240
+        }
+        student.mark = 340;
+        student.area = 'TN';
+        console.log(student.mark);
+        //console.log(student.city); //RES: Undefined Becoz it is not there
+        console.log(student);
+
+        // Adding new pair - But this method makes our performance slow. So highly recommends OBJECT LITERALS 
+        /* const student = new Object();
+        student.class = 'first';
+        console.log(student); */
+
+        // Creating a new object which is replica without changing original/existing one
+        // Replica of existing obj's structure | So no repetition
+        const student1 = Object.create(student);
+        student1.name = "Liv";
+        console.log(student1);
+        console.log(student);
+
+        // Ass Q
+        function sumOfTwo() {
+            console.log(3 + 10);
+        }
+        console.log(sumOfTwo);
+
+    </script>
+</head>
+
+<body>
+    <h1>Object continuation</h1>
+</body>
+
+</html>
