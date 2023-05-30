@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS ARRAY ITERATION METHODS</title>
+    <script>
+
+        // forEach()
+        /* let a = [1, 2, 3, 4, 5, 6, 6];
+        a.forEach(function (currentValue, position, wholeArray) {
+            console.log(wholeArray);
+        })
+
+        let b = [1, 3, 3, 4, 2, 6, 6];
+        b.forEach(myArray)
+        function myArray(Value, index, wArray) {
+            console.log(Value);
+        } */
+
+        /* In scenarios like below
+        let c = [1, 2, 3, 2, 5, 4, 6];
+         c.forEach(myArr)
+        //hey check every one total is above 200
+        function myArr(value, Index, Array) {
+            if (value > 200) {
+                console.log(value + 'is pass');
+                console.log(Array[Index]);
+            }
+        } */
+
+        // Practice-Question: Check every student has crossed the pass mark using forEach()
+        // pass mark - 250
+        // If passed means return student mark's position
+        //let arr1 = [];
+
+        // arrAy.forEach(myArr)
+        let arrAy = [200, 350, 150, 450, 250];
+        let arr1 = [];
+        arrAy.forEach(function myArr(val, i, arrAy) {
+            if (val >= 250) { //val = arrAy[i]
+                arr1.push(i);
+            }
+        })
+        console.log(arr1);
+
+        // map()
+        /* let v = [99, 90, 91, 55, 10, 11];
+        let ans = v.map(function (value) {
+            if (value >= 90) {
+                return value + 10;
+            }
+            return value;
+        })
+        console.log('old mark is', v);
+        console.log('updated mark', ans); */
+
+        // Practice Ques: check every student has crossed the pass mark using map()
+        // pass mark -250 (mark>=250) and + 50
+        // if no then -10
+        // if they crossed 250 add 50 marks extra otherwise reduce 10 mark
+        let mark = [100, 140, 260, 250, 360, 420, 500];
+        let markAns = mark.map(function (values, ind, mark) {
+            if (values >= 250) { // values = mark[ind]
+                return values + 50;
+            }
+            else
+                return values - 10;
+            return values;
+        })
+        console.log('Updated Students marks:', markAns);
+        //Students who scored above and equal to passmark are rewarded with plus 50 marks & below passmark penalty minus 10
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

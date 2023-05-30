@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM-JS</title>
+    <script>
+        //DOM
+        // The getElementById() Method:
+        // It will return u a element with given id
+        // once u get the element u can access inside properties
+
+        /* let a = document.getElementById('abc'); // single element
+        console.log(a.innerHTML); // text/content between opentag & closetag
+        //OR
+        console.log(document.getElementById('abc').innerHTML); // text/content between opentag & closetag
+        */
+
+        // innerHTML means targets content of the HTML element.
+        // Eg:- p tag's content - Lorem epsum prints
+        let g = document.getElementId('myPara').innerHTML;
+        console.log(g.innerHTML);
+
+        // Changing style in JS itself
+        const a = document.getElementById('abc');
+        console.log(a.style.color = 'blue');
+
+        // className - return output in an array
+        const cn = document.getElementsByClassName('a');
+        console.log(cn.style)
+        console.log(cn[0]); // Access 1st element of array & change only its style
+
+        // tagname - return in array
+        const t = document.getElementsByTagName('li');
+        console.log(t);
+
+        // query selector - combinators like body .child{}
+        const q = document.querySelector('body .child'); //  returns only 1 item
+        const allq = document.querySelectorAll('body .child'); // returns all matching items
+
+        //Practice Questions: below methods and ans in tomo's live sessions
+        /* see about DOM & document & etc
+           document.getElementById
+           document.getElementsByClassName
+           document.getElementsByTagName
+           document.querySelector
+           document.querySelectorAll */
+    </script>
+</head>
+
+<body class="parent">
+    <h1>Documentation object model</h1>
+    <div id="myCode" class="child">
+        <nav id="abc">HELLO</nav>
+        <p id="myPara">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias culpa quaerat voluptatibus
+            accusantium.</p>
+        <ul id='bc'>
+            <li id="1">Hi</li>
+            <li id="2">Hi 1</li>
+            <li id="3">Hi 2</li>
+        </ul>
+        <ul id='cd'>
+            <li class="a">Hi</li>
+            <li class="a">Hi 1</li>
+            <li class="a">Hi 2</li>
+            <li class="a">Hi 3</li>
+        </ul>
+    </div>
+</body>
+
+</html>

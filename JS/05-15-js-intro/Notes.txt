@@ -697,6 +697,74 @@ Objects Datatype (obj):
     
     - Remove key-value pair from obj
 
+Day 11 : 29.05.2023 -----------------------------
+Curriculum:
+    - Array iteration methods
+    - Assignment-2 discussion
+    - Doubt clarification Q&A
+------------------------------------------------
+Array iteration methods:
+    - forEach()
+        > It contains 3 params: 1st value, 2nd is index of that value, 3rd is whole array
+        > SYNTAX:-
+        > arr.forEach(function(currentValue, index, wholeArray){
+            console.log(wholeArray);
+        })
+                    OR
+        > arr.forEach(myArr) // myArr is function_name
+        function myArr(currentValue, index, wholeArray){
+            console.log(wholeArray);
+        }
+        > checking methodology
+        > It does not mutates (changes) original array & returns not as new array but as updated individual values.
+        > If we want output in array format we need to explicitly create an empty array and print it.
+    - map()
+        > if u map an array forms a new array with ur actions
+        > always map method will return new array with updated values
+        > SYNTAX:-
+        > let newArray = orgArray.map(function(value,position,array){
+            console.log(value);
+        })
+                        OR
+        > let newArray = originalArray.map(function_name)
+          function function_name(value,position,array){
+            console.log(value);
+        }
+        > It does mutates (changes) original array & returns as new array with updated values.
 
+Day 12 : 30.05.2023 -----------------------------
+Curriculum:
+    - Intro to DOM -> Documentation Object Model
+    - Array iteration methods
+    - Doubt clarification Q&A
+------------------------------------------------
+Intro to DOM
+    -> Documentation Object Model
+    -> JavaScript can control HTML and CSS via Document Object
+    -> JS can change html Element, attribute, css styles (Add or Removed)
+    -> SYNTAX
+    -> Document is an inbuild Object that has access to html and css
+    -> Access any element by id or className
+    -> It arranges items in tree format like below:
+        > Document is root element under which html element comes under which 2 elements: head & body...then under head is link tag element....under body is <div id="myDiv"> placed.
+    
+DOM MANIPULATION
+    -> moving / adding / deleting
+    -> (.) means object
+    -> 
+ 1. getElementById()
+    - Uniquely identify elements
+    - Access html element by id
+    - It will return u a element with given id
+    - once u get the element u can access inside properties
+ innerHTML
+    - innerHTML: content of the HTML element between open & close tag.
+    - Eg:- p tag's content - Lorem epsum prints
+ 2. getElementsByClassName()
+    - Access html element by SAME/DIFFERENT className.
+    - So we can change same style to multiple elements using same className. From that we can access using index for an element to apply.
+    - We can change all css properties too.
+ 3. getElementsByTagName()
+    - 
 
     

@@ -33,6 +33,8 @@
         } 
         console.log(getAllIndex(arr,num));
 
+
+
         // Question 2: // Write a program to print following pattern in the console. 
         // 54321 
         // 5432 
@@ -54,20 +56,57 @@
             document.write('<br>');
         }
 
+        /* let n = 5; //height of pattern
+        let string = "";
+        // External loop
+        for (let i=1; i<=n;i++){
+            for(let j=1; j<=n-i+1;j++){
+                string += n-j+1;
+            }
+            string += '\n';
+        }
+        console.log(string); */
+
+        /* function Pattern(num){
+            for(var i=1; i<=num; i++){ // i=1 & 1<=5
+                var row = "";
+                for(let j=num; j>=i; j--){ // j=5; 5>=1
+                   row+=j; // '5'
+                }
+             console.log(row);
+            }
+        }
+        console.log(Pattern(5)); */
+    // We can enter the number for which need pattern
+    // Nested for loops for pattern
+
+
             // Question 3:
             // Write a JavaScript program to sort an array in ascending order
             // For example,
             // Input: [3, 2, 1, 4, 5, 45]
             // Output: [1, 2, 3, 4, 5, 45]
 
+            // Ascending Order
             /* var inpArr = [3, 2, 1, 4, 5, 45]
             outArr = inpArr.sort((x, y) => x - y);
             console.log(outArr); */
+            /* let arry = [3, 2, 1, 4, 5, 45]
+            console.log(arry.sort(function(a,b){
+            return (a-b);
+            }
+            ))
+             */
 
-            // for(var i=0; i<inpArr.length;i++){ 
-                // if(inpArr[i]<inpArr[i+1]){ 
-                    // } 
-                    // } 
+            // Descending Order
+            /* let arry = [3, 2, 1, 4, 5, 45]
+            console.log(arry.sort(function(a,b){
+            return (b-a);
+            }
+            )) */
+            /* Link for reference:
+            https://www.geeksforgeeks.org/how-to-sort-numeric-array-using-javascript/
+            */ 
             
             // Question 4: 
             // Write a JavaScript program to check if two strings are anagrams.Anagram string are such two strings which can be rearranged to create one another. 
@@ -77,12 +116,17 @@
             //Input: HELLO and JELLO 
             // Output: False 
             /* let isAnagram=function (str1, str2) { 
+                // CHECK IF BOTH STR LENGTH ARE SAME
                 if (str1.length != str2.length) { 
-                    console.log("Not Anagram"); 
+                    // console.log("Not Anagram");
+                    return 'not correct input' 
                 } 
                     else {
+            // sort the both strings and store the result:
             let sort1 = str1.split('').sort().join(''); 
             let sort2 = str2.split('').sort().join(''); 
+            // str1.split('') -> ['L', 'I','S', 'T', 'E', 'N']
+            // str1.sort() -> ['E', 'I', 'L', 'N', 'S', 'T']
             return (sort1 == sort2)
         } 
     } 
@@ -100,16 +144,28 @@
     console.log(str); 
     // var output1=str.split(); // console.log(typeof output1); 
     // console.log(output1); 
-    var output=str.split('').reverse().join(''); //console.log(typeof output); console.log(output*/ 
+    var output=str.split('').reverse().join(''); 
+    //console.log(typeof output); 
+    console.log(output); */ 
     
     //using For Loop 
     /*
     var str = "Hello"; 
-    revStr='' ; 
+    let revStr='' ; 
     for (var i=str.length - 1; i>= 0; i--) {
-    revStr += str[i];
-        }
+       revStr += str[i];
+    }
     console.log(revStr); */
+
+    /* function reverse(str){
+        let newstr = '';
+        for(var i=str.length-1; i>=0;i--){
+            newStr = newStr + str[i];
+        }
+        console.log(newStr);
+    }
+    reverse('Hello');
+    */
 
     </script>
 </head>
