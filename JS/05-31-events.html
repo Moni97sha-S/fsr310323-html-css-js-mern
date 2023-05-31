@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM & Events Handling</title>
+    <script>
+        //img
+        /* let imgtag = document.getElementById('myimg');
+        //let imgtag =document.querySelector('#myimg');
+        //let imgtag =document.querySelectorAll('#myimg');
+        //UPDATING ALL BY SEARCHING DOCUMENT ELEMENTS
+        imgtag.src = 'https//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/External_link_font_awesome.svg.png'
+        imgtag.style.width = '200px';
+        imgtag.style.height = '200px';
+        // adds classname for your element dynamically | Updating class names
+        imgtag.classList.add('wwww'); // This will append at last of image1 image wwww
+        imgtag.id = ('sss');
+        imgtag.setAttribute('mybatch', 'sssss'); */
+
+        //CREATE IMAGE TAG
+        // doing operation like adding style like css in js, creating html elements in js inside document 
+        let imgnew = document.createElement('img');
+        //added src attribute
+        imgnew.src =
+            console.log(imgnew);
+        imgtag.setAttribute('dddddd', 'aaaaa'); // dddddd & aaaaa means attribute name
+
+        // now I need to tell document where to add my image
+        document.body.appendChild(imgnew);
+        //if u want in specific place
+        //search ur target element - where to add ur img
+        let target = document.getElementsByClassName('empty'); //empty means classname 
+        //As class returns in array we need to indicate index
+        target[2].appendChild(imgnew);
+
+        //removeChild()
+        let targetDocument = document.getElementsByClassName('parent'); //parent means classname of body 
+        targetDocument[0].removeChild(targetDocument[1].firstElementChild); // removed 2nd div inside body by using classname
+        targetDocument.removeChild(targetDocument.firstElementChild); // removed 1st div inside body by using id
+        targetDocument.removeChild(targetDocument.Children[1]); // removed 1st div inside body
+
+        //Task - create/add a button to the body
+        let newBtn = document.createElement('button');
+        newbtn.innerHTML = "Button";
+        document.body.appendChild(newBtn);
+
+        //need to add paragraph to div with class - ragav
+        let newpara = document.createElement('p');
+        newpara.innerHTML = 'sawetwhgbnfmgj,ykuytrere dsryteryuyjtu';
+        //u need to find the target by className
+        let targetDiv = document.getElementsByClassName('ragav');
+        targetDiv.appendChild(newpara);
+        //u need to find the target by id
+        /* let targetDiv = document.getElementById('ragav'); //if ragav is id means
+        targetDiv[0].appendChild(newpara); */
+
+        /* Practice Ques:
+            - Add img tag using createElement method
+            - Perform delete of 2nd para element <p> tag that is inside is div
+            - for a div set class, set some new attribute
+            - add input tag into body
+            - in html div has yellow background - change to green backgroung using JS */
+
+
+    </script>
+</head>
+
+<body class="parent">
+    <h1>Event Handling</h1>
+    <img id="myimg" class="image1 image2" src="" alt="">
+    <div class="newpara">
+
+    </div>
+    <div class="empty" id="tag">1
+    </div>
+    <div class="empty">2
+    </div>
+    <div class="empty">3
+        <!-- <img src="" alt=""> This image should be push into this div using JS -->
+    </div>
+    <div class="empty1">
+    </div>
+</body>
+
+</html>

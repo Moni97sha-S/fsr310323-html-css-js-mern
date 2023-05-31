@@ -8,6 +8,26 @@ Curriculum:
 📍Dialogs: Alert, Confirm, Input
 📍Control Flow
 ----------------------------------------------------------
+LMS 
+Sub-Topics
+    Introduction to JavaScript
+    Language Basics
+    Dialogs: Alert, Confirm, Input
+    Control Flow
+
+Session Details
+1. Introduction to JavaScript
+2. Language Basics: Variables, Data Types - Primitive and Reference, Number (Add, Sub, Mul, NaN, Infinity), Inbuilt Functions - Numbers
+3. Dialogs: Alert, Confirm, Input
+4. Control Flow
+
+Practice resources:
+    ﻿Intro to javascript
+    Javascript tutorial
+    notes
+
+LMS END
+
 Intoduction:-
     - Javascript file u must have .js extension
     - JS is case-sensitive language.
@@ -175,6 +195,26 @@ Day 2 : 16-05-2023 agenda: -----------------
     Strings (One of the data type)
     Control Flow statements
 -------------------------------
+LMS 
+Sub-Topics
+    Strings
+    Inbuilt Functions - Strings
+    Null and undefined
+    If-else
+
+Session Details
+    1. Strings
+    2. Inbuilt Functions - Strings
+    3. Null and undefined
+    4. If-else
+
+Practice resources:
+    FrontEnd Quiz | Community
+    Strings
+    Working with strings
+
+LMS END
+
 JS handles all the controls in the website
     - how brain controls human body
     - how human contorls the car
@@ -206,6 +246,32 @@ Datatype - What type of data u are storing?
         Eg: let carBrand = [maruthi, tata, java, ]
 
 Day 3 : 17-05-2023 ------------------
+
+LMS 
+Sub-Topics
+    Switch
+    Arithmetic Operators
+    Assignment Operators
+    Comparison Operators
+    Logical Operators
+    Coercion - Implicit
+
+Session Details
+
+1. Switch
+2. Arithmetic Operators
+3. Assignment Operators
+4. Comparison Operators
+5. Logical Operators
+6. Coercion - Implicit
+
+Practice resources:
+    JavaScript Practice Resources | Community
+    Operators
+    Type of coercion / Type conversion
+
+LMS END
+
 Datatypes:
     - string | number | boolean | array |object
 In-built methods:
@@ -283,6 +349,33 @@ Curriculum:
     - do-while loop statement
     - Operators
 --------------------------------------
+LMS
+Sub-Topics
+    Coercion - Explicit
+    Objects
+    Different ways to create Objects
+    Updating an Object
+    Printing an Object in console
+    Remove key-value pair from object
+    How to get all values from an object?
+    How to get all keys from an object?
+
+Session Details
+1. Coercion - Explicit
+2. Objects
+3. Three ways to create Objects - new Object(), Object.create(), mObj = {}
+4. Updating an Object
+5. Printing an Object in console
+6. Remove key-value pair from object
+7. How to get all values from an object?
+8. How to get all keys from an object?
+
+Practice resources:
+    Objects
+    Understanding JS Objects
+
+LMS END
+
 1. Diff between Document.write() & console.log?
     - document.write() used in UI
     - console.log() used in browser/VS code
@@ -332,6 +425,21 @@ Day 5 : 19.05.2023-------------------------------
         - Type Conversion is also called as Coercion.
         - Objects
 -------------------------------------------------
+LMS 
+Sub-Topics
+    Practice Problem
+    Doubts Clearing
+
+Session Details
+1. Practice Problem
+2. Doubts Clearing
+
+Practice resources:
+    Javascript practice challange
+    Online quiz
+
+LMS END
+
 Type Conversion: One data type to another data type.
     1) Implicit Conversion:-
         - Js will take care
@@ -379,6 +487,19 @@ Day 6 : 22.05.2023 -----------------------------
 Curriculum:
     - Assignment 1 discussion
 ------------------------------------------------
+LMS 
+Sub-Topics
+    Assignment Discussion
+
+Session Details
+    Assignment-1 Discussion
+
+Practice resources:
+    Javascript basic- Exercise ,Practice
+    Programming Example
+
+LMS END
+
 Q-1 
 let Result = str1.concat(' '),str2.trim(),str3.trimEnd()
 
@@ -418,6 +539,24 @@ Curriculum:
     - Object
     - Arrays
 ------------------------------------------------
+LMS 
+Sub-Topics
+    Arrays
+    Inbuilt Functions - Arrays
+    Practice Problems
+
+Session Details
+1. Arrays
+2. Inbuilt Functions - Arrays
+
+Practice resources:
+    Arrays Intro
+    Array methods
+    Array const
+    JavaScript Practice Resources | Community
+
+LMS END
+
 Object
     - It is a heterogeneous datatypes.
 
@@ -494,6 +633,40 @@ Curriculum:
     - break statement
     - continue statement
 ------------------------------------------------
+LMS 
+Sub-Topics
+    While Loop
+    For loop (Break and Continue)
+
+Session Details
+    Learn FREE Spoken English Easy and Quick on YouTube! SUBSCRIBE NOW!
+
+Practice Problems:
+    How do you find the missing number in a given integer array of 1 to 100?
+    How do you find the duplicate number on a given integer array?
+    How do you find the largest and smallest number in an unsorted integer array?
+    How do you find all pairs of an integer array whose sum is equal to a given number?
+    How do you find duplicate numbers in an array if it contains multiple duplicates?
+    How do you reverse an array in place in JavaScript? In place means you cannot create a new array. You have to update the original array.
+    How do you print duplicate characters from a string?
+    How do you check if two strings are anagrams of each other?
+    How do you print the first non-repeated character from a string?
+    How can a given string be reversed using recursion?
+    How do you check if a string contains only digits?
+    How are duplicate characters found in a string?
+    How do you count a number of vowels and consonants in a given string?
+    How do you count the occurrence of a given character in a string?
+    How do you find all permutations of a string?
+    How do you reverse words in a given sentence without using any in-built method?
+    How do you check if two strings are a rotation of each other?
+    How do you check if a given string is a palindrome?
+
+Practice resources:
+    Loops
+    For loops,of loop
+
+LMS END
+
 🚨 slice():
     > Immutable means not change original array
     > Syntax: let newArr = arr.slice(no_of_items_to_delete);
@@ -555,6 +728,20 @@ Day 9 : 25.05.2023 -----------------------------
 Curriculum:
     - Function
 ------------------------------------------------
+LMS
+Sub-Topics
+    Functions
+    Hoisting
+
+Session Details
+1. Functions in JavaScript: Writing our first function, Passing Arguments, Optional Args;
+2. Hoisting - Variables and Functions
+
+Practice resources:
+JavaScript Practice Resources | Community
+    Functions
+    Define and call a function
+LMS END
 
 Function
 - What is function?
@@ -600,6 +787,18 @@ Curriculum:
     - Function continuation
     - Doubt clarification Q&A
 ------------------------------------------------
+LMS
+Sub-Topics
+    Practice Problem
+    Doubts Clearing
+    function cont....
+    Objects - cont
+
+Practice resources:
+    Questions
+    Quiz
+LMS END
+
 Practice:
     - Square of a Number using dynamic function
       var i;
@@ -699,10 +898,11 @@ Objects Datatype (obj):
 
 Day 11 : 29.05.2023 -----------------------------
 Curriculum:
-    - Array iteration methods
+    - Array iteration methods: forEach(), map()
     - Assignment-2 discussion
     - Doubt clarification Q&A
 ------------------------------------------------
+
 Array iteration methods:
     - forEach()
         > It contains 3 params: 1st value, 2nd is index of that value, 3rd is whole array
@@ -735,9 +935,26 @@ Array iteration methods:
 Day 12 : 30.05.2023 -----------------------------
 Curriculum:
     - Intro to DOM -> Documentation Object Model
-    - Array iteration methods
+    - DOM methods: getElementById(), getElementsByClassName(), getElementsByTagName(), querySelector(), querySelctorAll()
     - Doubt clarification Q&A
 ------------------------------------------------
+LMS
+Sub-Topics
+    Introduction to DOM
+    Selecting Nodes getElementById() - getElementsByClassName
+
+Session Details
+    JavaScript PopUp Boxes | Community!
+1. Introduction to Document Object Model(DOM)
+2. DOM Structure
+3. Selecting Nodes - getElementById, getElementByClassname, getElementByTag, Query Selectors
+
+Practices:
+    DOM
+    Basics of DOM
+
+LMS END
+
 Intro to DOM
     -> Documentation Object Model
     -> JavaScript can control HTML and CSS via Document Object
@@ -745,26 +962,117 @@ Intro to DOM
     -> SYNTAX
     -> Document is an inbuild Object that has access to html and css
     -> Access any element by id or className
+
+DOM STRUCTURE
     -> It arranges items in tree format like below:
         > Document is root element under which html element comes under which 2 elements: head & body...then under head is link tag element....under body is <div id="myDiv"> placed.
     
 DOM MANIPULATION
-    -> moving / adding / deleting
-    -> (.) means object
-    -> 
+-> moving / adding / deleting
+-> (.) means object
+-> Once you get the element u can modify the element: innerHTML, Access style & attribute
+-> DOM provide methods to traverse inside the document object or tree:
+        ⏹️ getElementById()
+        ⏹️ getElementByClassname()
+        ⏹️ getElementByTagName()
+        ⏹️ querySelector()
+        ⏹️ querySelctorAll()
  1. getElementById()
     - Uniquely identify elements
     - Access html element by id
-    - It will return u a element with given id
+    - It will always returns u only (single unique) an element with given id
     - once u get the element u can access inside properties
- innerHTML
-    - innerHTML: content of the HTML element between open & close tag.
-    - Eg:- p tag's content - Lorem epsum prints
+     i. innerHTML
+        - innerHTML: content of the HTML element between open & close tag.
+        - Eg:- p tag's content - Lorem epsum prints
  2. getElementsByClassName()
     - Access html element by SAME/DIFFERENT className.
     - So we can change same style to multiple elements using same className. From that we can access using index for an element to apply.
     - We can change all css properties too.
+    - Returns Collection of Items one by one
  3. getElementsByTagName()
-    - 
+    - Access all html element by HTML Element's Name.
+    - Returns Collection of Items one by one
+    - Eg:- <div>
+ 4. querySelector()
+    - Combinators like body .child{}
+    - Returns only 1 item which is first element in whole document that matches a CSS Selector.
+    - Eg:- const q = document.querySelector('body .child'); //  returns only 1 item
+           console.log(q);
+           
+ 5. querySelectorAll()
+    - combinators like body .child{}
+    - Returns Collection of Items one by one
+    - Eg:- const allq = document.querySelectorAll('body .child'); // returns all matching items as a list Eg: NodeList
+           console.log(allq);
+      Eg:- <script>
+           let a = document.querySelctorAll(p.para); // we can access only p element with para class content
+           console.log(a);
+           </script>
+           <body>
+           <p class="para">1</p>
+           <p class="para">2</p>
+           <p class="paragraph">3</p>
+           </body>
 
+
+Day 13 : 31.05.2023 -----------------------------
+Curriculum:
+    - DOM add, delete & update
+    - Array iteration methods
+    - Doubt clarification Q&A
+------------------------------------------------
+
+LMS 
+
+Sub-Topics
+    find tags
+    update tags
+    delete
     
+Session Details
+1. Finding HTML Elements:
+    document.getElementById
+    document.getElementsByClassName
+    document.getElementsByTagName
+    document.querySelector
+    document.querySelectorAll
+
+2. Changing HTML Elements:
+    innerHTML
+    style
+    src
+    attribute
+    element.setAttribute(attribute, value)
+
+3. Adding and Deleting Elements:
+    document.createElement(element)
+    document.removeChild(element)
+    document.appendChild(element)
+
+Practice resources:
+    Events
+    Handling Events in javascript
+
+LMS END
+img
+    - adding id & classnames dynamically
+    - UPDATING ALL BY SEARCHING DOCUMENT ELEMENTS
+Changing HTML Elements:
+    - innerHTML
+    - style
+    - src
+    - attribute
+    - element.setAttribute(attribute,value)
+Adding & Deleting Elements:
+    - document.createElement(element) - add a new element to the Document
+    - document.appendChild(element) - push our image into document's body tag | adds newtag variable
+    - document.removeChild(element) - it removes from existing child
+    - document.replaceChild(new,old)
+
+Day 14 : 01.06.2023 -----------------------------
+Curriculum:
+    - Intro to Events
+    - Array iteration methods
+    - Doubt clarification Q&A
+------------------------------------------------
