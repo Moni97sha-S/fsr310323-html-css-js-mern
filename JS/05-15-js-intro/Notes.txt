@@ -1147,7 +1147,8 @@ Adding & Deleting Elements:
 Day 14 : 01.06.2023 -----------------------------
 Curriculum:
     - Intro to Events
-    - Array iteration methods
+    - Event Handler
+    - Event Listener > Event Propagation : i) Bubbling ii) Capturing
     - Doubt clarification Q&A
 ------------------------------------------------
 Events means actions like click using mouse, pageload, keypress using keyboard
