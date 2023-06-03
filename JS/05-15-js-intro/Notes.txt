@@ -1212,4 +1212,43 @@ Curriculum:
     - DOM add, delete & update
     - Array iteration methods
     - Doubt clarification Q&A
+    https://github.com/Thangarajcs/todo-project
 ------------------------------------------------
+
+Day 16 : 03.06.2023 -----------------------------
+Curriculum:
+    - Event 
+    - small projects using event listener
+    - Data Validation
+    - Doubt clarification Q&A
+    
+------------------------------------------------
+Event -> Any action performed by user / happened on web browser
+Eg:- click, scroll, keypress, page load
+
+DOM -> Documentation Object Model
+
+Features:-
+1. dark mode
+2. zoom In/Out
+
+Data Validation for form:-
+    - Reg form contains Email, pwd & confirmPwd
+    - Kinds of Events in reg form's input field & in addEventListener("below_ones", functionName)
+        > keyUp
+        > keyPress
+        > onFocus
+        > onBlur
+        > click
+        > mousemove: when u move cursor inside some div/html elements
+        > mouseover: hover-on
+        > mouseout: hover-off
+        > mousedown: when u click mouse button & till release of it this happens
+        > mouseup: A user releases a mouse button over an element
+        > https://www.w3schools.com/jsref/dom_obj_event.asp
+    - SYNTAX:
+        > element.addEventListener(event, function, useCapture);
+        > useCapture means true gives event capturing otherwise by default false which represents event bubbling(inner to outer elements)
+
+Hamburger button:-
+https://codepen.io/Athira231996/pen/wvYVQoX

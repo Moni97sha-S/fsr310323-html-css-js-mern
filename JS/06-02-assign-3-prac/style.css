@@ -1,0 +1,20 @@
+#product-box {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.card {
+    width:15%;
+    min-width:200px;
+    height:auto;
+    margin:30px 10px;
+    cursor:pointer;
+    background-color: #ffffff;
+    box-shadow: 0 2px 30px rgba()
+}
+
+.cardimg{
+    width:100px;
+    height:100px;
+}
