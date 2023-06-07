@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrow Function & String Literal</title>
+    <script>
+        // function declaration
+        /* function sum() {
+
+        }
+
+        // function expression
+        const sumOf = function () {
+
+        }
+
+        // arrow function
+        const arrowFunc = () => {
+            console.log(this);
+        }
+        arrowFunc(); */ // Pointing to window Object
+
+        // Eg:- arrow function
+        const stu = {
+            name: 'raju',
+            age: 20,
+            sub1: 89,
+            sub2: 78,
+            // utility function
+            getMark: function () {
+                //console.log("inside a normal method of object", this); -> object stu
+                console.log(this.sub1 + this.sub2);
+            }
+            // this means refers to (stu) object name
+
+            /* getMark: () => {
+                console.log("inside a normal method of object", this); -> Pointing to global window objects even within function why?
+                console.log(this.sub1 + this.sub2);
+            } */ // Res: NaN -> 'this' calls global objects
+        }
+        //console.log('outside', this); -> window object
+        stu.getMark();
+
+        // forEach()
+        /* const newArr = list.forEach(function (value, index, wholeArr) {
+            return value;
+        })
+        console.log(newArr); => Wrong */
+        //- will never create and return new array
+        // - just will go through each item in the array
+        // - by default if we capture forEach result it will not return in new array
+
+        // if we want to print as array, we need to use push
+        const newArr = [];
+        list.forEach(function (value, index, wholeArr) {
+            newArr.push(value);
+        })
+        console.log(newArr);
+
+        let list = [1, 2, 3, 4, 5];
+        list.forEach(function (value, index, wholeArr) {
+            console.log(value);
+        })
+
+        //Map()
+        // It will also go through each item in the array & perform some update to that item & returns in new array
+        const newarrMap = list.map(function (value, index, wholeArr) {
+            return value;
+        })
+        console.log(newarrMap);
+        // returns new array with updated values.
+
+        let list1 = [101, 99, 113, 94, 55];
+        const newMap = list1.map(function (val, index, arr) { // [111, 89, 123, 84, 45]
+            if (val > 100)
+                return val + 10;
+            else
+                return val - 10;
+        })
+        console.log(newMap);
+
+        // every() array methods - Iterator methods
+        let age = [13, 19, 19, 20, 9]
+        const result = age.every(function (val) {
+            return val > 18;
+        })
+        console.log(result);
+
+        // some() 
+        let age1 = [13, 19, 19, 20, 9]
+        const result1 = age1.some(function (val) {
+            return val > 18;
+        })
+        console.log(result1);
+
+        // reduce(): [1,2,3,4,5] => 15
+        const total = [99, 78, 67, 89, 45];
+        /* using forEach() function
+        let sum = 0;
+        total.forEach(function(val, index, arr){
+            sum += val;
+        })
+        console.log('using forEach', sum);
+        */
+
+        // makes forEach into simpler one by using instead reduce no.of line of codes
+        const res = total.reduce(function (total, value, index, arr) {
+            return total * 2;
+        })
+    </script>
+</head>
+
+<body>
+    <h1>Arrow Function and String Literal</h1>
+</body>
+
+</html>

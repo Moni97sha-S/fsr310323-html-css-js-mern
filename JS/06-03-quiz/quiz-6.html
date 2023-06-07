@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Quiz-6 DOM BASICS</title>
+    <script>
+        //Q-1 What will this function return if you pass an Object?
+        //Please note: Object.keys(mObj) will return an array of all the keys in "mObj" object.
+        /* function mFunc(arg) {
+            var result = {};
+            for (var i = 0; i < Object.keys(arg).length; i++) {
+                result[Object.keys(arg)[i]] = arg[Object.keys(arg)[i]]
+            }
+            return result;
+        }
+        console.log(mFunc(1)); */
+        // A) List of keys
+        // B) Error
+        // C) Copy of that object
+        // D) None of the above
+        // Res: A) Copy of that object
+        // Output: {}
+
+        //Q-2 What will be printed in the console?
+        // console.log(parseInt(false));
+        // console.log(Number(false));
+
+        // A) 0 and 0
+        // B) NaN and NaN
+        // C) NaN and 0
+        // D) Error
+
+        // Res: C) NaN and 0
+
+        //Q-3 What will be printed in the console?
+        /* var num1 = 100;
+        var result = num1 > 50 ? (num1 + 10) < 100 ? (num1 + 20) : (num1 + 50) < 200 ? (num1 + 500) : (num1 + 200) : num1;
+        console.log(result); */
+        // A) 120
+        // B) 150
+        // C) 100
+        // D) 600
+
+        // Res: D) 600
+
+        //Q-4 What will be printed in the console?
+        /* console.log(num1);
+        num1 = 10;
+        console.log(num1);
+        var num1; */
+        // A) Error
+        // B) undefined and 10
+        // C) undefined and undefined
+        // D) 10 and 10
+
+        // Res: B) undefined and 10
+
+        //Q-5
+        /* var num1 = 10;
+        var num2 = 20;
+        var num3 = 30;
+        var sum1 = ++num1 + num2++ + num3++; // 11 + 20 +30
+        var sum2 = num1++ + ++num2 + ++num3; // 11 + 22 +32
+        var sum3 = num1++ + num2++ + num3++; // 12 + 22 +32
+        console.log(sum1 + sum2 + sum3); // 61 + 65 + 66
+        console.log(sum1);
+        console.log(sum2);
+        console.log(sum3); */
+        // A) 190
+        // B) 192
+        // C) 195
+        // D) 196
+
+        // Res: B) 192
+
+        //Q-6 The slice() method mutates the original array and it return the subset as new array. T/F
+
+        // Res: False
+
+        //Q-7 Splice() method not mutate the original array and returns the deleted array. T/F
+
+        // Res: False
+
+        //Q-8 What will be the output of the following code? (delete operator removes a property from an object)
+        var output = function (x) {
+            delete x;
+            return x;
+        };
+        console.log(output(9));
+        // A) undefined
+        // B) 9
+        // C)
+        // D) Error: Can not reference the variable x
+
+        // Res: B) 9
+
+        //Q-9 What will be the output of the following code?
+        var dummy = true;
+        console.log(dummy + 0);
+        console.log(dummy + "xyz");
+        console.log(dummy + true);
+        console.log(dummy + false);
+        // A) true, "truexyz", "truetrue", "truefalse"
+        // B) 1, "truexyz", 2, 1
+        // C) true, "truexyz", true, true
+        // D) 1, "truexyz", 1, 0
+
+        // Res: B) 1, "truexyz", 2, 1
+
+        //Q-10 How do you check if a 'key' exists in an object?
+        let mObj = { name: "moni", age: "23" };
+        console.log(mObj["name"] !== undefined)
+        // A) (obj["key"] !== undefined)
+        // B) (obj.key !== undefined])
+        // C) Both A and B
+        // D) None of the above
+        // Refer: https://dmitripavlutin.com/check-if-object-has-property-javascript/
+        // Res: C) Both A and B
+
+    </script>
+</head>
+
+<body>
+    <h1>JS Quiz-6</h1>
+</body>
+
+</html>

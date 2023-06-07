@@ -1252,3 +1252,193 @@ Data Validation for form:-
 
 Hamburger button:-
 https://codepen.io/Athira231996/pen/wvYVQoX
+
+Day 17 : 05.06.2023 -----------------------------
+Curriculum:
+    - String Literal : new way to build html in dom.
+    - Arrow Function
+    - Array method (reduce, some, every)
+    - Doubt clarification Q&A
+------------------------------------------------
+Normal quotes:
+    > Eg:-'This is my name' 
+    > between Normal Quotes used for string
+    > We can't pass dynamic value between normal quote
+
+String Literal / Template literals ${}:
+    > HTML skeleton inside JS using SL
+    > Eg:- `String value` 
+    > between (` `) Back Tick (Above Tab key) used for string literal we can pass dynamic value (multiple string lines) using ${}
+    > SYNTAX: 
+        `ur whatever str value ${variable}`;
+
+Arrow Function:
+    > SYNTAX: Without function keyword
+        const arrowFunc = () => {
+            console.log(this);   
+            console.log('ssss');   // Res: ssss
+        }
+        arrowFunc();
+    > But in normal function it won't behave like this
+    > It is same as function expression only usage of binding of this will vary.
+    > It is a regular expression function only syntax is diff & this keyword has some effect advantages in the arrow function.
+    > If we pass only 1 param in function then no need to use ()
+    Eg:-const arrowFunc = q => {
+        console.log('ssss');
+     }
+    > If multiple params use within round brackets()
+    > usage same as regular function expression but syntax will vary and 'this' in arrow function will behave differently according to the call
+
+this
+    > 'this' keyword behaves like according to the situation
+    > suppose this called from some other object/function that will be different.
+    > ryt now this called from global top-level so only window object output given
+    > In HTML, we can use instead of parent element.
+
+forEach()
+    > It is used for no updation in future.
+    > Don't want to return in new array.
+
+Map()
+    > It is used in use case scenarios like we want to update data in future.
+    > This will return in new array which assigned to a variable.
+    > Stores return values of updated array in a variable.
+
+Array Methods:
+1. every()
+    > It will return True only when all items matches the condition.
+    > Even one item fails to match condition returns False
+    > Next condition won't be executed so strict officer it abruptly stops when not matched
+    Eg:-let age = [13, 19 ,19,20,9]
+        const result = age.every(function(val){
+            return val > 18;
+        })
+        console.log(result);
+    > every() means is everyone is above 18? asking....no so it returns as false as not every val is above 18 (Boolean Value). If one fails also this will return F
+    > similar to map every() also assign to a variable
+
+2. some()
+    > It will return True if anyone items matches the condition.
+    Eg:-let age1 = [13, 19, 19, 20, 9]
+        const result1 = age1.some(function (val) {
+            return val > 18;
+        })
+        console.log(result1);
+    > Anyone item passed condition, it will returns True.
+
+Diff among (forEach & map) and (every & sum)?
+- In forEach & map, it iterates for every items no matter what 
+- In every & sum, it won't iterates after encountering 1st instance once condition not matched or matched returns False or True.
+
+reduce()
+    > we are going to reduce this array into one result like addition
+    > We perform some operation in this so it returns one res
+    > Syntax:
+    const res = total.reduce(function(acc, value, index, arr){
+            return acc*val;
+        })
+    console.log(res);
+        where function means callbackfunction
+              total means holds calc temporarily for every iteration / accumulator = 0 initially
+
+Day 18 : 06.06.2023 -----------------------------
+Curriculum:
+    - BOM - Browser Object Model.
+    - 
+    - Array method ()
+    - Doubt clarification Q&A
+------------------------------------------------
+
+
+Day 19 : 07.06.2023 -----------------------------
+Curriculum:
+    - JSON
+    - AJAX
+    - Array method ()
+https://github.com/Thangarajcs/js-notes/blob/main/ajax-07-06
+
+https://www.tutorialspoint.com/http/http_methods.htm
+------------------------------------------------
+JSON - Java Script Object Notation
+    > Data Format that will be used to explain things
+    > Most popular data exchange format from front-end to back-end 
+    > To store the data b2w server and client
+    > Can read server data in JSON format
+    > Sometimes called as json string which makes everything string.
+    > SYNTAX: (No Space)
+    > JS Object
+    const obj = {
+        name: 'raju'
+    }
+    console.log(obj.name);
+
+    > JSON Object
+     const obj1 = '{"name": "raju","age":27}';
+     console.log(obj1.name);
+
+    > parse() - convert JSON to JS Object format 
+    > stringify() - convert JS to JSON format 
+
+AJAX
+    > Asynchronous Javascript And Xml
+    > Data transferred to our User Interface and displayed like cricket score, weather report data
+    > Web-Server & client interaction using method AJAX
+    > On clicking Sign Up button handled by AJAX
+    > Reads data from server & put them on web-page as UI display
+    > You can also send the data to server using AJAX
+    > Client send request
+    > Server process the request and sends the response back to client
+    > AJAX is a tool
+    > Server URL - API
+
+new 
+    > new is a keyword
+    > XMLHttpRequest() 
+        - creates new http request object
+        - initiator | Object
+        - is a method gives you several properties to communicate with server
+
+this 
+    -> this is a keyword reponses according to the situation
+    -> represents here xml http request object 
+
+response -> gives output once request is accepted
+
+HTTP Request Methods
+    > send() -> send request to server via browser
+    > open() -> Which server address & what http method
+    > onload() -> we can assign a function this will be executed once request is success
+    > status()
+    > onchange()  
+    > post()
+    > put()
+    > head()
+    > patch()
+    > options()
+    > connect()
+    > trace()
+    > delete()
+
+Http Status codes
+    > 100 - 
+    > 200 - Success
+    > 300 - 
+    > 400 - Client level Error
+    > 500 - Server level Error
+
+Response part
+    > onload to the request part
+
+Request part
+    > makes connection to server URL using get method
+
+RequestHeader
+    > We sends it.
+
+Day 20 : 08.06.2023 -----------------------------
+Curriculum:
+    - AJAX
+    - HTTP
+    - Array method ()
+    - Doubt clarification Q&A
+------------------------------------------------

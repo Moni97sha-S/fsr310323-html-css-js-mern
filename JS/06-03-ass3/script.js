@@ -220,89 +220,51 @@ var productList = [
         "price": 14999
     }
 ];
-//***************************************************
-//   One way - Getting, updating & removing methods
-//***************************************************
-/*  productList.forEach(function (val, index, list) {
-    console.log(val);
-    // div parent div
-
+productList.forEach(function (value, index, list) {
+    //console.log(value);
     let cardParent = document.createElement('div');
     cardParent.className = 'card';
 
-    //add img
-    let imgCloth = document.createElement('img');
-    imgCloth.src = value.preview;
-    //add img to [parent]
-    cardParent.appendChild(imgCloth);
+    //add img to card div
+    let imageCloth = document.createElement('img');
+    imageCloth.src = value.preview
 
-    //details
-    let cardinfo = document.createElement('div');
-    cardinfo.className = 'details';
+    // add img to parent div cardParent
+    cardParent.appendChild(imageCloth);
 
-    let title = document.createElement('h1');
+    //add little-details
+    let cardDetails = document.createElement('div');
+    cardDetails.className = 'details';
+
+
+    // h1
+    let title = document.createElement('h3');
     title.innerHTML = value.name;
 
-    let description = document.createElement('h2');
-    title.innerHTML = value.description;
-    let price = document.createElement('p');
-    title.innerHTML = value.price;
+    //brand
+    let company = document.createElement('h4');
+    company.innerHTML = value.brand;
 
-    cardinfo.appendChild(title);
-    cardinfo.appendChild(description);
-    cardinfo.appendChild(price);
+    //Price
+    let rate = document.createElement('h5');
+    rate.innerHTML = "Rs " + value.price;
 
-    cardparent.appendChild(cardinfo);
+    // add all details inside div has className: details
+    cardDetails.appendChild(title);
+    cardDetails.appendChild(company);
+    cardDetails.appendChild(rate);
 
-    const productBox =document.getElementById('product-box');
-    const cloth = document.getElementById('cloth-box');
+    // add cardDetails div inside cardParent div
+    cardParent.appendChild(cardDetails);
 
-    if(value.isAccessory){
-        productBox.appendChild(cardParent);
+    // insert this whole cardParent div inside clothes-box section
+    const clothBox = document.getElementById("clothes-box");
+    //console.log(clothBox);
+    const accBox = document.getElementById("accessories-box");
+
+    if (value.isAccessory) {
+        accBox.appendChild(cardParent);
     } else {
-        cloth.appendChild(cardParent);
-    }
-}) */
-
-
-//********************************************
-//  Second way - String / Template Literals
-//********************************************
-
-/*let urName = 'Moni';
-console.log("Enter ur name:" + urName); */
-// To overcome this we use strin/template literal ${} is used to pass dynamic value
-// console.log(`Enter ur name: ${urName}`)
-
-productList.forEach(function (val) {
-    const productBox = document.getElementById('product-box');
-    const cloth = document.getElementById('cloth-box');
-
-    // String Literal Method
-    // let innerHtmlStr = productBox.innerHTML + '<div
-    let innerHtmlStr = `<div class="card"> 
-    <img src=${val.preview}> 
-    <div class="details"> 
-      <h1>${val.name}</h1> 
-      <h2>${val.brand}</h2> 
-      <p>${val.price}</p> 
-      </div> 
-    </div>`
-    /* UPDATING INNERHTML using new way
-    let newHtml = ` `
-        if(condn)
-        productBox.innerHTML = newHTML
-        // Above code gives only last item of each container
-        // Loop is also running - console.log('hi'); // Res: 10 times runs
-        // Previous Items are not added as everytime this old gets replaced or overwrites by new .innerHTML(new)
-        // For that we are adding/appends with newHtml
-        cloth.innerHTML += newHtml and gives with previous innerHTML
-    */
-
-    if (val.isAccessory) {
-        productBox.innerHTML = productBox.innerHTML + innerHtmlStr;
-    } else {
-        // SHORTHAND PROPERTY
-        cloth.innerHTML += innerHtmlStr;
+        clothBox.appendChild(cardParent);
     }
 })

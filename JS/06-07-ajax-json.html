@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX-JSON</title>
+    <script>
+        // JS
+        const obj = {
+            name: 'raju',
+            age: 27
+        }
+        console.log(obj.name);
+
+        // json declaration
+        const obj1 = '{"name": "raju","age": 27}';
+        console.log(obj1.name);
+
+        // parse() - convert JSON to JS Object format 
+        // how to parse this into proper JS object
+        const parsedVal = JSON.parse(obj1);
+        console.log(parsedVal.name);
+
+        // How you generate JSON using JS Object
+        const jsObj = {
+            stuName: 'dwdwd',
+            city: 'chennai'
+        }
+        console.log(jsObj.stuName);
+
+        // stringify() - convert JS Object to JSON format 
+        const convertedJson = JSON.stringify(jsObj);
+        console.log(convertedJson);
+
+        // AJAX - helps to talk to the server
+
+        // Older Approach
+        const req = new XMLHttpRequest();
+
+        // Response Part
+        req.onload = function () {
+            // console.log(this);
+            console.log(this.response);
+            //console.log(this.responseText);
+        }
+
+        // Request Part
+        // makes connection to server URL using get method
+        req.open('GET', 'https://jsonplaceholder.typicode.com/todos/1');
+        //req.open('GET', 'https://jsonplaceholder.typicode.com/todos/2'); -> id:2
+        //req.open('GET', 'https://jsonplaceholder.typicode.com/todos/3'); -> id:3
+        req.send();
+
+        // Render HTML elements dynamically
+        req.onload = function () {
+            const res = JSON.parse(this.responseText);
+            console.log(res);
+            displayInUI(res);
+            document.getElementById('product-box').innerText = res.title;
+        }
+
+        req.open('GET', 'https://jsonplaceholder.typicode.com/todos/4');
+
+        // 2nd method
+        function displayInUI(data) {
+            let uidata = '';
+            data.forEach((element) => {
+                uidata += `<div>
+                <p>${element.title}</p>
+                <p>${element.body}</p>
+                </div>`;
+                document.getElementById('product-box').innerHTML = uidata;
+            })
+        }
+    </script>
+</head>
+
+<body>
+    <h1>AJAX-JSON</h1>
+
+</body>
+
+</html>
