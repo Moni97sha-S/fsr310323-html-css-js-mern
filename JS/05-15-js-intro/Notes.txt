@@ -1209,11 +1209,37 @@ To overcome bubbling, Way of defining the event order
 
 Day 15 : 02.06.2023 -----------------------------
 Curriculum:
-    - DOM add, delete & update
+    - DOM add, delete & update (CRUD file)
     - Array iteration methods
     - Doubt clarification Q&A
     https://github.com/Thangarajcs/todo-project
 ------------------------------------------------
+🚨/***********innerHTML VS innerText VS textNode**********/
+
+/* // Diff btwn innerHTML, innerText & textNode using <button>
+function getData(){
+    let todovalue = document.getElementById('user-btn');
+console.log(todovalue.innerHTML); -> Res: Add todo
+}
+
+*/
+/* // Diff btwn innerHTML, innerText & textNode using <div>
+function getData(){let todovalue = document.getElementById('user-div');
+console.log(todovalue.innerHTML); -> Res: this is div &<p>ssss</p>
+todovalue.innerHTML=''; -> This will remove innertext & html tags
+
+console.log(todovalue.innerText); -> Res: this is div & ssss 
+// innerText will extract only text from all tags like todovalue.innerHTML; & we cannot assign like todovalue.innerText='';
+
+// to add a text via code use createTextNode()
+let newNode=document.createTextNode('ssssqqqqq');
+todovalue.appendChild(newNode);
+}
+*/
+
+// HTML like string in JS using back tick (`)
+
+
 
 Day 16 : 03.06.2023 -----------------------------
 Curriculum:
@@ -1343,18 +1369,119 @@ reduce()
 
 Day 18 : 06.06.2023 -----------------------------
 Curriculum:
-    - BOM - Browser Object Model.
+    - BOM 
     - 
     - Array method ()
     - Doubt clarification Q&A
 ------------------------------------------------
+DOM
+    > Ur representing ur content (document tree)
 
+BOM (Browser Object Model)
+    > We will talk to browser
+    > Interact with browser using Objects
+    > Browser is a tool to showcase ur website using DOM
+
+> Window Object -> Inside window only document is available
+    -> Only var can be used to declare a variable as it is global keyword.
+    - window.open()
+    - window.close()
+    - window.moveTo(2)
+    - window.moveTo(0,300)
+    - window.innerHeight
+    - window.outerHeight -> Total Height of screen
+    - window.innerWidth
+    - window.document
+> Screen Object
+> Navigation Object
+> Location Object
+> History Object
+> Local Storage
+
+1. Window Object:
+    - It represents the browser's window
+    - all JS global objects, (var) functions will be under window.
+    - Eg:- window.innerHeight, window.innerWidth
+
+2. Window ----> Screen Object:
+    - Presents inside a window
+    - window.screen 
+    - visitor height in pixel, avialHeight:1080, availLeft:-1920, availTop:-180, availWidth:1920, orientation & many 
+
+3. Window ----> Navigation Object:  window.navigator
+    - Visitor browser from one tab 
+    - browser setting information 
+    - Like name of the browser, 
+    - appName: Netscape is developer of Chrome,
+    - connection: NetworkInformation{effectiveType:'4g', downlink:1.55}
+    - vendor: Google Inc 
+    - cookieEnabled: true or not
+
+4. Window ----> Location Object: window.location
+    - Like URL, host: "127.0.0.1:5501"
+    - hostName: "127.0.0.1"
+    - href: "http://127.0.0.1:5501/"
+    - origin: "http://127.0.0.1:5501"
+    - pathname:"/"
+    - port: "5501"
+    - protocol: "http:", "https:" s means connection is secured
+    - reload: f reload()
+    - reload: f reload()
+    - replace: f replace()
+    - toString: f toString()
+    - valueOf: f valueOf()
+-> location.reload() is used to reload the browsers
+-> location.reload() is used to reload the browsers
+-> location.origin('www.gmail.com') 
+
+5. History Object: history
+    - It holds the browser history
+    -  history.back() -> archives
+    -  history.forward()
+
+6. Storage 🚨: [Front-end developer can access]
+    - Web storage under Application Tab we can see both storages.
+    - It is a way to store some information in the browser
+    - There are two storages:
+    1. Local Storage:-
+        > It is a container where u store local objects
+        > To set a new item in local storage using setItem()
+        > Permanent storage of key:value pairs
+        > There is no expiry for setItem once we set an item unless until we manually / port deletes it...this stored in local storage forever even we remove code also that stays all time.
+        > It keeps info forever until we delete (either manually or using removeItem method)
+    localStorage.setItem(key, value)
+    localStorage.getItem(key)
+    localStorage.removeItem(key)
+
+    2. Session Storage:-
+        > Temporarily stored key:value pairs
+        > This means once we close that tab session gets expires and deleted stored value without deleting too.
+        > This is active only until we close that tab.
+        > It keeps info only till we close the window
+    sessionStorage.setItem(key, value)
+    sessionStorage.getItem(key)
+    sessionStorage.removeItem(key)
+
+Cookies: [Back-end developer can also access]
+    - It is also kind of storage but not locally related to our code 
+    - It is a kind of high level storage purpose in string form
+    - Keys stores like some minute high level information
+    - Like logged or not, user-id, ur information is shut down, server forgot about
+    - This can be interacted with & sit directly in str form by server also
+    - It contains name, value, domain, path, expires, size, HttpOnly, secure, sameSite, partition, priority etc.
+    - Used for secured information like login credentials, bank details etc.
+    - There is connection loss suddenly due to power cut server won't send again n all webpage takes from cookie.
+    - How I know user information or how to remember if connection loss happens?
+    - window.document.cookie = 'name=hi'
+    - Cookies are saved in name-value pairs like:
+            document.cookie='name=test; expires=Thu, 01 Jan 2024 00:00:10 GMT'
+    - expires: session or date with time 
+    - Max. storage 4MB  
 
 Day 19 : 07.06.2023 -----------------------------
 Curriculum:
     - JSON
     - AJAX
-    - Array method ()
 https://github.com/Thangarajcs/js-notes/blob/main/ajax-07-06
 
 https://www.tutorialspoint.com/http/http_methods.htm
@@ -1381,6 +1508,7 @@ JSON - Java Script Object Notation
 
 AJAX
     > Asynchronous Javascript And Xml
+    > To make connections betweeen client and server
     > Data transferred to our User Interface and displayed like cricket score, weather report data
     > Web-Server & client interaction using method AJAX
     > On clicking Sign Up button handled by AJAX
@@ -1429,7 +1557,8 @@ Http Status codes
 Response part
     > onload to the request part
 
-Request part
+HTTP Request part
+    > Hyper Text Transfer Protocol
     > makes connection to server URL using get method
 
 RequestHeader
@@ -1441,4 +1570,68 @@ Curriculum:
     - HTTP
     - Array method ()
     - Doubt clarification Q&A
+    - For practice dummy json site:
+https://jsonplaceholder.typicode.com/
+https://dummyjson.com/products
+https://github.com/Thangarajcs/js-notes/blob/main/1686176884663.pdf
 ------------------------------------------------
+AJAX
+
+Error Handling with Try-Catch:
+    > try-catch error
+    > catch an error and how to find & avoid it?
+    > using throw
+    > this gives the way to handle the errors
+    > for API errors not for validation errors
+    SYNTAX:
+    try{
+        normal code
+    }
+    catch(err){
+        // from try block error will be caught here
+        console.log('my error',err);
+    } finally{
+
+    }
+
+throw (compilation error means code err):
+    > throw keyword means manually throws the error missing
+
+finally (funny):
+    > no matter what it executes all time
+
+API:
+    > Application Programming Interface
+    > That fake or reel API/dummy json placeholder itself is called API
+    > Bulk Data (Datum) usually we get from APIs/KPIs
+    > Interacting with some other machine.
+    > In BackEnd only back end developers create APIs
+
+Fetch - api: 
+    > fetch()
+    > new way of calling ajax urls
+    > It allows you to make http request to server
+    > No need to use XMLHttpRequest()
+    > This makes code simpler way & advanced version.
+
+
+
+Day 21 : 09.06.2023 -----------------------------
+Curriculum:
+    - JSON
+    - AJAX
+https://github.com/Thangarajcs/js-notes/blob/main/ajax-07-06
+
+https://www.tutorialspoint.com/http/http_methods.htm
+------------------------------------------------
+
+
+Day 22 : 11.06.2023 -------------------------------
+Agenda:
+    - Assignment:4
+    - onClick image changes in preview
+https://www.geeksforgeeks.org/how-to-preview-image-on-click-in-gallery-view-using-html-css-and-javascript/
+    - active class toggle
+https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_active_element
+
+---------------------------------------------------------

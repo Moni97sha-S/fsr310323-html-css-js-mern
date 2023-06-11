@@ -1,3 +1,5 @@
+// your all Products like cloth & accessories data stored in a variable
+// This is called JSON (array of objects) 
 var productList = [
     {
         "id": "1",
@@ -220,15 +222,18 @@ var productList = [
         "price": 14999
     }
 ];
+
+// forEach loop function for productList
 productList.forEach(function (value, index, list) {
     //console.log(value);
+
+    // div parent div
     let cardParent = document.createElement('div');
     cardParent.className = 'card';
 
-    //add img to card div
+    // create img tag and add all images in source of img 
     let imageCloth = document.createElement('img');
-    imageCloth.src = value.preview
-
+    imageCloth.src = value.preview;
     // add img to parent div cardParent
     cardParent.appendChild(imageCloth);
 
@@ -236,20 +241,19 @@ productList.forEach(function (value, index, list) {
     let cardDetails = document.createElement('div');
     cardDetails.className = 'details';
 
-
-    // h1
+    // title
     let title = document.createElement('h3');
     title.innerHTML = value.name;
 
-    //brand
+    // brand
     let company = document.createElement('h4');
     company.innerHTML = value.brand;
 
-    //Price
+    // Price
     let rate = document.createElement('h5');
     rate.innerHTML = "Rs " + value.price;
 
-    // add all details inside div has className: details
+    // add all details inside cardDetails div has className: details
     cardDetails.appendChild(title);
     cardDetails.appendChild(company);
     cardDetails.appendChild(rate);
@@ -263,8 +267,8 @@ productList.forEach(function (value, index, list) {
     const accBox = document.getElementById("accessories-box");
 
     if (value.isAccessory) {
-        accBox.appendChild(cardParent);
+        accBox.appendChild(cardParent); // true
     } else {
-        clothBox.appendChild(cardParent);
+        clothBox.appendChild(cardParent); // false
     }
 })

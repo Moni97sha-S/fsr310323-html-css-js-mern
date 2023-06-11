@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOM - JS</title>
+    <script>
+        ////////////////Window Object///////////////////////
+        // window.open()
+        // window.close()
+        // window.moveTo(2)
+        // window.moveTo(0,300)
+        // window.innerHeight
+        // window.outerHeight
+        // window.innerWidth
+        // window.document
+        // Eg 1:-
+        var sum = function () {
+            console.log('ss');
+        }
+        var abc = 'sss';
+
+        // Local Storage
+        //const name = 'raj';
+        /* const entr = prompt('Enter name:');
+        console.log(entr);*/
+
+        /* let names = [];
+        const entr = prompt('Enter name:');
+        names.push(enter);
+        console.log(enter);
+        console.log(names); -> This won't store names in array..This overwrites old by new names*/
+
+        let names = [];
+        const entr = prompt('Enter name:');
+        names.push(entr);
+        console.log(entr);
+        console.log(names);
+        // localStorage.setItem('name', names); -> To store array & obj diff mtds used so for now we see with normal variable
+        localStorage.setItem('name', entr);
+        console.log(localStorage.getItem('name'))
+
+        // To set a new item in local storage using 
+        // setItem()
+        localStorage.setItem('keyname', 'myvalue');
+        // This stores in browser application 
+
+        // To get an item
+        // getItem()
+        // How to read the stored item from local storage  
+        let name = localStorage.getItem('keyname');
+        console.log(name);
+
+        // To store a array, we need JSON
+        localStorage.setItem('keyname', JSON.stringify([1, 2, 3, 4, 5]));
+
+        // To remove an item
+        // removeItem()
+        localStorage.removeItem('keyname');
+        localStorage.removeItem('lastviewedSection');
+
+        // Go n check in flipkart site, it shows ur sterday's last viewed section page using below code
+        localStorage.setItem('lastviewedSection', 'mobile');
+
+
+        // Session Storage
+        sessionStorage.setItem('keyname', 'myvalue');
+        sessionStorage.setItem('session', 'mobile');
+
+        // cookie
+        document.cookie='name=test; expires=Thu, 01 Jan 2024 00:00:10 GMT'
+
+    </script>
+</head>
+
+<body>
+    <h1>Browser Object Model</h1>
+</body>
+
+</html>

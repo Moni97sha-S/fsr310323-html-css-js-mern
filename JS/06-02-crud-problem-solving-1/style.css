@@ -1,3 +1,14 @@
+li {
+    position: relative;
+}
+
+span {
+    /* margin-left: 200px; */
+    position: absolute;
+    left: 400px;
+    right: 0;
+}
+
 .inputSection {
     display: flex;
     flex-direction: column;
@@ -6,15 +17,22 @@
     margin-bottom: 50px;
 }
 
+
 #user-task {
     margin-top: 10px;
 }
 
-.subBtn{
-    margin-top:10px;
+.subBtn {
+    margin-top: 10px;
 }
 
-.del-icon-style{
-    width:10px;
-    height:50px;
+.delete-icon-style {
+    width: 10px;
+    height: 10px;
+    /* margin-left: 100px; */
 }
+
+/* #task-container {
+   display:flex;
+   align-items:left;
+}  */
