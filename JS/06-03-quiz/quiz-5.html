@@ -67,6 +67,7 @@
         // C) Second click, Third click, Fourth click
         // D) Second click, Fourth click
         // Res: C) Second click, Third click, Fourth click
+        // Reason: Event handler replaces / overwrites old value by new one whereas in Event Listener won't replaces gives each n every function's output individually.
 
         //Q-7 In general, event handler is nothing but ______?
         // A) event
@@ -104,10 +105,21 @@
         // C) Object
         // D) Array
         // Res: B) String
+        // Eg:-
+        /* let person1 = {
+            name: "Ann",
+            age: 20
+        }
+        // There are two methods to call an Object's key
+        // 1. person.name = "XYZ";
+        // person1[name] = "XYZ"; ->  Shows error without "key" -> typeOf key is always String in 2nd method
+        // 2. person1["name"] = "XYZ";
+        */
+        // Reason: If Key's data type is string in 113th line, it won't shows error.
 
         //Q-10 What will be printed in the console?
         /* var welcome = "Hello";
-        console.log(welcome.split('')); /*
+        console.log(welcome.split('')); */
         // A) Hello
         // B) ["Hello"]
         // C) ['H', 'e', 'l', 'l', 'o']

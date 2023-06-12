@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selectors</title>
+    <style>
+        /* Universal  Selector */
+        /* Tag Selector */
+        * {
+            /* text-align: center; */
+        }
+
+        h1 {
+            color: red;
+            text-align: center;
+        }
+
+        /* Group Selector */
+        h1,
+        h2 {
+            background-color: darkorchid;
+        }
+
+        /* ID selector (#) */
+        #main {
+            color: blue;
+        }
+
+        .success {
+            color: green;
+        }
+
+        p,
+        h3 {
+            color: red;
+        }
+
+        /* 'descendent' selector means relationship in a family */
+        section p {
+            color: brown;
+        }
+
+        div p {
+            color: aqua;
+        }
+
+        /* How to target para 1, 2, 3 & 4 are direct-child of div tag */
+        /*  Parent-child relationship | > indicates inside that element */
+        /* child selector */
+        div>p {
+            background-color: chartreuse;
+        }
+
+        /* target para only after h3 under div & section */
+        /* using same class */
+        /* adjacent sibling selector */
+        /* just one p after h3 */
+        h3+p {
+            color: red;
+        }
+
+        /* sibling selector */
+        /* all the p after h3 */
+        h3~p {
+            color: blue;
+        }
+
+        /* attributes selector */
+        /* if type attribute value is equal to text */
+        [type="text"] {
+            background-color: orange;
+        }
+
+        input:focus {
+            background-color: yellow;
+        }
+
+        button {
+            background-color: darksalmon;
+        }
+
+        /* pseudo classes */
+        button:hover {
+            background-color: darkslategrey;
+        }
+
+        button:active {
+            background-color: dodgerblue;
+        }
+
+        /* how to remove underline from hyperlinks */
+        a:hover {
+            text-decoration: none;
+        }
+
+        /* change underline on hover */
+        text-decoration-color:red;
+        /* [or]  */
+        /* border-bottom */
+
+        /* text & box-shadows */
+        #main {
+            text-shadow: 4px 4px 0px grey;
+            background-color: yellow;
+            box-shadow: 4px 4px 0px black;
+        }
+
+        /* Changed marker's color */
+        ul li::marker {
+            color: hotpink;
+        }
+
+        /* Changed marker's style */
+        div>ul {
+            list-style-type: '👍';
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Universal  Selector-->
+    <h1>Heading 1</h1>
+
+    <!-- Tag Selector -->
+    <h1 id="main">Heading 1</h1>
+
+    <!-- Group Selector -->
+    <h1 class="success">Heading 1</h1>
+    <h2>Heading 2</h2>
+    <h2 class="success">Heading 2</h2>
+    <p>Paragraph 1</p>
+    <div>div 1</div>
+    <hr>
+    <div>
+        <p>paragraph 1</p>
+        <h3>Heading 3 1</h3>
+        <p class="sc">paragraph 3</p>
+        <p>paragraph 4</p>
+        <section>
+            <p>paragraph 5</p>
+            <h3>Heading 3 2</h3>
+            <p class="sc">paragraph 6</p>
+            <p>paragraph 7</p>
+            <h3>Heading 3 3</h3>
+        </section>
+        <!-- Emoji marker  in CSS -->
+        <ul>
+            <li>Lorem</li>
+            <li>Doloremque</li>
+            <li>Quos</li>
+            <li>Perspiciatis</li>
+        </ul>
+    </div>
+
+    <!-- Reversed list -->
+    <ol reversed>
+        <li>Lorem</li>
+        <li>Doloremque</li>
+        <li>Quos</li>
+        <li>Perspiciatis</li>
+    </ol>
+
+    <!-- changed marker's (bullet) color in CSS -->
+    <ul>
+        <li>Lorem</li>
+        <li>Doloremque</li>
+        <li>Quos</li>
+        <li>Perspiciatis</li>
+    </ul>
+
+    <!-- Starting at a different number -->
+    <ol start="5">
+        <li>Lorem</li>
+        <li>Doloremque</li>
+        <li>Quos</li>
+        <li>Perspiciatis</li>
+    </ol>
+    <input type="text">
+    <button>Submit</button>
+
+    <!-- Custom order -->
+    <ol>
+        <li value="2">Lorem</li>
+        <li value="8">Doloremque</li>
+        <li value="3">Quos</li>
+        <li value="1">Perspiciatis</li>
+    </ol>
+</body>
+
+</html>

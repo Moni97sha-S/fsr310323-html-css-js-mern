@@ -1252,16 +1252,29 @@ Curriculum:
 Event -> Any action performed by user / happened on web browser
 Eg:- click, scroll, keypress, page load
 
-DOM -> Documentation Object Model
+🚨SYNTAX:
+ Event Handler 
+    -> elementName.eventName = functionName;
+    -> eventName : onclick
+
+ Event Listener 
+    -> elementName.eventName("event" ,functionName);
+    -> eventName : addEventListener()
+    -> event : click, keyUp, submit, scroll, keyPress, pageLoad
+
+DOM 
+    -> Documentation Object Model
+    -> To get an element from html
 
 Features:-
-1. dark mode
-2. zoom In/Out
+1. dark Mode/light Mode Model
+2. zoom In and zoom Out
 
 Data Validation for form:-
     - Reg form contains Email, pwd & confirmPwd
     - Kinds of Events in reg form's input field & in addEventListener("below_ones", functionName)
-        > keyUp
+    - Input:
+        > keyup
         > keyPress
         > onFocus
         > onBlur
@@ -1275,7 +1288,14 @@ Data Validation for form:-
     - SYNTAX:
         > element.addEventListener(event, function, useCapture);
         > useCapture means true gives event capturing otherwise by default false which represents event bubbling(inner to outer elements)
-
+    - function functionName(e)
+        > e means event for input key events like keyup or keydown events 
+        > we need to pass from our input field for which key we press and same shows at console when we console.log it
+        > e.target.value attribute for which key press there
+    - To store these keyPress values
+        > Create a variable & store in it
+        > Default functionality of Register button is load to next page
+        > To make it not to load to next pg by default, we use event.preventDefault() -> prevent from reload a page so that we can view in console log
 Hamburger button:-
 https://codepen.io/Athira231996/pen/wvYVQoX
 
@@ -1618,12 +1638,144 @@ Fetch - api:
 
 Day 21 : 09.06.2023 -----------------------------
 Curriculum:
+    - Event Handler VS Event Listener
+    - Simple Object
+    - BOM
+    - DOM
     - JSON
     - AJAX
-https://github.com/Thangarajcs/js-notes/blob/main/ajax-07-06
-
-https://www.tutorialspoint.com/http/http_methods.htm
+        -> GET Method
+https://codepen.io/Athira231996/pen/bGQNmKV
+        -> POST Method
+https://codepen.io/Athira231996/pen/bGQNmmE?editors=1111
 ------------------------------------------------
+Event Handler VS Event Listener:
+    > Handler assigns to a function & replaces/overrides for same function with different values
+            // btn.onclick=function(){} -> One Way Handler
+
+    > Listener itself a function inside which we pass an event, function
+    > It won't replaces/overrides for same function calls with different values
+            // btn.addEventListener("click", function); -> One Way Listener
+
+Simple Object:
+    > How to access keys (2 methods)
+        1. Object.key="";
+        2. Object["key"]="";
+    > Reference Chaining: We can also assign an object to another variable which passes same Key:Value pairs to it.
+       Eg:- let newObject = oldObject;
+    > To overcome this Reference Chaining, we can do copy of that object. Refer Qiuz-6 Q-1
+    > How to update value? oldValue gets replaced by newValue
+       Eg:-  newObject.key="newValue";
+
+BOM (Browser Object Model):
+    > Anything related to browser
+    > Window: 
+        window.alert(), prompt() etc
+        document => history => location => screen => navigator
+    > document: DOM -> CRUD Operations(Create, Read, Update, Delete)
+        // search
+        document.getElementById
+        document.getElementsByClassName
+        document.getElementsByTagName
+        // create
+        document.createElement('div)
+        // remove
+        element.remove();
+    > history: History of the browser
+        search history
+        > history.length
+        < 2
+        > history.forward
+        < f forward(){[native code]}
+    > location: shows current URL
+        window.location
+        port, hostname, protocol: "http:" without s means not secured | "https:" means secured
+        To access location.port, location.protocol, location.pathname
+    > screen: Screen Size
+        orientation, width, height
+    > navigator: device specification (Hack)
+        bluetooth, appVersion, Connection, geolocation, userAgent, permissions
+
+DOM (Document Object Model):
+    > Document, HTML & its children elements
+    > It is like a tree model.
+
+JSON (Javascript Object Notation):
+    > Array of Objects
+    > How to access json? -> objectName[i].keyName -> here 'i' means 0 to ObjectName.length
+
+    For Practice:
+        https://jsonplaceholder.typicode.com/todos
+
+AJAX (Asynchronous JavaScript And XML):
+    > AJAX is httprequest made by the JS to receive or send data from the server without refreshing the page while we jump from one page to another page.
+    > Update a web page without reloading the page
+    > Requests data from a server - after the page has loaded
+    > Receives data from a server - after the page has loaded
+    > Sends data to a server - in the background 
+    > Synchronous means will take some time until it gets response won't move to next line of code
+    > Asynchronous means it will not wait up to get the response, it will run the next lines
+    > Advantages of Asynchronous: Time consumption reduced, quick compilation
+    > XML means Extensible Markup Language is user-defined tags like in keyName we create tags of user-details within user tag
+
+AJAX Steps:
+There are 4 steps to create AJAX. They are:
+__CONNECTION_________________________________________________________________________________
+    Step:1 Instantiate/start XMLHttpRequest() connection
+    Step:2  To open a connection: use open method on it and pass methods(GET,POST etc.) and endpoint means URL
+    Step:3 Send the request to Server
+    Step:4 Register an Add EventListener method to eventName = "readystatechange", function = onReadyStateChange
+__CHECK RESPONSE______________________________________________________________________________
+Within server send us reponse, what are the things we have to check
+    Step:5 After receiving the response, what are the things we have to check following:
+        1. readyState should be 4
+        2. statusCode should be 200 for success code - correct response
+        This means getting exact responses & no data missing
+
+___Pre-request OR AJAX Call___________________________________________________________________
+        1. endPoint: "https://jsonplaceholder.typicode.com/todos"
+            demo API / Public API from websites for practice
+            In real projects, backEnd developers will provide endPoint URLs
+        2. method: "GET"
+____SYNTAX:___________________________________________________________________________________
+    1. var ajax = new xmlHttpRequest();
+    2. ajax.open(method, endpoint) => ajax.open("GET","URL");
+    3. ajax.send();
+    // Register an Event Listener to make this step work
+    4. ajax.addEventListener("readystatechange", onReadyStateChange);
+    // string to JSON 
+        => let a = JSON.parse(String);
+    // JSON to string 
+        => var b = JSON.stringify(JSON);
+
+
+
+Http(Hyper-Text Transfer Protocol):
+    http Methods: 
+        GET, -> to send the request to the server
+        POST, -> to send data to the server
+        Patch, -> to update data 
+        delete -> to delete/remove data
+    status codes: 1xx-5xx
+        1xx & above 100 -> Information
+        2xx & above 200 -> success code
+        3xx & above 300 -> Redirection
+        4xx & above 400 -> client error code
+        5xx & above 500 -> server error code
+    readyStateChange in ajax:
+        https://w3schools.com/xml/ajax_xmlhttprequest_response.asp
+        The onreadystatechange property defines a function to be executed when the readyState changes.
+        The status property and the statusText property holds the status of the XMLHttpRequest object.
+        readyState: Holds the status of xmlhttprequest()
+            0 - request not initialized
+            1 - server connection established
+            2 - request received by server
+            3 - processing request & preparing response
+            4 - request finished and response is ready
+        statusText: Returns the status-text (e.g. "OK"-200 or "Not Found"-404)
+        Eg:- The onreadystatechange function is called every time the readyState changes.
+            When readyState is 4 and status is 200 - "OK", the response is ready:
+
 
 
 Day 22 : 11.06.2023 -------------------------------
@@ -1635,3 +1787,35 @@ https://www.geeksforgeeks.org/how-to-preview-image-on-click-in-gallery-view-usin
 https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_active_element
 
 ---------------------------------------------------------
+
+Day 23 : 12.06.2023 -------------------------------
+Agenda:
+    - Assignment:4 Discussion
+    - this
+    - 🚨 call-bind-apply
+https://github.com/Thangarajcs/js-notes/blob/main/12-06-call-bind-this
+    - YouTube JS tutorials
+https://www.youtube.com/@akshaymarch7/playlists
+https://www.youtube.com/watch?v=hdI2bqOjy3c&list=PLillGF-RfqbbnEGy3ROiLWk7JMCuSyQtX
+https://www.youtube.com/playlist?list=PLRAV69dS1uWSxUIk5o3vQY2-_VKsOpXLD
+---------------------------------------------------------
+'this'
+    > this means from where u are calling
+    > In general, it refers to currently calling an object
+    > In global (Outside function), it refers to window
+    > In javascript, it refers to object's key
+
+call-bind-apply : Reusability of function code
+    > call: arguments passed by ,
+        SYNTAX: student.showName.call(stud2, 1, 2); // Moni 1 2 
+
+    > apply: arguments passed inside array []
+        // Difference from CALL mtd is Parameters are passes within an array
+        SYNTAX: student.showName.call(stud2, [1, 2]); // Moni 1 2
+
+    > bind
+        // bind will not be called immediately
+        SYNTAX: const laterUse = student.showName.bind(stud2);
+        laterUse(1, 2); // Res: Moni 1 2
+
+

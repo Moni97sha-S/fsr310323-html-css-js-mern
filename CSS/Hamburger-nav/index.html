@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nav Bar-Hamburger</title>
+    <style>
+        #container div {
+            width: 35px;
+            height: 5px;
+            background-color: black;
+            margin: 6px 0;
+        }
+
+        .hide ul {
+            display: flex;
+            font-size: 24px;
+            color: blue;
+        }
+
+        h2 {
+            color: red;
+        }
+
+        p {
+            color: green
+        }
+
+        li {
+            margin-left: 20px;
+            list-style-type: none;
+        }
+
+        .hide {
+            display: block;
+            margin-right: 50px;
+        }
+
+        .myDIV {
+            display: flex;
+        }
+
+        .div {
+            display: none;
+        }
+
+        @media only screen and (max-width: 400px) {
+            .div {
+                display: block;
+            }
+
+            .hide {
+                display: none;
+            }
+
+            #container:hover {
+                cursor: pointer;
+                position: relative;
+            }
+
+            #container:hover+.hide {
+                display: block;
+                margin-right: 0px;
+            }
+
+            #container:hover+.hide ul {
+                position: absolute;
+                top: 330px;
+                left: 0;
+                right: 450px;
+                display: block;
+                width: 100%;
+                text-align: center;
+                color: red;
+                margin-left: 0px;
+            }
+
+            #container:hover+.hide li {
+                display: block;
+                margin: 10px 0 20px;
+                background-color: black;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Nav Bar-Hamburger Mobile Responsive using HTML and CSS only</h1>
+    <h2>Hamburger</h2>
+    <p>Resize the browser window. When the width of this document is 400 pixels or less, the hamburger will display and
+        hide the menu items, otherwise it will display menu items and hide hamburger.</p>
+    <div class="myDIV">
+        <div id="container">
+            <div class="div"></div>
+            <div class="div"></div>
+            <div class="div"></div>
+        </div>
+        <div class="hide">
+            <ul>
+                <li>Home</li>
+                <li>About</li>
+                <li>Contact</li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+
+</html>

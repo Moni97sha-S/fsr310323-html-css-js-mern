@@ -5,13 +5,182 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ready State in Ajax-Control Flow</title>
-    <script>
-        console.log("Practice Session by Athira");
-    </script>
+
 </head>
 
 <body>
+    <!--  TODO LIST using GET Method
+    <button id="btn">Get List</button>
+    <h2>ToDo List</h2>
+    <ul id="myList"></ul> -->
+    <!-- Always keep scriptTag after headTag inside bodyTag while using addEventListner/appendChild/append methods -->
 
+    <!-- Ajax POST -->
+    <input id="feedback" type="text">
+    <button id="submitBtn">Submit Feedback</button>
+    <script>
+        console.log("Practice Session by Athira");
+        /* 
+         var btn = document.getElementById("btn");
+         // btn.addEventListener("click", function); -> One Way Listener
+         // btn.addEventListener("click", test); -> But won't replaces
+         // btn.addEventListener("click", login); -> But login() won't replace test function result
+         // btn.onclick=function(){ -> Another Way Handler
+ 
+         // }
+         // btn.onclick=test()
+         // btn.onclick=login() -> It will take latest one
+ 
+         let person1 = {
+             name: "Ann",
+             age: 20
+         }
+         person1.name = "John"; // Ann replaced by John
+         // person1[name] = "XYZ"; ->  Shows error without "key"
+         person1["name"] = "XYZ";
+ 
+         var person2 = person1;
+         console.log(person2);
+         // Res: {name: "XYZ", age: 20}
+         person2.name = "Moni";
+         console.log(person2);
+ 
+ 
+         // JSON - Array of Objects
+         let personalDetails = [{
+             "name": "Ann",
+             "mobile": "13214325",
+             "Dob": "23 / 10 / 1976"
+         },
+         {
+             "name": "Doe",
+             "mobile": "13214325",
+             Dob: "20 / 11 / 1965"
+         }]
+         personalDetails[0].name // Ann
+         personalDetails[1].name // Doe
+         */
+
+        // JSON Example from practice website
+        /* var students = [
+            {
+                "userId": 1,
+                "id": 1,
+                "title": "delectus aut autem",
+                "completed": false
+            },
+            {
+                "userId": 1,
+                "id": 2,
+                "title": "quis ut nam facilis et officia qui",
+                "completed": false
+            },
+            {
+                "userId": 1,
+                "id": 3,
+                "title": "fugiat veniam minus",
+                "completed": false
+            }]
+        for (var i = 0; i < students.length; i++) {
+            console.log(students[i].title);
+        }
+        */
+
+        //XML Example
+        /* <user>
+            <userId>1</userId>
+            <id>3</id>
+            <title>fugiat veniam minus</title>
+            <completed>false</completed>
+        </user> */
+
+        //AJAX
+        /*There are 4 steps to create AJAX. They are:
+        CONNECTION
+        1. Instantiate/start XMLHttpRequest() connection
+        var ajax = new xmlHttpRequest();
+        2.  To open a connection: use open method on it and pass methods(GET,POST etc.) and endpoint means URL
+        ajax.open(method, endpoint) => ajax.open(GET,"URL")
+        3. Send the request to server
+        ajax.send();
+        4. Add eventListener() method to onReadyStateChange()
+        CHECK FOR RESPONSE
+        5. After receiving the response, what are the things we have to check following:
+            i. readyState should be 4
+            ii. statusCode should be 200 for success code
+        
+        // Pre-request OR AJAX Call
+        1. endPoint: "https://jsonplaceholder.typicode.com/todos"
+            demo API / Public API from websites for practice
+            In real projects, backEnd developers will provide endPoint URLs
+        2. method: GET 
+        */
+        /* TODO LIST using GET Method
+         var button = document.getElementById("btn");
+         var ul = document.getElementById("myList");
+ 
+         function onBtnClick() {
+             // AJAX Sample Program
+             var ajax = new XMLHttpRequest();
+             ajax.open("GET", "https://jsonplaceholder.typicode.com/todos");
+             ajax.send();
+             ajax.addEventListener("readystatechange", onReadyStateChange);
+         }
+         // e passed when keypress event takes place
+         function onReadyStateChange(e) {
+             if (e.target.readyState === 4 && e.target.status === 200) {
+                 // To pass data by convert str into json format
+                 // responseText means getting response from the Server
+                 var data = JSON.parse(e.target.responseText)
+                 for (var i = 0; i < data.length; i++) {
+                     // toDo Apps
+                     // To store data in a variable 'toDo'
+                     // var toDo = data[i];
+                     var li = document.createElement('li');
+                     li.innerText = data[i].title;
+                     ul.append(li);
+                     // ul.appendChild(li);
+                 }
+             }
+         }
+         // string to JSON => JSON.parse(String)
+         // JSON to string => JSON.stringify(JSON)
+ 
+         // Registered an eventListener for button while clicking it triggers ajax connection
+         button.addEventListener("click", onBtnClick);
+         // Whwnever we trigger an event, that time only it will get loaded.
+         */
+
+        // Ajax POST Method
+        // let feedback;
+        let inputField = document.getElementById("feedback");
+        let subBtn = document.getElementById("submitBtn");
+
+        function onSubmit() {
+            // Handling the error when we miss any part of URL by mistake 
+            try {
+                // Started AJAX by calling new XMLHttpRequest connection
+                var ajax = new XMLHttpRequest();
+                // Sending the data to Server by using POST method
+                ajax.open("POST", "https://jsonplaceholder.typicode.com/todos", true);
+                // Send this msg to server
+                var data = {
+                    feedbackMessage: feedback
+                };
+                // Convert JSON into String
+                var dataToSend = JSON.stringify(data);
+                // send this string data to server for request
+                ajax.send(dataToSend);
+                // No need to add below code eventListener
+                // ajax.addEventListener("readystatechange", onReadyStateChange);
+            } catch (err) {
+                alert("Oops! Something went wrong, please try again later.");
+                console.log("Network Error", err);
+            }
+        }
+        subBtn.addEventListener("click", onSubmit);
+        // Hence this code not makes any changes in client side we just send the data to database / server that's it.
+    </script>
 </body>
 
 </html>

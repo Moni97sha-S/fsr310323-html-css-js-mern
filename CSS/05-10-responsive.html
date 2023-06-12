@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Screen Responsive</title>
+    <style>
+        /* parent */
+        .container {
+            /* background-color: yellow; */
+            padding: 5px;
+            display: flex;
+            border: 10px solid red;
+        }
+
+        /* child */
+        .container div {
+            width: 100px;
+            height: 200px;
+            margin: 10px;
+            border: 1px solid black;
+        }
+
+        @media screen and (min-width:0px) and (max-width:401px) {
+            .container {
+                flex-wrap: wrap;
+                background-color: blue;
+            }
+        }
+
+        @media screen and (min-width:400px) and (max-width: 800px) {
+            .container {
+                flex-wrap: wrap;
+                background-color: grey;
+            }
+        }
+
+        @media screen and (min-width:801px) {
+            .container {
+                /* mostly */
+                flex-wrap: wrap;
+                /* OR rarely */
+                flex-direction: column;
+                background-color: violet;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+    </div>
+
+</body>
+
+</html>

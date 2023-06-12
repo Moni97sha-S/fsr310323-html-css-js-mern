@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Pseudo classes & pseudo elements</title>
+    <style>
+        /* pseudo classes */
+        /* .test {
+            width: 100px;
+            background-color: white;
+        }
+
+        .test:hover {
+            background-color: red;
+        } */
+
+        /* a:link {
+            background-color: brown;
+        }
+
+        a:visited {
+            background-color: chartreuse;
+        }
+
+        a:active {
+            background-color: slateblue;
+        } */
+
+        /* p:first-child {
+            background-color: aqua;
+        } */
+        /* p:last-child {
+            background-color: aqua;
+        } */
+
+        /* when we click our mouse in text box*/
+        /* input:focus{
+            background-color: blue;
+        } */
+
+        /* input:disabled {
+            background-color: yelow;
+        } */
+        /* pseudo classes */
+
+        /* pseudo elements */
+        /* div::first-letter {
+            color: aqua;
+        }
+
+        div::first-line {
+            color: brown;
+        }
+
+        div::selection {
+            color: blue;
+        }
+
+        li::marker {
+            list-style-type: none;
+            content: "💡";
+        }
+
+        div::before {
+            content: 'This is before css';
+            background-color: pink;
+            color: blue
+        }
+
+        div::after {
+            content: 'This is before css';
+            background-color: pink;
+            color: red;
+
+        } */
+
+        /* Vertically-center align using padding by its width in div */
+        /* div {
+            width: 140px;
+            text-align: center;
+        }
+
+        .center {
+            padding: 70px 0;
+            border: 3px solid green;
+        } */
+
+        div.hoverline-effect {
+            background-color: lightcoral;
+            width: 100px;
+            /* height: 100px; */
+            text-align: center;
+            position: relative;
+            padding: 50px 0;
+            /* margin: 20px 0 20px; */
+        }
+
+        .hoverline-effect::before {
+            content: '';
+            display: inline-block;
+            position: absolute;
+            background-color: aqua;
+            width: 5px;
+            top: 0px;
+            /* left: 50%; */
+            right: 50%;
+            /* right: 0%;
+            left: 0%; */
+            transition: .2s;
+        }
+
+        .hoverline-effect::after {
+            content: '';
+            display: inline-block;
+            position: absolute;
+            background-color: aqua;
+            width: 5px;
+            bottom: 0px;
+            right: 50%;
+            transition: .2s;
+        }
+
+        .hoverline-effect:hover::before,
+        .hoverline-effect:hover::after {
+            height: 35px;
+        }
+
+        */
+        /* pseudo elements */
+    </style>
+</head>
+
+<body>
+    <!-- <h1>CSS Animation</h1>
+    <div class="test">hello box</div>
+    <a href="#" target="_blink">Link</a> -->
+    <!-- <p>1st child of body
+    </p>
+    <p> 2nd child of body
+    </p>
+    <div>
+        <p>1st child of div </p>
+        <p>2nd child of div </p>
+    </div>
+    <div>
+        <p>1st child of div </p>
+        <p>2nd child of div </p>
+    </div>
+    <p> last child of body </p> -->
+
+    <!-- <input disabled type="text" name="dddd"> -->
+
+    <!-- pseudo elements -->
+    <!-- <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias tempore quod neque officia, obcaecati
+        mollitia ipsam, distinctio labore repellat voluptatum vel officiis. Molestiae aut accusamus, recusandae ea
+        inventore explicabo reiciendis?</div>
+    <ul>
+        <li>images</li>
+        <li>img</li>
+        <li>image</li>
+    </ul> -->
+
+    <!-- <div class="center">
+    <p>I am vertically centered.</p>
+  </div> -->
+
+    <div class="hoverline-effect">hello</div>
+</body>
+
+</html>

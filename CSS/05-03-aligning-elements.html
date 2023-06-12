@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aligning Elements</title>
+    <style>
+        /* common style */
+        /* body {
+      margin: 0;
+    } */
+        div {
+            margin: 10px 0;
+            background-color: rgb(255, 0, 251);
+        }
+
+        img {
+            width: 70px;
+        }
+
+        /* 💀💀💀 DON'T USE POSITION RELATIVE FOR ALIGNING ITEMS */
+        /* input {
+      position: relative;
+      left: 27%;
+    } */
+
+        /* example 1 */
+        p {
+            background-color: orange;
+            text-align: center;
+        }
+
+        .ex1 {
+            text-align: right;
+        }
+
+        .ex2 {
+            height: 100px;
+            width: 300px;
+            /* text-align: center; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .ex3 {
+            height: 100px;
+            width: 300px;
+            position: relative;
+        }
+
+        .img3 {
+            position: absolute;
+            /* left: 100%; */
+            top: 100%;
+            left: 50%;
+            transform: translate(-50%, -50%)
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Aligning Items</h1>
+
+    <!-- example 1 -->
+    <p>Paragraph</p>
+    <div class="ex1">
+        <img src="icons.png">
+    </div>
+
+    <!-- example 2 -->
+    <div class="ex2">
+        <img src="icons.png">
+    </div>
+
+    <!-- example 3 -->
+    <div class="ex3">
+        <img src="icons.png" class="img3">
+    </div>
+
+    <!-- example 4 -->
+    <div class="ex4">
+
+    </div>
+</body>
+
+</html>
