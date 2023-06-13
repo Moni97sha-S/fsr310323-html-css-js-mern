@@ -1,4 +1,4 @@
-/* var productData = {
+var productData = {
     "id": "1",
     "name": "Men Navy Blue Solid Sweatshirt",
     "preview": "https://assets.myntassets.com/h_1440,q_100,w_1080/v1/assets/images/7579188/2018/11/5/08a7b230-ee8f-46c0-a945-4e835a3c01c01541402833619-United-Colors-of-Benetton-Men-Sweatshirts-1271541402833444-1.jpg",
@@ -29,8 +29,7 @@ function showOthrImages() {
     productData.photos.forEach(function (val, index) {
         // div
         const imgWrapper = document.createElement("div");
-        imgWrapper.classList.add('subImg-holder')
-
+        imgWrapper.classList.add('subImg-holder');
         // add event to other-imgs
         // every event-handler is a function so we can't assign
         imgWrapper.onclick = function () {
@@ -38,15 +37,13 @@ function showOthrImages() {
             // document.getElementById("main-image").src = productData.photos[ind];
             updateMainImg(index);
         }
-
         // this adding class of border only for 1st sub-img
         if (index === 0) {
             imgWrapper.classList.add("border");
         }
-
         const imageTag = document.createElement("img");
         imageTag.src = val;
-        imageTag.classList.add('image-wrapper')
+        imageTag.classList.add('image-wrapper');
         imgWrapper.appendChild(imageTag);
         document.getElementById('image-container').appendChild(imgWrapper);
     })
@@ -62,9 +59,8 @@ function updateMainImg(index) {
         otherImgs[i].classList.remove('border');
     }
     // add for actually selected image
-    otherImgs[i].classList.add('border');
+    otherImgs[index].classList.add('border');
 }
-*/
 
 /*
 // this keyword
@@ -142,6 +138,7 @@ student2.showNames1(); // Res: 'raju'
 // Here we have to create arrow function inside a normal function to access key in an object.
 */
 
+/*
 // CALL, BIND, APPLY : 
 // Call - Keep on passing functions using call method & reusability
 const student = {
@@ -187,3 +184,4 @@ laterUse(5, 6); // Res: Moni 5 6
 var useLaptop = student.showName.bind(stud2);
 var useLaptop = student.showName.bind(stud3);
 useLaptop();
+*/

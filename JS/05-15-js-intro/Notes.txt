@@ -1161,21 +1161,25 @@ event attributes: onclick(), onchange(), onload()
 event handlers - who handles ur task like click | perform tasks when action fires
 _______________________________________________________
 How to add events using JS:
+Without Param:
 let btn = document.getElementsByClassName('btn');
 btn[0].onclick = sayhi; // We cannot assign using js mtd but useful when everything is dynamic onclick what content show up
 
+With param:
 To generalize using arrow wrapper function with param:
 let btn = document.getElementsByClassName('btn');
         btn[0].onclick = function () {
             sayhi(4)
         }
-____________________________________________________________
+Note:- Assignment-4
+We should not store image's index number as parameter directly in event handler. Instead create new function with index & call inside event handler.
+_____________________________________________________
 
 event listeners - who listens to that click which take care of what event should do
                 - will observe events & if specification matches actual execution starts and obeys
-                - we can do multiple times
+                - we can add same event multiple times
 ______________________________________________________________
-        btn[0].addEventListener('event_name', when I click what i should do)
+        btn[0].addEventListener('event_name', when I click what i should do -> functionName)
 
 ______________________________________________________________
 diff btn event handler & event listener
@@ -1785,7 +1789,9 @@ Agenda:
 https://www.geeksforgeeks.org/how-to-preview-image-on-click-in-gallery-view-using-html-css-and-javascript/
     - active class toggle
 https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_active_element
-
+    - co-students work
+https://codepen.io/sameersinha512/pen/qBoEwMO
+https://codepen.io/Bibhujit/pen/gOQpawa
 ---------------------------------------------------------
 
 Day 23 : 12.06.2023 -------------------------------

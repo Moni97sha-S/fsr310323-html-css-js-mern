@@ -1,4 +1,4 @@
-var productData = {
+const productData = {
     "id": "1",
     "name": "Men Navy Blue Solid Sweatshirt",
     "preview": "https://assets.myntassets.com/h_1440,q_100,w_1080/v1/assets/images/7579188/2018/11/5/08a7b230-ee8f-46c0-a945-4e835a3c01c01541402833619-United-Colors-of-Benetton-Men-Sweatshirts-1271541402833444-1.jpg",
@@ -36,7 +36,7 @@ function show(value, index, arrList) {
     previewImage.src = value.preview;
     previewImage.classList = "previewImg"
 
-    // add img to parent div rightDiv
+    // add img to parent div lefttDiv
     leftDiv.appendChild(previewImage);
 
     //add little-details to rightDiv
@@ -76,14 +76,65 @@ function show(value, index, arrList) {
     let listItems = document.createElement('li');
     listItems.id = "list";
     unList.appendChild(listItems);
+    // For loop approach to render images
+    let imgID = "";
+    for (var i = 0; i < value.photos.length; i++) {
+        let images = document.createElement('img');
+        // images.classList.add("image");
+        // img id dynamically create instead of above static approach
+        imgID = "img" + i;
+        images.id = imgID;
+        images.src = value.photos[i];
+        images.alt = "preview" + i;
+        // images.className = "active";
+        // instead of above active class approach use below code also
+        if (i === 0) {
+            images.className = "active";
+        }
+        listItems.appendChild(images);
 
-    let images0 = document.createElement('img');
-    images0.src = value.photos[0];
-    images0.className = "active";
-    images0.classList.add("image");
-    listItems.appendChild(images0);
+        function removeBorder() {
+            img0.classList.remove("active");
+            img1.classList.remove("active");
+            img2.classList.remove("active");
+            img3.classList.remove("active");
+            img4.classList.remove("active");
+        }
 
-    let images1 = document.createElement('img');
+        // match selected img as preview img
+        images.addEventListener("click", function () {
+            removeBorder()
+            images.classList.add("active");
+            previewImage.src = images.src;
+        });
+        /* Arrow Function 
+        const change = src => {
+           document.getElementsByClassName('previewImg').src = src
+        } */
+
+        // toggle active class using 'this keyword & replace method
+        /* let image = document.getElementById('imgID');
+        for (let i = 0; i < images.length; i++) {
+            // currClk[0].className.remove("active");
+            this.className -= " active";
+            images.addEventListener("click", function () {
+                var currClk = document.getElementsByClassName("active");
+                // images.classList.add("image");
+                currClk[0].classList = currClk[0].classList.replace("active", "");
+                this.className += " active";
+            });
+        }
+        */
+    }
+    let btn = document.createElement('button');
+    btn.innerHTML = "Add to Cart";
+    btn.className = "subBtn";
+    rightDiv.appendChild(btn);
+
+    let prodPrePage = document.getElementById('productPreviewPage')
+    prodPrePage.appendChild(leftDiv);
+    prodPrePage.appendChild(rightDiv);
+    /* let images1 = document.createElement('img');
     images1.src = value.photos[1];
     images1.classList = "image";
     listItems.appendChild(images1);
@@ -101,68 +152,41 @@ function show(value, index, arrList) {
     let images4 = document.createElement('img');
     images4.src = value.photos[4];
     images4.classList = "image";
-    listItems.appendChild(images4);
+    listItems.appendChild(images4); */
 
     // let images5 = document.createElement('img');
     // images5.src = value.photos[5];
     // images5.classList = "image5";
     // listItems.appendChild(images5);
 
-    let btn = document.createElement('button');
-    btn.innerHTML = "Add to Cart";
-    btn.className = "subBtn";
-    rightDiv.appendChild(btn);
-
-    let prodPrePage = document.getElementById('productPreviewPage')
-    prodPrePage.appendChild(leftDiv);
-    prodPrePage.appendChild(rightDiv);
 
     // ---------------- Change Preview Image OnClick -------
-    function clickImageforPreview() {
-        // image 0
-        images0.addEventListener("click", function () {
-            previewImage.src = value.photos[0];
-        });
-        // image 1
-        images1.addEventListener("click", function () {
-            previewImage.src = value.photos[1];
-        });
-        // image 2
-        images2.addEventListener("click", function () {
-            previewImage.src = value.photos[2];
-        });
-        // image 3
-        images3.addEventListener("click", function () {
-            previewImage.src = value.photos[3];
-        });
-        // image 4
-        images4.addEventListener("click", function () {
-            previewImage.src = value.photos[4];
-        });
-        // Toggle Active Class
-        // $(document).on("click", "previewImage img", function () {
-        //     $(this)
-        //.addClass("active");
-        //.siblings();
-        // .removeClass("active");
-        // });
+    //function clickImageforPreview() {
+    // image 0
 
-        const change = src => {
-            document.getElementsByClassName('previewImg').src = src
-        }
-        let images = document.getElementsByClassName('image');
-        for (let i = 0; i < images.length; i++) {
-            // currClk[0].className.remove("active");
-            this.className -= " active";
-
-            images[i].addEventListener("click", function () {
-                var currClk = document.getElementsByClassName("active");
-                currClk[0].className = currClk[0].className.replace("active", "");
-                this.className += " active";
-            });
-        }
-    }
-    clickImageforPreview()
+    // image 1
+    /* images1.addEventListener("click", function () {
+        previewImage.src = images1.src;
+    });
+    // image 2
+    images2.addEventListener("click", function () {
+        previewImage.src = images2.src;
+    });
+    // image 3
+    images3.addEventListener("click", function () {
+        previewImage.src = images3.src;
+    });
+    // image 4
+    images4.addEventListener("click", function () {
+        previewImage.src = images4.src;
+    }); */
+    // Toggle Active Class
+    // $(document).on("click", "previewImage img", function () {
+    //     $(this)
+    //.addClass("active");
+    //.siblings();
+    // .removeClass("active");
+    // });
 }
 
 show(productData);

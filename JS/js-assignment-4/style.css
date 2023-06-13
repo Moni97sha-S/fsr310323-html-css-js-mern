@@ -71,7 +71,7 @@ li {
     color: #86939e;
 }
 
-.image {
+#list img {
     display: inline-flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -88,6 +88,11 @@ li .active {
     border: 2px solid #009688;
     padding: 5px;
 }
+
+/* li .border {
+    border: 2px solid #009688;
+    padding: 5px;
+} */
 
 .subBtn {
     font-size: 16px;
