@@ -1,4 +1,17 @@
 
+JS Fundamental Concepts:
+
+JS Advanced Concepts:
+1.
+- Execution context
+    > Context is a set of circumstances or facts that surround a particular event, situation, etc.
+    > EC means code currently running and everything surrounding it helps run it
+- Lexical Environment
+    > Lexical means related to something
+    > LE means how and where your code is physically placed.
+- Parser
+    > Syntax Parser takes the array of tokens and create an Abstract Syntax Tree(AST) so that it can be processed further to create executable code.
+https://blog.greenroots.info/understanding-javascript-execution-context-like-never-before
 /*******************************🚨 means important topic for Exam***********************************/
 
 Day 1 : 15.05.2023 -------------------------------------
@@ -243,7 +256,8 @@ Datatype - What type of data u are storing?
             owner: 'MRF'
             }
     - array: [] collection of related value
-        Eg: let carBrand = [maruthi, tata, java, ]
+        Eg: let carBrand = [maruthi, tata, java] // One method of create an Array
+            let carBrand1 = new Array(maruthi, tata, java); // Another method of create an Array
 
 Day 3 : 17-05-2023 ------------------
 
@@ -1464,6 +1478,7 @@ BOM (Browser Object Model)
     -  history.forward()
 
 6. Storage 🚨: [Front-end developer can access]
+    Eg:- AddToCart things are stored in LocalStorage
     - Web storage under Application Tab we can see both storages.
     - It is a way to store some information in the browser
     - There are two storages:
@@ -1511,56 +1526,129 @@ https://github.com/Thangarajcs/js-notes/blob/main/ajax-07-06
 https://www.tutorialspoint.com/http/http_methods.htm
 ------------------------------------------------
 JSON - Java Script Object Notation
-    > Data Format that will be used to explain things
-    > Most popular data exchange format from front-end to back-end 
-    > To store the data b2w server and client
-    > Can read server data in JSON format
+    > Data Format that will be used to exchange things
+    > Most popular data exchange format from front-end to back-end or vice-versa.
+    > When client req for data match at server end becomes success by matching then server responses back with some information like next page comes in JSON format.
+    > JSON is a text format to store & transporting the data . It is a data format between server and client
+    > Can read server data in JSON format - JSON Strings
     > Sometimes called as json string which makes everything string.
-    > SYNTAX: (No Space)
-    > JS Object
+    > There are many formatters like XML, JSON etc.
+    > JSON is the most popular data exchange formatter.
+
+JSON Data Formatter:
+    > Client-side: JavaScript lang
+    > Server-side: Some othr langs like GoLang, Java, Python etc
+    > 2-Way Communication: While communicating b/w client & server should be of same language for that JSON format is used like common lang English. Then respective to their ends we will convert into their formats.
+SYNTAX: (No Space)
+JavaScript Object:
     const obj = {
         name: 'raju'
     }
-    console.log(obj.name);
+    console.log(obj.name); 
+Syntax:
+        const jsobjName = {
+            key:"value"
+        }
+        // Key access (Direct)
+        console.log(objName.key);
 
-    > JSON Object
-     const obj1 = '{"name": "raju","age":27}';
-     console.log(obj1.name);
+JSON Object String:
+    > If we add everywhere string in JS Obj becomes JSON Object
+    > It is called as JSON String as it looks like string.
+3 set of Rules for JSON Obj String:
+    > There shld be No Space in syntax, 
+    > {} should be within '' -> '{}' & 
+    > keyNames should be within "" -> "key".
 
-    > parse() - convert JSON to JS Object format 
-    > stringify() - convert JS to JSON format 
+JSON Declaration:
+    > SYNTAX: (No Space)
+     const obj1 = '{"name":"raju","age":27}';
+     console.log(obj1); // Prints as it is!
+     console.log(obj1.name); // Res: Undefined
+
+Conversion gives us JSON key's value:
+1. GET method:
+    > 2 Scenarios
+    i. Fetched - Received from Server end as reponse for our request, so we convert at client end for accessing it.
+    ii. Created - Already we created a JSON Obj Str, but need to see it as JavaScript for that convert.
+    > Front-end sends req for that received response as in json format. Now to show it in UI we convert into JS.
+    Example:- 
+    criccBuzz.com website under Network -> Fetch/XHR -> select Fetch, under Response (JSON) / Preview (JS)
+    > JSON.parse() - convert fetched/created JSON String into JS Object format
+    > Syntax:
+        const JSONobjName = '{"key":"value"}'
+        // JSON String to JS Obj
+        const varName = JSON.parse(JSONobjName);
+        console.log(varName);
+        // Res: {key:'value'}
+        // Key access (Indirect)
+        console.log(varName.key); //Res: value
+
+2. POST Method: (Stringify & Send it to Server for Storing)
+    > From Client to Server end we convert while data Exchange
+    > Send above normal js obj to server by converting into JSON Str
+    > JSON.stringify() - convert JS Object into JSON String format 
+    > Syntax:
+        const jsobjName = {
+            key:"value"
+        }
+        const varName = JSON.stringify(jsobjName);
+        console.log(varName);
+        // Res: {"key":"value"}
+
+JSON.parse() & JSON.stringify() are translators which inbuilt properties.
+
+Diff b/w JS Obj & JSON StringObj?
+    > We can console obj.key in JS Obj whereas in JSON Str cannot directly console but we can console after conversion using JSON.parse()
+    > As JavaScript is normally understandable lang but JSON is not understandable format.
+    > So we need to convert JSON str into 
+    > Compare line nos 1534 & 1548
 
 AJAX
     > Asynchronous Javascript And Xml
+    > Instead XML, we use JSON format.
     > To make connections betweeen client and server
     > Data transferred to our User Interface and displayed like cricket score, weather report data
+From where data is getting updated in UI?
     > Web-Server & client interaction using method AJAX
+    > Reads dynamic data from Web-server & show in Web-browser UI Page (Client)
+    > For that we have mechanism/tool in JS called AJAX & advanced form of AJAX is Fetch.
     > On clicking Sign Up button handled by AJAX
-    > Reads data from server & put them on web-page as UI display
-    > You can also send the data to server using AJAX
-    > Client send request
+    > Reads data from server & display on web-page as UI display (data always supplied from server)
+    > You can also send the data to server using AJAX.
+    > Client sends request
     > Server process the request and sends the response back to client
-    > AJAX is a tool
     > Server URL - API
 
-new 
-    > new is a keyword
+    > new is a keyword complicates the code and slows down execution speed. 
+    > Do not create Number Objects which produce unexpected results.
+     Eg:- let y = new Number(123);
+
     > XMLHttpRequest() 
         - creates new http request object
-        - initiator | Object
+        - initiator of AJAX Object
         - is a method gives you several properties to communicate with server
-
+    > both creates a new xmlhttprequest object
+    
 this 
     -> this is a keyword reponses according to the situation
     -> represents here xml http request object 
+    -> Here it is a response of req.open('GET method', 'URL') & req.send()'s request
 
-response -> gives output once request is accepted
+response -> Gives output once request is accepted. It is also in JSON object.
 
+responseText -> Data is stream & response will be json like that. Sometimes both can be same. Not worried about server in that scenario u can use it.
+
+HTTP METHODS:-
+GET, POST, PUT, HEAD, PATCH, DELETE, etc refer above site.
 HTTP Request Methods
+> Onclick some interactions happens due to httpreq sent to the server. 
     > send() -> send request to server via browser
+    > send() -> Initiates communication
     > open() -> Which server address & what http method
-    > onload() -> we can assign a function this will be executed once request is success
-    > status()
+    > onload -> we can assign a function this will be executed once request is successful & data delivered
+    Within function we can access those delivered data.
+    > status() -> 200 means successfully data delivered but 400+ or 500+ means fails to get data due to some mistake in url or errors.
     > onchange()  
     > post()
     > put()
@@ -1572,9 +1660,9 @@ HTTP Request Methods
     > delete()
 
 Http Status codes
-    > 100 - 
+    > 100 - Information
     > 200 - Success
-    > 300 - 
+    > 300 - Redirection
     > 400 - Client level Error
     > 500 - Server level Error
 
@@ -1587,6 +1675,13 @@ HTTP Request part
 
 RequestHeader
     > We sends it.
+
+// task 
+
+//url - https://jsonplaceholder.typicode.com/albums
+// method - GET
+
+// get the data from server and show in  UI
 
 Day 20 : 08.06.2023 -----------------------------
 Curriculum:
@@ -1752,33 +1847,35 @@ ____SYNTAX:_____________________________________________________________________
     // JSON to string 
         => var b = JSON.stringify(JSON);
 
-
-
 Http(Hyper-Text Transfer Protocol):
     http Methods: 
         GET, -> to send the request to the server
         POST, -> to send data to the server
         Patch, -> to update data 
         delete -> to delete/remove data
+
     status codes: 1xx-5xx
         1xx & above 100 -> Information
         2xx & above 200 -> success code
         3xx & above 300 -> Redirection
         4xx & above 400 -> client error code
         5xx & above 500 -> server error code
-    readyStateChange in ajax:
+
+    readyStateChange in AJAX:
         https://w3schools.com/xml/ajax_xmlhttprequest_response.asp
-        The onreadystatechange property defines a function to be executed when the readyState changes.
-        The status property and the statusText property holds the status of the XMLHttpRequest object.
-        readyState: Holds the status of xmlhttprequest()
+        - Request is sent by Frontend Application & Response is sent by Backend Application
+        - The onreadystatechange property defines a function to be executed when the readyState changes.
+        - The status property and the statusText property holds the status of the XMLHttpRequest object.
+        - readyState: Holds the status of xmlhttprequest()
             0 - request not initialized
             1 - server connection established
             2 - request received by server
-            3 - processing request & preparing response
-            4 - request finished and response is ready
-        statusText: Returns the status-text (e.g. "OK"-200 or "Not Found"-404)
+            3 - processing request & preparing response / waiting for response
+            4 - request finished and response is ready / response received
+        - statusText: Returns the status-text (e.g. "OK"-200 or "Not Found"-404)
         Eg:- The onreadystatechange function is called every time the readyState changes.
-            When readyState is 4 and status is 200 - "OK", the response is ready:
+            When readyState is 4 and status is 200 - "OK", the response is ready: 
+            readyState 4 !== status 200 as readyState is different property & status is different property
 
 
 
@@ -1824,4 +1921,363 @@ call-bind-apply : Reusability of function code
         SYNTAX: const laterUse = student.showName.bind(stud2);
         laterUse(1, 2); // Res: Moni 1 2
 
+Day 24 : 13.06.2023 -------------------------------
+Agenda:
+    - OOPS in JS
+    - Object, Class, Inheritance, Encapsulation, Abstraction & Polymorphism
+    - Study Materials for JS
+https://betterprogramming.pub/object-oriented-programming-in-javascript-b3bda28d3e81
+    - JS Notes
+https://www.simplilearn.com/tutorials/javascript-tutorial/oop-in-javascript
+    - PDF for JS
+https://github.com/Thangarajcs/js-notes/blob/main/1680523006597.pdf
 
+    - The Net Ninja Youtube JS tutorial
+https://www.youtube.com/@NetNinja
+    - Traversy Media YouTube Channel
+https://www.youtube.com/@TraversyMedia
+    - Today's notes
+    - JS code challenge websites
+https://www.jschallenger.com/
+https://www.learn-js.org/
+https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/
+---------------------------------------------------------
+OOPS:
+    > Object Oriented Programming Language in JS
+    > JS is not OOPS; it is scripting language
+    > But we can use OOPS concepts in JS
+    > In Express JS (ES6 version) only OOPS concepts have more power & are mostly utilized.
+    
+Object:
+    > Object is one of JS datatype & also comes under OOPS
+    > It is one of the concept in OOPS.
+
+Class: introduced ES6
+    > Kind of object but not fully object.
+    > It has some properties of object.
+    > Blueprint of an object
+    > It is also called as Constructor.
+    > instance means from one prototype we can create 10 more bluprint from an object
+    > new keyword is used to create instance (copy)
+
+Inheritance:
+    > extends keyword is used for
+    > super keyword is used for
+    > we can exchange one class's properties & methods to another class - Reusability
+
+Encapsulation:
+    > Hiding the information from outside world.
+    > Outside the function can't know
+    > Hiding as much as possible and exposing a minimal public interface.
+    > mechanism by which the data & function are bound together within the object
+    > multiplying the data
+    > used for binding the variable functions
+    > Protecting your information
+    > For Our Code security
+
+Abstraction:
+    > We hide the implementation details itself. (Private)
+    > Good maintainability of code & reusability is also achieved.
+    > Unneccessary expose about ur code is avoided.
+
+Polymorphism:
+    >
+    >
+
+Composition:
+    >
+    >
+
+Abbreviation:
+    >
+    >
+
+Day 25 : 14.06.2023 -----------------------------
+Curriculum:
+    - JQuery & its features
+    - GET Methods
+    - SET Methods
+    - jQuery.com (Official Website) https://jquery.com/download/
+    - Add/Update/Delete HTML Elements:
+https://www.w3schools.com/jquery/default.asp
+https://github.com/Thangarajcs/js-notes/blob/main/jquerynotes
+------------------------------------------------
+jQuery
+    > It is a javascript library.
+    > It also simplifies the JS programming language usage.
+    > "Write less code, do more." - Slogan
+    > Features: 
+        - HTML DOM Manipulation,
+        - CSS Manipulation,
+        - Events manipulation,
+        - AJAX Handling,
+        - Animation, Other utilities etc.
+    > We use $ symbol for every action in jQuery
+    > How to add jQuery into our code?
+        - CDN (Content Delivery Network) internet is must to use cdn hoisting network.
+        - jQuery CDN:
+        Include the CDN link in the head tag
+    > selectors & Events
+    > create methods: append(), after(), before()
+    > delete methods: remove(), empty()
+    https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js
+
+syntax:
+
+
+Selectors and Filters:
+
+$(<<taget ele/class/id>>).action()
+
+$().hide();
+
+event:
+
+$('.b2').dblclick(function(){
+  $('.jq').hide()
+})
+
+$('.txt').keypress(function(){
+  $('.jq').show()
+})
+
+
+Add/Update/Delete HTML Elements:
+
+
+// 
+//js
+//document.getElementsByClassName('jq')[0].style.display = 'none';
+
+//selector
+//$('.jq').hide()
+//event
+// $('.b1').click(function(){
+//   $('.jq').hide()
+// })
+
+
+// $('.b2').dblclick(function(){
+//   $('.jq').hide()
+// })
+
+// $('.txt').keypress(function(){
+//   $('.jq').show()
+// })
+
+//eq(1) - to traverse the array 
+
+
+//jQuery GET
+
+//text()
+$('.b1').click(function(){
+  console.log($('p').eq(1).text())
+})
+
+
+//html()
+$('.b1').click(function(){
+  console.log($('p').eq(2).html())
+})
+
+$('.b1').click(function(){
+  console.log($('p').eq(1).attr('myname'))
+})
+
+$('.news').text(function(){
+  return 'HELLOW THIS IS NEWS'
+})
+
+
+$('.b1').click(function(){
+  console.log($('p').eq(1).attr('myname1','this done now'))
+})
+
+//create a new element
+//jQuery SET
+const divtag = document.createElement('div');
+divtag.innerHTML = 'this a javascript way';
+document.body.appendChild(divtag);
+
+//jquery
+//append
+//after()
+//before()
+const mydiv = $('<div></div>').text('this a jquery way');
+$('.news').after(mydiv);
+
+//jQuery remove
+//remove()
+//empty()
+
+Day 26 : 15.06.2023 -----------------------------
+Curriculum:
+    - RegEx
+    https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/#regular-expressions
+
+    - More JQuery validations
+    - Asynchronous JavaScript
+    https://dev.to/nodedoctors/an-animated-guide-to-nodejs-event-loop-3g62
+    - Event Loop
+    https://dev.to/lydiahallie/javascript-visualized-event-loop-3dif        
+    - Class Notes
+    https://github.com/Thangarajcs/js-notes/blob/main/15-06-2022
+
+------------------------------------------------
+Regular Expressions
+    > It is a sequence of characters that create a pattern. It can be later used to validate our input.
+    > Like Built-in objects
+    > User-input correction or replace can happen with regex.
+
+SYNTAX:
+Modifiers:
+    > It tells u whether pattern should be case insensitive or global or multiple match.
+
+Link: https://html.form.guide/jquery/validation-using-jquery-examples/
+FORM VALIDATION:
+    RegEx:
+    ! -> Don't come inside
+    /\d/g -> Gives only numbers (digit) in the string
+    /\D/g -> Gives only alphabetical & whitespace (non-digits) in the string
+    /^\d{10}$/ 
+        -> / denotes start and end
+        -> ^ means start
+        -> \ means escape sequences (ignore special characters or whitespaces)
+        -> d means numeric values
+        -> {10} how many digits
+        -> $ means end
+ES6 means ECMAScript version 6
+Synchronous:
+    > Doing each activity/task in an same order at different time (row-wise)
+
+Asynchronous JavaScript:
+    > Multiple tasks can be done in Parallely.
+    > Human daily task (Synchronous):
+        - GetUp with Alarm
+        - FreshUp
+        - cooking breakfast
+        - Having breakfast 
+        - Go to Clg/Work
+    > Human daily task (Asynchronous):
+        - GetUp with Alarm
+        - FreshUp (bath)
+        - cooking breakfast (cook)
+        - Having breakfast (dress)
+        - Go to Clg/Work (bus)
+      > But it works not in same above order
+      > So I need to make it wait for some time
+      > CALL BACK: running async task one by one by calling back manually each functions. Complex & confuses when many things runs.
+      > Call Back Hell happens when u nest too many async functions one by one.
+      > Instead of call back hell, we can use Promise
+      > to rescue the call back hell and neatly execute task we got new
+      > js feature PROMISE (Asynchronous concept)
+      > doing the things.................................. 
+      > Story on mountain well, 2 child fetch water & village house parents.
+      > Syntax:
+        let myPromise = new Promise(function(resolve, reject){
+            if(true){
+            resolve('success');
+            } else {
+            reject('error');
+            }
+        })
+        myPromise
+        .then(function(res){
+            console.log(res);
+        },
+        (err)=>{
+            console.log(err);
+        })
+
+Day 27 : 16.06.2023 -----------------------------
+Curriculum:
+    - Call Back function
+    - CallBack Hell
+    - Promise (Async Concept)
+    - Closures
+
+------------------------------------------------
+Call Back Hell:-
+    > calling function back in Nested way through which we can't find error, confuses & complex
+    > Creates pyramid structure
+
+Promise (Async Concept) - rescue from call back hell
+    > Promise is the way introduced to overcome call back hell
+    > to rescue the call back hell and neatly execute task we got new 
+    > js feature promise
+    > Either resolve success or error
+    > Make asynchronous code to synchronous code through promises.
+    > There is no asynchronous way.
+    > We are going in synchronous way (orderly manner only) through asynchronous method
+    > resolve - success
+    > reject - error
+    > SYNTAX:
+        urPromiseName.then(function(){}, function(){})
+    > Each promise has 3 execution states: Pending, Fulfilled, rejected
+        1. Pending state: When execution happens & if u try to access the promise
+        2. Fulfilled state: Sucess status
+        3. Rejected state: Error status
+Closures:-
+    > Closure means when a function returns from another function that will have a context of its created place (parent context).
+    > Closure means a return function will have access to its lexical context
+    > Lexical means variables places way ahead / before.
+
+Pending Topics:
+    - Async using await method to fetch an API
+    - Filter function
+    - Polymorphism in OOPS
+    - Exeception context
+    - Parser
+    - Indexed DB from BOM
+    - for...in loop & for....of loop
+    - how to get * in red when mandatory field not filled?
+    - Fetch API
+    x jQuery concepts
+    x Closures
+    x Arrow function
+
+Final Assignment Link:-
+https://drive.google.com/file/d/1FMJdWCTHDGXEWLr7XOBitsuHzogGFQfm/view
+
+Day 28 : 17.06.2023 (SAT) -----------------------------
+Curriculum:
+     - jQuery
+     - AJAX in jQuery
+     - Fetch API in jQuery
+     -  
+     -
+     -
+https://api.jQuery.com
+------------------------------------------------
+jQuery
+    > Library of framework | $ used to represent jQuery
+    > How to add jQuery?
+        - go to jQuery CDN in browser
+        - Add script file in html header before title tag
+    > Get
+    > Get & Update content
+    > addEventListener means in JQuery "on"
+
+Ajax Get & POST Method:
+    >
+
+Day 29 : 19.06.2023 -----------------------------
+Curriculum:
+    - 
+    - 
+    - 
+    - 
+    - 
+
+------------------------------------------------
+Day 30 : 21.06.2023 -----------------------------
+Curriculum:
+    - 
+    - 
+    - 
+    - 
+    - 
+
+------------------------------------------------
+    

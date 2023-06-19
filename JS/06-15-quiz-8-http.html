@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS QUIZ-7 HTTP</title>
+    <script>
+        // Q-1
+        /* The line of code below will create:
+        xmlHttpReq.open("GET", the URL, false); */
+        // A) Synchronous GET HTTP request
+        // B) Asynchronous GET HTTP request
+        // Res: A
+
+        // Q-2
+        // Which statements are true?
+        // A) readyState 3 means waiting for response
+        // B) readyState 4 means response received
+        // C) readyState 3 means response received
+        // D) readyState 4 means status 200
+        // E) Response is sent by Frontend Application
+        // F) Response is sent by Backend Application
+        // G) Request is sent by Frontend Application
+        // H) Request is sent by Backend Application
+        // Res: A), B), F) & G)
+
+        // Q-3
+        // Which of the following are true for response code?
+        // A) 200 - Success
+        // B) 400 - Unauthorized
+        // C) 401 - Bad Request
+        // D) 404 - Not Found
+        // Res: A) and D)
+        
+        // Q-4
+        /* What does the following url mean?
+        http://api.edyoda.com/v1/users/1
+        A) Get user details for all the users
+        B) Get user details for all the user with ID:1
+        C) Get full names for all the user
+        D) None of the AnimationPlaybackEvent */
+        // Res: B
+
+        // Q-5 What will be printed in the console?
+        /* var mObj = {
+            firstName: "John",
+            lastName: "Wick",
+            getFullName: function(){
+                console.log(this.firstName + "" + this.lastName)
+            }
+        }
+        console.log(mObj.toString()) */
+
+        // A) var mObj = { firstName: "John", lastName: "Wick", getFullName: function() { console.log(this.firstName + " " + this.lastName) } }
+        // B) Error
+        // C) [object Object]
+        // D) None of the above
+        
+        // Res: C) [object Object]
+        /* Reason: [object, object] is the string representation of a JavaScript object data type. You'll understand better as we go further in this article. There are two main contexts where you'll encounter such an output: When you try display an object using the alert() method (most common). When you use the toString() method on an object. */
+        
+        // Q-6 What will be printed in the console?
+        /* var mObj1 = {
+            first_Name: "John",
+            last_Name: "Wick",
+            getFull_Name: function(){
+                console.log(this.first_Name + "" + this.last_Name)
+            }
+        }
+        console.log(JSON.parse(mObj1)) */
+        
+        // A) var mObj1 = { first_Name: "John", last_Name: "Wick", getFull_Name: function() { console.log(this.first_Name + " " + this.last_Name) } }
+        // B) Error
+        // C)  [object Object]
+        // D) "[object Object]"
+        
+        // Res: B) Error
+        // Reason: Actually JSON.parse() used to convert JSON string into JS object
+        
+        // Q-7 What will be printed in the console?
+        /* var mObj2 = {
+            first_name: "John",
+            last_name: "Wick",
+            getFull_name: function(){
+                console.log(this.first_name + "" + this.last_name)
+            }
+        }
+        console.log(JSON.stringify(mObj2)) */
+        
+        // A) var mObj2 = { first_name: "John", last_name: "Wick", getFull_name: function() { console.log(this.first_name + " " + this.last_name) } }
+        // B) "{"firstName":"John","lastName":"Wick"}"
+        // C) "[object Object]"
+        // D) Error
+        
+        // Res: B) "{"firstName":"John","lastName":"Wick"}"
+        // Reason: Actually JSON.stringify() used to convert JS object into JSON string 
+
+        // Q-8 When using XMLHttpRequest object to make network requests, you have to make a POST request and send the following data to the backend.
+        // JSON String Object Representation below:
+        /* var mObj = {
+            "username":"johnwick",
+            "password":"reservation-for-two"
+        }
+        Which method do you use to send the data? */
+        // A) xhttp.open("POST", "api-endpoint”, true, mObj)
+        // B) var xhttp = new XMLHttpRequest(mObj)
+        // C) xhttp.send(mObj)
+        // D) xhhtp.send(JSON.stringify(mObj))
+
+        // Res: D) xhhtp.send(JSON.stringify(mObj))
+        // Reason: Normal JS Object always stringify into JSON String Object and send to server
+        
+        // Q-9
+        // When try block encounters an error then the control flow immediately goes to catch block without executing the remaining code inside try block in javascript?
+        // A) True
+        // B) False
+
+        // Res: A) True
+    </script>
+</head>
+<body>
+    <h1>JS quiz-7 HTTP</h1>
+    <!-- Q-1 -->
+</body>
+</html>

@@ -73,6 +73,7 @@ https://codepen.io/qaifikhan/pen/XWpreem?editors=0012
 -----------
  SHORTCUTS
 -----------
+HTML
 ../ is for adding link of document outside your folder (to come out of your folder)
 Ctrl + Z > Undo
 Shift + Tab | Ctrl + [ > Move code to left side
@@ -98,6 +99,8 @@ ul>(li+a)*6 : create 6 li in one line & anchor tags in next line to li tag line 
 ul>li*6>a : create 6 li & anchor tags inside a ul tag -> called as 'Emmet'
 (tr>td*18 -rows)*10 - columns in periodic table 10 rows & 18 columns
 Alt + Z folds a long line in vs code
+ALT+CTRL+L -> Inserts console.log(); in VS Code for Javascript Developer
+CTRL + Shift + D -> Removes console.log()
 embed means copy the youtube link and merge in our website
 --------
 💡NOTES

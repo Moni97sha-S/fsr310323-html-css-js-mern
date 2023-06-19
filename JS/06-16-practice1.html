@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice 1</title>
+    <script>
+/*
+        // Promise
+        let mypromise = new Promise(function(resolve,reject){
+            setTimeout(function(){
+                resolve('Hello');
+            },2000)
+            setTimeout(function(){
+                reject('Error 1');
+            },2000)
+        }) 
+
+        // hello-1
+        // hello-2
+        // hello-3
+        /* mypromise.then(function(result){
+            console.log("Hello"+""+1);
+        })
+        mypromise.then(function(result){
+            console.log("Hello"+""+2);
+        })
+        mypromise.then(function(result){
+            console.log("Hello"+""+3);
+        })
+        */
+/*
+        // Syntax:
+        // urPromiseName.then(function(){}, function(){})
+        mypromise.then(function(result){
+            console.log(result+""+1);
+        },function(err){
+            console.log(err+""+1);
+        })
+        
+        // u r making a promise to ur mom that u will get new phone for her
+        // if not possible then some thing u need to tell reason
+        let isMomHappy = true;
+        // let isMomHappy = false;
+        let momPromise = new Promise(function(resolve, reject){
+            if(isMomHappy){
+                resolve('Yes, I got a new phone from son')
+            } else{
+                reject('No, I didnot get due to some problem')
+            }
+        })
+        momPromise.then(function(res){
+            console.log(res);
+        },function(err){
+            console.log(err);
+        })
+
+        // Promise inside a function
+        // using 'return' keyword
+        let momPromise1 = (isMomHappy)=>{
+            return new Promise(function(resolve, reject){
+                if(isMomHappy){
+                resolve('Yes, I got a new phone from son')
+              } else{
+                reject('No, I didnot get due to some problem')
+               }
+            })
+        }
+        /* momPromise1(true).then(function(res){
+            console.log(res);
+        },function(err){
+            console.log(err);
+        })
+        */
+/*
+       console.log(momPromise);
+
+       // Sync
+       console.log("Rise");
+        setTimeout(function(){
+            console.log(`bath`)
+        }, 4000)
+        setTimeout(function(){
+            console.log(`cook`)
+        }, 2000)
+       console.log("eat");
+
+       // Async using Call Back function
+       function executor(timing, cb){
+        setTimeout(function(){
+            console.log('each task time -',timing)
+            cb()
+        }, timing)
+       }
+       // Call Back Hell:-
+       // calling function back in Nested way through which we can't find error, confuses & complex
+       // Creates pyramid structure
+       executor(1000, function(){
+        console.log('wake')
+
+        executor(4000, function(){
+            console.log('take bath')
+
+            executor(3000, function(){
+                console.log('cook food')
+
+                executor(1000, function(){
+                    console.log('end')
+                })
+            })
+        })
+       })
+*/
+       // Promise is the way introduced to overcome call back hell & can return error also
+     
+     /*
+       let executor = (time, task) =>{
+        return new Promise(function(resolve, reject){
+            setTimeout(function(res){
+                console.log('each task time-', time, task);
+                resolve(task + 'done')
+            },time)
+        })
+       }
+      One hard way
+      executor(1000,'Wake').then(
+        function(res){
+            console.log(res)
+        })
+       executor(4000,'Eat').then(
+        function(res){
+            console.log(res)
+        })
+       executor(3000,'Cook').then(
+        function(res){
+            console.log(res)
+        })
+       executor(2000,'bath').then(
+        function(res){
+            console.log(res)
+        })
+        
+       
+        // Simple way
+        
+        executor(1000,'bath')
+        .then(function(res){Promise.resolve('cook')})
+        .then(function(res){Promise.resolve('bath')})
+        */
+
+        // Simplest way
+
+        function firstTask(){
+            return new Promise (function(resolve, reject){
+                setTimeOut(function(){
+                    console.log('secondTask')
+                    resolve('done 1')
+                },2000)
+            })
+        }
+        function secondTask(){
+            return new Promise (function(resolve, reject){
+                setTimeOut(function(){
+                    console.log('secondTask')
+                    resolve('done 2')
+                },1000)
+            })
+        }
+        function thirdTask(){
+            return new Promise (function(resolve, reject){
+                setTimeOut(function(){
+                    console.log('thirdTask')
+                    resolve('done 3')
+                },500)
+            })
+        }
+
+        firstTask()
+        .then ((res) => secondTask() )
+        .then ((err) => thirdTask() )
+        // secondTask is for resolve & thirdTask is for reject
+        // We have to be very careful while using Promise function which executes only when resolve() or reject()
+        // .then ((success, error) => secondTask() )
+
+
+        // Closures:-
+        // Having a context 
+        // Having a function that returns another function
+        // one Function returns something can be accessed by another function
+
+        const increm =function (){
+            let a = -1;
+            return function(){
+                a+=1;
+                console.log(a)
+            }
+        }
+        let execute = increm();
+        execute(); // 2
+        execute(); // 3
+        execute(); // 4
+        // Closure means when a function returns from another function that will have a context of its created place (parent context).
+        // closure means a return function will have access to its lexical context
+        // lexical means variables places way ahead / before
+    </script>
+</head>
+<body>
+    <h1>Promise & Practice 1</h1>
+
+</body>
+</html>

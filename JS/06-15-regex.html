@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RegEx</title>
+    <script>
+        /* const p1 = /[ABC]/g;
+        const inp = 'abcg ddd RAdd';
+        alert(inp.test(p1));
+        alert(inp.match(p1));
+
+        const p1
+        */
+
+        // entire document becomes ready
+        // jQuery
+        $(document).ready(function(){
+            $('#first_form').submit(function(e){
+                e.preventDefault();
+                let fn = $('#first_name').val();
+                let ln = $('#last_name').val();
+                let email = $('#email').val();
+                let password = $('#password').val();
+
+                // 
+
+                //RegEx Patterns
+                if(!fn.match(/\d/g)){
+                    
+                }
+                if(fn.length === 0 || fn === null){
+                    $('#first_name').after('<span class="error">First name error</span>')
+                    // $('#first_name').before('<span class="error">First name error</span>')
+                }
+
+                
+            })
+        });
+
+        // Synchronous
+        let a = 100;
+        
+        
+
+        // Async without callBack()
+        
+        setTimeout(()=>{
+             
+        },1000)
+        // 1000 milliseconds = 1 seconds
+        setInterval(()=>{
+             
+        },2000)
+        
+        
+
+        //synchronze
+    // let a = 100;
+    // 
+    // 
+
+        // async with call back() function
+function bath(){
+setTimeout(() =>{
+  
+  cook()
+},1000)
+
+}
+
+function cook(){
+  setTimeout(()=>{
+    
+    finalstep()
+  },2000)
+}
+
+function finalstep(){
+  
+
+}
+
+//call back 
+// running asyc task one by one 
+
+function morRoutine(){
+  
+  bath()
+}
+// morRoutine()
+
+// This runs in different order not in same order.
+// So I need to make it wait for some time
+// CALL BACK: running async task one by one
+
+//----------------------------------------------------------//
+        
+        //
+        ̥
+        setTimeout(()=>{
+            ̥
+            
+        },1000)
+
+        function callBack(){
+
+        }
+       
+// Nested Function
+function callBack(callfn){
+  
+  callfn()
+}
+
+callBack(()=>{
+  setTimeout(()=>{
+    
+    
+  },1000)
+  abc(()=>{
+    setTimeout(()=>{
+      
+      
+    },1000)
+    abc()
+  })
+})
+
+    </script>
+</head>
+<body>
+    <h1>RegEx</h1>
+    <h1>FORM VALIDATION</h1>
+    <h2>Example:1</h2>
+
+</body>
+</html>

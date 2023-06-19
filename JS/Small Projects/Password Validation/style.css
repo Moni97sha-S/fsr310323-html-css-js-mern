@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+* {
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family: 'Montserrat', sans-serif;
+}
+
+body{
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    min-height: 100vh;
+    background: #11131e;
+    /* background: rgb(34, 104, 127); */
+}
+
+label{
+    font-size:1.3rem;
+}
+
+.wrapper{
+    overflow: hidden;
+    width:450px;
+    border-radius:8px;
+    background-color: #fff;
+    /* border:2px solid green; */
+    padding:50px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.06);
+}
+
+.wrapper .post{
+    height:450px;
+    width:100%;
+    position: relative;
+}
+
+ #pwd, #userName{
+    width:100%;
+    height:100%;
+    border-radius: 5px;
+    border:1px solid #999;
+    outline:none;
+    font-size:1.3rem;
+    padding:0 17px;
+} 
+
+#userName:focus{
+padding:0 16px;
+border: 2px solid #4285F4;
+}
+
+#pwd:focus{
+padding:0 16px;
+border: 2px solid #4285F4;
+}
+
+.toggle-password{
+    /* margin-left:-30px; */
+    position: absolute;
+    right:18px;
+    top:50%;
+    color:#999;
+    font-size:1.2rem;
+    transform: translate(-50%);
+    cursor:pointer;
+}
+
+.yournamelabel{
+    content: " * ";
+    font-weight:bold;
+    color:"black";
+}
+.yournamelabel.required{
+    /* content: " * "; */
+    /* font-weight:bold; */
+    color:"red";
+}
+
+.wrapper .rules{
+    margin: 20px 0 10px;
+}
+
+.rules p{
+    color:#333;
+    font-size: 1.3rem;
+}
+
+.rules .require-list{
+    margin-top:20px;
+}
+
+.require-list li{
+    font-size: 1.1rem;
+    list-style-type: none;
+    /* align-items:center; */
+    margin-bottom: 15px;
+}
+.require-list li i{
+    width:20px;
+    color:#aaa;
+    font-size: 0.6rem;
+}
+.require-list li.valid i{
+    color:#4285F4;
+    font-size: 1.2rem;
+}
+.require-list li span{
+    margin-left: 12px;
+    color:#333;
+}
+.require-list li.valid span{
+color:#999;
+}
+
+.btn{
+margin-left:50%;
+transform: translate(-50%);
+padding:5px;
+width:70px;
+height:40px;
+border-radius:5px;
+outline:none;
+font-weight: bold;
+}
+
+.btn-primary{
+background-color: #4f91ba;
+}
+
+@media screeen and (max-width: 500px){
+    .body .wrapper{
+        padding:15px;
+    }
+    .wrapper .post{
+        height:55px;
+    }
+
+    .post input, .rules p{
+        font-size: 1.15rem;
+    }
+
+    .field-pass .toggle-password, .require-list li{
+        font-size:1.1rem;
+    }
+
+    .require-list li span{
+        margin-left:7px;
+    }
+}

@@ -7,20 +7,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AJAX-JSON</title>
     <script>
-        // JS
+        // JavaScript Object
         const obj = {
             name: 'raju',
             age: 27
         }
         console.log(obj.name);
 
-        // json declaration
+        // json declaration with no space & key also string
         const obj1 = '{"name": "raju","age": 27}';
-        console.log(obj1.name);
+        console.log(obj1);
+        console.log(obj1.name); // Undefined
 
-        // parse() - convert JSON to JS Object format 
+        // parse() - convert JSON str to JS Object format 
         // how to parse this into proper JS object
         const parsedVal = JSON.parse(obj1);
+        console.log(parsedVal);
         console.log(parsedVal.name);
 
         // How you generate JSON using JS Object
@@ -29,14 +31,15 @@
             city: 'chennai'
         }
         console.log(jsObj.stuName);
-
-        // stringify() - convert JS Object to JSON format 
+        // Send above normal js obj to server by converting into JSON Str
+        // stringify() - convert JS Object to JSON str format 
         const convertedJson = JSON.stringify(jsObj);
         console.log(convertedJson);
 
         // AJAX - helps to talk to the server
 
         // Older Approach
+        // Connection / Define
         const req = new XMLHttpRequest();
 
         // Response Part
@@ -54,11 +57,16 @@
         req.send();
         // calling method
 
-        // Render HTML elements dynamically
+        // Render HTML elements dynamically in id product-box
+        // convert json string into js object by using parse()
         req.onload = function () {
+            // this.responseText is in json obj str
             const res = JSON.parse(this.responseText);
             console.log(res);
+
             displayInUI(res);
+
+            // Get to print in our UI
             document.getElementById('product-box').innerText = res.title;
         }
 
@@ -80,7 +88,9 @@
 
 <body>
     <h1>AJAX-JSON</h1>
+    <div id="product-box">
 
+    </div>
 </body>
 
 </html>

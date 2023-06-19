@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OOPS in JS</title>
+    <script>
+        // Object
+        const user = {
+            name: 'Raju',
+            usrname: 'user',
+            paswrd: '1234',
+            login: function (u, p) {
+                if (u === this.usrname && p === this.paswrd) {
+                    console.log('Sucessfully logged in');
+                } else {
+                    console.log('Failed to login');
+                }
+            }
+        }
+        user.login('wddw', '222');
+        user.login('user', '1234');
+
+        // Class
+        class Book {
+            constructor() {
+                this.name = "Book";
+            }
+        }
+        console.log(Book);
+
+        // Class Declaration
+        class Student {
+            // Must function: constructor is property intiator for class
+            constructor(inputname, age) {
+                this.name = inputname;
+                this.age = age;
+            }
+        }
+        // I'm creating new object instance for a class
+        const stu1 = new Book('Raja', 18);
+        const stu2 = new Book('Kumar', 23);
+        const stu3 = new Book('Kathir', 23)
+        const stu4 = new Book('Das', 26)
+        const stu5 = new Book('John', 26)
+        const stu6 = new Book('Moni', 26);
+        console.log(stu2.age);
+
+        class Stud {
+            // Must function: constructor is property intiator for class
+            constructor(inputname, age, s1, s2, s3) {
+                this.name = inputname;
+                this.age = age;
+                this.s1 = s1;
+                this.s2 = s2;
+                this.s3 = s3;
+            }
+            display() {
+                //console.log(this.s1 + this.s2 + this.s3);
+                console.log("I'm from super class");
+            }
+        }
+        // I'm creating new object instance for a class
+        const student1 = new Stud('Raja', 18);
+        const student2 = new Stud('Kumar', 23);
+        const student3 = new Stud('Kathir', 23)
+        const student4 = new Stud('Das', 26)
+        const student5 = new Stud('John', 26)
+        const student6 = new Stud('Moni', 26);
+        console.log(student2.age);
+
+        // inheritance: student class inherits from Student
+        // Base/Parent class: Student
+        // Derived class: student
+        class student extends Student {
+            constructor(name, city) {
+                // super is used to access by passing control over another class
+                // super keyword will derive/enable properties & methods from parent/base class to derived class
+                super(name)
+                this.city = city;
+            }
+            show() {
+                console.log(this.name + ' ' + this.city);
+            }
+        }
+        const S4 = new student('Monisha', 25);
+        console.log(S4.show());
+        console.log(S4.display());
+
+        // Encapsulation
+        const Book = function (t, a) {
+            let title = t;
+            let author = a;
+            return {
+                showDetail: function () {
+                    console.log(title, '---->', author);
+                }
+            }
+        }
+        // console.log(Book('www', 'ddd'))
+        const BookDetail = new Book('Maths', 'John');
+        const BookDetail1 = new Book('Science', 'Kumar');
+        console.log(BookDetail.showDetail());
+        console.log(BookDetail1.showDetail());
+        //
+        const Book = function (T, A) {
+            let title = 'Hello';
+            let author = a;
+            const getMarks = () => {
+
+            }
+            getMarks(); // can call
+            return title;
+        }
+        getMarks(); // can't call outside the function
+        console.log(title);
+
+        // Abstraction
+        const Book = function (bookTitle, authorName) {
+            // private variables
+            let title = bookTitle;
+            let author = authorName;
+
+            // public method
+            // 'this' denotes to Book
+            this.getMeTitle = function () {
+                return title;
+            }
+            this.giveSummary = function () {
+                return getSummary();
+            }
+
+            // private method
+            const getSummary = function () {
+                return `title of the book ${title} and written by ${author}`;
+            }
+        }
+
+        // To create new instance (copy) for this book
+        const book1 = new Book('javascript', 'John');
+        book1.getSummary(); // Res: getSummary is not a function as it is private / secret method like receipe
+        // Not achieved to get receipe directly by customer
+
+        // Indirect way is achieved by calling getSummary function inside this giveSummary()
+        book1.giveSummary(); // Res: 'javascript', 'John'
+        // Reason: Only output can be seen by othrs total receipe is hidden from customer.
+
+// Polymorphism
+
+// Composition
+
+// Abbreviation
+    </script>
+</head>
+
+<body>
+    <h1>OOPS in JS</h1>
+</body>
+
+</html>
