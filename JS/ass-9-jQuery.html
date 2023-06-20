@@ -45,7 +45,8 @@
         // Res:
         // Reason:
 
-        // Q-4
+        // Q-4 What will be the jQuery equivalent of the following?
+
         /* var para = document.createElement("p");
         var textNode = document.createTextNode('HW');
         // console.log(para.appendChild(textNode))
@@ -53,18 +54,20 @@
         
         console.log($("<p>").html("HW"));
         // $("<p>").text("HW") 
-        // A)
-        // B)
-        // C)
-        // D)
+        // A) S("<p>").elem("Hello World")
+        // B) S("p").html("Hello World");
+        // C) S("<p>").html("Hello World");
+        // D) S("<p>").text("Hello World");
 
-        // Res:
-        // Reason:
+        // Res: C & D
+        // Reason: Option C and D are creating the <p> and adding the text, that is equivalent to below code, option B ("p") is only get the element by tag name and option A not the right one
 
         // Q-5 What will be the jQuery equivalent of the following?
+
         /* parentElem.appendChild(childOne)
         parentElem.appendChild(childTwo)
         parentElem.appendChild(childThree)*/
+        
         // A) parentElem.appendChild(childOne, childTwo, childThree)
         // B) parentElem.appendChild(childOne); parentElem.appendChild(childTwo); parentElem.appendChild(childThree)
         // C) parentElem.append(childOne, childTwo, childThree)

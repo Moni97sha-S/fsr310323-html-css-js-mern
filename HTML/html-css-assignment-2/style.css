@@ -778,14 +778,21 @@ img {
     flex: 25%;
     max-width: 25%;
     padding: 0 4px;
+
 }
 
 .flex-col img {
     margin-top: 8px;
     vertical-align: middle;
+    filter: grayscale(80%);
+    transition: 1s;
+    box-shadow:1px 2px 1px #aaaaaa;
     width: 100%;
 }
-
+.flex-col img:hover{
+    filter: grayscale(0);
+    transform: scale(1.1);
+}
 .w-col-3 {
     min-width: 33.33333333%;
 }

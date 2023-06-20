@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body{
+    background-image: linear-gradient(to right, #eea2a2 0%, #bbc1bf 19%, #57c6e1 42%, #b49fda 79%, #7ac5d8 100%);
+    animation: gradientAnimation 10s ease infinite;
+    scroll-behavior:smooth;
+    height: 100vh;
+    /* overflow: hidden; */
+}
+
+
+h1{
+    background-image: linear-gradient(rgba(247, 61, 4, 0.836), rgba(244, 34, 188, 0.999));
+    padding:30px;
+    text-align: center;
+    text-transform: uppercase;
+    /* background-color: lightcoral; */
+    transition: background-color 0.3s ease;
+    box-shadow: 0 1px 3px rgba(230, 221, 221, 0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.row{
+   display:flex;
+}
+
+.column{
+    margin:auto;
+    margin-top:50px;
+    display:grid;
+    grid-template-columns: auto auto auto;
+    grid-gap:5px;
+    overflow-wrap:wrap;
+}
+.image_{
+    width:200px;
+    height:200px;
+    margin:5px;
+    filter: grayscale(80%);
+    transition: 1s;
+}
+
+img:hover{
+    filter: grayscale(0);
+    transform: scale(0.9);
+    cursor:pointer;
+}
+
+/* Rain Effect */
+i {
+    position: absolute;
+    height: 160px;
+    background: linear-gradient(transparent, #fff);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    animation: raining 5s linear Infinite;
+}
+@keyframes raining {
+    0% {
+        transform: translateY(-160px);
+    }
+    100% {
+        transform: translateY(calc(100vh + 160px));
+    }
+}
+
+@media screen and (max-width:600px){
+.column{
+    margin:0 auto;
+    padding-top:50px;
+    grid-template-columns: auto;
+}
+}

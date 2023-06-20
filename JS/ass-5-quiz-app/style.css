@@ -1,17 +1,80 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url("https://use.typekit.net/sul4vwk.css");
 
 * {
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family: 'Montserrat', sans-serif;
     }
 
 body{
-    display:flex;
-    /* align-items:center;
-    justify-content: center;
-    min-height: 100vh; */
-    /* background: #11131e; */
-    background: rgb(34, 104, 127);
+    background-color:#54c3ef; 
+    color:#fad744;
+    font-family: 'Caveat Brush', cursive;
+    /* letter-spacing: 1px; */
 }
+
+.p-1{
+  margin: 2px 0 5px;
+  font-size: 3.5rem;
+  text-align:center; 
+  text-shadow: 2px 2px 2px rgba(3,13,29, 0.8);;
+}
+
+section.quiz{
+    font-family: "source-sans-pro", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    margin:0 auto;
+    display:flex;
+    justify-content:center;
+    align-items:top;
+    flex-direction:row-reverse;
+    padding-top:2px;
+}
+
+.quizContainer{
+    max-width:500px; 
+    margin-left:200px; 
+    margin-right:10px;
+    overflow-wrap: break-word; 
+    padding:20px; 
+    border-radius:5px; 
+    background-color:#2b3252; 
+    color:#fad744; 
+    display:inline-block
+  }
+
+  .quesContainer{
+
+  }
+
+  .scoreCard{
+    background-color:white; 
+    color:black; 
+    font-size: 18px;
+    position:sticky; 
+    top:0;
+    left:0;
+    padding:30px; 
+    height:240px; 
+    width:150px; 
+    border-radius:5px;
+  }
+
+  .marks{
+    font-size: 2.5rem;
+    font-weight:bold;
+  }
+
+  .quesContainer{
+    font-weight:bold;
+    font-size: 18px;
+    margin:20px 0;
+  }
+
+  .option{
+    font-size: 15px;
+    font-weight:200;
+    padding:5px 0 5px;
+    margin:15px 0 15px;
+  }

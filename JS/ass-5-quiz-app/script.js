@@ -1,4 +1,5 @@
 
+console.log("hi");
 const xhttp = new XMLHttpRequest();
 xhttp.open('GET','https://5d76bf96515d1a0014085cf9.mockapi.io/quiz');
 xhttp.send();
@@ -8,79 +9,94 @@ function onReadyStateChange(e){
     e.preventDefault();
     if(e.target.readyState === 4 && e.target.status === 200){
       const datum = JSON.parse(e.target.responseText);
-    //   console.log(datum[]);
-      disUI(datum);
-      
+       // console.log(datum);
+      loadUI(datum);
     //   console.log(secTag);
+    
     }
 }
-
-function disUI (data){
-    /* console.log(data[0].options[0]);
-    console.log(data[0].options[1]);
-    console.log(data[0].options[2]);
-    console.log(data[0].options[3]);
-    console.log(data[0].options[4]); */
-    data.forEach((val, ind, arr)=>{
-       /* console.log(val.options[0]);
-        console.log(val.options[1]);
-        console.log(val.options[2]);
-        console.log(val.options[3]); */
-        let divTag = document.createElement('div')
-        let p = document.createElement('p');
-        let ul = document.createElement('ul');
-        p.innerText = `Q${val.id}.` + val.question;
-        
-        let option = val.options
-        // console.log(option)
-        // console.log(data.length)
-        // console.log(option.length)
-        /* for(let i=0; i<5; i++){
-            for(let j=0; j<4; j++){
-                console.log(data[i].options[j]);
-            }
-        } */
-        for(let i=0; i<data.length; i++){
-            for(let j=0; j<option.length; j++){
-                // console.log(data[i].options[j]);
-                let li = document.createElement('li');
-                li.innerHTML = data[i].options[j];
-                // console.log(li.innerHTML);
-                console.log(ul.appendChild(li));
-            }
-            
-        }
-        // let list = document.getElementsByTagName('li');
-        divTag.append(p);
-        divTag.append(ul);
-        let secTag = document.querySelector(".ques");
-        secTag.appendChild(divTag);
-        // for(let i=0; i<data.length; i++){
-        //     for (let j=0; j<val.options.length; j++){
-        //         li.innerText = data[i].val.options[j];
-        //         console.log(li);
-        //     }
-        // }
+function loadUI(data){
+  data.forEach((val, ind, arr)=>{
+    const secQuiz = document.querySelector(".quiz");
+     const quizContDiv = document.querySelector(".quizContainer");
+    //  const btn = document.createElement('button');
+    //  btn.classList.add("btn");
+    //  btn.classList.add("btn-primary");
+    //  btn.value="Submit";
+    //  btn.type="Submit";
+    //  secQuiz.append(btn);
     
-        // console.log(divTag);
-        // uidata += `<div>
-        // <p>Q${val.id}.${val.question}</p>
-        // <ul>
-        // </ul>
-        // </div>`
-        // let ul = document.getElementsByTagName('ul');
-        // ul.className = "unList";
-        // console.log(ul)
-        
-        // let ulist = document.getElementsByClassName('unList');
-        // console.log(ulist)
-        // let li = document.createElement('li');
-        
-        //     for(let i=0; i<= val.options.length; i++){
-        //     li.innerText = val.options[i];
-        //     console.log(li)
-        //     }
-        
-        // ulist.appendChild(li);
-    })
+
+    //Questions
+    const quesDiv = document.createElement('div')
+    quesDiv.classList.add("quesContainer");
+    const p = document.createElement('p');
+    p.classList.add("questions")
+    p.innerText = `Q${val.id}. ` + val.question;
+    quesDiv.append(p);
+    
+    quizContDiv.append(quesDiv);
+    
+    //quesDiv.insertAjacentHTML('afterbegin', `<hr />`)
+  
+    // Options
+    val.options.forEach(option => {
+      const optItem = optionCont(option, ind );
+      quesDiv.append(optItem);
+      
+    //   console.log(quesDiv);
+    //   const ansTextLabel = optItem.querySelector('label');
+    //   const scoreCardDiv = document.querSelector('.scoreCard')
+      
+    //   ansTextLabel.addEventListener('click', () => {
+    //     let mark = 0;
+    //     if(optIndex === val.answer){
+    //       mark+=1;
+    //     }else{
+    //       option == false;
+    //     }
+    //   });
+    });
+    
+
+    $(quesDiv).append($("<hr />"));
+    // quizcont.append(divOpt);
+    //  
+
+    secQuiz.append(quizContDiv);
+/***********************************************************
+    console.log(val.options.length)
+    indexes= val.options.length*5
+    for(let i=0; i<indexes; i++){
+        $('input').attr('id', `${indexes}`)
+    }
+     */
+
+    function optionCont(option, ind){
+    const divOpt = document.createElement("div");
+    divOpt.classList.add("option");
+    divOpt.insertAdjacentHTML('afterbegin', `
+      <label>
+      <input type="radio" name="Choice_${ind}"></input>
+      ${option}
+      </label>
+    `);
+  return divOpt;
 }
+ })
+}
+
+// function optionCont(option, ind){
+//     const divOpt = document.createElement("div");
+//     divOpt.classList.add("option");
+//     divOpt.insertAdjacentHTML('afterbegin', `
+//       <label for="radBtns${ind}">
+//       <input type="radio" id="radBtns${ind}" name="Choice_${ind}"></input>
+//       ${option}
+//       </label>
+//     `);
+//   return divOpt;
+// }
+
+
+
