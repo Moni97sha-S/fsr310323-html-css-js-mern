@@ -1,10 +1,11 @@
-/* $(document).ready(function(){
+// $(document).ready(function(){
 
- $(`.image_${img.id}`).click(function(e){
-    e.preventDefault();
-    window.location = `https://en.wikipedia.org/wiki/${img.alt}`;
-});
-}); */
+//  $(`.image_${img.id}`).click(function(e){
+//     e.preventDefault();
+//     window.location = `https://en.wikipedia.org/wiki/${img.alt}`;
+// });
+
+
 
 //$("span").element($(<a href=""></a>))
 // Rain Effect
