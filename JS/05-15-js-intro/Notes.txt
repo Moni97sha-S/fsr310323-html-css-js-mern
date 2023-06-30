@@ -2262,22 +2262,327 @@ jQuery
 Ajax Get & POST Method:
     >
 
-Day 29 : 19.06.2023 -----------------------------
+Day 29 : 26.06.2023 -----------------------------
 Curriculum:
+    - Different ways to produce function
+    - Function advance concept : CALL, APPLY & BIND
+    - Why call() & apply() - Usecase
+   
+https://docs.google.com/presentation/d/18filyiHB3bKs4MJZ4m0PX3vWm7Dv7wrsV1UvvhcGy_4/edit?pli=1#slide=id.g20a15d1d7d2_0_50
+------------------------------------------------
+Different ways to produce function
+    > 1. Normal function
+        -> If you have a normal function without any return value, then it returns "undefined".
+        -> If you have a Promise function without any return value, then it returns "Promise object".
+    > 2. Function expression
+    > 3. Anonymous function (Function expression & Anonymous function are almost similar)
+    > 4. Arrow function
+    > 5. IIFE 
+        -> Immediately Invoked Function Expression
+        -> Definition: When we define a function, it will call automatically.
+        -> In IIFE, we will wrap the function & make this function call pass something within parentheses like "India".
+        -> Define, How to pass arg and return from IIFE
+        -> SYNTAX:
+            let f2 = (function (country) {
+                console.log("hello f2() --> ", country);
+            })("india");
+                console.log(f2); // Undefined
+        -> Why IIFE......
+            - Protecting our data (implementation details like bank account number)
+            - For security reasons, this works like oops concept Abstraction
+            - Not conflicting with other functions
+            - We are not polluting our global scope
+        -> in which places we use IIFE...
+            - It is used while designing libraries like jQuery Library for JavaScript (hidden code) 
+            - Library means big chunk of code where u push ur code & give to world.
+
+Lexical Scope / Lexical Context: 
+    > Context means value of this
+    > Scope means place where a ground in which u can access the variable like visa valid only within that particular country 
+    > Assigning variable from parent scope
+    > Lexical scope = Local Scope + Parent scope + Global Scope
+
+Function Advance Concepts:- 
+call():
+    > Whenever we want to invoke a function & pass the lexical context
+    > 'this' keyword will not invoke object (key-value pair) when u normally call a funcion with objectName & without .call() gives output as global things
+    > We use skeleton of one function from another object by invoking and passing the context means values of current object
+    > TODO: obj3 is borrowing print() function which is inside of obj2 
+
+apply():
+    > 100% same as call() only difference is syntax how u pass string values in ["str1", "str2"]
+
+Why call() & apply() - Usecase
+//! Function borrowing & Reusability
+
+Example:
+let obj2 = {
+    name: 'Virat',
+    country: "India",
+    test: function (){
+        console.log('test');
+    },
+    print() {
+        console.log(`Name = ${this.name} and Country = ${this.country}`); // 'this' means obj2 used for reusability
+    }
+};
+obj2.test(); // test
+obj2.print(); // Name = Virat and Country = India
+
+let obj3 = {
+    name: 'Smith',
+    country: "Australia"
+}
+
+obj2.print.call(obj3); // Name = Smith and Country = Australia  ✅ syntax call method
+
+// obj2.print() --> invoke print() function from another 'obj2' object
+// obj2.print.call(obj3) --> passing context of 'obj3' current object (this)
+
+//obj3 is borrowing print() function which is inside of obj2 
+
+
+Day 30 : 27.06.2023 -----------------------------
+Curriculum:
+    - Live Project 1 - Video Player Application like YouTube
+    - Fetch API using async-await functions
     - 
+    - 
+    - 
+
+------------------------------------------------
+    async keyword gives response as promise
+    await keyword unwraps promise
+
+Day 31 : 28.06.2023 -----------------------------
+Curriculum:
+    - Live Project 2 - Music Player Application like YouTube
     - 
     - 
     - 
     - 
 
 ------------------------------------------------
-Day 30 : 21.06.2023 -----------------------------
+Day 32 : 29.06.2023 -----------------------------
 Curriculum:
-    - 
+    - Live Project 3 - Video Player Application like YouTube
     - 
     - 
     - 
     - 
 
 ------------------------------------------------
-    
+Application:-
+    > web browser's inbuilt feature
+    > There are 3 types of storage in browser.
+        1. Session storage
+        2. Local storage
+        3. IndexedDB
+
+Session Storage:
+    > Temporary for each session and on close stored data cleared & lost like IRCTC
+    > expires after session close or powercut or shutdown
+
+Local Storage:
+    > Permananent storage of data 
+    > Unless and until we delete it manually.
+    > Max. limit 10MB
+    > We can small amount of data for small applications
+    > It is also object stores key-value pairs.
+    > We can access using Object.keys() method 
+
+Show PopUp of favorite songs:
+    > add a button object for every song's buttons by using className
+    > on click of button of a song that song should pops up and store
+
+Day 33 : 30.06.2023 -----------------------------
+Curriculum:
+    - Asynchronous
+    - HTML & CSS & JS
+    - Single thread / Multi Thread
+    - Keywords (var), datatypes, Strings, Array, etc
+    - Functions (Code Execution & scope)
+    - Browser
+
+------------------------------------------------
+Asynchronous:
+    -> Non-blocking code
+    -> Can avoid blocking of like setTimeout() block of cod
+    -> We can do Project like live-recodring apps etc using async functions.
+
+Language:
+    1. Markup Language
+        -> Doesn't throw any error and static
+        -> No security and Validation available 
+        -> Using HTML & CSS we can produce webpages statically only.
+
+    2. Programming Lanaguage 
+        -> Talk to ur hardware and software
+        -> Capable of making Decisions (right/wrong) 
+        -> This makes now Powerful in 0's & 1's binary (machine) lang
+
+HTML: (Hyper Text Markup Language)
+    -> Structure & skeleton
+    -> Markup language:
+CSS: (Cascading Style Sheets)
+    -> Styling for Design purpose
+    -> Decorate ur webpage like makeup
+    -> Using HTML & CSS we can produce webpages statically only
+Javascript: 
+    -> But using JS we can produce dynamic websites
+    -> JS is for both for frontend and backend
+    -> But Java and python is only for backend & Multi Threaded language and platform independent
+    -> Frontend means client-end users side in web browsers like websites or mobile user
+    -> JS is Single Threaded language, Synchronous and platform independent
+    -> There are 2 things in JS:
+        (1) Single Thread / Multi-Thread
+            (i) Javascript is Single Thread
+                -> Just runs only one line of code at once.
+                -> As it  behaves like man with 2 hands. If >2 balls, it can't handle & leads to hanging problem while running for loops directly in browser window's under source tab.
+                -> Fully occupied and condition can't relieve current thing going on.
+            (ii) Multi-Thread means superman with super power / octopus with 8 hands (NICE CONCEPT)
+                -> Do task in concurrently (multitasking)
+        (2) Synchronous / Asynchronous
+            (i) Javascript is Synchronous
+                -> Blocks the code when any interruptions like error etc occurs
+                -> Blocking code and it needs all previous line should be executed
+            (ii) Asynchronous
+                -> Non-blocking code
+                -> Youtube, FB & Insta like apps using this behaviour even we upload a big video content we can simueltaneously use it to watch some other
+        (3) Var / Datatypes / Strings / Array
+                -> To store we use Datatypes container
+            Var: In var, we can change by re-assign its datatype according to stored values.
+            Let: In let, we can't change by reassigning. 
+            const:
+            Datatypes: Number, String, Array, Objects & Symbol etc. 
+        (4) Functions basic in-depth concepts
+            (i) Code Execution:-
+                1. Phase 1: Global Memory manager[GMM] (Intialization & declaration)
+                    -> Checks only at Left hand side 
+                    -> Looks for var, let, const & function keyword
+                    -> Not exists then assign undefined to it
+                2. Phase 2: Global Code Execution manager[GCEM]
+                    -> Checks only value at Right hand side 
+            Eg 1:-  console.log(x); -> Undefined
+                     var x = 10;
+                     console.log(x); -> 10
+
+                Reason (BTS): Behind the scene, GMM assigns 'x' to undefined in first line then 
+                GCEM: Asks MM what is 'x'?
+                GMM: 'x' is undefined
+                GCEM: Okay I will execute as undefined
+                GCEM: After execution it checks 2nd line and go to MM and say I saw value as 10.
+                GMM: Okay I will update it
+                GCEM: Then I will execute as 10
+
+            Eg 2:-
+                console.log(a); // undefined
+                function funcA(){
+                    var a = 100;
+                    console.log(a); // 100
+                }
+                funcA();
+
+            Reason:
+                GMM   - Global Memory Manager
+                GCEM  - Global Code Execution Manager
+                F1MM  - Function 1 Memory Manager & 
+                F1CEM - Function 1 Code Execution Manager
+
+            Behind the Scene (BTS):
+                -> GMM checks for let, var, const & function keyword at first line 
+                -> And then goes to 2nd line found function keyword assigns funcA's code to some other memory manager named as 'funcAMM' 
+                -> And then goes to last line at funcA() no keyword so it ignores.
+
+            Conversation between GMM & GCEM in global scope:
+                GCEM: Asks GMM Do you know 'a' in 1st line?
+                GMM: I don't even know what is keyword of 'a'.
+                GCEM: Ok. I will execute by throwing a Reference error as 'a' is not defined at all
+            
+            Conversation between F1MM & F1CEM inside function scope:
+                BTS, F1MM analyzes in left hand side & found var keyword and ignores console.log line as there is no keyword.
+                F1CEM: Asks F1MM Do you know 'a'?
+                F1MM: Yes, I know 'a'. It has var keyword.
+                F1CEM: Checks for Right Hand Side and takes value as 100 & executes it.
+            
+            Eg 3:-
+                console.log(y); // undefined
+                function f1(){
+                    var y = 100;
+                    console.log(y); // 100
+                }
+                var y ="Sagar";
+                console.log(y); // Sagar
+                f1();
+
+            Reason: There are GMM, GCEM, Function 1 Memory Manager(F1MM) & Function 1 Code Execution Manager(F1CEM)
+            Convo: BTS, GMM checks for let, var, const & function keyword at first line then goes to next ln found function keyword assigns func code to some other memory manager named as F1MM and goes to next var keywrd found 
+            F1CEM: Asks F1MM what is 'y'?
+            F1MM: Yes I know'y'. It is undefined
+            F1CEM: Okay I will execute as undefined
+            F1CEM: After execution it checks 2nd line and go to MM and say I saw value as 10.
+            F1MM: Okay I will update it
+            F1CEM: Then I will execute as 10
+            F1CEM: GMM
+
+            Warning: Different functions have seperate managers for each & seperate memory.
+
+        Eg 4:-
+                console.log(y); // undefined
+                function func2(){
+                    console.log(y ==>", y); // undefined
+                    var y = 100;
+                    console.log(z); // Sagar
+                }
+                var y ="Sagar";
+                console.log(y); // Sagar
+                func2();
+
+            Reason: There are GMM, GCEM, Function 2 Memory Manager & Function 2 Code Execution Manager
+                GMM   - Global Memory Manager
+                GCEM  - Global Code Execution Manager
+                Func2MM  - Function 2 Memory Manager & 
+                Func2CEM - Function 2 Code Execution Manager
+
+            Behind the Scene (BTS):
+                -> GMM checks for let, var, const & function keyword at first line 
+                -> Then goes to 2nd line found function keyword & assign func2's code to some other memory manager named as 'func2MM'
+                -> Then goes to 7th line found var keyword & ignores 8th line as no keyword.
+                -> And then goes to last line at func2() no keyword so it ignores.
+
+            Conversation between GMM & GCEM in global scope:
+                GCEM: Asks GMM Do you know 'y' in 1st line?
+                GMM: I don't know 'y'. So I declared as undefined.
+                GCEM: Ok. I will execute 'y' as undefined
+                GCEM: Asks GMM Do you know 'y' in 7th line?
+                GMM: Yes, I know 'y'with var keyword.
+                GCEM: Ok then I will check at Right Hand Side for value & execute 'y' as Sagar.
+                GCEM handover to function managers as function called at last line 
+            
+            Conversation between F1MM & F1CEM inside function scope:
+                BTS, Func2MM analyzes in left hand side leaves console.log line as there is no keyword & found var keyword and ignores console.log line as there is no keyword.
+                Func2CEM: Asks Func2MM Do you know 'y' at line 3?
+                Func2MM : No, I don't even know keyword of 'y'. So declared as undefined.
+                Func2CEM: Ok. I will execute 'y' as undefined
+                Func2CEM: Do you know 'z' at line 5?
+                Func2MM : No, I don't even know keyword of 'z'. 
+                Func2CEM: Go to it's parent scope & asks Global MM (GodFather) about 'z'
+                GMM: Yes, I know 'z'.
+                Func2CEM: Checks for Right Hand Side and takes value as Sagar & executes it.
+            -> scope: 
+        (5) OOPS
+Browser
+    -> It is single threaded language
+    -> It get hangs / lagging while we use more tabs than its compatibility.
+    -> Not responding while any for loops runs
+
+Day 34 : 01.07.2023 -----------------------------
+Curriculum:
+    - Asynchronous
+    - HTML & CSS & JS
+    - Single thread / Multi Thread
+    - Keywords (var), datatypes, Strings, Array, etc
+    - Functions (Code Execution & scope)
+    - Browser
+
+------------------------------------------------

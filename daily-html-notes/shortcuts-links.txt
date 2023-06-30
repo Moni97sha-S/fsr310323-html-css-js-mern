@@ -16,6 +16,9 @@ https://docs.google.com/presentation/d/1jAyAEsduMUbPO5PKUFNYpAd3iqxyEd6xv7REANr6
 CSS PPT 1:
 https://docs.google.com/presentation/d/1Mp-Sver-5SLI5YpKD3-oJd_JfcEwCKKFzPgi60PeWGU/edit?usp=sharing
 
+JS PPT (HarshitRaj):
+https://docs.google.com/presentation/d/18filyiHB3bKs4MJZ4m0PX3vWm7Dv7wrsV1UvvhcGy_4/edit?pli=1#slide=id.g20a15d1d7d2_0_50
+
 CSS Notes links:
 https://codepen.io/patilsagar99047/pen/GRYWJyd
 
@@ -63,6 +66,9 @@ https://github.com/justdecodeme/edyoda-classes/tree/master/FSR310323
 
 2) JS - Mayilsamy Thangaraj
 https://github.com/Thangarajcs/js-notes/
+
+2) JS - HarshitRaj
+https://github.com/harshit-8080/April_FSR_2023/tree/main/Javascript_FSR
 
 Whatsapp Group: 
 https://chat.whatsapp.com/GBacdv15wsVKu1Ll4ugQcb

@@ -1,0 +1,66 @@
+(0)
+//console.log("UnorderedList -->", playUList);
+//console.log("List Items -->", playlist);
+
+(1)
+//! A function only responsible to play the music for which u need that music URL
+//? Whenever webpage finished fully load, I want first song to play automatically.
+function playSong(){
+    let dataSrc = playlist[0].getAttribute("data-src");
+    console.log(dataSrc);
+};
+playSong();
+
+(2)
+//! Generic function we can mention song index while calling
+function playSong(index){
+    let dataSrc = playlist[index].getAttribute("data-src");
+    console.log(dataSrc);
+};
+playSong(0);
+
+(3) // .play() --> catches a promise which gives DOMExceptionError() so it delays in playing music
+var playPromise = document.querySelector("#audioPlayer").play();
+    if (playPromise !== undefined) {
+        playPromise.then(function() {
+          // Automatic playback started!
+          console.log("Success");
+        }).catch(function(error) {
+          // Automatic playback failed.
+          console.log("Error");
+          // Show a UI element to let the user manually start playback.
+        });
+      }
+(4)
+//? Run a loop on every list and attach a click event
+//* playlist - Collection of songs
+let currentSong = 0 ;
+for(let i=0; i<playlist.length; i++){
+    playlist[i].addEventListener("click",function(){
+        // console.log("On click of a song from list got clicked one's list tag -->", playlist[i]);
+        let index = Array.prototype.indexOf.call(playlist, this) //* playlist.indexOf(this)
+        // playlist is kind of array as it is HTMLCollection()
+        // this will represent ur currentSong
+        // Nodelist comes into picture when parent-child relation
+        // HTMLCollection indicates just elements
+        // Not depending on 'i' as it will lost after its for loop
+        console.log(index);
+        playSong(index);
+        document.body.style.backgroundImage = `url(${bgc[index]})`;
+    });
+}
+
+//! Function to play Song()
+function playSong(index){
+    let dataSrc = playlist[index].getAttribute("data-src");
+    audioPlayer.src = dataSrc;
+    audioPlayer.play();
+    // console.log("Audio Tag -->", audioPlayer);
+}
+
+// But there is an issue: Clicking on next btn but next song not playing
+nextButton.addEventListener("click", function(){
+currentSong = currentSong + 1; 
+// cS = 0 + 1 = always 1st song will play everytime when u click next btn in diff scenarios becoz of 37th line
+playSong(currentSong);
+})
