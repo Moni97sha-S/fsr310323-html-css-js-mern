@@ -2263,7 +2263,7 @@ Ajax Get & POST Method:
     >
 
 Day 29 : 26.06.2023 -----------------------------
-Curriculum:
+Curriculum: (Harshit Raj Sir's Tutorials)
     - Different ways to produce function
     - Function advance concept : CALL, APPLY & BIND
     - Why call() & apply() - Usecase
@@ -2357,12 +2357,35 @@ Curriculum:
 Day 31 : 28.06.2023 -----------------------------
 Curriculum:
     - Live Project 2 - Music Player Application like YouTube
-    - 
-    - 
-    - 
-    - 
+    - Features like Play, Previous and Next buttons
+    - Play/Pause Feature & their functionalities.
+    - Storage
+    - Show Pop Up of favorite music list
 
 ------------------------------------------------
+
+Storage:-
+    > Session Storage:
+        - max 5dB
+        - Exists till session tab closes only.
+        - Eg:- Many big sites like IRCTC, Bank and payment pages store in this only.
+        - For security reasons, the session storage helps.
+    > Local Storage:
+        - max 10dB
+        - Local Storage is also object
+        - Even after session tab closes by accidently/powercut, stored key-value pairs exists
+        - Eg:- To store Add To Cart lists
+
+    > Indexed DB: 
+        - Persistent databases like mySQL, MongoDB, SQL etc.
+
+Show Pop Up of favorite music list
+    > To show music list, we need to add some animations (@keyframes) for pop up.
+    > 1st step: On click of like button, we need to Add that song to fav list in Local Storage.
+    > 2nd step: Grab all btns & Just add click event on every button (1st chunk)
+    > 3rd step: Try to store liked btn's song's id & name by fetching song via btn id in local storage         
+
+
 Day 32 : 29.06.2023 -----------------------------
 Curriculum:
     - Live Project 3 - Video Player Application like YouTube
@@ -2579,10 +2602,382 @@ Browser
 Day 34 : 01.07.2023 -----------------------------
 Curriculum:
     - Asynchronous
-    - HTML & CSS & JS
-    - Single thread / Multi Thread
+    - 
+    - 
     - Keywords (var), datatypes, Strings, Array, etc
     - Functions (Code Execution & scope)
-    - Browser
+    - 
 
 ------------------------------------------------
+
+Day 35 : 02.07.2023 -----------------------------
+Curriculum:
+    - CallBacks
+    - Asynchronous
+    - 
+    - Keywords (var), datatypes, Strings, Array, etc
+    - Functions (Code Execution & scope)
+    - 
+
+------------------------------------------------
+
+Callbacks:-
+    > Callback is a function called as an argument inside another function like addEventListener.
+    > Arguments passes while calling the function. But parameters are passed in callbackfunction introduced.
+    > We can call callbackfunction similarly as normal function. We can treat (return) in callbackfunction same as normal function 
+    > Syntax: 
+        function f1(name, x){
+
+        }
+        x(); //fnName
+        f1("Monisha", function(greet){
+
+        });
+    > Nameless functions are Anonymous functions. Here x() is Anonymous fn.
+
+    Purpose of callbackfunction:-
+    -> To do some kind of future tasks
+    -> Eg:- school boy's tasks
+            - Go to school
+            - Take Lunch
+            - Return from school
+            - Go to tution/Coaching
+            - Return to home
+    -> Now we need asynchronous to tell await for some time to finish before tasks in synchronous way(orderly manner).
+    -> Using Callback function for above eg:
+        function gotoSchool(callback){
+            console.log("Going to school");
+
+            setTimeout(() => {
+                console.log("Reached the school");
+                callback();
+            }, 10000); // 10,000 milliseconds means 10s
+        }
+        function takeLunch(callback){
+            console.log("Studying in school");
+
+            setTimeout(() => {
+                console.log("Taking my lunch");
+                console.log("Lunch completed");
+                callback();
+            }, 2000);
+        }
+        function returnFromSchool(callback){
+            console.log("Returning from school");
+
+            setTimeout(() => {
+                console.log("Reached at home");
+                callback();
+            }, 3000);
+        }
+        function goingtoCoaching(callback){
+                console.log("Going to Coaching");
+
+            setTimeout(() => {
+                console.log("Reached to Coaching");
+                callback();
+            }, 2000);
+        }
+        function comeToHome(){
+            console.log("Returning to Home from coaching");
+
+            setTimeout(() => {
+                console.log("Reached to HOME And Now Sleeping");
+            }, 2000);
+        }
+
+        gotoSchool(); // this works fine till "Reached the school" line
+        takeLunch(); // Messed up the flow of tasks so I pass it as callback
+
+        // Defining future tasks in order using callback
+        gotoschool(function(){
+            takeLunch(function(){
+                returnFromSchool(function(){
+                    goingtoCoaching(function(){
+                        comeToHome()
+                    });
+                });
+             })
+        })
+        // Accept a variable as callback in gotoschool as parameter
+
+Promises:-       
+        // U can solve problem of Callback Hell using Promise
+        //? What is promise?
+            Javascript Object is very special object not a normal obj
+            1st property - Status & 2nd property - Value
+            IOC (In Version of control) -> ??? leads to drawback of CallBack Hell
+            But Promise gives us 100% guarantee atleast returns error msg if something goes wrong
+            But in case of callback if something goes wrong by mistake forgot to callback() this won't return anything as error
+        // 3 Conditions in Status (Glimpse) of Promise:
+            - Pending state (on hold not executed)
+            - Resolved state (successfully finished executed) -> returns Resolved Value
+            - Rejected state -> returns Error Msg
+        //? How to create promise? (Syntax)
+            > Using promise for below eg:-
+                Eg 2:-
+                Promise creation:>
+                    function f1(){
+                    let x = new Promise(function(resolve, reject) {
+                        resolve("Monisha");
+                    });
+
+                    return x; // Promise Object
+                    }
+
+                    let p1 = f1();
+                    console.log(p1); // Promise {'Monisha'}
+
+             //! Reject
+                function f1(){
+                    let x = new Promise(function(resolve, reject) {
+                        reject("Returns any Error Msg");
+                    });
+
+                    return x; // Promise Object
+                }
+
+                let p1 = f1();
+                console.log(p1); // Promise {'Monisha'}
+
+            Eg 3:-
+            Promise after 2s:>
+                function f1(){
+                    let x = new Promise(function(resolve, reject) {
+                        setTimeOut(function() {
+                            resolve("Monisha"); // Resolving Promise after 2 seconds
+                    }, 2000);
+                    });
+
+                    return x; // Promise Object
+                }
+
+                let p1 = f1();
+                console.log(p1); // Promise {<pending>} --> Bcuz this is in pending state.
+        
+        //? How to consume promise
+        In above eg3 Promise after 2s:>
+        .then -> using .then method we can get the value of resolve
+            Eg 4:-
+            function f1(){
+                let x = new Promise(function(resolve, reject) {
+                    resolve("Monisha"); // Resolve value: "Moni"
+                });
+
+                return x; // Promise Object
+                }
+
+                let p1 = f1();
+
+                // I only need my resolve value to return at console not Promise{'Moni'}
+                //? To get resolve value from Promise Object, we will be using .them()
+                // So I need to pass callback function inside .then() method as parameter (value)
+
+
+                p1.then(function(){
+                    console.log(value); // Moni
+                });
+
+                Eg 5:-
+                 function f1(){
+                let x = new Promise(function(resolve, reject) {
+                    setTimeOut(function() {
+                            resolve("Moni"); Resolved Value --> "Moni"
+                    }, 2000);
+                    // Resolving Promise after 2 seconds
+                });
+                return x; // Promise Object
+                }
+                let p1 = f1();
+
+                //TODO: If your promise is in Pending state, we can use .then() method to get Resolve Value
+                //! In case of setTimeOut() --> then method waits until Promise is resolved
+                //! Once it resolved afterwards callback inside the method was executed.
+
+                p1.then(function(value){
+                    console.log(value); // Waits for 2s and then prints "Moni"
+                })
+                
+                let x = p1.then(function(value){
+                    console.log(value); // Waits for 2s and then prints "Moni"
+                })
+                console.log(x); // Promise { <pending> }
+
+                x.then(function(value){
+                    console.log(value); // undefined
+                    // In case you don't return resolved value will be undefined.
+                });
+
+                // Prints return value
+                let x = p1.then(function(value){
+                    console.log(value); // Waits for 2s and then prints "Moni"
+                    return "Abhi";
+                })
+                console.log(x); // Promise { <pending> }
+
+                x.then(function(value){
+                    console.log(value); // ABHI
+                    // In case you don't return resolved value will be undefined.
+                });
+//* Only 1st half promise completed
+
+Day 36 : 03.07.2023 -----------------------------
+Curriculum:
+    - Completing 2nd half promises & Async and await discussion
+    - Let's Talk about OOPS (Object and Class)
+    - Abstraction
+    - Encapsulation
+    - Inheritance is nothing but just Prototype
+    - Prototype Part-1
+
+------------------------------------------------
+
+2nd half promises & Async and await discussion:-
+    Callback Problems:- (Trust Issue)
+          1. Callback Hell
+        🚨2. IOC (In Version of Control)
+    Promise has 2 parameters:
+        1. Status -> Pending status, Resolved status & Rejected status
+        2. Value -> Resolved value/Rejected Value(Error Message)
+        -> Placeholder (Eg:-)
+           > Booked Burger, got recipt of token/counter no/order no  
+           > Proof of payment so customer can wait n relax
+           > Pending State: Waiting for preparation
+           > Resolved State: Delivery
+           > Rejected State: Sorry for ur inconvenience we're shortage of burgers (Error Message)
+        -> How to create Promise?
+        -> How to consume promise value when callback functions throws using .then() method
+        -> Syntax: new keyword with Promise function with resolve & reject parameters
+            function f1(){
+            let p = new Promise(function(resolve, reject){
+                resolve("Monisha");
+                setTimeOut(function(){
+                    resolve("Harshit");
+                }, 2000);
+            });
+            return p;
+            }
+            let q = f1();
+            let z = q.then(function(value){
+                console.log(value);
+            })
+            console.log(q); -> Returns Promise Object
+
+            z.then(function(value){
+                console.log(value);
+            })
+
+            // This is shortcut chaining method used now-a-days in companies
+            //! .then() method is used for getting Resolved value........
+            //! .catch() method is used for getting or handling Rejected value.........
+            f1().then(function(value){
+                console.log(value);
+                // If no return value, it prints undefined.
+                return "Mythili";
+            }).then(function(value){
+                console.log("Resolved value", value);
+            }).catch(function(value){
+                console.log("Catch Error Msg",value);
+            })
+    Create a Promise:-
+        let variable = new Promise(function(resolve, reject){
+            // More n more lines of code
+        })
+    Consume a Promise:-
+       - Using .then() -> To get resolved value & .catch()-> To get rejected value methods
+       - Promise acts as future Placeholder value
+       - Promise is confusing syntatically
+       - So in ECMAScript 8 2017 many faced problem with consuming part (.then()/.catch()). 
+       - So new feature introduced Async & await concept
+       - This helps to simplifying Promise Consuming part 
+    Async & Await
+       - Place async keyword before function keyword Eg:- let a = async () => {};
+       - Place await keyword only within async function only (within scope of async function)
+       - We are using await keyword to pause only our function execution until it get resolved
+       - await keyword won't pause global executions after async function only blocks it's async function lines
+       - Only function scope paused not global scope
+       - f1() function will return you Promise object
+       - If u not return anything from async function, it will return Promise { <pending> }. Promise Object with pending State
+    Fetch API
+        Eg:-
+        async function f1(){
+            let response = await fetch("url");
+            let data = await response.json();
+            console.log(data);
+            return data;
+        }
+        - fetch await and response await returns promise value from promise object 
+        - So first catch it/consume it using .then() & .catch() methods
+        - And use for in loop for json
+
+
+OOPS:
+    Class:-
+        -> Blueprint of Object/real entity
+        -> Class is virtual entity
+        -> Description of object
+        -> Kind of person/human
+        -> Template
+        -> Every properties methods of object a class have
+    Object:-
+        -> Instance of class (real Person)
+        -> Object represents Real Entity
+    Eg:- car is class, Branded cars are object
+    Syntax:-
+    Note:- Always use capital letter in className not mandatory but naming conventions in public
+    class Car{
+        // Constructor(){
+            console.log("Called Constructor");
+        }
+        //Define Properties - variables
+        //Define Methods - function
+    }
+
+    Creation of object:-
+    let alto = new Car(){
+
+    }
+       -> Whenever we create an object with or without assigning it to any variable (everytime of object creation), constructor called everytime.
+       -> Purpose of Constructor:- To initialize an object
+    Eg:-
+    class Car(){
+        // Properties
+        constructor(color, maxSpeed, price){
+            console.log();
+            // Getting is not important
+            this.color = c; // 'this' keyword is every objects we creates. Here alto, i10 etc.
+            this.maxSpeed = mS;
+            this.price = p;
+        -> No need to write function keyword. This method (action) provided to every objects (cars).
+        -> This method can call by anyone cars (objects)
+        // Methods
+        printCarInfo(){
+            console.log("Print Info called -->", this); 
+            consoel.log(this.color);
+            consoel.log(this.maxSpeed);
+            consoel.log(this.price);
+        }
+        }
+    }
+    let alto = new Car("Red", "100km", "Rs400000"); // These cars are real entities(objects).
+    let i10 = new Car("White", "100", "500000");
+
+    console.log(alto);
+    console.log("============="); // Divider
+    console.log(i10);
+    console.log("=============");
+
+    alt0.printCarInfo();
+
+-> Function have properties of Protoype
+-> How can we loop through JSON (Array of Objects) using a for loop?
+   1.
+    for (var i = 0; i < productList.length; i++) {
+        for (var j in productList[i]){
+        console.log(productList[i][j]);
+        }
+    }
+
+   2. Use for...of Loop
+   3. Don't use forEach while fetching using Async & Await as it returns key-value pairs in unorderly manner.
+

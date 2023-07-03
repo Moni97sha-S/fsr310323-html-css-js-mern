@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="./style.css">
-    <!-- <script src="./script.js" type="text/javascript"></script> -->
     <script src="https://kit.fontawesome.com/4de668bd9c.js" crossorigin="anonymous"></script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    
     <title>Music player</title>
 </head>
 <body>
@@ -15,75 +15,74 @@
             <h1>Audio Player</h1>
             <!-- !Player -->
             <div class="player">
-                <audio id="audioPlayer" controls></audio>
+                <audio id="audioPlayer" type="audio/mp3" controls></audio>
                 <!-- *Audio Controls -->
                 <div class="audio-controls">
-                    <button id="prevBtn"><i class="fas fa-backward"></i>&nbsp;Prev</button>
-                    <button id="playBtn"><i class="fas fa-play"></i>&nbsp;Play</button>
-                    <!-- <i class="fas fa-pause"></i> -->
-                    <button id="nextBtn"><i class="fas fa-forward"></i>&nbsp;Next</button>
-                    <button id="popupBtn">Fav songs</button>
+                    <button id="prevBtn" class="btn fas fa-backward">&nbsp; &nbsp;Prev</button>
+                    <button id="playBtn" class="btn fas fa-play">&nbsp; &nbsp;Play</button>
+                    <button id="nextBtn" class="btn fas fa-forward">&nbsp; &nbsp;Next</button>
+                    <button id="popupBtn" class="btn fas fa-heart">&nbsp; &nbsp;Fav songs</button>
                 </div>
             </div>
             
             <!-- ?SONG LIST DATA -->
             <ul id="playlist">
-                <li id="s1" data-src="./songs/song1"><i class="fas fa-music"></i> &nbsp; &nbsp; Song 1</li>
+                <li id="s1" data-src="./songs/song1.mp3"><i class="fas fa-music"></i> &nbsp; &nbsp; Song 1</li>
                 <button id="1" class="fav">💙</button>
 
-                <li id="s2" data-src="./songs/song2"><i class="fas fa-music"></i> &nbsp; &nbsp; Song 2</li>
+                <li id="s2" data-src="./songs/song2.mp3"><i class="fas fa-music"></i> &nbsp; &nbsp; Song 2</li>
                 <button id="2" class="fav">💙</button>
 
-                <li id="s3" data-src="./songs/song3"><i class="fas fa-music"></i> &nbsp; &nbsp; Song 3</li>
+                <li id="s3" data-src="./songs/song3.mp3"><i class="fas fa-music"></i> &nbsp; &nbsp; Song 3</li>
                 <button id="3" class="fav">💙</button>
 
-                <li id="s4" data-src="./songs/song4"><i class="fas fa-music"></i> &nbsp; &nbsp; Song 4</li>
+                <li id="s4" data-src="./songs/song4.mp3"><i class="fas fa-music"></i> &nbsp; &nbsp; Song 4</li>
                 <button id="4" class="fav">💙</button>
 
-                <li id="s5" data-src="./songs/song5"><i class="fas fa-music"></i> &nbsp; &nbsp; Song 5</li>
+                <li id="s5" data-src="./songs/song5.mp3"><i class="fas fa-music"></i> &nbsp; &nbsp; Song 5</li>
                 <button id="5" class="fav">💙</button>
 
-                <li id="s6" data-src="./songs/song6"><i class="fas fa-music"></i> &nbsp; &nbsp; Song 6</li>
+                <li id="s6" data-src="./songs/song6.mp3"><i class="fas fa-music"></i> &nbsp; &nbsp; Song 6</li>
                 <button id="6" class="fav">💙</button>
 
-                <li id="s7" data-src="./songs/song7"><i class="fas fa-music"></i> &nbsp; &nbsp; Song 7</li>
+                <li id="s7" data-src="./songs/song7.mp3"><i class="fas fa-music"></i> &nbsp; &nbsp; Song 7</li>
                 <button id="7" class="fav">💙</button>
 
-                <li id="s8" data-src="./songs/song8"><i class="fas fa-music"></i> &nbsp; &nbsp; Song 8</li>
+                <li id="s8" data-src="./songs/song8.mp3"><i class="fas fa-music"></i> &nbsp; &nbsp; Song 8</li>
                 <button id="8" class="fav">💙</button>
 
-                <li id="s9" data-src="./songs/song9"><i class="fas fa-music"></i> &nbsp; &nbsp; Song 9</li>
+                <li id="s9" data-src="./songs/song9.mp3"><i class="fas fa-music"></i> &nbsp; &nbsp; Song 9</li>
                 <button id="9" class="fav">💙</button>
 
-                <li id="s10" data-src="./songs/song10"><i class="fas fa-music"></i> &nbsp; &nbsp; Song 10</li>
+                <li id="s10" data-src="./songs/song10.mp3"><i class="fas fa-music"></i> &nbsp; &nbsp; Song 10</li>
                 <button id="10" class="fav">💙</button>
 
-                <li id="s11" data-src="./songs/song11"><i class="fas fa-music"></i> &nbsp; &nbsp; Song 11</li>
+                <li id="s11" data-src="./songs/song11.mp3"><i class="fas fa-music"></i> &nbsp; &nbsp; Song 11</li>
                 <button id="11" class="fav">💙</button>
 
-                <li id="s12" data-src="./songs/song12"><i class="fas fa-music"></i> &nbsp; &nbsp; Song 12</li>
+                <li id="s12" data-src="./songs/song12.mp3"><i class="fas fa-music"></i> &nbsp; &nbsp; Song 12</li>
                 <button id="12" class="fav">💙</button>
 
-                <li id="s13" data-src="./songs/song13"><i class="fas fa-music"></i> &nbsp; &nbsp; Song 13</li>
+                <li id="s13" data-src="./songs/song13.mp3"><i class="fas fa-music"></i> &nbsp; &nbsp; Song 13</li>
                 <button id="13" class="fav">💙</button>
 
-                <li id="s14" data-src="./songs/song14"><i class="fas fa-music"></i> &nbsp; &nbsp; Song 14</li>
+                <li id="s14" data-src="./songs/song14.mp3"><i class="fas fa-music"></i> &nbsp; &nbsp; Song 14</li>
                 <button id="14" class="fav">💙</button>
 
-                <li id="s15" data-src="./songs/song15"><i class="fas fa-music"></i> &nbsp; &nbsp; Song 15</li>
+                <li id="s15" data-src="./songs/song15.mp3"><i class="fas fa-music"></i> &nbsp; &nbsp; Song 15</li>
                 <button id="15" class="fav">💙</button>
 
-                <li id="s16" data-src="./songs/song16"><i class="fas fa-music"></i> &nbsp; &nbsp; Song 16</li>
+                <li id="s16" data-src="./songs/song16.mp3"><i class="fas fa-music"></i> &nbsp; &nbsp; Song 16</li>
                 <button id="16" class="fav">💙</button>
 
                 
             </ul>
-            <!-- <div id="popup-overlay">
+            <div id="popup-overlay">
                 <div id="popup-content">
                     <h2>Your Fav. List</h2>
                     <p>No Love</p>
                     <button id="popup-close">Close</button>
-                </div> -->
+                </div>
         </div>  
     </main>
 

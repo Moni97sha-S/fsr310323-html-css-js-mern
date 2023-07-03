@@ -1,10 +1,11 @@
 body {
-    /* background:url('https://i.pinimg.com/originals/c6/c1/1d/c6c11d8ba0b9f26caf0a6a8ee3a3e78e.gif'), linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab); */
-    background: black;
+    background:url('https://i.pinimg.com/originals/c6/c1/1d/c6c11d8ba0b9f26caf0a6a8ee3a3e78e.gif'), linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background: rgb(68, 46, 46);
     background-repeat: no-repeat;
     background-size: cover;
     background-size: 100% 100%;
     height:100vh;
+    font-family:'Times New Roman', Times, serif;
     /* animation: gradient 15s ease infinite;  */
 }
 /* 
@@ -30,7 +31,7 @@ keyframes gradient{
 
 h1{
     color:#fff;
-    background:black;
+    /* background:black; */
     font-family: Arial, sans-serif;
     font-size: 52px;
 }
@@ -46,20 +47,29 @@ h1{
    margin-top:30px;
 }
 
-.audio-controls button{
+.audio-controls button, #popup-close{
     cursor:pointer;
     background-color:mediumpurple;
     color: #fff;
-    font-size: 16px;
+    font-size: 18px;
+    text-align: center;
+    /* font-family: Arial, Helvetica, sans-serif; */
     border:none;
     padding:10px 30px;
     margin: 0 5px;
-    border-radius:17px;
+    border-radius:20px;
     transition: background-color 0.3s ease;
 }
 .audio-controls button:hover{
     background-color: rgb(115, 71, 203);
 }
+
+/* button[value]{
+    color:white;
+    font-size:14px;
+    width:10px;
+    height:10px;
+} */
 
 ul{
     list-style-type: none;
@@ -117,6 +127,44 @@ li span{
     margin-top:12px;
     margin-left:10px;
 }
+
 .fav:hover {
     background-color: rgb(175, 102, 147);
+}
+
+#popup-overlay{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background-color: rgba(0,0,0,0.5) ;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    
+}
+#popup-content{
+    background-color: rgb(7, 131, 240);
+    padding: 30px;
+    border-radius: 20px;
+    /* animation: pop-anm 0.5s */
+    animation-name: pop-anm;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function:ease;
+}
+#popup-close{
+    padding:10px 15px;
+    font-size: 14px;
+    border-radius:10px;   
+}
+@keyframes pop-anm {
+    from{
+        transform: scale(0);
+    }
+    to{
+        transform: scale(1.5);
+    }
+    
 }
