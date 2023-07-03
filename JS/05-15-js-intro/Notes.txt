@@ -2911,7 +2911,22 @@ Curriculum:
         - And use for in loop for json
 
 
-OOPS:
+JS OOPS:
+    > A fundamental feature of OOPS in javascript is its capability to model a problem using real-life objects. To achieve that, we should be able to define real objects and define relationships among them using three principles:
+        1. Association
+            -> It means when 2 objects are unrelated and independent of each othr, then define that relationship as independent of any hierarchy.
+            -> This means none of the objects is sibiling, child or parent of other objects.
+            -> Eg:- In scenario like patient visits a doc, this relationship built through Association.
+        2. Aggregation
+            -> There is ownership in this relationship.
+            -> It holds a parent/child relation.
+            -> Essential property is parent can live without child object & vice versa. (parent/child can exist independently)
+            -> Eg:- An employee (child) works for > 1 depts (parent) in a company. If anyone dept gets removed, the employee still has job n exist in that company.
+        3. Composition
+            -> Special type of Aggregation
+            -> If parent object dies, child object also ceases to exist.
+            -> Precisely, only parent can live without child object but vice versa not true.
+            -> This child can't live without parent object.
     Class:-
         -> Blueprint of Object/real entity
         -> Class is virtual entity
