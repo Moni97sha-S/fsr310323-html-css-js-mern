@@ -149,36 +149,25 @@ favButton.forEach(function (button) {
 //! GetItem Song from LocalStorage & add to popup-Content div tag
 const popupContent = document.getElementById("popup-content");
 const popupOverlay = document.getElementById("popup-overlay");
+const songList = document.getElementById("song-list");
 
 popupButton.addEventListener("click", function(){
     popupOverlay.style.display = "flex";  
     // console.log(Object.keys(localStorage))
     // Object.keys will not fetch in correct order will return in any sequence
-    let keys = Object.keys(localStorage);
     // console.log(keys);
+    let keys = Object.keys(localStorage);
+    songList.innerHTML = "";
+    
     //? Add to DOM on every click event
     keys.forEach((key) => {
-        // console.log(typeof localStorage[key]);
-        // console.log(`${key}: ${localStorage[key]}`);
-        // AddToCart
-        // https://stackoverflow.com/questions/59424119/how-to-remove-or-avoid-duplicate-values-in-localstorage
-        // let arr = JSON.parse(window.localStorage.getItem("itemsLine")) || [];
-        // let value = localStorage[key];
-        // if(arr.indexOf(value) == -1){
-            //     arr.push(value);
-            // window.localStorage.setItem("itemsLine", JSON.stringify(arr));
-            let p = document.createElement("p");
-            console.log(p.innerText !== localStorage[key])
-            if(localStorage.getItem(key) !== p.innerText){
-                // for(let i=0; i<localStorage.length;i++){
-                    let songName = '';
-                    songName = localStorage.getItem(key);
-                    // console.log(songName)
-                    p.innerText = songName;
-                    console.log(p.innerText)
-                    // console.log(typeof p.innerText);
-                    popupContent.insertBefore(p, popupClose);
-            }  
+        let songName = localStorage.getItem(key);
+        let p = document.createElement("p");
+        p.innerText = songName;
+        // console.log(p.innerText)
+        // console.log(typeof p.innerText);
+        songList.appendChild(p);
+        popupContent.insertBefore(songList, popupClose); 
     });
 });
 

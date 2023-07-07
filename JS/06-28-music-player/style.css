@@ -1,6 +1,6 @@
 body {
     background:url('https://i.pinimg.com/originals/c6/c1/1d/c6c11d8ba0b9f26caf0a6a8ee3a3e78e.gif'), linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-    background: rgb(68, 46, 46);
+    /* background: rgb(68, 46, 46); */
     background-repeat: no-repeat;
     background-size: cover;
     background-size: 100% 100%;

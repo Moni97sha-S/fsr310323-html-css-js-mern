@@ -1,0 +1,27 @@
+.record-anm{
+    animation-name: record-anm;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+@keyframes record-anm {
+    from {
+        transform: scale(0.9);
+    }
+    to {
+        transform: scale(1.2);
+    }
+}
+
+.timerContainer{
+    font-size:2rem;
+    color:red;
+    display:inline-block;
+    position:absolute;
+    top:10rem;
+    right:0.3rem;
+    
+     /* To bring timer on top of filter */
+     z-index: 3;
+
+}

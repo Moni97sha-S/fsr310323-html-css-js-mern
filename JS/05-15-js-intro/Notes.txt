@@ -2829,7 +2829,7 @@ Curriculum:
     - Encapsulation
     - Inheritance is nothing but just Prototype
     - Prototype Part-1
-
+For own websites deploy:- render.com (famous for public usage)
 ------------------------------------------------
 
 2nd half promises & Async and await discussion:-
@@ -2937,8 +2937,10 @@ JS OOPS:
     Object:-
         -> Instance of class (real Person)
         -> Object represents Real Entity
+        -> Note: Always use small first letter for object name as it is not mandatory but standard pattern
     Eg:- car is class, Branded cars are object
-    Syntax:-
+
+    Syntax for class:-
     Note:- Always use capital letter in className not mandatory but naming conventions in public
     class Car{
         // Constructor(){
@@ -2993,6 +2995,309 @@ JS OOPS:
         }
     }
 
+Eg from Abhishek batchmate:
+    class Employee {
+        constructor(name, address, salary) //properties
+        {
+            this.name = name;
+            this.address = address;
+            this.salary = salary;
+        }
+
+        EmployeeInfo() //method
+        {
+            console.log(this.name);
+            console.log(this.address);
+            console.log(this.salary);
+        }
+    }
+
+    let en1 = new Employee(“Abhi”, “Banglore”, “50000”)
+    let en2 = new Employee(“Amit”, “varanasi”, “60000”)
+    let en3 = new Employee(“Akash”, “delhi”, “70000”)
+    let en4 = new Employee(“Sunil”, “chennai”, “80000”)
+
+    en1.EmployeeInfo()
+    console.log("..........”)
+    en2.Employeenfo()
+    console.log(“..........”)
+    en3.EmployeeInfo()
+    console.log(“..........”)
+    en4.EmployeeInfo()
+
+
    2. Use for...of Loop
    3. Don't use forEach while fetching using Async & Await as it returns key-value pairs in unorderly manner.
 
+Day 37 : 04.07.2023 -----------------------------
+Curriculum: [Refer Pg 206 in PPT]
+    - OOPS
+    - Encapsulation
+    - Abstraction
+    - Inheritance is nothing but just Prototype
+    - Polymorphism with Overiding
+    - Prototype Part-1 & __proto__
+
+------------------------------------------------
+OOPS:
+    > OOPS is a principle. This principles is for every programming languages.
+    > 4 pillars of this principle.
+        1. Encapsulation
+            > We cannot achieve 100% of encapsulation always. But we try put max effort to achieve by gather maximum.
+            > Bundle (collection) of data(properties inside constructor) & related behavior (methods) into single unit called an Object.
+            > Eg:- Autobiography of Sachin Tendulakar not fully captured some things might be left out.
+            > To achieve 3 things:
+                -> data Privacy (Hiding for security purpose)
+                -> code Organization
+                -> code Reuse
+        2. Abstraction
+            > Process of hiding Unneccessary details and Complexity (tough codes).
+            > Hiding implementations part & exposes functionalities at end-User side.
+            > While exposing only the essential information & functionality
+            > It allows you to work with high-level concepts and simplify the code by encapsulating implementation details.
+            > Eg:- gPay App at user-end just need to install & start use that application.
+            > User will not care about Backend of that app 
+            > Backend details are hidden by developer
+            > This provides only for end-user or other users.
+            > Eg:- API -> Developers just call that data using predefined functions. They no need to know about how thodse predefined functions coded n built.
+          //? How can we get Abstraction?
+                1. Function 🚨📢
+                2. Class and Objects
+                3. Inheritance
+                4. Polymorphism with Overiding   
+
+        3. Inheritance:
+            > Inheritance is nothing but Prototype.
+            > Inheritance means childClass inherits some property from parentClass.
+            > It tells if childClass(derivedClass) has similar properties we can use inheritance by using 'extends' keyword from parentClass(baseClass).
+            > //! super class is used inside child class to call parent constructor. 
+            > Instaed of repeating same properties again n again super class is introduced in childClasses to inherit them from parentClass.
+            > In programming field, ther shld be no repitition of codes as a developer we need to reduce no.of lines of codes. To make it works more efficient.
+            > When we create an object 'doggy', it creates a constructor automatically.
+            > When we use extends, we need to call parent constructor by using super(parentClass PropertNames passed here as aruguments) as we need to exceute those properties inside childClass.
+            > Without super constructor which calls parent construcor & should be at 1st line inside child's constructor, it shows Reference Error: Must call super constructor in derived class before accessing 'this' or returning from derived constructor.
+            > Without passing parent constructor's propertyName inside super() parameters, it shows undefined even u give value for it at object. But we need to atleast call super() otherwise it throws error.
+            > Only childClass can access parentClass's properties but parentClass can't access childClass's properties.
+            > When an object trying to access variables and properties of another object.
+            > Note: Strings & Arrays all get coerced​ into its object equivalent called as wrapper object when we try to access it's built in properties. This is the reason why we use the dot(.) Operator to access them.
+
+        🚨Before learning about Polymorphism, we need to understand Overiding:
+            > U can overide Parent method inside ur Child class 
+            > Eg:- chilClass first checks for f1() in its own class if can't find then only it will check/search in its parent class.
+            > Similar to lexical scope (1st it will check in local scope then in parent scope & then only in global scope). This concept is called Overiding.
+            > Definition: Overiding is a process or mechanism in which we overides with same function name inside the both parentClass & childClass with some different definition.
+        
+        4. Polymorphism:(Many/multiple/different Forms)
+            [Refer 4-poly-overiding.js file]
+            > Poly means "many" & morphism means "form". Polymorphism defined as one name but many form.
+            > polymorphism also called as overriding.
+            > override is the process in which child class also with some definitions
+            > you can override parent method inside your child class.
+            > No one will ask on Polymorphism, they will ask about overiding in interviews.
+            > If we overiding, then we need to change atleast definition part. Otherwise it will be meaningless.
+
+    // Eg 1:-
+    let’s understand with Example of Overiding:-
+    class ParentClass {
+        constructor() {}
+
+        f1() {
+            console.log("Parent f1 is Invoked");
+        }
+    }
+
+    //? You can overide Parent method inside your Child Class → Overide
+
+    class ChildClass extends ParentClass {
+        constructor() {
+            super(); // call your parent constructor
+        };
+        f1() {
+            console.log("Child f1 is Invoked ");
+        }
+    }
+
+    // ChildClass's Object creation
+    let childObject = new ChildClass();
+
+    childObject.f1();
+    // OUTPUT:- Child f1 is Invoked
+
+Till now 50% of Javascript is over. Now we enter into Prototype which is another 50% of Javascript.
+
+Protoype & __proto__: _proto_ is on the object instance, prototype is on the constructor function.
+
+YouTube Link: https://www.youtube.com/watch?v=wstwjQ1yqWQ
+
+(a) Prototype:
+    > Javascript is not truly oops language, JS is protoypical language. JS supports OOPS.
+    > In 2016, ES6 introduced class in JS which are syntactic sugar.
+    > Technically, there is no class in JS, they are both just functions.
+    > Any function can be invoked as a constructor with keyword 'new'.
+    > The prototype property of that function is used for the object to inherit methods from.
+    > Whenever we create/define a [Eg:- 'car'] function, there unnamed object created along with it.
+    > We can access/reference unnamed objects by using prototype. [Eg:- Car.prototype]
+    > Function Car has Prototype & Unnamed Object has constructor
+    > Car -> Prototype -> Unnamed Object [Eg:- Car.prototype represents towards Unnamed object]
+    > Car <- Constructor <- Unnamed Object [Eg:- Car.prototype.constructor represents towards Car function]
+    > We create objects like alto to refer unnamed object by [Eg:- alto.__proto__]
+    > Dot underscore underscore proto underscore underscore can be also called as 'dunder proto'.
+    > When function created, we get prototype as property.
+    > When object created, we get .__proto__ as property.
+    > [Eg:- alto.__proto__.constructor --> class 'Car']
+    > prototype is an Object that get attach to function/method/object and this object has some hidden properties.
+    >
+
+(b) Protype Chaining:
+    let arr = ["Akshay","Aditya"];
+    arr.__proto__ ==> Array.prototype
+    arr.__proto__.__proto__ ==> Array.prototype.__proto__ ==> Object.prototype => object
+    arr.__proto__.__proto__._proto__ => object.__proto__ = null;
+
+
+(c) __proto__:
+
+Day 38 : 0.07.2023 -----------------------------
+Curriculum: 
+    - Prototype Part-1 & __proto__
+    - github
+    - git
+
+
+------------------------------------------------
+
+VCS:
+    > Version Control System
+    > Maintain a version by taking snapshots for tracking them even for every small changes made by each (1000's) developers working in same project in production uses this feature.
+    
+git:
+    > git & github are totally different ones.
+    > First, we need to Install & configuration in our (local system) desktop.
+    > 
+
+github:
+    > Hosting platform which have repositories.
+    > Like Drive
+    > Github to store our code (personal). It is  Microsoft's application
+    > Similar to this, there are gitlab, bigbucket in companies etc.
+  //? How to use this github?
+    > Free using ur email id for account creation.
+  //? How to connect git & github?
+    > Using git commands
+    > Ctrl ++ -> To increase fontSize in git bash
+    > Linux Commands:
+        1. To check where u r: pwd and enter
+        2. To change directory: ls
+        3. To clear git bash command: clear
+        4. In desktop folder, ri8 click and click git bash here
+        5. To create a folder: mkdir New-folder (make directory)
+        6. Space between folder name makes into 2 folders
+        7. To get into New-folder: cd New-folder
+        8. git init -> Initializes empty git repository in C:/Users/naman/DESKTOP/
+        9. ls
+        10. ls -la -> To view hidden files
+        11. Create a file and push that file into github from desktop via git bash.
+        12. ls -> We can view git.txt .
+        13. touch test_git.txt & then ls -> We can view our created file under git.txt
+        14. To check content inside this file -> cat test_git.txt (this file is created using touch)
+        15. Shortcut for 14th point
+        16. To Push 2 files to github account -> git status
+        17. git add git.txt test_git.txt 
+        18. Shortcut for 17th line:- git add .
+        19. git status -> Added both files
+        20. Create another file & type something & then git status
+        21. naman.txt file is untracked file
+        22. To move files from untracked to tracked file -> git add naman.txt
+        23. To view status is it added -> git status
+        24. git commit -m "My 1st commit" -> Message to commit
+        25. git branch -M main -> Master
+        26. (main) git remote add origin https://github.com/LovelyNMTech/text_.git/git
+        27. Push ur code but it asks for github authorization signup: git push -u origin main
+
+        2. README.md
+        2. Copy this link
+
+    Delete a file:-
+        1. ls -> To check what files r there
+        2. git status
+        3. To check what is deleted & modified in one of file -> git diff
+        4. changes not staged for commit -> To push commit into stage area -> git add .
+        5. git status
+        6. git commit -m "deleted test.txt & changed name"
+        Note: Green things are added & red things are removed/modified.
+
+Day 39 : 06.07.2023 -----------------------------
+Curriculum: 
+    - Intro to Project
+    - Feature walkthrough
+    - Building UI for app
+    - Writing Javascript for Record Live Stream and download
+    - Writing Animations and Build Live Timer
+
+
+------------------------------------------------
+Introduction to Project:
+    - We can split this proj into 2 to 3 projects (Resume & Advantage)
+    - We already have a black screen with video record button in red and photo capture button in white.
+    - We will use web browser's powerful functions
+    - Firstly, we need access of both camera and microphone.
+
+Feature Walkthrough:
+    On 06.07.2023 
+    1. Video Play
+    2. Record Audio & Video & download
+    3. StopWatch & Animation
+    On 07.07.2023 
+    1. Capture our own photo & Apply Filter (light Yellow color)
+    On 08.07.2023 
+    1. Save this photo in database (Indexed DB)
+    2. Display on screen & all the recorded videos displays on screen
+    3. When we hover on youTube video, it runs. 
+
+Explanation: 
+    -> Navigator.object (Read Navigator MDN)
+    -> Navigator.mediaDevices:- MediaDevices are camera, microphone etc.
+    -> 1st line gives promise so use .then()
+    -> We will pass stream object to backend and then do something.
+    -> When we initially click recording shld start & again we click stops.
+    -> When recording starts, put your data in chunks. As recording is very large collection of data.
+    -> So we saved data in chunks & there can be stored in chunks somewhere n we start ur recording.
+    -> finally we stops ur recording, these chunks colected and stops.
+    -> When we record.start(), it throws event called start.
+    -> When we record.stop(), it throws event called stop.
+    -> But we get third event too. Whenever one chunk is prepared n available it throws event called dataavailable(chunk). Just push each chunk in array.
+    -> When video stops, Gather all chunks & Merge all video chunks n say this is ur video
+    -> Blob MDN: Binary Large Objects
+    -> Convert this chunk into Blob
+    -> chunk.data is object typeof
+    -> Whenever we start our recording clear old recording and then u will get only current recording in downloaded video.
+
+Building UI for Application:
+
+Writing JS for Record Live Stream and download:
+
+Writing Animations and Build Live Timer:
+    StopWatch:-
+        > Build a timer
+        > 3875 seconds -> H = 3875 / 3600 = 1hr -> 3875 % 3600 = 275secs -> 275 / 60 = 4 mins -> 275 % 60 = 35 secs
+
+Day 40 : 07.07.2023 -----------------------------
+Curriculum: 
+    - Feature walkthrough
+    - Building UI for app
+    - Capture ur photo
+    - Adding Filters
+
+------------------------------------------------
+Feature walkthrough:
+    1. Capture a picture in that fraction of second 
+    2. Adding Filters
+
+Capture a picture:
+    > Canvas API: Focuses on 2D Graphics
+    > Drawing Graphics via Javascript using Canvas
+    > Use this feature to capture ur photo.
+    > Refer (developer.mozilla.org/canvasAPI) Documentation
+
+
+Every feature should develop in different branch. 

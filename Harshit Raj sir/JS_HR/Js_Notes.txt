@@ -1,0 +1,56 @@
+🚨 - Interview Important topics
+🚩 - Note
+❌ - Wrong things to do
+✅ - Right things to do
+
+Day 15 (12.06.2023)----------------------------------------------------------------
+    - Inner Function
+    - Closures (PPT pg 150)
+    - Callbacks
+    -
+    -
+
+-----------------------------------------------------------------------------------
+Inner Function: (Refer 1-inner-func.js file)
+    -> We can define a Function inside another function also. It is also called as Nested function.
+    -> ❌ We should not call inner function from global scope
+    -> If we call inner function will give Reference Error
+    -> ✅ We can call inside f2() as f3() lies inside f2() scope Res:- inside f3()
+
+Before Closures, we need to remember few points.(Unique things which is not using in any other programming langs...)
+    -> We can define a function, call & return a function also.
+    -> We can define a function inside another function
+    -> Instead of calling an inner function, we can return inner function for that we need to declare/grab new variable & assign outerFunc to it.
+    -> Then we can call that new variable as function and so that we able to print whatever inside the both functions.
+
+🚨Closures: [Refer 2-closure.js file]
+  //? From where we r invoking this inner function by call not return
+    -> f(); in line no 74 
+    -> Just name changes for inner function as variable f.
+    -> Inside home we call it as innerFunction & outside the (home) we call it as variable 'f' 
+    -> Actually innerFunction is getting invoked when we call f().
+
+  //? Why it is printing 10 actually it should print undefined or error know
+    -> Actually when we return outerFunction, it gets destroyed. So we cannot access its variables
+    -> Because of closures, somehow it tries to remember its lexical scope.
+    -> Closure Formation: To create this remember thing, there are criterias to make by us.
+        1. A closure is created whenever an inner function reference/access variables from its outer function. In our example, n is not property of inner function actually it is property of outer function(parent/global)
+    -> What is closure?
+        > It doesn't matter which scope we r calling it, it will still remembers what was defined in it's parent function/lexical scope.
+        > Closures allow functions to remember & access variables from outer function(enclosing scope) even it has finished execution
+        > This is one of behavior of Javascript.
+
+  //? How to return f1() from inner function & inner function from outer function?
+    -> Just say return f1() inside inner function & return inner function inside outer function
+    -> And then call after by assigning it to another varaible.
+
+
+[Refer 3-callbacks.js file]
+🚨Callbacks:
+    -> From now while building in any frameworks like ReactJS, NodeJS etc we will use callbacks frequently.
+    -> Eg scenario is How we will download, write lyrics & upload a song in drive?
+        - 1st step: We will decide a song, search that song & download it.
+        - 2nd step: We will write lyrics to that song & upload in Drive.
+    -> These are the steps to do it.
+    -> So all following steps dependent on steps before it & make sure its last step done then only next step starts.
+(01:12:28 recording stopped time)

@@ -1,0 +1,72 @@
+
+
+/* Animation for white btn */
+.capture-anm{
+    animation-name: capture-anm;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+@keyframes capture-anm {
+    from {
+        transform: scale(0.9);
+    }
+    to {
+        transform: scale(1.2);
+    }
+}
+
+/* Filter */
+.filer-container{
+    height: 15rem;
+    width: 5rem;
+    background-color: blue;
+
+    position: absolute;
+
+    /* -> To bring center */
+    top: calc(100vh - 15vh / 2); 
+    left: 3rem;
+    z-index: 2;
+}
+.filter{
+    height: 16rem;
+    /* Image url with white bgd */
+    background-image: url("https://www.photoroom.com/_next/image?url=https://");
+    background-size: 100%, 100%;
+    background-repeat: no-repeat;
+    background-position: cover;
+    border: 1px solid black;
+    background-blend-mode: color-burn;
+    /* When we select on one box our screen becomes that box colour */
+}
+.red{
+    background-color: rgba(255, 0, 0, 0.224);
+}
+.blue{
+    background-color: rgba(0, 0, 255, 0.422);
+}
+.yellow{
+    background-color: rgba(255, 255, 0, 0.42);
+}
+.greem{
+    background-color: rgba(0, 128, 0, 0.317);
+}
+
+/* By default, transparent filter applied */
+.transparent{
+    background-color: transparent;
+}
+.filter-layer{
+    /* To spread all over the screen */
+    position: absolute;
+    top:0;
+    left:0;
+    height: 100vh;
+    width:100vw;
+
+    background-color: rgba(255, 255, 0, 0.464);
+    /*  Now we cannot click on red btns */
+    z-index: 1;
+
+}

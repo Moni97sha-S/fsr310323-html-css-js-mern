@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz-10 OOPS</title>
+    <script>
+        //Q-1 Which statements are true?
+
+        //A) Javascript supports multiple inheritance
+        //B) Javascript supports multi-level inheritance
+        //C) Javascript doed not supports inheritance
+        //D) Javascript supports both multiple and multi-level inheritance
+
+        //Res:- (B) supports multi-level 
+        //Reason:- Inheritance divided into three types: 
+        /* Single Inheritance -> Every class can be extend from one parent class.
+        Multiple Inheritance -> A class can inherit from multiple classes. ES6 doesn’t support multiple inheritance.
+        Multi-level Inheritance -> A class can inherit from another class (via) which inherit from the parent class. */
+        
+        //Q-2 Which statements are true?
+        //A) Keys with non-function values are called Properties
+        //B) Keys with function values are called Methods
+        //C) Classes can be used to create more objects
+        //D) Objects can only be created using classes
+        
+        //Res:- (A), (B) & (C)
+        //Reason:- A JavaScript property is a member of an object that associates a key with a value. A JavaScript object is a data structure that stores a collection of properties.
+        /* A property consists of the following parts:
+            A name (also called a key), which is either a string or a symbol.
+            A value, which can be any JavaScript value. A property that has a function as its value may also be called a method.
+            Some attributes, which specify how the property can be read and written. A property may have the configurable, enumerable, and writable attributes. */
+
+        
+        //Q-3 Every object's proto property to parent class's constructor method. This creates a connection. What is it called?
+
+        //A) Prototype Connection
+        //B) Prototype Link
+        //C) Prototype Flow
+        //D) Prototype Chain
+        
+        //Res:- (D) Prototype Chain
+        //Reason:- Object.__proto__ == arr.__proto__.__proto__._proto__ (arr.__proto__ == Array.prototype; object.__proto__ = null)
+
+        //Q-4 What is the purpose of super method?
+
+        //A) It converts the class to super class
+        //B) It inherits the properties and methods from the parent class
+        //C) It will initialize the parent class
+        //D) It will remove the inheritance
+        
+        //Res:- (C) It will initialize the parent class
+        //Reason:- super() will call parentClass's constructor
+
+        //Q-5 Which statements are true for inheritance?
+
+        //A) Child class inherits all the properties and methods of the parent class
+        //B) Child class inherits all the properties and methods of the parent's parent class
+        //C) Properties of parent class can be accessed inside child class and child class' object.
+        //D) Methods of parent class can be accessed inside child class and child class' object
+        
+        //Res:- (A), (B), (C) & (D)
+        //Reason:-
+        
+        //Q-6 Where does proto method of JavaScript's root/main Object class point to?
+
+        //A) Undefined
+        //B) Empty Object
+        //C) Null
+        //D) None
+        
+        //Res:- (C) Null
+        //Reason:- object.__proto__ == arr.__proto__.__proto__._proto__ (arr.__proto__ == Array.prototype; object.__proto__ = null)
+        
+        //Q-7 Which statements are true for the following line of code?
+        class Student {
+            constructor(fName, lName){
+                this.firstName = fName;
+                this.lastName = lName;
+            }
+        }
+        new Student();
+        //A) New keyword will create an empty object
+        //B) Student() will insert all the properties and methods inside the empty object
+        //C) New keyword will create an object of type Student with all the properties and methods
+        //D) None of the above statements are true 
+        //Res:- (A) & (B)
+        //Reason:-
+        
+        
+        //Q-8 Which keyword is used to inherit a parent class to a child class?
+
+        //A) Inherit
+        //B) Parents
+        //C) Extends
+        //D) None of the above 
+        //Res:- (C) Extends
+        //Reason:- class childClass extends parentClass{}
+        
+        
+        //Q-9 How can you make PUT and DELETE request in jQuery?
+
+        //A) $.put()
+        //B) $.delete()
+        //C) $.ajax(type: "PUT")
+        //D) $.ajax(type: "DELETE")
+        //Res:- (C) & (D)
+        //Reason:- API Call's type can be changed into PUT & DELETE in jQuery
+        
+        
+        //Q-10 How to add a new element as first child to the parent element?
+
+        //A) $.("selector").setFirstChild(newElem)
+        //B) $.("selector").setFirstChildNode(newElem)
+        //C) $.("selector").prepend(newElem)
+        //D) $.("selector").append(newElem)
+        //Res:- (C) $.("selector").prepend(newElem)
+        //Reason:- Always prepend means first child & append means last child in jQuery
+
+        </script>
+</head>
+<body>
+    
+</body>
+</html>
