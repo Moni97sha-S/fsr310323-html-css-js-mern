@@ -3494,6 +3494,12 @@ Node.js & npm Installation & link in VS Code:
     > To check npm installed along with node, type npm --version --> v9.5.1
     > Open ur VS Code & install extension 'Code runner'
     > To run ur JS code in OUTPUT tab instead of Terminal tab, go to Manage at left panel in VS code and then inside settings search bar type "runinterminal" and then uncheck. And then close & open VS code app to restart it. Now it will run in output tab neatly.
+    > We should not try to run DOM code in this output tab as they are browser things.
+    > 📌📢Remember runTime discussion of Harshit sir's:
+        - Node.js runtime do not have this document.
+        - This document object present only in browser runtime.
+        - Should not try to access this document object in node environment
+        - Document is part of javascript, it is part of web APIs.
 
 Day 39 : 06.07.2023 -----------------------------
 Curriculum: 
