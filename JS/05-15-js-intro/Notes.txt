@@ -3298,6 +3298,105 @@ Capture a picture:
     > Drawing Graphics via Javascript using Canvas
     > Use this feature to capture ur photo.
     > Refer (developer.mozilla.org/canvasAPI) Documentation
-
+    > From DOM, we used getComputedStyle method to set the style
 
 Every feature should develop in different branch. 
+
+Day 41 : 08.07.2023 -----------------------------
+Curriculum: 
+    - Feature Walkthrough/Agenda
+    - Storing our Recorded Stream Video in Database IndexDB
+        -> Exploring Databases - IndexDB
+        -> Recording a Video & Save into Database
+        -> Get videos from Database
+------------------------------------------------
+
+ Storing our Recorded Stream Video in Database IndexDB:
+    > Using Canvas, we can build MS paint in Windows/Excalidraw/whiteNotebook in Mac feature also someday we will build.
+    1. What is database?
+        - Helps with storing data in the database
+        - As backend engineer, we work with the databases like MongoDB, postgres, AWS s3, MySQL.
+    * IndexDB
+        - Object to store complex things
+        - Really powerful than LocalStorage (10 Mb) & SessionStorage(5 Mb).
+        - More capacity than 5 & 10 Mb
+        - Locaal & SessionStorage are kind of databases.
+        - This database is frontEnd database. Rarely we use to store photos & videos as Backend engineer.
+    //! Important Concept
+        - This is for all fully fledged of databases.
+        - Transaction   
+            -> Eg:- Person A & person B 
+            -> A want to share Rs200 to B
+            -> It was about to reach due to internet disconnection, it breaks.
+            -> Sometimes we sent money in gPay but not received by receiver.
+            -> Where that money gone?
+            -> Principle: Either completes fully ur pure transaction or not even started transaction.
+            -> From computer science background ACID: Atomicity, Consistency, Isolation & Durability.
+        - Refer IndexedDB MDN:
+            -> Low-level API
+            -> 
+            -> Transactional database system like SQL RDBMS system
+        - Make use of any Database
+            -> Open database
+            -> Initialize your database
+            -> Create tables in MySql, Documents & Collections in MongoDB like that in IndexedDB we have Object Store
+            -> Let's Create seperate file for ur database
+            -> When we try to open database only from 1st time, it will automatically upgrades & then opens. Afterwards it will just open.
+            -> As it throws DOMException, ObjectCloneError in that case due to hardcoded same id.
+            -> To creat unique id, we use uuid cdn links dist from cdnjs
+
+On Day 29 : 26.06.2023 (call & apply taught):
+    Bind:-
+        > assign it to functionName & then call functionName
+        > bind() method:- When we want to create a new function with specific to this context use bind. 
+        > And we can call whenever we need it. We can use it later as well.
+        > Problem with call & apply, it will return immediately or nothing.
+    
+    Coersion:-
+        > Automatic conversion of values from one data type to another.
+        > It can be manual also.
+    2 types of coersion:-
+        1. Explicit Coersion
+            -> Converting type using Built-in functions
+            Eg:- let num = "42";
+                 console.log(typeof num); // string
+                 num = Number(num);
+                 console.log(typeof num); // number
+
+        2. Implicit Coersion
+            -> Javascript converts automatically.
+            Eg 1 :- let num = "42";
+                    let s = "this is my name" + num;
+                    console.log(s);
+                    console.log(typeof s); // string
+                    // string - number ----> number (Substracts)
+
+            Eg 2 :- let num = "42";
+                    let result = "42" - 34;
+            Eg 3 :- let num = "42";
+                    let result = "42" + 34;
+                    console.log(result); // 4234
+                    console.log(typeof result); // string
+                    // string + number ----> string 
+                    // string tries to concatinate only either operand have string type
+            Eg 4 :- let num = "42";
+                    let res = "4" * '4';
+                    //JS try to convert Number("4") * Number('4')
+                    console.log(res); //16
+            Eg 5 :- let s1 = "10" + { name: "moni" };
+                    // JS try to "10" + toString({ name: "moni" })
+                    // => 10[object Object]
+                    console.log(s1);
+            Eg 6 :- let s2 = "10" - { name: "moni" };
+                    // JS try to "10" + toString({ name: "moni" })
+                    // JS try to Number("10") + Number([object Object])
+                    console.log(s2); // NaN
+            Eg 7 :- let arr1 = 10 + [10, 20, 30];
+                    // JS tries toString([10, 20, 30]) on array, object etc.
+                    // 10 + "10,20,30" ---> 1010,20,30
+                    console.log(arr1); // 1010,20,30
+            Eg 7 :- let arr1 = 10 - [10, 20, 30];
+                    // JS tries toString([10, 20, 30]) on array, object etc.
+                    // "10,20,30" ---> Cannot 
+                    console.log(arr1); // NaN
+
