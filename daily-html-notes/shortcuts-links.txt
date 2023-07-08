@@ -18,7 +18,9 @@ https://docs.google.com/presentation/d/1Mp-Sver-5SLI5YpKD3-oJd_JfcEwCKKFzPgi60Pe
 
 JS PPT (HarshitRaj): 
 {[Guru of HR is Kyle simpson best JS author of "You do not know (YDJS)"]
-https://github.com/getify/You-Dont-Know-JS/blob/1st-ed/README.md }
+https://github.com/getify/You-Dont-Know-JS/blob/1st-ed/README.md, 
+[Documentation link for coersion] https://262.ecma-international.org/10.0/ }
+
 https://docs.google.com/presentation/d/18filyiHB3bKs4MJZ4m0PX3vWm7Dv7wrsV1UvvhcGy_4/edit?pli=1#slide=id.g20a15d1d7d2_0_50
 
 CSS Notes links:

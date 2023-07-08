@@ -3157,74 +3157,343 @@ YouTube Link: https://www.youtube.com/watch?v=wstwjQ1yqWQ
 
 (c) __proto__:
 
-Day 38 : 0.07.2023 -----------------------------
+Day 38 : 05.07.2023 -----------------------------
 Curriculum: 
-    - Prototype Part-1 & __proto__
+    - Prototype Part-3 & __proto__
     - github
-    - git
-
+    - VCS
+    - git Installation & Configuration
+    - node.js & npm Installation & link in VS Code:
 
 ------------------------------------------------
+Protoype:
+    > Classes are Syntactical sugar in Javascript and it was intriducesin ECMAScript 2015/2016
+    > But this classes also have prototype but this is very tricky to understand 
+    > But in Interviews, they will ask about this prototype only as this is ur core JS concept.
+    > When u create any function Car, we also get a property called Protoype & creates unnamed object.
+    > Using Car.Prototype property, we can refer and access unnamed object & we can create a new function of class Car.
+    > When we create any object like alto & bMW, we get __proto__ property.
+    > Now we use alto.__proto__ to access unnamed object
+    > When we can create a new function printInfo() of class Car using Class.prototype & obj1.__proto__ properties. 
+    > This function will reside inside unnamed object. So we can call it like alto.printInfo() or Car.protoype also.
+
+    Eg:- function Car(name, price){ // [Refer 6-prototype-function.js file]
+            this.name = name;
+            this.price = price;
+         }
+         let alto = new Car("Alto", 400000);
+         let bmw5 = new Car("BMW X1", 5000000);
+         Car.prototype.printInfo = function () {
+            console.log("Name == ", this.name);
+            console.log("Price == ", this.price);
+         }
+
+         Car.prototype.greetInfo = function () {
+            console.log("Happy");
+            console.log("Sad");
+         }
+         alto.__proto__.f1 = function () {
+            console.log("Inside f1 function");
+         }
+         bmw5.__proto__.f1 = function () {
+            console.log("Inside f1 function");
+         }
+
+        alto.printInfo();
+        bmw5.printInfo();
+
+        alto.greetInfo();
+        bmw5.greetInfo(); // Possible
+
+        alto.f1();
+        bmw5.f1();
+
+        if(Car.prototype == alto.__proto__){
+            console.log("Yes, they are same --> Unnamed object");
+        } // This condition is true so this line gets printed.
+
+        if(Car.prototype == bmw5.__proto__){
+            console.log("Yes, they are same --> Unnamed object");
+        } 
+
+    > So finally while we creating a function, get prototype & using this prototype can access unnamed object.
+    > How u access unnamed object?
+        - Function.prototype: functionName like Car.prototype 
+        - Object.prototype: objectName like alto.__proto__
+    > Using both we can create function inside unnamed object too. And we access them normally.
+    > Why this unnamed object & its purpose?
+        - To store something like functions inside unnamed object.
+    > Which way is better way to access unnamed object?
+        - As per industry standard, we always use prototype way/method only. 
+        - We never use __proto__ way/method which actually confuses us.
+
+🚨  > Interview Question from Prototype:
+        -> Under Browser's console, let's create an object.
+        -> let s = {name: "Monisha"}; and press Enter. We get undefined.
+        -> s // type s to print on console
+        -> We get our key-value pair along with [[Prototype]]: Object
+        -> [[Prototype]]: Object consists of all functions of prototype like hasOwnProperty, toString, valueOf() etc.
+        -> Let's expand one of them like toString(). Again we have prototype inside it with methods like apply, call, bind etc. 
+        -> And then expand again we get same functions/methods/properties.
+        -> Along with it we got get __proto__: f __proto__(). Let's expand it.
+        -> Everything is linked with everyotherthing in Javascript.
+        -> This is called as Prototype Chaining
+        -> If we again start this expanding process from 1st [[Prototype]]: Object expanded.
+        -> Then let's expand __proto__: (...) click on spread operator (...), we will get 'Object'.
+        -> Then again expand __proto__: Object, we get another __proto__:(...)
+        -> Let's click on spread operator (...), now we will get 'null'.
+        -> So finally s if we expand __proto__, which refers to Object and then null prototype chain ends. 
+        -> There is something called as capital 'O' Objects
+
+    // On browser console, if we type String.
+    // It gives f String() { [native code] }
+        -> There is nothing called as class in JS. So everyting is internally, they are functions.
+        -> How we register / assign / store our functions inside unnamed object of function Car.
+        -> Similarly developers registered / assign / store predefined functions inside unnamed object of function String, Array etc.
+        -> To check we console.log(String.prototype) and see if toString(), toLowerCase() etc. r thr.
+        -> We can see what is inside String's unnamed object by String.prototype
+    // Now we register our own function inside String.prototype
+        let n = "Monisha";
+        String.prototype.isMythili = function () {
+            console.log("Yes, Mythili is Monisha");
+        }
+        n.toUpperCase(); // Only Returns your string's upper case
+        console.log(n.toUpperCase()); // To print your string's upper case
+        n.toLowerCase(); // Only Returns your string's lower case
+        console.log(n.toLowerCase()); // To print your string's upper case
+        n.isMythili(); // This prints by logging string inside this function at console
+
+        console.log(String.prototype); 
+    // In your node environment, it will not show up in the console.
+    // But in your browser, it will show up in the console. If we type String.prototype
+
+🚨📢🚩 Interviewer asks you to build your own function in string/Array?
+    Answers:
+    Eg1:-    
+        let m = "KEERTHI";
+
+        String.prototype.isKeerthi = function () {
+            console.log(this.valueOf());
+        }
+
+        m.isKeerthi(); //KEERTHI
+
+    Eg2:- To register your own function in String use String.prototype
+        let u = "Raji";
+
+        String.prototype.isRaji = function () {
+            if(this.valueOf() == "Raji"){
+                return true;
+            } else {
+                return false;
+            }
+        };
+
+        console.log(u.isRaji()); //true
+> Capital 'S' is your function name
+
+🚨Two questions under topic Protoype:-`
+`1) What happens when function created?
+Ans:-  When you create a function, unnamed object & property name called "Prototype" are also created. And we can access that unnamed object using functionName.prototype & we can access unnamed object using objectName if we have created objects for that function.
+From Below Example :- Car.prototype or Alto.__proto__ both refers to unnamed object of Car function
+
+2) What happens when object created from that function?
+Ans:- When we create object from that function, we also get property called as __proto__. And we can access that functions unnamed object using objName.__proto__`
+    
+Git:
+    > git & github are totally different terms.
+    > When u work on a project, only u will not develop entire thing.
+    > U will work alongwith 10/100/1000's developers work on same project.
+    > Among them u will only develop few features of that project.
+    > U need something that can track whatever changes made by any of teammate of that project
+    > What newly added/changes/updations/removing all those things tracked by VCS.
+    > Git is a version control tool.
+    > First, we need to Install & configuration in our (local system) desktop.
 
 VCS:
     > Version Control System
-    > Maintain a version by taking snapshots for tracking them even for every small changes made by each (1000's) developers working in same project in production uses this feature.
-    
-git:
-    > git & github are totally different ones.
-    > First, we need to Install & configuration in our (local system) desktop.
-    > 
+    > Maintain a version for every changes by taking/create snapshots & tracking them(What/Who/When/How) even for every small changes made by each (1000's) developers working in same project in production uses this feature.
+    > Let's say we made a feature in 2023 & we rolled out that feature to production. Now everyone using this feature. 
+    > After sept month, we feel this feature is not good so we bag / delete this feature. Again we need that feature in December month
+    > Now we need same feature in the production lane. So we will not copy & paste / code again & again from scratch.
+    > Now VCS comes into picture, if we use VCS this saved deleted feature somewhere. We can grab same feature again from VCS.
+    > And launch in our current project by merging into production lane.
+    > Conclusion: VCS helpful to track whatever cahnges made & we can again retrieve it.
 
-github:
-    > Hosting platform which have repositories.
-    > Like Drive
-    > Github to store our code (personal). It is  Microsoft's application
-    > Similar to this, there are gitlab, bigbucket in companies etc.
+Github:
+    > Hosting platform to just store ur built code in which we have repositories to showcase it to ur recruitor.
+    > Github to store our code (personal). It is product of Microsoft's which owns this application
+    > For company projects, we use gitlab.
+    > Similar to Google Drive etc. --> are gitlab, bigbucket in companies etc.
+    > So gitHub, gitLab or BigBucket etc. which we use depends on usage but under long technology VCS --> Git only never changes
+    > We use Git in our local system but to push our code, save our code somewhere, we need to use either GitLab/GitHub etc.
+  
   //? How to use this github?
-    > Free using ur email id for account creation.
+    > Free using ur email id for GITHUB account creation.
+  
   //? How to connect git & github?
+    > We created a repository(kind of Folder) in Github.
+    > Now we want this repository in our local system.
+    > For that we have to go to gitbash.
+    > If we truly want to understand how to use git to run command, we also need to learn some linux commands.
+    > To use in command prompt 
+
+Git Installation & Configuration:
+  1.Installation:-
+    > Go to Git Download (website: git-scm.com/downloads)
+    > For Windows Setup, 64-bit (Standalone Installer)
+  2.Configuration:-
     > Using git commands
     > Ctrl ++ -> To increase fontSize in git bash
     > Linux Commands:
         1. To check where u r: pwd and enter
-        2. To change directory: ls
-        3. To clear git bash command: clear
-        4. In desktop folder, ri8 click and click git bash here
+        2. To check (what r the files inside ur folders Eg:- Desktop): type 'ls' means list
+        3. To change directory: Go to any folder in any drive like Desktop & right click then select 'Git Bash Here'
+        4. To clear git bash command: clear
         5. To create a folder: mkdir New-folder (make directory)
-        6. Space between folder name makes into 2 folders
-        7. To get into New-folder: cd New-folder
-        8. git init -> Initializes empty git repository in C:/Users/naman/DESKTOP/
+        6. Space between folder name makes a folder into 2 folders
+        7. To get into New-folder: cd New-folder [cd means Change Directory]
+        8. git init -> Initialized empty git repository in C:/Users/naman/DESKTOP/New-folder/.git/
         9. ls
-        10. ls -la -> To view hidden files
-        11. Create a file and push that file into github from desktop via git bash.
-        12. ls -> We can view git.txt .
-        13. touch test_git.txt & then ls -> We can view our created file under git.txt
+        10. ls -la -> To view hidden files uses dot things ./ ../ .git
+❌'git add README.md' -> When we tried to add README.md file into git, it says fatal: pathspec 'README.md' did not match any files.
+        11. Cloning:- So we need to Create a file and push that file into github from desktop via git bash.
+        12. ls -> We can view git.txt inside New-folder from GitBash Command Prompt.
+To Create a file, we use touch command.
+        13. 'touch test_git.txt' & then 'ls' -> We can view our created file in New-folder -> git.txt test_git.txt (2)files.
+To Add a file, we use 'add' command.
+To check content inside a text file, we use 'cat' command.
         14. To check content inside this file -> cat test_git.txt (this file is created using touch)
-        15. Shortcut for 14th point
-        16. To Push 2 files to github account -> git status
+        15. Shortcut for 14th point: 'cat te' & then press ur Tab key
+        16. To Push 2 files to github account -> 'git status' -> On branch master -> No commits yet
+            16.1 Untracked files: (use "git add <file>..." to include in what will be committed)
+                    git.txt
+                    test_git.txt
+                nothing added to commit but untracked files present (use "git add" to track)
+            (a) First we need to add this 2 files into staging area
         17. git add git.txt test_git.txt 
-        18. Shortcut for 17th line:- git add .
+        18. Shortcut for 17th line:- 'git add .' in order to add more no.of files at same time.
         19. git status -> Added both files
+        19.1 On branch master -> No commits yet -> Changes to be committed: (use "git rm --cached <file>..." to unstage)
+             new file: git.txt
+             new file: test_git.txt
+             [From red to green] --> Red means not added/deleted, green means added/updated
         20. Create another file & type something & then git status
-        21. naman.txt file is untracked file
+        21. New 'naman.txt' file is untracked file
         22. To move files from untracked to tracked file -> git add naman.txt
-        23. To view status is it added -> git status
-        24. git commit -m "My 1st commit" -> Message to commit
-        25. git branch -M main -> Master
+        23. To view status is it added -> git status (All are getting tracked)
+'git add .' --> Just putting ur files from your local space to the staging space
+Staging space means we are placing our local files which are inside from untracked area to tracked area.
+🚩Now we create a snapshot which means commit. 
+Unless until we do not commit, these changes will not be saved in order to track. But it is getting tracked currently.
+        24. 'git commit -m "My 1st commit"' -> Message to commit
+[master (root commit) c5c9c2f] My 1st commit
+3 files changed, 3 insertions(+)
+crate mode 100644 git.txt
+crate mode 100644 naman.txt
+crate mode 100644 test_git.txt
+        25. 'git branch -M main' -> Changes branch from master to main
+We cannot push just somewhere, we need to push inside correct repo for that we need to give Correct URL.
         26. (main) git remote add origin https://github.com/LovelyNMTech/text_.git/git
-        27. Push ur code but it asks for github authorization signup: git push -u origin main
+        27. Push ur code from local system to github but it asks for github authorization signup: 'git push -u origin main'
+        27.1 info: please complete authorization in your browser...
+             Enumerating objects: 5, done.
+             Counting objects: 100% (5/5), done.
+             Delta compression using up to 4 threads
+             Compressing objects: 100% (2/2), done.
+             Writing objects: 100% (5/5), 395 bytes | 28.00 KiB/s, done.
+             Total 5 (delta 0), reused 0 (delta 0), pack reused 0
+             To https://github.com/Moni97sha-S/test_git.git
+              * [new branch]   main -> main
+             branch 'main' set up to track 'origin/main'.
+For 1st time, we need to tell Github userName and password for it to identify which user pushing their code into their account using GitBash. So we need to Sign In with Browser and give ur authorization details like password after it automatically finds ur userName.
+At 01:48:19 --> Time Stamp
+Now go to GitHub account on web browser and click at top-left corner 'text_git' beside ur profile name.
+Now we able to see all 3 files pushed into GitHub from local system with who has committed, commit message and commit time.
 
-        2. README.md
-        2. Copy this link
-
-    Delete a file:-
-        1. ls -> To check what files r there
+    Delete a file from GitBash Command Prompt:-
+        1. ls -> To check what files r there inside ur directory folder. Here all 3 files showed up.
         2. git status
         3. To check what is deleted & modified in one of file -> git diff
         4. changes not staged for commit -> To push commit into stage area -> git add .
         5. git status
-        6. git commit -m "deleted test.txt & changed name"
+        5.1 On branch main
+            Your branch is up to date with 'origin/main'.
+            nothing to commit, working tree clean
+These branch things we will come to know while building projects.
+After deletind a file from explorer and change content of another file. Type 'git status'
+        On branch main
+            Your branch is up to date with 'origin/main'.
+            Changes not staged for commit:
+                (use "git add/rm <file>..." to update what will be committed)
+                (use "git restore <file>..." to discard changes in working directory)
+                    modified: Monisha.txt
+                    deleted: git.txt
+                no changes added to commit (use "git add" and/or "git commit -a")
+        6. 'git diff' --> This command tells us what content is modified within our modified file.
+        6.1 diff --git a/git.txt b/git.txt
+            deleted file mode 100644
+            index c1ccf82..0000000
+            --- a/git.txt
+            +++ /dev/null
+            @@ -1 +0,0 @@
+            -we are learning git from this. (Removed content by Deleted that file )
+            \No newline at end of file
+            diff --git a/naman.txt b/naman.txt
+            index 47132af..5115f36 100644
+            --- a/naman.txt
+            +++ b/naman.txt
+            @@ -1 +1,0 @@
+            -my name is Naman. --> Red Color (Removed name)
+            \No newline at end of file
+            +my name is Harshit. --> Green Color (Changed name)
+            \No newline at end of file
+        7. 'git status'
+        7.1 On branch main
+            Your branch is up to date with 'origin/main'.
+            Changes not staged for commit:
+                (use "git add/rm <file>..." to update what will be committed)
+                (use "git restore <file>..." to discard changes in working directory)
+                    modified: Monisha.txt (Red Color)
+                    deleted: git.txt (Red Color)
+                no changes added to commit (use "git add" and/or "git commit -a")
+To push the changes from local to stage area, we need to use 'git add .' command
+        7.1 On branch main
+            Your branch is up to date with 'origin/main'.
+            Changes to be committed:
+                (use "git restore --staged <file>..." to unstage)
+                    modified: Monisha.txt (Green Color)
+                    deleted: git.txt (Green Color)
+                no changes added to commit (use "git add" and/or "git commit -a")
+Now we can commit this one.
+        8. git commit -m "deleted git.txt & changed name in naman.txt"
+        8.1 [main ccbe51b] deleted git.txt & changed name in naman.txt
+            2 files changed, 1 insertion(+), 2 deletions(-)
+            delete mode 100644 git.txt
         Note: Green things are added & red things are removed/modified.
+Now we don't need to remote add (Only at initial stage we need to code it).
+Now we are ready to push the code into github.
+        9. 'git push -u origin main' command to push into github.
+        9.1 Enumerating objects: 5, done.
+             Counting objects: 100% (5/5), done.
+             Delta compression using up to 4 threads
+             Compressing objects: 100% (2/2), done.
+             Writing objects: 100% (5/5), 341 bytes | 42.00 KiB/s, done.
+             Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+             To https://github.com/Moni97sha-S/test_git.git
+              c5c9c2f..ccbe51b   main -> main
+             branch 'main' set up to track 'origin/main'.
+Finally it didn't ask us to authorize to give password.
+Now if we see 2 commits in the Github account file page, click on it.
+We can see list of changes and removed files here. (When we click on each file name we see things in red & green)
+
+Node.js & npm Installation & link in VS Code:
+    > In browser, type "node download" of 18 version for LTS(Long Term Support) for Windows Setup .msi file.
+    > Now in command prompt (cmd black screen), check if node installed or not.
+    > node --version ---> v18.16.1
+    > To check npm installed along with node, type npm --version --> v9.5.1
+    > Open ur VS Code & install extension 'Code runner'
+    > To run ur JS code in OUTPUT tab instead of Terminal tab, go to Manage at left panel in VS code and then inside settings search bar type "runinterminal" and then uncheck. And then close & open VS code app to restart it. Now it will run in output tab neatly.
 
 Day 39 : 06.07.2023 -----------------------------
 Curriculum: 
