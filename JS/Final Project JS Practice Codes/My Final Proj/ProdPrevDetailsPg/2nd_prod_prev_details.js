@@ -1,7 +1,7 @@
-if (localStorage.getItem("cart_number") != null) {
-    $("#cart-count").html(localStorage.getItem("cart_number"));
+if (localStorage.getItem("cartNumber") != null) {
+    $("#cartCount").html(localStorage.getItem("cartNumber"));
   } else {
-    $("#cart-count").html("0");
+    $("#cartCount").html("0");
   }
 
 $(document).ready(function () {

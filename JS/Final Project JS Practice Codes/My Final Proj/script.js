@@ -128,7 +128,7 @@ $(document).ready(function (){
     }
     for(let k = 0; k < response.length; k++) {
       $("#image" + k).click(function () {
-        console.log('Clciked');
+        console.log('Clicked');
       });
     }
   });

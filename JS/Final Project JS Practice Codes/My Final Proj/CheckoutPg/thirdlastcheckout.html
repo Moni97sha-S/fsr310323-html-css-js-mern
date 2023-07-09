@@ -19,7 +19,6 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../style.css" type="text/css" />
-    <link rel="stylesheet" href="../ProdPrevDetailsPg/2nd_prod_prev_details.css" type="text/css" />
     <link rel="stylesheet" href="./thirdcheckout.css" type="text/css" />
     <title>CheckOut Page</title>
 </head>
@@ -28,14 +27,14 @@
         <nav class="headerFlex">
             <div class="leftHeader">
                 <div class="logo">
-                    <a href="#">
+                    <a href="../index.html">
                         <span>SHOP</span>
                         LANE
                     </a>
                 </div>
                 <ul>
-                    <li><a href="#clothingSection">CLOTHING</a></li>
-                    <li><a href="#accessoriesSection">ACCESSORIES</a></li>
+                    <li><a href="../index.html#clothingSection">CLOTHING</a></li>
+                    <li><a href="../index.html#accessoriesSection">ACCESSORIES</a></li>
                 </ul>
             </div>
             <div class="search">
@@ -45,8 +44,7 @@
             <div class="rightHeader">
                 <div class="cart">
                     <p id="cartCount">0</p>
-                    <!-- ./CheckoutPg/thirdlastcheckout.html -->
-                    <a href="#" class="addToCart"><i class="fas fa-shopping-cart cart-size"></i></a>
+                    <a href="./thirdlastcheckout.html" class="addToCart"><i class="fas fa-shopping-cart cart-size"></i></a>
                 </div>
                 <div class="profile">
                     <i class="fas fa-user-circle"></i>
@@ -62,14 +60,15 @@
             <div id="cartList">
                 <h3 class="section-heading">
                     Total Items:
-                    <span id="cartItems"></span>0</h3>
+                    <span id="countItems">0</span>
+                </h3>
             </div>
+            <section>
+                <h3 class="section-heading">Total Amount</h3>
+                <p>Amount: Rs<span id="totalAmount">&nbsp;0</span></p>
+                <a href="../OrderConfirmationPg/orderplaced.html"><button class="placeOrder">Place Order</button></a>
+            </section>
         </div>
-        <section>
-            <h3 class="section-heading"></h3>
-            <p>Amount: Rs<span id="totalAmount">0</span></p>
-            <a href="#"><button id="addToCartBtn" class="placeOrder">Place Order</button></a>
-        </section>
     </main>
 
     <img id="edyodaLogo" src="https://i.imgur.com/OKAY6Fl.png" alt="Edyoda Projects Logo">
