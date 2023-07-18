@@ -104,7 +104,7 @@ $(document).ready(function () {
           clothing_desc.append(clothing_brand);
           clothing_desc.append(clothing_rate);
         } else {
-          var link = $("<a>").attr("href", "./product_page.html?p=" + m);
+          var link = $("<a>").attr("href", "../productDetailsPrev/product_page.html?p=" + m);
           var img = $("<img>")
             .addClass("images_clothing")
             .attr("src", x.preview);

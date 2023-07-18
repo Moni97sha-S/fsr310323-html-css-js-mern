@@ -1,0 +1,20 @@
+Day 41 : 10.07.2023 -----------------------------
+Curriculum: - DSA Basics - Linear DS - Arrays -
+
+---
+
+Data Science and Algorithms:- > In scenario like an aeroplane from Delhi to Mumbai, how much data it produces? 120Tb approx. > Manage, Organize & Manipulate data efficiently.
+Why DS is important?
+
+> To store & retrieve ur data efficiently/effectively.
+> When we throw/dump(store) things randomly in a container, they become unorganized data. So it takes more (5 mins) of time for us to retrieve a data from it.
+> If he arranged in an organized/managed manner, it takes very few seconds to retrieve a data from it.
+> Let's say we have 100Tb of data. To retrieve data from DB takes 1 hour/1 month of time, if we stored in unorganized manner. > Store: Get, delete & Update.
+> Data Structures divided into 2 parts:- 1. Linear DS: Arrays, Linked Lists, Stack & Queues 2. Non-linear DS: Trees & Graphs
+> Non-Sequential Manner: - Store data in some hirarchical things
+> Linear (4 types): - Organize data in a sequential manner where each element has a direct predecessor & successor. - Straight / Linear/Revolving motion (travelling in a direction) > Stack - Call Stack from JS engine & LIFO rule (Last In First Out)
+> Queues - Call Queues from JS runtime & (First In First Out) > Linked List
+> Arrays + (Map, Filter, forEach, Reduce, Every & Sum methods of array function):-
+> -> 4 ways:
+> -> Insert, get, update & delete data.
+> -> Whatever we do in Internet, we do above either of 4 things. > Arrays:- - It is a fundamental ds that stores in a sequence of elements. - From left to right (index 0) in array. (1-Dimensional data) - Block of memory: When we combine every block of memory, it becomes final memory. - Contiguos - Indexing based system (0 based index) - To get last index:- (arr.length - 1)

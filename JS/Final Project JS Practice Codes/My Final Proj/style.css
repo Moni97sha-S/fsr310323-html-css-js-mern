@@ -20,16 +20,18 @@ color:black;
 nav.headerFlex{
     width:100%;
     display:flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    padding:8px 8%;
+    padding:15px 0;
     background-color: white;
-    box-shadow: 0 2px 5px #ccc;
+    box-shadow: 2px 4px 2px rgba(15, 12, 14, 0.6);
     position:fixed;
     top:0;
     left:0;
-    z-index:10;
+    z-index:50;
     box-sizing:border-box;
+    /* margin-top: -10vh; */
+    /* min-height: 8vh; */
 }
 .leftHeader{
     display: inline-flex;
@@ -44,7 +46,7 @@ nav.headerFlex{
     margin-right:16px;
 }
 
-.logo>a{
+.logo > a{
     font-weight:400;
     cursor:pointer;
     display:flex;
@@ -54,23 +56,38 @@ nav.headerFlex{
     font-weight: 800;
 }
 ul{
-    margin-left:14px;
-}
-li{
-    display:inline-block;
+    /* width: 30%; */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     list-style-type: none;
-    margin-left: 32px;
+    /* padding-top: 7px; */
 }
-li > a{
+.navLinks li{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* margin-top: 25px; */
+}
+.navLinks li > a{
+    margin-left:10px;
     font-weight:600;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    flex-wrap: nowrap;
+    transition: all 0.2s;
 }
+.navLinks li > a:hover{
+    color: #009688;
 
+}
 .search{
     width:100%;
     max-width:400px;
     position:relative;
 }
 .search > i{
+    /*  */
     position: absolute;
     color:#999;
     font-size: 18px;
@@ -93,6 +110,7 @@ li > a{
     flex-direction: row;
     justify-content: end;
     align-items: center;
+    position: relative;
     /* margin: 20px 50px; */
 }
 .cart{
@@ -131,33 +149,35 @@ margin-right:32px;
 }
 
 main{
-  width:100%;
-  min-height:80vh;
-  box-sizing: border-box;
-  margin-top:120px;
-  padding-bottom: 8%;  
+    width:100%;
+    box-sizing: border-box;
+    margin-top:90px;
+    padding-bottom: 4%;  
+   
 }
 /* Carousel */
-/* section{
+
+/*#slide{
+    margin:0;
+    position:relative;
     display:block;
-    margin-top: 20px;
+    overflow: hidden;
 } */
-#slide{
-margin:0;
-position:relative;
-display:block;
-overflow: hidden;
-}
+ 
 .slideShowContainer{
-    padding: 0 50px;
-    margin:0 80px;
-}
+    padding: 0 3px;
+    margin:0 2px;
+} 
 .mySlides{
     position: relative;
     top:0;
     left:0;
     margin-left:auto;
     margin-right:auto;
+}
+.mySlides img{
+    width: 100%;
+    background-size: cover;
 }
 .fade{
     animation-name: fade;
@@ -167,12 +187,12 @@ overflow: hidden;
     margin:5px;
 }
 .dot{
-    cursor:pointer;
-    width:12px;
-    height:12px;
+    width:10px;
+    height:10px;
     border-radius:50%;
     margin-left:3px;
     margin-right:3px;
+    cursor:pointer;
     background-color: #ccc;
     color: #ccc;
     display: inline-block;
@@ -181,26 +201,108 @@ overflow: hidden;
 .active, .dot:hover{
     background-color: #717171;
 }
-/* Clothing and Accessories Section */
-.containerStyles{
-    padding: 6% 8% 0;
+/* Customer Features */
+#features{
+    display: flex;
+    justify-content: space-around;
 }
+#features .iconContainer{
+    width: 200px;
+    height: 200px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+#features .iconWrapper{
+    cursor: pointer;
+    padding: 15px;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background-color: #009688;
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: ring 3s linear infinite;
+}
+#features img{
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#features h4{
+    color: rgb(30,27,29);
+    position: absolute;
+    top: 80%;
+}
+@keyframes ring{
+    0%{
+        box-shadow: 0 0 0 0 rgba(0, 140, 120, 0.6), 0 0 0 0 rgba(0, 140, 120, 0.6);
+    }
+    30%{
+        box-shadow: 0 0 0 50px rgba(0, 140, 120, 0), 0 0 0 0 rgba(0, 140, 120, 0.6);
+    }
+    70%{
+        box-shadow: 0 0 0 50px rgba(0, 140, 120, 0), 0 0 0 25px rgba(0, 140, 120, 0);
+    }
+    100%{
+        box-shadow: 0 0 0 0 rgba(0, 140, 120, 0), 0 0 0 25px rgba(0, 140, 120, 0);
+    }
+}
+.hamburger{
+    display: none;
+    padding-top: 5px;
+    cursor: pointer;
+}
+.hamburger div{
+    width: 25px;
+    height: 3px;
+    background-color: rgb(25, 24, 24);
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+/* Clothing & Accessories Grid Section */
 .para-heading{
+    padding: 4% 8% 0;
     color: rgb(27, 25, 25);
     font-size: 28px;
     font-weight: 600;
     opacity:0.8;
 }
-.indvImageSection{
-    cursor:pointer;
+.containerStyles{
+    padding: 4% 8% 0;
+    padding-top: 0;
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: start; */
+}
+.prodCards{
     background-color: #fff;
     box-shadow: 0 2px 5px #ccc;
-    min-width:150px;
+    max-width:19%;
     width:19.2%;
     height:auto;
     margin:30px 4px;
     border-radius:5px;
 }
+.indvImageSection{
+    width:100%;
+}
+.prodImagesDiv{
+    display:flex;
+    justify-content: start;
+    /* align-items: center; */
+    flex-wrap:wrap;
+}
+.prodImages{
+    width:100%;
+    cursor:pointer;
+}
+
 .image-desc{
     padding-left:10px;
     margin: 10px auto;
@@ -224,42 +326,9 @@ overflow: hidden;
     color: #009688;
     font-size: 15px;
     letter-spacing: 2px;
-
-}
-/* Clothing Section */
-.clothing-cards{
-    width:100%;
-    display:flex;
-    justify-content: center;
-    flex-direction:column;
-}
-.clothing-imagesDiv{
-    display:flex;
-    flex-direction:row;
-    justify-content: start;
-    /* align-items: center; */
-    flex-wrap:wrap;
-}
-.clothingImages{
-    width:100%;
 }
 
 
-/* Accessories Section */
-.accessories-cards{
-    width:100%;
-    display:flex;
-    justify-content: center;
-    flex-direction:column;  
-}
-.accessories-imagesDiv{
-display:flex;
-justify-content: start;
-/* flex-wrap:wrap; */
-}
-.accessoriesImages{
-    width:100%;
-}
 
 /* Edyoda Project Logo */
 #edyodaLogo{
@@ -267,7 +336,7 @@ justify-content: start;
     position: fixed;
     bottom:50px;
     right:50px;
-  }
+}
 /* Footer */
 footer{
     width:100%;
@@ -303,4 +372,238 @@ footer > div:first-of-type{
     letter-spacing: 1px;
     text-transform: uppercase;
     opacity:0.8;
+}
+@media screen and (max-width: 500px){
+    /* Header Tag */
+    header {
+        width: 100%;
+        margin-top:40px;
+    }
+    .headerFlex{
+        padding: 5px 3%;
+        width: 100%;
+    }
+    .leftHeader{
+        display: inline-flex;
+        justify-content: start;
+        align-items: center;
+    }
+    .logo {
+        font-size: 18px;
+        font-weight: 400;
+        margin-right: 0px;
+    }
+    .logo > a{
+        text-decoration: none;
+        color: black;
+        cursor: pointer;
+    }
+    .logo a span {
+        font-weight: 800;
+    }
+    .leftHeader > a {
+        display: none;
+    }
+    .rightHeader{
+        display: flex;
+        padding: 2px 2px;
+        position: relative;
+    }
+    ul{
+        flex-wrap: nowrap;
+    }
+    .navLinks{
+        position: absolute;
+        top: 10vh;
+        right: 0;
+        width: 50%;
+        height: 90vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items:center;
+        z-index: 100;
+        transition: 0.5s ease-in;
+        background-color: rgba (0,0,0,0.8);
+    }
+    .navLinks li{
+        opacity: 1;
+        margin-top: 200px;
+    }
+    .activeNav{
+        transform: translateX(0%);
+    }
+    li{
+        margin-left:20px;
+    }
+    li > a{
+        font-size: 10px;
+        display:inline-flex;
+        justify-content: left;
+        align-items: center;
+        font-weight:600;
+        flex-wrap: nowrap;
+    }
+    .hamburger{
+        display: block;
+        position: absolute;
+        right: 0;
+    }
+    .toggle .line1{
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+    .toggle .line2{
+       opacity: 0;
+    }
+    .toggle .line3{
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+    .search {
+        display: none;
+    }
+    .search > i{
+        display: inline-block;
+    }
+    .cart-size{
+        font-size: 20px;
+    }
+    #cartCount{
+        width:14px;
+        height:14px;
+        font-size: 13px;
+        top: -7px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .profile {
+        font-size: 30px;
+        width: 20%;
+        height: 20%;
+        display: flex;
+        align-items: center;
+        position: absolute;
+        top: 10px;
+        right:5px;
+    }
+
+    /* Main Tag */
+    main{
+        margin-top: 3px;
+        padding: 10px;
+    }
+    .slideShowContainer {
+        padding: 0;
+        margin: 0;
+    }
+    .dots{
+        margin: 0;
+        margin-bottom: 15px;
+    }
+    .dot{
+        width:8px;
+        height:8px;
+    }
+
+    /* Customer Features */
+    #features{
+        flex-wrap:wrap;
+    }
+    #features .iconContainer{
+        width: 50%;
+    }
+    #features .iconWrapper{
+        cursor: pointer;
+        padding: 15px;
+        width: 60px;
+        height: 60px;
+    }
+    #features img{
+        width: 34px;
+        height:32px;
+    }
+    #features h4{
+        font-size: 13px;
+    }
+    @keyframes ring{
+        0%{
+            box-shadow: 0 0 0 0 rgba(0, 140, 120, 0.6), 0 0 0 0 rgba(0, 140, 120, 0.6)
+        }
+        30%{
+            box-shadow: 0 0 0 30px rgba(0,140 120 0), 0 0 0 0 rgba(0, 140, 120, 0.6)
+        }
+        70%{
+            box-shadow: 0 0 0 30px rgba(0,140 120 0), 0 0 0 15px rgba(0, 140, 120, 0)
+        }
+        70%{
+            box-shadow: 0 0 0 0 rgba(0,140 120 0), 0 0 0 15px rgba(0, 140, 120, 0)
+        }
+
+    }
+    
+    /*Clothing & Accessories */
+    .para-heading{
+        font-size: 24px;
+        padding: 0px;
+    }
+    .containerStyles {
+        padding: 0px;
+        flex-direction: column;
+        flex-shrink: inherit;
+        flex-wrap: wrap;
+    }
+    .prodCards{
+        max-width: 100%;
+        width:100%;
+        margin: 5px; 
+    }
+    .indvImageSection{
+        width: 100%;
+    }
+    /* Project Logo */
+    #edyodaLogo {
+        width: 128px;
+        position: fixed;
+        bottom: 50px;
+        right: 50px;
+        display: none;
+    }
+    /* Footer Tags */
+    footer {
+        display: flex;
+    }
+    
+    footer > div {
+        margin-bottom: 40px;
+        padding-right: 0px;
+        padding-left: 20px;
+    }
+    
+    .footerDiv{
+        display: flex;
+        /* gap: 30px 20px; */
+        justify-content: space-between;
+        flex-direction: column;
+        width: 50%;
+    }
+    /* Checkout page */
+    #cartContent > div:first-of-type {
+        width: 100%;
+    }
+    .placeOrder{
+        font-size: 14px;
+    }
+
+    /* Order Placed page */
+    .orderHeading {
+        font-size: 22px;
+        font-weight: 600;
+        color: rgba(0, 0, 0, 0.8);
+        margin: 0;
+        margin-top: 48px;
+        margin-bottom: 16px;
+    }
+    .section-heading{
+        font-size: 20px;
+    }
 }

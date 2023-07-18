@@ -1,0 +1,6 @@
+Day 24: 21.06.2023 ------------------------------------
+Agenda:
+    - Food delivery example using Promises
+-------------------------------------------------------
+Food delivery example using Promises:
+    > Place Order

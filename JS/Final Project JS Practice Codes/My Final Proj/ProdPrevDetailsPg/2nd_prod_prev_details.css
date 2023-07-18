@@ -109,4 +109,36 @@
     background-color: #275854;
 }
 
+@media screen and (max-width: 400px) {
+    .product-container {
+        flex-direction: column;
+        padding: 2% 8%;
+    }
+
+    #preview-image {
+        width: 100%;
+    }
+
+    #prod-details {
+        width: 100%;
+    }
+
+    #prod-images {
+        display: flex;
+    }
+
+    #prod-images > img{
+        padding: 0px;
+    }
+
+    #prod-title {
+        font-size: 32px;
+    }
+    
+    .section-heading {
+        font-size: 24px;
+        margin-top: 20px;
+    }
+}
+
 

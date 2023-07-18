@@ -2,36 +2,46 @@ $(document).ready(function () {
     let n = window.localStorage.getItem('cartNumber');
     let cartItems = window.localStorage.getItem('cartItems');
     console.log(n)
-    if (cartItems != null) {
-        let data = [...JSON.parse(cartItems)];
+    if (cartItems !== null) {
+        let data = JSON.parse(cartItems);
         console.log(`checkout-data: ${data}`);
+        console.log(data);
         if(n != null){
             $("#cartCount").html(n);
         } else {
             $("#cartCount").html("0");
         }
+
         let total_Amt = 0;
         let count = 1;
-        
         for(cost of data){
             total_Amt = total_Amt + cost.price;
         }
         $("#totalAmount").html(total_Amt);
 
-        for(let i = 0; i < data.length; i++){
-            count = 1;
+         for(let i = 0; i < data.length; i++){
+            // count = 1;
             if (data[i] == null){
                 continue;
             }
-            for(let j = i + 1; j < data.length; j++) {
+            
+            /* for(let j = i + 1; j < data.length; j++) {
                 if (data[j] == null){
                     continue;
-                }
+                } 
+
                 if(data[i].id == data[j].id){
-                    data[j] = null;
                     count++;
+                    // data[j] = null;
+                    console.log(data[j])
                 }
-            } 
+            } */
+            
+           /* for(cost of data){
+                total_Amt = count * cost.price;
+            }
+            $("#totalAmount").html(total_Amt); */
+            
             console.log(n);
             $("#countItems").html(n);
             
@@ -39,14 +49,14 @@ $(document).ready(function () {
             let  imageLeftBlock = $("<div>").addClass("imageLeftBlock");
             let  leftProdImg = $("<img>").attr("src", data[i].preview);
             let  rightDetails = $("<div>").addClass("rightDetails");
-            let  rightHeading = $("<h3>").addClass("rightHead").html(data[i].name);
+            let  rightHeading = $("<h4>").addClass("rightHead").html(data[i].name);
             let  rightProdCount = $("<p>")
             .addClass("rightProdCount")
-            .html("x" + count);
+            .html("x" + data.quantity);
             let  rightProdPrice = $("<p>")
             .addClass("rightProdPrice")
-            .html("Amount: Rs " + data[i].price * count);
-
+            .html("Amount: Rs " + data[i].price * data.quantity);
+            console.log(data)
             $("#cartList").append(prodCheckoutContainer);
             prodCheckoutContainer.append(imageLeftBlock);
             prodCheckoutContainer.append(rightDetails);
@@ -54,8 +64,72 @@ $(document).ready(function () {
             rightDetails.append(rightHeading);
             rightDetails.append(rightProdCount);
             rightDetails.append(rightProdPrice);
+            // Redirect to Order Confirmation Page
+            console.log(typeof data);
+            console.log(data);
+
+            let counter = n;
+            $('.placeOrder').on("click",function() {
+                let orderItemsArr = [];
+                for(let i = 0; i < data.length; i++) {
+                    console.log(typeof data[i].id);
+                    
+                    let prodObj = {
+                        "id": data[i].id,
+                        "name": data[i].name,
+                        "brand": data[i].brand,
+                        "price": data[i].price,
+                        "preview": data[i].preview,
+                        "isAccessory": data[i].isAccessory
+                    }
+                    // console.log(prodObj);
+                    let prodObjCopy = prodObj;
+                    orderItemsArr.push(prodObjCopy);
+                }
+                counter++;
+                console.log(orderItemsArr);
+                let dataObj = {
+                    amount: total_Amt,
+                    products: orderItemsArr
+                }
+                $.post("https://jsonplaceholder.typicode.com/todos", dataObj, function() {
+                    alert("Order Placed Successfully!");
+                    localStorage.setItem('orderItemsArr', JSON.stringify(orderItemsArr));
+                    location.assign('../OrderConfirmationPg/orderPlaced.html')
+                })
+            });
         }
     }else{
         console.log("No data available");
+        cartItems = [];
     }
-});
+}); 
+
+    // window.onload = function() {
+        //     $('.placeOrder').on("click",function() {
+        //         $.ajax({
+        //             type: 'GET',
+        //             url:"https://5d76bf96515d1a0014085cf9.mockapi.io/order",
+        //             success:function(data){
+        //                 console.log("Clicked");
+        //                 // console.log(data);
+        //             },
+        //             cache: false
+        //         });
+        //     });
+        // }
+        //Try to use this API instead. 
+        /* $("#plceordrBtn").click(function (e){ 
+            var itemInmyCart={ 
+                let product: productItems, 
+                var totalAmount: totalcost 
+            } 
+            $.get("https://5d76bf96515d1a0014085cf9.mockapi.io/order", function(){
+                $.post("https://jsonplaceholder.typicode.com/todos", function() { 
+                    alert('Your order is Successfully Placed');
+                     localStorage.setItem('product-list', []); 
+                    location.assign("order_confirm.html"); 
+                }) 
+            })
+        }) */
+            

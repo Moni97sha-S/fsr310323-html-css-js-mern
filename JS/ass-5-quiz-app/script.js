@@ -62,6 +62,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
       $("hr").addClass("hr")
       $(quesDiv).append($("<hr />"));
       
+    
       // Rendering Options
       function optionCont(option, ind){
         const divOpt = document.createElement("div");
@@ -70,36 +71,96 @@ document.addEventListener("DOMContentLoaded", function(event) {
         // optionSelected(answer,ind)
         // console.log(ind)
         divOpt.insertAdjacentHTML('afterbegin', `
-          <label for=${ind} class="optLabel">
-          <input type="radio" id=${ind} value=${option} name="check_${val.id}" class="opts"></input>
-          ${option}
+        <label name="check_${val.id}" class="optLabel">
+        <input type="radio" name="check_${val.id}" class="opts"></input>
+        ${option}
           </label>`);
         return divOpt;      
       };
     });
-    
+    // Value generation 
+    for(let i = 0; i < data.length; i++) {
+      for(let j in data[i]){
+        // console.log(j == 'options');
+        if(j == 'options') {
+          // console.log(data[i][j])
+          let z = 1;
+          for(let k in data[i][j]) {
+            console.log(data[i][j])
+            console.log(k)
+            let input = document.getElementsByClassName("opts");
+            // console.log(k);
+            // let l = Number(k);
+            
+            // for(let x = 0; x < input.length/20; x++){
+            input[k].setAttribute('value', z);
+            console.log(input[k]);
+            z+=1;
+          // } 
+          }
+        }
+      }
+    } 
+    // Id & For attribute dynamically generation
+        let myInput=0, myLabel=0;
+        $(".opts").each(function(){
+          myInput+=1;
+          $(this).attr({
+            id:myInput
+          });
+        });
+        $(".optLabel").each(function(){
+          myLabel+=1;
+          $(this).attr("for", myLabel);
+        }); 
+
     // Submit btn functionality
     const btn = document.querySelector(".btn");
     btn.addEventListener("click", (e) => {
       e.preventDefault();
       const checkedAnswer = optionSelected();
+      // const checkedTextAnswer = optionTextSelected();
+        // const checkedAnsTextNum = Number(checkedTextAnswer[i]);
+        // console.log(checkedAnsTextNum); 
+            // console.log(checkedAnsNum === data[i].answer);
       
         //console.log(data[i].answer);
       // console.log(typeof data[0].answer); -> Number
       // console.log(typeof checkedAnswer[0]); -> String
       // console.log(checkedAnswer); 
+      // console.log(typeof checkedTextAnswer); 
       // console.log(typeof checkedAnswer); -> Object
-      // console.log(checkedAnswer[0]); 
-      
-        for(let i=0; i<data.length; i++){
-              const checkedAnsNum = Number(checkedAnswer[i]);
+      // console.log(checkedTextAnswer[0]); 
+      // console.log(Number(checkedAnswer[0])); 
+      // console.log(data.length);
+      // console.log(checkedAnswer[1]);
+      // console.log(typeof checkedTextAnswer); 
+
+      // console.log(typeof checkedTextAnswer[i]);
+      // console.log(checkedTextAnswer[i]);
+      // console.log(Number(checkedAnswer[i]));
+      let checkedAnsNum = [];
+        for(let i = 0; i < data.length; i++){
+          // for(let j in data[i]){
+          //   if(j == "options"){
+          //     let z = 1;
+          //     for(let k in data[i][j]){
+          //       let input = document.querySelectorAll(".opts"); 
+          //       input.setAttribute("value", z);
+          //       z += 1;
+          //     }  
+          //   }
+          // }
+          checkedAnsNum = Number(checkedAnswer[i]);
+          console.log(checkedAnsNum);
+          console.log(data[i].answer);
           if(checkedAnsNum === data[i].answer){
             score++;
             // console.log(score);
           }
           updateScoreBoard();
           e.target.form.style.display='none';
-        };
+        }
           /* if(e.target.getAttribute('name').value){
           optionSelected(e.target.getAttribute('name').value)
           }else{} */
@@ -110,15 +171,24 @@ document.addEventListener("DOMContentLoaded", function(event) {
   function optionSelected(){
       let userAns = [];
       const ansInput = document.querySelectorAll(".opts");
-        for(const currAnsElem of ansInput){
-          if(currAnsElem.checked){
-            userAns.push(currAnsElem.id);
+      for(const currAnsElem of ansInput){
+        if(currAnsElem.checked){
+          userAns.push(currAnsElem.value);
           }  
-        };  
-    return userAns;
-  };
-
-  function updateScoreBoard(){
+        }
+        return userAns;
+      };
+      // function optionTextSelected(){
+      //   let userTextAns = [];
+      //   const ansTextInput = document.querySelectorAll(".optLabel");
+      //   for(const currAnsTextElem of ansTextInput){
+      //     if(currAnsTextElem.checked){
+      //       userTextAns.push(currAnsTextElem.for);
+      //     }  
+      //   };  
+      //   return userTextAns;
+      // }
+    function updateScoreBoard(){
     mark.innerText = score;
   };
 

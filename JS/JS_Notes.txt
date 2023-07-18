@@ -3675,3 +3675,323 @@ On Day 29 : 26.06.2023 (call & apply taught):
                     // "10,20,30" ---> Cannot 
                     console.log(arr1); // NaN
 
+Day 41 : 10.07.2023 (DSA Basics) -----------------------------
+Curriculum: 
+    - Linear DS
+    - Arrays
+    - Arrays methods: Push, Pop, Shift, Unshift and Splice
+------------------------------------------------
+Data Science and Algorithms:-
+    > In scenario like an aeroplane from Delhi to Mumbai, how much data it produces? 120Tb approx.
+    > Manage, Organize & Manipulate data efficiently.
+Why DS is important?
+    > To store & retrieve ur data efficiently/effectively.
+    > When we throw/dump(store) things randomly in a container, they become unorganized data. So it takes more (5 mins) of time for us to retrieve a data from it.
+    > If he arranged in an organized/managed manner, it takes very few seconds to retrieve a data from it.
+    > Let's say we have 100Tb of data. To retrieve data from DB takes 1 hour/1 month of time, if we stored in unorganized manner.
+    > Store: Get, delete & Update.
+    > Data Structures divided into 2 parts:-
+        1. Linear DS: Arrays, Linked Lists, Stack & Queues
+        2. Non-linear DS: Trees & Graphs
+    > Non-Sequential Manner:
+        - Store data in some hirarchical things
+    > Linear (4 types):
+        - Organize data in a sequential manner where each element has a direct predecessor & successor.
+        - Straight / Linear/Revolving motion (travelling in a direction)
+    > Stack
+        - Call Stack from JS engine & LIFO rule (Last In First Out)
+    > Queues
+        - Call Queues from JS runtime & (First In First Out)
+    > Linked List
+    > Arrays + (Map, Filter, forEach, Reduce, Every & Sum methods of array function):-
+        -> 4 ways:
+        -> Insert, get, update & delete data.
+        -> Whatever we do in Internet, we do above either of 4 things.
+    > Arrays:-
+        - It is a fundamental ds that stores in a sequence of elements.
+        - From left to right (index 0) in array. (1-Dimensional data)
+        - Block of memory: When we combine every block of memory, it becomes final memory.
+        - Contiguos meaning next of next
+        - Indexing based system (0 based index)
+        - To get last index:- (arr.length - 1)
+
+Day 42 : 11.07.2023 -----------------------------
+JS Final Proj: 
+    - https://moni97sha-s.github.io/ecommercejsfinalproject/index.html
+    - Doubts:-
+        -> Why is local storage returning null?
+        -> https://community.edyoda.com/t/regarding-js-final-assignment-clarification-doubts-from-fsr310323/7254
+        -> https://www.youtube.com/watch?v=cT_ZYrS3tKc
+    - https://www.youtube.com/watch?v=RDLg-p6PdTA (For Order Animation)
+    - https://codepen.io/andrewmillen/pen/MoKLob
+
+Curriculum: 
+    - Iteration
+    - Arrays methods: forEach, for..of, map, reduce, filter, every & some
+    - Stack -> LIFO rule
+    - Stack with real case examples with clear Structure
+    - And their use Cases
+    - Decide the operations
+    - And their Implementation
+------------------------------------------------
+Iteration:
+    > Loop over the arrays
+    > normal for loop
+    > forEach loop
+        -> It accepts callback as parameter of function
+        -> It will just iterate on array.
+        -> forEach doesn't returns a new array.
+    > for...of loop
+        -> for...of doesn't returns a new array.
+        -> It will just iterate on array.
+    > filter 
+        -> It filters to get only like even numbers.
+        -> It returns you a new array.
+        -> This will not change the original array.
+        -> filter condition will create a new array with only elements that passes specific condition
+    > map 
+        -> map function is used to apply transformation to each element of an array.
+        -> It returns you a new array.
+        -> This will not change the original array.
+        -> It will just iterate on array.
+    > reduce
+        -> Returns a numerical value.
+        -> It has 2 paramenters: Accumulator, element
+        -> // Reduce Syntax:
+            array.reduce(function (accumulator, element) {}, initialValueOfAccumulator);
+        ->  'initialValueOfAccumulator = 0 / 10 / any numeric values' 
+                - It will also add if we give any other values at 0's place?
+                - 0 means initial value before summing up & then adds to total
+    let arr4 = [1000, 400, 200, 100];
+    // 1000-400-200-100 = 300
+    // 🚨📢Capture Intern Question
+    // With Accumulator - Wrong Answer in -ve
+    let value = arr4.reduce(function (accumulator, element) {
+        return accumulator - element;
+    }, 0);
+    console.log(value); // -1700
+    /*
+    0 - 1000 ==> -1000
+    -1000 - 400 ==> -1400
+    -1400 - 200 ==> -1600
+    -1600 - 100 ==> -1700
+    */
+
+    // Without Accumulator - Correct Answer
+    let value1 = arr4.reduce(function (accumulator, element) {
+        return accumulator - element;
+    });
+    console.log(value1); // 300
+    /*
+    1000 - 400 ==> 600
+    600 - 200 ==> 400
+    400 - 100 ==> 300
+    */
+
+    > some()
+        -> Reason: Anyone value satisfies condition, it returns true value. If nothing satisfies only returns false.
+
+    > every()
+        -> If all elements satisfies this condition, then only it will return True. If anyone not satisfies then False.
+
+Stack:-
+    > Last In First Out (LIFO rule)
+    > Practical example is balls put inside a glass. We can pull out last ball only.
+    
+Stack with real case examples with clear Structure:-
+    > In Browser History, last & recently viewed web pages are stacked at top.
+    > In chat application also recent messages are stacked at last.
+
+Decide it's operations (6 operations):-
+    > Push means insert operation
+    > Pop means deleting/removing the 'top' element
+    > Top is just to check who is on the top position
+    > 'sizeof' -> How many elements are in ur stack? Total Elements
+    > clear our stack like console.clear()
+    > empty to check our stack is empty or not
+
+Stack's use Cases:-
+    > Function call stack in JS engine
+    > Executes functions one by one and popped out last function element
+
+
+Day 43 : 12.07.2023 -----------------------------
+Curriculum: 
+    - Arrays methods: Push, Pop, Top, sizeof and Empty
+    - Stack's Implementation
+    - Queue Clear Structure
+    - Queue's use cases
+    - Queue Methods
+    - Queue's Implementation
+------------------------------------------------
+Implementation of Stack using Array, Class in JS:-
+    > Build stack using Array
+    > Stack class has empty container by empty array.
+    > 
+
+Queue:
+    > First In First Out (FIFO)/First Come First Serve(FCFS)
+    > Inserts items at Rear-end
+    > Adding operation in Queue is known as Enqueue
+    > Deletes items at Front-end
+    > Deleting operation in Queue is known as Dequeue
+    > 2 Ends
+
+Use Cases:
+    > Single Resource Multiple Consumers
+    > Buffer for Devices like Keyboard keyin and show on Monitor
+    > Os Scheduling
+    > Mail Queues
+        -> Airline System - Remainder mail before 5 hrs of travel for plane takeoff
+        -> Sending mail to 10,00,000 people passengers so server can break/crash
+        -> Placing Queue which is secured even after server crashes also and no loss of data
+        -> When in queue, we use to secure our state/position
+        -> OTP mails takes some time to reach customer's mail as slowly clearing queue & then only reaches customer mail.
+        -> Message Brokers (Kafka,Rabbit&Q)
+    > GPay or PhonePe or etc [Money Transaction]
+        -> Due to our money got stuck Transaction Queue, one's money got debited but other end didn't receive. 
+    > When our data 
+
+
+Day 44 : 13.07.2023 -----------------------------
+Curriculum: 
+    - Queue methods: Enqueue, Dequeue, Peek(), isEmpty(), clear & print()
+    - Queue's Implementation
+    - Linked List Clear Structure 
+    - Linked List's Use Cases
+    - Linked List's methods / operations
+------------------------------------------------
+Queue methods: 
+    > Enqueue:- Queue(this.items).push
+    > Dequeue:- Queue(this.items).shift
+
+Queue Implementation:- 
+    Update:
+    > So we can't erase or update wrong middle user details until it becomes peek element 
+    > remove all front details by dequeue and then we can peek and update it
+    > Eg:- 10, 20, 30, 40, 50
+    > I need to make 40 -> 60
+    > Then we have to make 40 as peek element and then only we can update it
+    > So we should not implement in Stack or Queue when we need to update, we can use array.
+    
+    Full:
+    > In java, there is concept of we need to declare array length at the time of creation.
+    > But in JS, Pythion, Dart etc. we don't need to declare array len at time of creation. 
+    > So we can't ask isFull or not. Only when we know the len of arr we can ask isFull().
+    > only when we know length of queue beforehand we can check isFull
+
+    dequeue:
+    > Dequeue using which we can delete only from front end.
+    
+    deque:
+    > Double ended que using which we can delete from both front & rear ends.
+
+Linked List Clear Structure [Easy concept]:-
+    > We can easily update and delete like array.
+    > It has index/address at 2nd position of all nodes.
+    > current index points to next node
+    > LL is a collection of randomly stored elements in memory is called as 'nodes'.
+    > These data need not to be in continuous format. They are randomly stored.
+    > In array, data stored in continuous format.
+    > In LL, data will be stored in contiguos manner too. (jointly next to next -> aduthu aduthu in tamil)
+    > Each node has 2 parts: 1st is data & 2nd is address
+    > Next half address of 1st node copied from 2nd node's adress and pointing to 2nd node.
+    > At last node's address is null as we don't point to anymore nodes at tail end.
+    > So current node can be access using current address of current block which is at top/below of node.
+    > We need to go inside address field of previous Node to access of next node.
+    > To access 1st node we need to go inside & take address of Head as startNode.
+
+Day 44 : 13.07.2023 -----------------------------
+Curriculum: 
+    - LinkedList methods/operations: append, prepend, traverse, search() & print()
+    - Linked List's Implementation
+
+------------------------------------------------
+Linked List Imp:-
+    > Head -> First Node
+    > Tail -> Last Node
+    > Tail.next -> address of current node points to the next node
+    > 
+
+Day 45 : 14.07.2023 -----------------------------
+Curriculum: 
+    - LinkedList methods/operations: append, prepend, traverse, search() & print()
+    - Linked List's Implementation
+
+------------------------------------------------
+Linked List Definition:-
+    > Array, Stack & Queue are array-based & contiguous memory allocation data structure.
+    > A LL is a collection of randomly stored elements in the memory. These elements are nodes. In memory block, one data(element/node) can be stored at first and another will be stores at last (Random manner).This is possible in case of linked list.
+    > We use pointers to connect & maintain linear order between these random nodes.
+    > LL have collection of nodes. Next step, we need to connect/link the nodes.
+    > Every node of a LL consists of atleast 2 parts - Data (value) & Address (next) of next node.
+    > In data, we can store any type of information like array, objects, string etc. 
+    > In address, we can store address of next node. (Long number)
+    > Head tells 1st node's address & Tail denotes last node's null address.
+
+Day 46 : 15.07.2023 -----------------------------
+Curriculum: 
+    - Linked List's Implementation: Delete(index)
+    - Time Complexity
+    - Absolute & Relative 
+
+------------------------------------------------
+Linked List's Delete(index):-
+    > 0th index node Deletion
+
+Day 47 : 17.07.2023 (React JS) -----------------------------
+Curriculum: 
+    - Difference ES 5 & ES 6
+    - ES 6 Features let & Const
+    - Scope & Hoisting difference
+    - Spread & Rest Operator (...)
+    - Destructuring
+    - Promise & Async-await
+
+------------------------------------------------
+Day 48 : 18.07.2023 -----------------------------
+Curriculum: 
+    - 2 main Categories data types
+    - ES 6 Primitive Types
+    - ES 6 Reference Types
+    - ES 6 Strings or literals templates
+    - ES 5 & 6 New Array methods
+
+------------------------------------------------
+ES 6 Primitive Types
+    > Represents simple values and are immutable.
+    > Cannot be changes after they created.
+    > Reassigning is not mutable.
+    > Primitive types:-
+        -> Number, String, Boolean, Null, Undefined, Symbol, 
+ES 6 Reference Types
+    > Represents simple values and are mutable.
+    > Can be changes after they created.
+    > Reference types:-
+        -> Array, Object
+    > Interview Question:-
+        -> 🚨Diff b/w Primitive & Reference types
+        -> Unlike, primitive types, which are copied by value, reference types are copied by reference. 
+
+ES 6 Strings or literals templates
+    >  ${Any expressions can be written not statements}
+    > `` -> Within Backticks, we can write sentences along with expressions/variables.
+
+ES 5 & 6 New Array methods
+    > Map 
+        -> Creates a new array with the results of calling a provided function on every element
+        -> Undefined if we not return anything
+    > Filter
+        -> Creates a new array with all elements that pass the test implemented by the provided function
+        -> [] if we not return anything
+    > Reduce
+        -> Reduces the array to a single value by executing a provided 
+        -> When no initialValue, it takes first value as accumulator
+    > Find
+        -> 
+        -> It returns -1, if we don't have any even number
+
+    > FindIndex
+    > Some 
+        -> Test whether at least one element in the array passes the provided last condition
+    > 

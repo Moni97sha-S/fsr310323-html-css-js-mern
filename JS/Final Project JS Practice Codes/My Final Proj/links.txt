@@ -1,0 +1,5 @@
+// To Count repeat Items from array of objects
+https://stackoverflow.com/questions/55218434/count-no-of-record-as-per-key-value-from-array-using-javascript-jquery
+
+// User-Profile picture
+https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/

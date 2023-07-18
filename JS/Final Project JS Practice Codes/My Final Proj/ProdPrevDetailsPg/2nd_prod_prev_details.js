@@ -74,8 +74,44 @@ $(document).ready(function () {
             
             //! Adding/Pushing every Item into (an Empty array) Cart
             let productList = [];
+            var cartItems=JSON.parse(localStorage.getItem("cartItems") || "[]");
+            function itemCount() {
+                let count = 1;
+                return count
+            }
+            cartItems.forEach((c) => {c.quantity = itemCount();});
+            console.log(cartItems);
+            (function(){
+                if(cartItems.length<1){
+                    cartItems.push(data) 
+                    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+                }else{
+                    let dupFlag=0;
+                    // let itemCount, count = 1;
+                    for(var i=0;i<cartItems.length;i++){
+                        // count = 1;
+                        console.log(data.id, cartItems[i].id);
+                        if((cartItems[i].id)==(data.id) ) {
+                            dupFlag=1;
+                            console.log("flag")
+                            break;
+                        }
+                    }
+                    if(dupFlag==0){
+                        ("push data")
+                        cartItems.push(data) 
+                        localStorage.setItem("cartItems", JSON.stringify(cartItems));
+                    } 
+                }
+                   
+
+                //localStorage.setItem("productItems", JSON.stringify(productItems));
+                cartItems = JSON.parse(localStorage.getItem("cartItems") || "[]");
+                
+                console.log(cartItems);
+                })();
             //** Getting Selected cart Items are saved in 'cartItems' variable **//
-            let cartItems = window.localStorage.getItem('cartItems');
+            /* let cartItems = window.localStorage.getItem('cartItems');
             if(cartItems != null){
                 productList.push(...JSON.parse(cartItems));
                 productList.push(data);
@@ -89,7 +125,7 @@ $(document).ready(function () {
                 console.log('cartItems:', JSON.parse(cartItems));
             }
             console.log(productList);
-            //console.log(localStorage.getItem('cartNumber'));     
+            //console.log(localStorage.getItem('cartNumber'));     */
         });
     });
 });

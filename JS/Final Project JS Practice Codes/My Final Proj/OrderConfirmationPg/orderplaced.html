@@ -59,7 +59,12 @@
 
     <main>
         <div class="greenCircle">
-            <img class="whiteTick" src="https://test-hosting-8f9bf.web.app/assets/white-tick.png" alt="" />
+            <div class="whiteTick">
+                <!-- <img class="whiteTick" src="https://www.iconsdb.com/icons/preview/white/checkmark-xxl.png" alt=""> -->
+                <svg class="tick" x="0px" y="0px" fill="none" viewBox="0 0 25 30" >
+                    <path d="M2,19.2C5.9,23.6,9.4,28,9.4,28L23,2"/>
+                </svg>
+            </div>
         </div>
         <h1 class="orderHeading">Your order Placed Successfully !!</h1>
         <p class="section-heading">We have sent you an email with the order details.</p>
@@ -101,5 +106,14 @@
     <script src="../script.js"></script>
     <script src="../ProdPrevDetailsPg/2nd_prod_prev_details.js"></script>
     <script src="../CheckoutPg/thirdcheckout.js"></script>
+
+    
+    <!-- 
+    Used to find length of path Tag for attr stroke's dasharray & dashOffset
+    <script>
+            let path = document.querySelector('path');
+            let length = path.getTotalLength();
+            console.log(length);
+    </script> -->
 </body>
 </html>

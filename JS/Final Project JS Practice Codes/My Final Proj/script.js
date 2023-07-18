@@ -4,6 +4,14 @@
  AddToCart
 https://stackoverflow.com/questions/59424119/how-to-remove-or-avoid-duplicate-values-in-localstorage
 */
+function navSlide() {
+  $(".hamburger").click(function(){
+    $('.navLinks').classList.toggle('activeNav');
+    $('hamburger').classList.toggle('toggle');
+  });
+}
+
+  navSlide();
 
 //Slides
 let slideIndex = 0;
@@ -50,81 +58,42 @@ $(document).ready(function (){
   }
   // Clothing & Accessories Section
   // const url = ;
+  function createindexPgProdCard(obj){
+    const prodCards = $("<div>").addClass("prodCards");
+    const prodImagesDiv = $("<div>").addClass("prodImagesDiv");
+    let indvImageSec = $("<div>").addClass("indvImageSection").prop({id: "image" + obj.id});
+    let prodLink = $("<a>").attr("href", "./ProdPrevDetailsPg/2nd_prod_prev_details.html?p=" + obj.id);
+    let prodImages = $("<img>").addClass("prodImages").attr("src", obj.preview).attr("alt", obj.name + ' Image');
+    prodLink.append(prodImages);
+    prodImagesDiv.append(prodLink);
+    indvImageSec.append(prodImagesDiv)
+    prodCards.append(indvImageSec);
+
+    const imageDesc = $("<div>").addClass("image-desc");
+    let h2 = $("<h2>").addClass("image-name").html(obj.name);
+    let h4 = $("<h4>").addClass("image-brand").html(obj.brand);
+    let h5 = $("<h5>").addClass("image-price").html("Rs "+ obj.price);
+    imageDesc.append(h2); 
+    imageDesc.append(h4); 
+    imageDesc.append(h5); 
+    // imageDesc.append(link);
+    indvImageSec.append(imageDesc);
+    prodCards.append(indvImageSec);
+
+    return prodCards;
+  }
+
   $.get("https://5d76bf96515d1a0014085cf9.mockapi.io/product", function(response){
     // console.log(response);
-
-    // Clothing elements created
-    const clothing = $("<div>").addClass("containerStyles");
-    const clothingCards = $("<div>").addClass("clothing-cards");
-    const paraClothing = $("<p>").addClass("para-heading").html("Clothing For Men and Women");
-    const clothingImagesDiv = $("<div>").addClass("clothing-imagesDiv");
-    
-    // Clothing elements appended
-    $("#clothingSection").append(clothing);
-    clothing.append(clothingCards);
-    clothingCards.append(paraClothing);
-    clothingCards.append(clothingImagesDiv);
-    
-    
-    // Accessories elments created
-    const accessories = $("<div>").addClass("containerStyles");
-    const accessoriesCards = $("<div>").addClass("accessories-cards");
-    const paraAccessories = $("<p>").addClass("para-heading").html("Accessories For Men and Women");
-    const accessoriesImagesDiv = $("<div>").addClass("accessories-imagesDiv");
-    
-    // Accessories elements appended
-    accessoriesCards.append(accessoriesImagesDiv);
-    accessoriesCards.prepend(paraAccessories);
-    accessories.append(accessoriesCards);
-    $("#accessoriesSection").append(accessories);
-    
-    let i = 0;
-    let j = 1;
-    for(let x of response){
+    for(let x = 0; x < response.length; x++) {
       // console.log(x);
-      if(!x.isAccessory){
-        // Clothing section -> creating elements of image section
-        let link = $("<a>").attr("href", "./ProdPrevDetailsPg/2nd_prod_prev_details.html?p=" + j);
-        let image = $("<img>").addClass("clothingImages").attr("src", x.preview);
-        const clothingImageDesc = $("<div>").addClass("image-desc");
-        let h2 = $("<h2>").addClass("image-name").html(x.name);
-        let h4 = $("<h4>").addClass("image-brand").html(x.brand);
-        let h5 = $("<h5>").addClass("image-price").html("Rs "+ x.price);
-        let clothingIndvImageSec = $("<div>").addClass("indvImageSection").prop({id: "image" + i});
-
-        // Append in clothing ImageSection-> adding elements 
-        link.append(image);
-        clothingIndvImageSec.append(link);
-
-        clothingImageDesc.append(h2);
-        clothingImageDesc.append(h4);
-        clothingImageDesc.append(h5);
-        clothingIndvImageSec.append(clothingImageDesc);
-
-        clothingImagesDiv.append(clothingIndvImageSec);
-      }else{
-        // Accessories section -> adding image section
-        let link = $("<a>").attr("href", "./ProdPrevDetailsPg/2nd_prod_prev_details.html?p=" + j);
-        let image = $("<img>").addClass("accessoriesImages").attr("src", x.preview);
-        const accessoriesImageDesc = $("<div>").addClass("image-desc");
-        let h2 = $("<h2>").addClass("image-name").html(x.name);
-        let h4 = $("<h4>").addClass("image-brand").html(x.brand);
-        let h5 = $("<h5>").addClass("image-price").html("Rs "+ x.price);
-        let accessoriesIndvImageSec = $("<div>").addClass("indvImageSection").prop({id: "image" + i});
-
-        // Append in accessories ImageSection-> adding elements 
-        link.append(image);
-        accessoriesIndvImageSec.append(link);
-
-        accessoriesImageDesc.append(h2);
-        accessoriesImageDesc.append(h4);
-        accessoriesImageDesc.append(h5);
-        accessoriesIndvImageSec.append(accessoriesImageDesc);
-
-        accessoriesImagesDiv.append(accessoriesIndvImageSec);
+      // console.log(response[x]);
+      // console.log(response[x].isAccessory);
+      if(!response[x].isAccessory){
+        $("#clothingGrid").append(createindexPgProdCard(response[x]));
+      } else {
+        $("#accessoriesGrid").append(createindexPgProdCard(response[x]));
       }
-      i++;
-      j++;
     }
     for(let k = 0; k < response.length; k++) {
       $("#image" + k).click(function () {
