@@ -74,42 +74,34 @@ $(document).ready(function () {
             
             //! Adding/Pushing every Item into (an Empty array) Cart
             let productList = [];
-            var cartItems=JSON.parse(localStorage.getItem("cartItems") || "[]");
-            function itemCount() {
-                let count = 1;
-                return count
-            }
-            cartItems.forEach((c) => {c.quantity = itemCount();});
-            console.log(cartItems);
-            (function(){
-                if(cartItems.length<1){
-                    cartItems.push(data) 
-                    localStorage.setItem("cartItems", JSON.stringify(cartItems));
-                }else{
-                    let dupFlag=0;
-                    // let itemCount, count = 1;
-                    for(var i=0;i<cartItems.length;i++){
-                        // count = 1;
-                        console.log(data.id, cartItems[i].id);
-                        if((cartItems[i].id)==(data.id) ) {
-                            dupFlag=1;
-                            console.log("flag")
-                            break;
-                        }
+            let arr=JSON.parse(localStorage.getItem("cartItems") || "[]");
+            console.log("line 78 ==> ", arr);
+            if(arr != null){
+                let duplicate = arr.some((item) => {
+                    if(item.name == data.name){
+                        item.counter++;
+                        console.log("Duplicate Found");
+                        return true;
                     }
-                    if(dupFlag==0){
-                        ("push data")
-                        cartItems.push(data) 
-                        localStorage.setItem("cartItems", JSON.stringify(cartItems));
-                    } 
+                });
+            
+                if(!duplicate){
+                    data["counter"] = 1;
+                    console.log("line no 90 ==>", data);
+                    arr.push(data);
+                    localStorage.setItem("cartItems", JSON.stringify(arr));
+                } else {
+                    console.log("line no 94 ==>", arr);
+                    localStorage.setItem("cartItems", JSON.stringify(arr));
                 }
-                   
-
-                //localStorage.setItem("productItems", JSON.stringify(productItems));
-                cartItems = JSON.parse(localStorage.getItem("cartItems") || "[]");
-                
-                console.log(cartItems);
-                })();
+            } else {
+                let productList = [];
+                data["counter"] = 1;
+                console.log("line no 100 ==>", data);
+                productList.push(data);
+                localStorage.setItem("cartItems", JSON.stringify(productList));
+            }
+            
             //** Getting Selected cart Items are saved in 'cartItems' variable **//
             /* let cartItems = window.localStorage.getItem('cartItems');
             if(cartItems != null){

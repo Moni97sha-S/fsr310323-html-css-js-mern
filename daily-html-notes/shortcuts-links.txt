@@ -7,6 +7,9 @@ HTML Classes content will go here.
 
 Email: hashrakeshkumar@gmail.com
 
+Web Dev Fundamentals Certification:-
+https://community.edyoda.com/t/practice-resources-for-certifications/2999?_ga=2.199298414.1587843503.1689687918-643445481.1669704191
+
 HTML-1 PPT-1:
 https://docs.google.com/presentation/d/1QRy1Y8AjWaodD2kkQPKjcOOFXcUi0KAUdE6zg-kDW9s/edit#slide=id.g212e9a1dfda_0_0
 
@@ -74,6 +77,9 @@ https://github.com/Thangarajcs/js-notes/
 2) JS - HarshitRaj
 https://github.com/harshit-8080/April_FSR_2023/tree/main/Javascript_FSR
 
+3) DSA Basics [Linear Data Structure - Array, Stack, Queue, LinkedList & Time Complexity]
+https://docs.google.com/spreadsheets/d/19-mgjPLDAIKO2H-K3kUkaXtMG0tikcbhb5li9VzaejE/edit#gid=131453386
+
 Whatsapp Group: 
 https://chat.whatsapp.com/GBacdv15wsVKu1Ll4ugQcb
 
@@ -112,6 +118,11 @@ Alt + Z folds a long line in vs code
 ALT+CTRL+L -> Inserts console.log(); in VS Code for Javascript Developer
 CTRL + Shift + D -> Removes console.log()
 embed means copy the youtube link and merge in our website
+JS:-
+ - 'clg' -> shortcut for Console.log 
+ - Inserts console.log(); in VS Code for Javascript Developer in .js files
+REACT:-
+ - 'rfce' shortcut to create react functional component export in .js & .jsx files 
 --------
 💡NOTES
 --------

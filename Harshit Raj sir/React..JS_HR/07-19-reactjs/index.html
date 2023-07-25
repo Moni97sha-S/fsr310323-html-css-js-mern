@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="./h1.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <!-- React helps to bring elements -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <!-- React DOM helps to invade in ur browser -->
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <title>Redirect images</title>
+
+</head>
+<body>
+    
+        <div id="root">
+            
+        </div>
+    <script>
+        // Let's Create a h1 Tag using React JS pure code after adding CDN links
+        const heading = React.createElement("h1", {id:"heading"}, "Hello World By REACT JS");
+        const h12 = React.createElement("h1", {id:"h12"}, "This is my header");
+        const btn = React.createElement("button", {id:"btn"}, "Click Me");
+        const img = React.createElement("img", {src:"#"});
+        
+        const div = React.createElement("div", {}, [heading, h12, btn, img] );
+        
+        //1st principle of ReactDOM is create a root & render (to show things on screen) it
+        const root = ReactDOM.createRoot(document.getElementById("root"));
+        root.render(heading);
+    </script>
+    <script src="./h1.js"></script>
+</body>
+</html>

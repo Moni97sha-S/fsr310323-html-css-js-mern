@@ -31,12 +31,18 @@ body {
 }
 .prodCheckoutContainer {
     display: flex;
+    position: relative;
     box-shadow: 0 2px 5px #ccc;
     background-color: white;
     max-width:600px;
     border-radius: 5px;
     padding: 16px;
     margin-bottom: 16px;
+}
+.prodCheckoutContainer > i{
+    position: absolute;
+    bottom:20px;
+    right:20px;
 }
 .imageLeftBlock > img {
     width: 80px;
@@ -61,7 +67,7 @@ body {
     margin-top:4px;
     margin-bottom: 4px;
 }
-.section-heading {
+.section-Heading {
     font-size: 24px;
     color: rgba(0, 0, 0, 0.8);
     font-weight: 400;

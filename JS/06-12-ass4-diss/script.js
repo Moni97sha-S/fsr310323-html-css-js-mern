@@ -1,3 +1,6 @@
+// JS Assignment 4 
+// https://github.com/Kesrinath/eventproject/blob/main/events.js
+
 var productData = {
     "id": "1",
     "name": "Men Navy Blue Solid Sweatshirt",

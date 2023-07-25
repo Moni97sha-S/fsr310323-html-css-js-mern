@@ -6,8 +6,8 @@ https://stackoverflow.com/questions/59424119/how-to-remove-or-avoid-duplicate-va
 */
 function navSlide() {
   $(".hamburger").click(function(){
-    $('.navLinks').classList.toggle('activeNav');
-    $('hamburger').classList.toggle('toggle');
+    $('.navLinks').toggleClass('activeNav');
+    $('.hamburger').toggleClass('toggle');
   });
 }
 

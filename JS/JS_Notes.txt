@@ -3915,8 +3915,12 @@ Linked List Imp:-
 
 Day 45 : 14.07.2023 -----------------------------
 Curriculum: 
-    - LinkedList methods/operations: append, prepend, traverse, search() & print()
-    - Linked List's Implementation
+    - LinkedList Definition
+    - LinkedList methods/Basic operations: append(), prepend(), traverse-length(), search() & print()
+    - Visual Explanation
+    - Linked List's Implementation (Explanation)
+Time Stamp 01:00:59
+    - Complexity introduction
 
 ------------------------------------------------
 Linked List Definition:-
@@ -3925,19 +3929,429 @@ Linked List Definition:-
     > We use pointers to connect & maintain linear order between these random nodes.
     > LL have collection of nodes. Next step, we need to connect/link the nodes.
     > Every node of a LL consists of atleast 2 parts - Data (value) & Address (next) of next node.
-    > In data, we can store any type of information like array, objects, string etc. 
+    > In data, we can store any type of information like number, array, object, string etc. 
     > In address, we can store address of next node. (Long number)
-    > Head tells 1st node's address & Tail denotes last node's null address.
+    > Head points to 1st node's address & Tail points to last node's null address of LL.
+                            
+Basic Operation:-
+    > Append: Add a new node to the end of the linked list.
+    > Prepend: Add a new node to the beginning of the linked list.
+    > Traverse: Iterate through the linked list.
+    > Search: Search the node with the given value in the linked list.
+    > Print: Print the values of all nodes in the linked list.
+    > Size: Length of Linked List (Node Count).
+    > isEmpty: Check is Linked List is empty or not
+    > insertAt() - [🚨Very important] Add a node at the specified index in the Linked List
+    > deleteAt() - [🚨IMP] Delete a node at the specified index in the Linked List
+
+Visual Explanation:-
+                             Value| Next
+                            |_____|_____|
+                                 Node
+            Tail.value
+                    Tail.next
+    Head---->|___10__|__a2___|---->|__20___|__null___|-> Tail
+                a1(Node1)          a2(Node2)
+
+
+LinkList Implementation (Explanation):- 
+(1) New Node Creation | Basic rules
+ Step 1: Linking process - Link newNode to already existing node in LL (Both ends like front & back)
+ Step 2: Shifting process - Shift head to firstNode and tail to lastNode becomes null always (Both head & tail)
+
+(2) Append - (Shift tail to newNode & always lastNode changes)
+        -> Adding newNode after lastNode
+    1. First Node:
+    - condition -> Empty LinkedList (No node as of now)
+    - head.next = null only 1st time. From 2nd time, it points to address of 2ndNode / prevNode while prepending
+    - head.value -> 10
+    - tail.value -> 10
+    - head.next -> address of null (newNode/nextNode)
+    - tail.next -> address of null
+
+    2. nextNode from 2nd Node:
+    - Always tail.next = null[oneNode, after adding newNodes]
+    - 2nd node = newNode
+    - this.head.next -> to access prev node's address part
+    - this.head.value -> to access first node's data part
+    - this.tail.next -> to access next node's address part is null
+    - head.value -> 10
+    - tail.value -> 20
+    - head.next -> address of newNode (a2 of 20)
+    - tail.next -> address of 20 is null
+
+    3. Case - When there is no nodes, 2 times prepending & then append means TypeError: Cannot set properties of null (setting 'next')
+            this.tail.next = newNode;
+        Solution: We need to add if condition whether LL is null at prepend also.
+
+(3) Prepend() - (Shift Head to newNode & always firstNode changes)
+        -> Adding newNode before firstNode
+    1. newNode
+    - newNode's next is head (connection/linking newNode to 1stNode) to make newNode as 1stNode
+    - current head is shifted to newNode
+    
+    2. Case - When there is no nodes
+    - Adding if condition to check LL is null.
+
+(4) Print():
+    - CURRENT is temporary CONTAINER represent headNode at first.
+    - current (new varaible created) assigning headNode's value
+    - values -> Creating an Empty array
+    - while loop Condition => [current != null] to run this loop until current reaches lastNode's null.
+    - I'm pushing my current value into values Array
+    - Shifting my current to nextNode's value by pointing to currentNode's address(next) which is similar to incrementing in loops.
+    - join Operation means used to convert array from string. So it lookslike LinkedList.
+
+(5) isEmpty():
+    - To check if LL have any node or not (is head & tail null?)
+    - If they are null, then LL has no nodes.
+ 
+(6) length():
+    - CURRENT is temporary CONTAINER represent headNode at first.
+    - Iteration/traverse this container throughout LL with counter = 0
+    - For every movement/iteration, counter increases till reaches null.
+
+(7) clear():
+    - How we can clear our Linked List?
+    - Just by intializing head & tail as null.
+
+(8) delete():
+  1. First Node Deletion:
+    - To delete firstNode -> newhead = head.next
+    - head.next points to address of 2nd node
+    - Automatically firstNode deleted as no one is referring it.
+  2. Last Node Deletion:
+    - When there is 4 nodes say A, B, C & D => To delete D node, tail = B.next
+Eg:- 
+ Question: 
+    >llObject.append(10);
+    >llObject.append(20);
+    >llObject.append(30);
+    >llObject.prepend(40);
+    >llObject.append(50);
+    >llObject.print(); // output 
+
+ Output: 40 -> 10 -> 20 -> 30 -> 50
+
+ Explanation: 
+     - 'Append' means adding node from 'END' of the LinkedList
+     - 'Prepend' means adding node from 'START' / beginning of the LinkedList
+    => Here we first adding 3 nodes with values 10, 20, 30 at end of LL
+    => So it becomes 10 -> 20 -> 30
+    => Then we adding a node has value as 40 at start of LL.
+    => So it becomes 40 -> 10 -> 20 -> 30
+    => Now adding last node with value 50 at end of LL
+    => Thus, results in 40 -> 10 -> 20 -> 30 -> 50
+
+Eg:- 
+ Q: if (!!!true) {
+       console.log("iff");
+    } else {
+       console.log("else");
+    }
+ Output: else (part executes)
+ Explanation: !true -> false | !!true -> !false -> true 
+              !!!true -> !true -> false
+ Reasons: Shortcut to memorize this is Even no of ! means same
+            !true = false
+            !false = true
+            !! false = false
+            !! true = true
+            !!!true = false
+            !!!false = true
+
+Complexity Introduction:-
+    - Complexity means checks whether our program is Bad, Better or Best
+    - Based on Time & Space
+    - The Code which takes less time & space is called Better program.
+    (1) Time Complexity:-
+        - How much time program takes to run?
+        - Min time is better than max
+        - Eg:- Amazon takes order in 1min but flipkart takes order in 1 second
+        - Code that takes less time to run is better. So here Flipkart is better than Amazon.
+    (2) Space Complexity:-
+        - Code that takes less space to run is better.
 
 Day 46 : 15.07.2023 -----------------------------
 Curriculum: 
     - Linked List's Implementation: Delete(index)
+    - Difference betweeen Array & Linked List?
     - Time Complexity
     - Absolute & Relative 
 
 ------------------------------------------------
 Linked List's Delete(index):-
-    > 0th index node Deletion
+    
+(8) delete():
+Case 1. First Node Deletion/0th index node Deletion:
+    - To delete firstNode -> newhead = head.next
+    - head.next points to address of 2nd node
+    - Automatically firstNode deleted as no one is referring it.
+    - Let's say we have 5 nodes. I need to add/delete 1ST Node. How many operation it takes?
+    - Only one as it is in first place having 0th index.
+    - In LL, T.C of add-> prepend/delete 1st Node is O(1) always.
+    - O(1) is contant time.
+Case 2. Any Node Deletion:
+    - When there is 4 nodes say A, B, C & D => To delete D node, tail = B.next
+    - Change address of delete's next node to delete's prev node
+    - We want to delete Node3, change Node2.next as 'a4 - address of Node4'
+    - Before deleting Node3, get deletingNode (Node3's) deleteNode.next (address) to store at Node2's next (address) & then change/connect prev & next nodes.
+    - In LL, we need not delete explicitly, we have to remove the link/chain which automatically deletes non-referring node.
+    - In LL delete function, we need to track previous & current(going to delete) node 
+    - currentNode = deleteNode
+    - As in previous node, we need to store nextNode's address lies at current.next
+    -> Intitally prevNode is null & current is 1st node
+    -> Run Loop to traverse/iterate both prev & current nodes
+    -> Instead of counter, we say currentIndex.
+Case 3. Last Node Deletion: 
+    - If previousNode.next == null, then make tail as previousNode.
+    - Let's say we have 5 nodes. I need to delete last Node. How many operations it takes?
+    - Only one as it is in last place having nth index.
+    - In LL, T.C of add/append at last node is also O(1) always.
+    - In LL, T.C of delete at last node is also O(n) always.
+Case 4. Only 1 Node but Deletion of 3rd node (Impossible): 
+    - append(10), isEmtpy, length, print, delete(3rd index)
+    - In above scenario, it throws TypeError: Cannot read properties of null (reading 'next')
+    - At current = current.next;
+    - To handle error situations, we need to check index is >= 0 & index is < length of LL
+
+Visual Explanation:          
+ Step1:   Head-->|___10__|__a2___|-->|___20__|__a3___|-->|__30___|__a4___|-->|__40___|__null___|-> Tail
+                     a1(Node1)            a2(Node2)            a3(Node3)          a4(Node4)
+--------------------------------------------------------------------------------------------------------
+ Step2:   Head---->|___10__|__a2___|---->|__20___|__a4___|-❌->|__40___|__null___|-> Tail
+                        a1(Node1)              a2(Node2)           a4(Node4)    
+
+Eg1:-
+    let a = null;
+    if(a){
+        console.log("if");
+    }else{
+        console.log("else");
+    }
+Output:- else
+Reason:- As null is also falsy value, we get 'else' part.
+
+Eg2:-
+    let a = null;
+    if(!a){
+        console.log("if");
+    }else{
+        console.log("else");
+    }
+Output:- if
+Reason:- As null is falsy value not(false) becomes true, we get 'if' part.
+
+Eg3:-
+    let a = 10;
+    if(!a){
+        console.log("if");
+    }else{
+        console.log("else");
+    }
+Output:- else
+Reason:- As 10 is truthy value not(true) becomes false, we get 'else' part.
+
+Eg4:-
+    let a = 0;
+    if(!a){
+        console.log("if");
+    }else{
+        console.log("else");
+    }
+Output:- else
+Reason:- As 0 is falsy value not(false) becomes true, we get 'if' part.
+
+console.log(0); //false 🚩
+console.log(1); //true  🚩
+console.log(!0); //true 🚩
+console.log(!1); //false🚩
+
+📌Conclusion:- 
+________________________
+|  -> 0, null = false   |🚩
+|  -> !null = true      |🚩
+-------------------------
+
+Difference betweeen Array & Linked List?
+🌟Array List:-
+⏹️ Array/Stack/Queue are contiguously (Tamil Meaning for contiguous - aduthuaduthu) stores in the memory.
+❌ The array size should be declared inside the program in advance in case of other programming languages. But not in Javascript. We can change arraySize at runtime (which is not fixed rule) also in JS 
+❌ It is difficult to change the size of the array afterwards its creation.
+⏹️ Array allows random access of elements with its index.
+⏹️ Array have slower insertion or deletion time as compared to linked lists.
+⏹️ Arrays require less memory per element.
+
+🌟 Linked List:-
+⏹️ LL are not necessarily contiguous inside the memory. They are randomly stored elements. 
+⏹️ We need not declare the size of the list in advance.
+⏹️ We can expand or shrink a linked list any time during the execution of the program.
+⏹️ In a linked list, we cannot randomly access any element, we need to traverse/iterate/movethrough the list from the beginning (index 0).
+⏹️ Linked List have a slower search time because of the absence of random access.
+⏹️ Lists require more memory because we need to maintain extra pointers.
+
+Note:- ❌ means need not to be taken while comparison and exemption in JS
+
+Time Complexity:-
+    - Intro
+    - Big O, Omega, Theta Notation
+    - Types of Time Complexity functions
+    - Maths behind Time Complexity & Comparison
+    - Practice on Time Complexity
+    - Best, Worst & Average cases
+    -> What is T.C?
+    -> How to Calculate it?
+    -> Common big 'O' notations
+    -> Questions
+
+Algorithm Analysis:-
+    -> Which algo is better & which is worse?
+    -> What is absolute & relative time?
+    -> What is input size & growth rate & Big O Notation?
+    -> Travelling from Delhi to Mumbai directly. [BEST WAY as less time]✅
+    -> Delhi to UK to US to Japan to Kolkata to Mumbai.
+    -> Similarly, Algorithm means steps to code by analysing which algorithm is better & which is worse.
+    -> To check the algorithm, there are 2 ways.
+        1. In terms of Time 
+        2. In terms of Space 
+    -> Let's assume that from Delhi to  Mumabi 1st one is better in terms of Time.
+    -> Assume that from Delhi to  Mumabi 2nd one is better in terms of Price(Space).
+    -> As a manager we will decide accordingly to scenario
+    -> If we need to be in budget, then we are not worry about time taken. Then we choose 2nd one. Orelse vice versa.
+
+Time Complexity:- [V.V.I Concept]
+    - There are 2 types of time: Absolute & Relative
+        (1) Absolute Time
+            -> Tells exact computational time like Hours, minutes or seconds.
+            -> Eg:- To open amazon app takes 5 seconds which is absolute time.
+            -> Depends on Hardware like 106 GB of RAM, things will getting very fast.
+            -> Let's say we have very good processor, handles ur operations very fast
+            -> That's why absolute time will not give correct/uniform measurement on which Algorithm is better A or B
+            -> Maybe Algo A works fast on MAC & same works slow on Windows system.
+            -> It depends on different processor/internet speed as well.
+        (2) Relative Time
+            -> Time can be linear, quadratic, cubic or log etc.
+            -> This will not tell exact time like Hours, minutes or seconds.
+    - We need to focus only on 'Relative' as a developer.
+    - Absolute time we will not consider
+    - 🚨(Int Q) Why we not consider Absolute ?
+        -> As we will not get accurate time of results in Algorithm
+        -> Refer from 3rd point under Absolute time
+    - 🚨(Int Q) Why we care about Relative time?
+        -> How our alogirthm is growing with input size?
+        -> Now we will not care about seconds (time taken).
+        -> We care about scaling with input size.
+        -> Let's say we run a loop from 1 to 10 & doing some task inside loop results in A
+        -> We run another loop from 1 to 1000 & doing some task inside loop results in same output A.
+        -> Now say who is better algorithm? 1st for loop with less time with 10 iterations.
+        -> O(n) not depends on no.of operations but relative depends on no.of operations.
+How to calculate Time Complexity?
+    - To denote Time Complexity with Capital 'O'(Big O notation).
+    - Calculate using Number of Operations
+    - Eg1:- for(let i = 0; i < 10; i++){
+            // Some Task
+            console.log("Hello"); -> This is 1 operation
+            console.log("Bye"); -> This is another operation
+           }
+      Run time of for loop: 10 times
+      Total no.of operations: 2 operations (Each time of iteration)
+      Therefore, T.C of above program: 10 times * 2 operations = 20 operations
+    - Eg2:- for(let i = 0; i < 5; i++){
+            // Some Task
+            console.log("Monisha"); -> This is 1 operation
+           }
+      Run time of for loop: 5 times
+       -> We usually don't depend on constants but here 5 is a constant
+      Total no.of operations: 1 operations (Each time of iteration)
+      Therefore, T.C of above program: 5 times * 1 operation = 5 operations
+    - Eg3:- for(let i = 0; i < n; i++){
+            // Some Task
+            console.log("Monisha"); -> This is 1 operation
+           }
+      -> Run time of for loop: 'n' times
+       -> We usually don't depend on constants but here 5 is a constant
+      -> Total no.of operations: 'n' operations (Each time of iteration)
+      -> Therefore, T.C of above program: n times * 1 operation = n operations
+       -> This is called as Relative Time.
+       -> We represent this as O(n) - order of 'n'
+
+    - Eg4:- for(let i = 0; i < n; i++){
+            // Some Task
+            console.log("Monisha"); -> This is 1st operation runs for n times. 
+            console.log("Raji"); -> This is 2nd operation runs for n times. So n+n=2n
+           }
+      -> Run time of for loop: n times
+      -> Total no.of operations: 2 operations (Each time of iteration)
+      -> Therefore, T.C of above program: n times * 2 operations = 2n operations
+      -> We usually don't depend on constants but here 2 is a constant
+      -> For this also we say O(n) T.C only.
+      -> We discard constants of absolute terms & we concenterate on only relative (n).
+      -> O(n) not depends on no.of operations.
+    - Eg5:- for(let i = 0; i < n; i=i+2){
+                clg("Moni');
+            }
+      Run time of for loop: n/2 times
+      -> But we discard /2 & say 'O(n)'
+    - Eg6:- for(let i = 0; i*i < n; i++){
+                clg("Moni');
+            }
+      -> Let's say n=16
+      -> Run time of for loop: 4 times
+      -> i square = n => i = root of n = n to the power of (1/2)
+      -> We discard 1/2 & say O(n)
+      -> But power thing we cannot neglect so 'O(root(n))' operations
+
+    - Eg7:- for(let i = 1; i <= n; i++){
+                for(let j = 1; j <= n; j++){
+                    clg("Moni');
+                }
+            }
+      -> Run time of for loop: n*n times Moni will be executed
+      -> Let's say n=5 for 25 times above program runs
+      -> But we cannot discard power thing
+      -> Therfore, T.C of this program is 'O(n square)' operations
+
+    - Eg8:- for(let i = 1; i <= n; i++){
+                for(let j = 1; j <= n; j++){
+                    for(let k = 1; k <= n; k++){
+                        clg("Moni');
+                    }
+                }
+            }
+      -> Run time of for loop: n*n*n times Moni will be executed
+      -> Let's say n=5 for 125 times above program runs
+      -> But we cannot discard power thing
+      -> Therfore, T.C of this program is 'O(n cube)' operations
+
+    - O(1) is constant time.
+
+        
+Myths & What is Log?
+        -> Only care about growth rate anything else.
+        -> What is Log & what makes it so powerful?
+        -> Questions on Logs 
+    Log:-
+      - Class 11th & 12th
+      - Why? We represent T.C in terms of log also.
+      - How? We will see in DSA advanced
+      - What? 2 raise to power of 3 = 8
+      - This Exponent is just opposite of Log.
+      - To what power should we raise 2 to get 8?
+      - log of 8 subscript of (down) 2 is 3
+    Identities of Logs:-
+      - log ax to subscript of b = x times log a to subscript of b
+
+Big O Notations (Increasing series):-
+    -> O(1)
+    -> O(log n)
+    -> O(sqrt n)
+    -> O(n)
+    -> O(n logn)
+    -> O(n^2)
+    -> O(2^n)
+    -> O(n!)
+
+Space Complexity & how to calculate?
 
 Day 47 : 17.07.2023 (React JS) -----------------------------
 Curriculum: 
@@ -3992,6 +4406,308 @@ ES 5 & 6 New Array methods
         -> It returns -1, if we don't have any even number
 
     > FindIndex
+        -> 
     > Some 
-        -> Test whether at least one element in the array passes the provided last condition
-    > 
+        -> Test whether at least one element in the array passes the provided test condition in function
+    > Every
+        -> Test whether all elements in the array pass the provided function
+    > From [is from ES 7]
+        -> Array-like or object
+
+Day 49 : 19.07.2023 -----------------------------
+Curriculum: 
+    - ReactJS (Pg 256 in ppt)
+    - Advantages
+    - Pain of writing React Pure Code
+    - Bundler
+    -
+    - Installation of Node & npm & reactApp
+    - What is App? (JSX Intro & Components)
+    - Websites:
+        https://legacy.reactjs.org/docs/cdn-links.html
+
+------------------------------------------------
+ReactJS 
+    -> React is a JS framework
+    -> Jordan Walke Fb developer who created ReactJS (2011 & 2012 Only for FB)
+    -> Released for public in 2013
+    -> React helps to create Single Page Applications(SPA)
+    -> A Single Page Application (SPA) is a web application or website that operates on a single web page, without the need for constant page reloads.
+    -> SPAs load the initial HTML, CSS, and JavaScript resources once and then dynamically update the content as the user interacts with the application.
+    -> Eg of SPA:- Airbnb, Swiggy, Zomato, Netflix, BookMyShow (no Reload & smooth application)
+    -> EPFO site is traditional application which reloads with each request which is bad
+    -> Sometimes reload will also happen when our net connection is not properties
+    -> Traditional WebApp each interaction with website involves a request to the server & a full page reload.
+    -> Angular JS is by Google
+
+Advantages of ReactJS:-
+    -> Job opportunities
+    -> Backed by Fb
+    -> Easy to learn
+    -> Long term support
+    -> Good Salary
+
+Pain of writing Pure React Code:-
+    -> When developer use React to build applications, feels the pain.
+    -> Typically we use JSX (Javascript XML) instead of using React.createElement
+    -> JSX is 99.99999% html not 100%
+
+Bundler:-
+    -> It is a tool that packages & prepares all the necessary assets, such as JS, CSS, images and more files.
+    -> Popular bundlers in React.js projects:-
+        (i) Webpack
+        (ii) Vite
+        (iii) Parcel
+
+Installation of Node & npm & reactApp:-
+    > In Win+R -> cmd (command prompt black screen) paste "npx create-react-app my-app"
+    > Inside my-app, package.json has dependencies used while creating projects
+    > npm packages
+    > react may be dependent on some other packages. And those other pkgs depends on some othr pkgs (package-lock.json consists of these)
+    > Where r they? Inside node.modules exists.
+    > .gitignore just for gitHub to ignoring some files.
+    > src folder - App.css, App.js, index.css & index.js
+    > public folder - index.html
+    > App.js returns some piece of JSX which is not pure HTML 
+    > Whatever tags we use in React are called as JSX instead of HTML even though it looks like HTML.
+    > Shows writing HTML(JSX) in .JS file
+
+ What is App? (JSX Intro & Components)
+    > 📢Everything in React is ur 'component'.
+    > Component: 
+        - Go to React.dev website
+        - function App() is our component inside App.js file
+        - Whatever we build/see/code in React are components
+        - 2 types: Functional & Class Components
+        - Now-a-days we use only Functional components (easy)
+    > Functional Component:
+        - Just a JS function returns some kind of JSX.
+        - Naming Convention of functionName startsWith CAPITAL letter.
+
+Day 50 : 20.07.2023 -----------------------------
+Curriculum: 
+    - React Installation Doubts Clarification
+Note📢:- Cannot give React project name with 1st letter CAPS.
+         We can use "npm install -g create-react-app" global command. Then we can use npx create-react-app my-app. This works for me in windows command prompt.
+------------------------------------------------
+
+Day 51 : 21.07.2023 -----------------------------
+Curriculum: 
+    - Foundation of React (this class & next)
+    - Revise Bundlers (CRA, VITE, PARCEL)
+    - Writing JSX
+    - 
+
+--------------------------------------------------
+Revise Bundlers (CRA, VITE, PARCEL):-
+ SuperPower of Bundlers : 
+    (1) 🚨 HMR:-
+        -> HMR (Hot Module Reload or Replacement)
+        -> Which keep a track of all files which are changing in realtime & tells server to reload.
+        -> Eg:- Go Live Server, ReadMe files etc.
+    (2) Caching while Development 
+        -> Cache / Cookies
+    (3) Dev & Production Build & Staging Environment
+        -> Beta means developing period.
+        -> NetFlix is Production product.
+    (4) Image Optimization
+        -> 
+
+ CRA (Create React App) / Webpack [Famous]
+    -> It is one of Bundler tool used to convert JSX code into React.createElement.
+    -> Popular bundler in React.js
+    -> https://create-react-app.dev/
+    -> Node Modules gives babel dependency
+ 
+ VITE:
+    -> 
+    -> https://vite.dev/
+
+ Parcel
+    -> https://parceljs.org/
+
+
+JSX:
+    -> Browser cannot understand JSX. But Babel understand JSX.
+    -> Javascript XML is not pure html
+    -> Javascript XML is kind of / like html
+    -> It’s syntax extension for javascript that allows to write html-like syntax in javascript code.
+    -> Because it’s like HTML like Syntax - It’s easy to create and easy to manipulate and already known to you.
+
+BABEL:
+    -> Babel in Javascript Compiler or transpiler.
+    -> It is a library that converts JSX into pure JavaScript/Pure ReactCode meets HTML & put in DOM.
+    -> Also helps in converting ES5-6 syntax into code that older JS engines.
+    -> It is given by node module in CRA/VITE/Parcel
+
+React Components:
+    (1) Functional Component
+    (2) Class Component
+
+(1) Functional Component: 
+    -> RFCE shortcut for Function Component
+    -> From 2018, React said only supports this with new features.
+    -> It is just JS function/arrow Function etc which returns JSX.
+    -> Function name starts with Capital & returns JSX.
+    -> Magic of Components lies in it's Reusability as it is function.
+    -> How to change content using component for different videoCards multiple times?
+    -> Calling it in rendering at ReactDOM root div
+    -> To call in different file, we need to add export keyword before function keyword in component / adding a line export default Header;
+    -> import Header from './Header.jsx' at main.jsx
+
+Day 52 : 24.07.2023 -----------------------------
+Curriculum: 
+    - Let's understand Export & Import
+    - JSX with Curly Brackets
+    - What is Props in Components
+    - Apply Style or CSS on Components
+    - Talk About npm, yarn, pnpm
+
+--------------------------------------------------
+Note: React Components always returns JSX
+
+Destructuring in JS:-
+    Eg:- const Obj = {
+            "name": "Moni",
+            "last": "sam"
+         }
+         const {name, last} = Obj;
+         console.log(name); // Moni
+         console.log(last); // Sam
+    
+Export & Import:
+    - Are used to enable the reusability of code.
+    - There are 2 primary ways to export values with Javascript.
+        1. default exports 
+        Eg:- export default Button; import Button from './Button.js'
+        2. named exports - export Keyword before child function
+        Eg:- export function Button(){} | import {Button} from './Button.js'
+        Note: 
+            -> {Button} is destructuring named export part from JS, 
+            -> key of object
+            -> While importing Key should have same name as named export function name.
+    - RULES: ["Only 1 default export, multiple named export"]
+        > A file can have not more than one default export (Only 1).
+        > but it can have as many (multiple) named exports as you like.
+    - Important Rules on default and named export and import:
+        > When you do export default, you can put "any name" while importing.
+        > When you do named export, destructure with "same name" should used while importing as key -> {key1, key2}. That's why they are called named imports!
+    - Component Conventions (Everyone follows):
+        > Usually, people often use default exports if the file exports only one component.
+        > And use named exports if it exports multiple components & values.
+
+JSX with Javascript within Curly Brackets {}:
+        > JSX lets you write HTML-like markup inside a JavaScript file.
+        > Browser cannot understand JSX. Babel is a compiler/transpiler.
+        > Ther comes Babel into picture which converts JSX into Browser's language
+        > We have babel inside node modules of CRA [Create-React-App].
+        > VITE is very fast when compare to CRA (CRA -> very famous).
+        > Sometimes you will want to add a little JavaScript logic or reference a dynamic property inside that markup. 
+        > In this situation, you can use curly braces {} in your JSX to open a window to JavaScript.
+        > That means it’s possible to use JavaScript inside it with curly braces { }. 
+        > Apart Form number, string and normal things, We can pass Objects in JSX.
+        > Let’s Check Some Example Now.
+
+Component:
+    > It is nothing but just Javascript function which have 3 things.
+    > function body, return statement & parameters.
+
+What is Props in Components? [Time Stamp:- 01:12:50]
+    - Props means Properties
+    - React Components communicate with each other using props
+    - rfce means React Functional Component Export [ShortCut]
+    - Parent Component - App.js
+    - Child Component - ProductCard.js
+    - Every Parent Component can pass some information to its child components by giving them props.
+    - Eg:- Created a ProductCard.js [Time Stamp:- 01:20:25]
+    - Passing Arguments is different from passing Props but technically same
+    - Props is our big object which contains 3 things url, title & desc.
+    - Props might remind us of HTML attributes.
+    - But you can pass any Javascript value through them.
+    - Including functions, objects, arrays etc.
+    - Props are the information that you pass to JSX tags like HTML's attributes.
+
+Day 53 : 25.07.2023 -----------------------------
+Curriculum: 
+    - Apply Style or CSS on Components [External file & External Library]
+    - Talk About npm, yarn, pnpm
+    - Rendering List of Components
+    - Let's learn State Management in components
+    - Introduction to Hooks in Functional Components
+    - Your First Hook - useState hook.
+    - Let's build a counter components
+
+--------------------------------------------------
+Apply Style or CSS on Components:-
+    (3) External file 
+        -> As same as normal CSS file
+        -> Only importing at .js file
+        -> Because import & export used in .js files only.
+    (4) External Library [Material UI, Tailwind CSS, Ant etc.]
+        -> Bootstrap is used for normal projects
+        -> In MNCs, they use Material UI, Tailwind CSS etc.
+        -> Tailwind CSS blows market as they use less installation time.
+        -> JWT means JSON Web tokens which is token generated system [Backend].
+
+NPM, Yarn & PNPM:-
+    Refer Slide
+
+Rendering List of Components:-
+    -> Before Rendering List of Components
+    -> You will often want to display multiple similar components from a collection of data.
+    -> Refer Youtube Video Card & Flipkart Product Card
+    -> Component is same but names and videos differ
+    -> Shortcut for instead of repeating rendering a component.
+    -> We use Arrow function is passed as callback function in map loop which gives a new array.
+    -> Everytime we return same component with different data. 
+    -> (Assignment 1) we need to use static data.
+    -> (Assignment 3) we need to use dynamic data using API call.
+
+State
+    -> Best feature in ReactJS is State
+    -> [IMP] Changes to local variables won't affect render in React
+    -> Not re-rendering
+    -> Local variables don't persist between renders.
+    -> React don't realize it needs to render the component again with the new local variable data.
+    -> When Component should re-render?
+    -> When the data is updated, It can be updated on every events in UI.
+    -> Let's update somethings and Check if it trigger re-render or not.
+    -> Local varaibles are not allowed in React.
+    -> Solution is using State Variable when component should need to re-render by remembering
+
+State Variables:-
+    -> Use a state variable when a component needs to "remember" some information between renders. (Re-renders)
+    Q: How to create State Variables in functional components?
+    A: State Variables are created in functional components by calling 'useState Hook'
+    -> Hooks are special functions that start with use. They let you "hook into" React features like state.
+    -> Hooks are just Javascript functions with which we use lots of react features.
+    -> Now let's learn HEART OF REACT - REACT HOOKS
+
+React Hooks:-
+    -> React Hooks are a feature introduced in React 16.8.
+    -> It works only in functional components 
+    -> Not used in class based components.
+    -> Hooks are just Javascript functions with which we use lots of react features.
+    -> Some hooks are already created by React(Kind of in-built functions)
+    -> We can also create our own custom hooks.
+
+Core React Hooks (in-built given by React):-
+    -> useState, useEffect, useReducer, useCallback, useMemo, useRef, useContext etc.
+    -> Q: What is common in all above hooks?
+    -> Try to read all Hooks name and tell me ?
+    -> use is common which is keyword in all hook name (in-built/custom-made) 
+
+useState [Let's learn 1st Hook]:-
+    -> When you call useState, you are telling React that you want this component to remember something.
+        Syntax: const [X, setX] = useState(0);
+            Eg:-      const [index, setIndex] = useState(0);
+    -> In above code, we want React to remember index.
+    -> The only argument to useState is the initial value of your state variable.
+    -> The state variable (index) with the value you stored.
+    -> Throws Error: Assignment to constant variable
+    -> The state setter function (setIndex) which can update the state variable 
+    -> Not only updating value but also trigger the rerender of components with changing DOM also.
+    -> It helps by triggering React to render the component again (Re-render).
+    -> You can have as many state variables of as many types as you like in one component.
+
+
