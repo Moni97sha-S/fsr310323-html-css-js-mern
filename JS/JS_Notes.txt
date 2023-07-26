@@ -4621,28 +4621,93 @@ What is Props in Components? [Time Stamp:- 01:12:50]
     - Every Parent Component can pass some information to its child components by giving them props.
     - Eg:- Created a ProductCard.js [Time Stamp:- 01:20:25]
     - Passing Arguments is different from passing Props but technically same
+
+    Eg:- Difference between
+    In Normal Javascript,
+        function f1(obj){          -> Function declaration/Creations
+            obj.a;
+            obj.b;
+            obj.c;
+        } 
+        f1(10, 20, 30); -> Calling Function
+
+    In React,
+         function f1(props){        -> Component creation at child (Receiving props)
+            return (
+                //Shaping/Structuring process
+                <h1>{props.a}</h1>
+                <h1>{props.b}</h1>
+                <h1>{props.c}</h1>
+            );
+         } 
+         <f1 a={A} b={B} c={C} /> -> Calling Component at parent (Passing values[A, B, C] of props)
+    -> Without passing A, B, C values, it won't get reflected on UI.
+
+    In React, we are destructuring props
+        function f1({a, b ,c}){        
+            -> Component creation at child (Receiving destructured props)
+            return (
+                //Shaping/Structuring process
+                <h1>{a}</h1>
+                <h1>{b}</h1>
+                <h1>{c}</h1>
+            );
+        } 
+
     - Props is our big object which contains 3 things url, title & desc.
     - Props might remind us of HTML attributes.
     - But you can pass any Javascript value through them.
     - Including functions, objects, arrays etc.
     - Props are the information that you pass to JSX tags like HTML's attributes.
+    - Props is also called as properties / arguments.
+CONCLUSION: Updating props is bad as it is read-only at childEnd component.
+Parent Component:
+    -> We are creating key-value pair
+Child Components:
+    -> We need to pass with same key name at {props.sameKeyName}
 
+Apply Style CSS:-
+    - There are 4 ways to apply the style in React.
+    (1) INLINE (as Object):
+        Syntax: {Javascript} -> <p style = {{color:"red" fontSize:"35"}}></p>
+
+    (2) Object:
+        Syntax: 
+        let style1 = {
+            backgroundColor: "lightblue",
+            borderSize: "1px",
+            borderStyle: "dashed",
+            borderColor: "red"
+        }
+        function f1(){
+            return(
+                <p style = {style1}></p>
+            );
+        }
 Day 53 : 25.07.2023 -----------------------------
 Curriculum: 
-    - Apply Style or CSS on Components [External file & External Library]
+    - Apply Style or CSS on Components [(3) External file & (4)External Library]
     - Talk About npm, yarn, pnpm
-    - Rendering List of Components
+    - Rendering List of Components [Movie Posters API]
+        -> omdbapi.com/?s=iron&apikey=53b4ed65
     - Let's learn State Management in components
     - Introduction to Hooks in Functional Components
+    - State Management & state Variables
+    - React Hooks: Core React Hooks & Custom Hooks
+    - useState [Let's learn 1st Hook]
     - Your First Hook - useState hook.
     - Let's build a counter components
-
+    - VS Code Git pushCode 3 Command Lines 
+    - 📢[Backend Watch After Node.JS] Json Web tokens Youtube URL: https://youtube.com/watch?v=YxMIhGZlrTM
 --------------------------------------------------
 Apply Style or CSS on Components:-
     (3) External file 
         -> As same as normal CSS file
         -> Only importing at .js file
         -> Because import & export used in .js files only.
+        -> Main difference is className in JSX not class
+        -> As class is itself JSX, we need to give className instead of class.
+        -> 
     (4) External Library [Material UI, Tailwind CSS, Ant etc.]
         -> Bootstrap is used for normal projects
         -> In MNCs, they use Material UI, Tailwind CSS etc.
@@ -4663,33 +4728,36 @@ Rendering List of Components:-
     -> (Assignment 1) we need to use static data.
     -> (Assignment 3) we need to use dynamic data using API call.
 
-State
+State Management:-
     -> Best feature in ReactJS is State
     -> [IMP] Changes to local variables won't affect render in React
     -> Not re-rendering
-    -> Local variables don't persist between renders.
+    -> Local variables don't persist between re-renders.
     -> React don't realize it needs to render the component again with the new local variable data.
     -> When Component should re-render?
-    -> When the data is updated, It can be updated on every events in UI.
+    -> When the data is updated. It can be updated on each time events happens in UI.
     -> Let's update somethings and Check if it trigger re-render or not.
-    -> Local varaibles are not allowed in React.
-    -> Solution is using State Variable when component should need to re-render by remembering
+    -> Local variables are not allowed in React.
+    -> Local variables changing only at console.
+    -> Not re-rendering & updating at DOM & UI.
+    -> Solution is using State Variables when component should need to re-render by remembering. [Value Updation]
 
 State Variables:-
     -> Use a state variable when a component needs to "remember" some information between renders. (Re-renders)
     Q: How to create State Variables in functional components?
-    A: State Variables are created in functional components by calling 'useState Hook'
+    A: State Variables are created only in functional components by calling 'useState Hook'
     -> Hooks are special functions that start with use. They let you "hook into" React features like state.
     -> Hooks are just Javascript functions with which we use lots of react features.
     -> Now let's learn HEART OF REACT - REACT HOOKS
 
 React Hooks:-
-    -> React Hooks are a feature introduced in React 16.8.
+    -> React Hooks are a feature introduced in React 16.8 (2018).
     -> It works only in functional components 
-    -> Not used in class based components.
+    -> Not used in class-based components.
     -> Hooks are just Javascript functions with which we use lots of react features.
-    -> Some hooks are already created by React(Kind of in-built functions)
-    -> We can also create our own custom hooks.
+    -> Some hooks are already created & provided by React(Kind of built-in functions)
+    -> We can also create our own custom hooks 
+    -> Every (built-in & custom) Hooks should startsWith 'use' keyword.
 
 Core React Hooks (in-built given by React):-
     -> useState, useEffect, useReducer, useCallback, useMemo, useRef, useContext etc.
@@ -4700,14 +4768,57 @@ Core React Hooks (in-built given by React):-
 useState [Let's learn 1st Hook]:-
     -> When you call useState, you are telling React that you want this component to remember something.
         Syntax: const [X, setX] = useState(0);
+            Here
+                - X is state variable
+                - 0 is initialValue passed as argument
+                - setX is setter state functions which triggers to update state variables.
             Eg:-      const [index, setIndex] = useState(0);
+                      function f1(){
+                        setIndex(index + 1);
+                      }
+
+    -> setCount(count++); -> Err: Assignment to constant variable we assigned to const keyword.
+        const [count, setCount] = useState(1);
+    -> Even if we change from const to let also gives problems but not by throwing error.
+        let [count, setCount] = useState(1);
+    -> When we 1st time click btn not changing the value. 
+    -> On 2nd time clicking only changes value. Due to below reason.
+    -> This '++' is post increment which posts the current value & then increment. 
+    -> So these type of (POST & PRE | increment & decrement) operators not used in React Hooks.
     -> In above code, we want React to remember index.
-    -> The only argument to useState is the initial value of your state variable.
+    -> useState is one of the core Hook provides by React.
+    -> While calling useState we pass only ONE argument to it which is the initial value of your state variable & that ONE argument can be of any data type.
     -> The state variable (index) with the value you stored.
+    -> State variable is immutable. Only by assigning we can change.
     -> Throws Error: Assignment to constant variable
     -> The state setter function (setIndex) which can update the state variable 
-    -> Not only updating value but also trigger the rerender of components with changing DOM also.
+    -> Not only updating value but also trigger by rerender the React components by changing DOM (inspect-code under Elements tab) also.
     -> It helps by triggering React to render the component again (Re-render).
     -> You can have as many state variables of as many types as you like in one component.
+    -> But only ONE argument is passed as useState parameter which can be of any datatype.
+    -> (IMP🚨) State variables are immutable/cannot change. If we want to change, we need to assign new value to state variables.
+    [Time Stamp: 01:37:46]
+    -> 🚨All Hooks starts with 'use'
 
+VS Code Git pushCode:- [ Under  Terminal ]
+    -> git add .
+    -> git c "useState Added"
+    -> git push origin main
 
+Day 54 : 26.07.2023 -----------------------------
+Curriculum: 
+    - Revise useState Hook with Object Argument
+    - Class Based Components
+    - How to pass Props in Class components.
+    - Creating state variable in Class components.
+    - Updating state variable in Class components.
+    - Lifecycle methods in class components.
+__________________________________________________
+
+Revise useState Hook:- 
+    -> Passing only ONE which can be of different datatypes.
+    -> Like Number, String, Array, Object etc.
+
+Class Based Components:
+    -> It were the traditional way of components in React.
+    -> It may be you will never use it(unless we are working on old code)

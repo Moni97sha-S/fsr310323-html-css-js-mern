@@ -1,31 +1,44 @@
 import MovieCard from "./MovieCard";
 import "./App.css";
 import { useState } from "react";
+import React from "react";
 
 function App() {
   let localNumber = 1; 
   function f1(){
     localNumber++;
-    console.log(localNumber);  
-    // 1 - 2 - 3 - 4 - 5 - 6 - 7 - 8 - 9
+    console.log(localNumber); // 1 - 2 - 3 - 4 - 5 - 6 - 7 - 8 - 9
   }
-
   // let stateNumber = 1;
-  const [stateNumber, setStateNumber] = useState(1);
+  const [count, setCount] = useState(1);
+  const [name, setName] = useState("dummy");
+  const [detailObj, setDetailObj] = useState({name:"Pratik"});
   function f2(){
     // stateNumber++;
-    // setCount(stateNumber++); -> Err: Assignment to constant variable we assigned to const keyword.
-    // Even if we change from const to let also gives problems but not by throwing error.
-    // One time click not changing value. On 2 times clicking only changes value. Due to below reason.
-    // This '++' is post increment which post value & then increment. So these type of operator not used in React Hooks.
-    setStateNumber(stateNumber++);
+    //count++ should not use in useState
+    // count = count + 1;
+    if(count < 10){
+      setCount(count + 1);
+    }else{
+      alert("Sorry, You are reached out of Stocks");
+    }
+  }
+  function f3(){
+    if(count <= 0){
+      alert("Please give correct count");
+    }else{
+      setCount(count - 1);
+    }
   }
   return (
     <div>
       <h1>Local Number = {localNumber}</h1>
       <button onClick={f1}>Local Counter</button>
-      <h1>State Number = {stateNumber}</h1>
-      <button onClick={f2}>State Counter</button>
+      {/* <h1>State Number = {stateNumber}</h1> */}
+      <h1>State Number = {count}</h1>
+      {/* <button onClick={f2}>State Counter</button> */}
+      <button onClick={f2}>Add By 1</button>
+      <button onClick={f3}>Substract By 1</button>
       {/* <MovieCard moni={}/> */}
     </div>
   );

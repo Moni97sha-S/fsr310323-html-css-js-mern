@@ -4,12 +4,12 @@
         // C) Round Robin
         // Res: B) First In First Out [FIFO]/First Come First Serve[FCFS]
 
-        //Q-2 How will you select all paragraphs from an HTML page using JS?
-        // A) 
-        // B) 
-        // C) 
-        // D) 
-        // Res: D) 
+        //Q-2 Select all the operations in a Queue?
+        // A) Enqueue
+        // B) Push
+        // C) Pop
+        // D) Dequeue
+        // Res: A) & D) 
 
 
         //Q-3 What is the time complexity for the deletion of node from the end of the linked list?
@@ -20,25 +20,49 @@
         // D) O(n^2)
         // Res: A) O(n)
 
-        //Q-4 What will happen when you run the following code?
-        //
-        // A) 
-        // B) 
-        // C)
-        // D) 
-        // Res: C) 
+        //Q-4 Given below is the stack implementation for checking the number of brackets in a given string.
+        /*
+        def check_pairs_in_str(str):
+        stack = Stack()
+        for c in str:
+         if c in ["{", "(", "["]:
+           stack.push(c)
+         else:
+           if stack.is_empty():   
+                print("[ERROR] : string not proper")
+        return
+        c_from_stack = stack.pop()    
+        if c_from_stack is "{" and c is not "}":
+        print("[ERROR] : string not proper")
+        return
+        if c_from_stack is "[" and c is not "]":
+        print("[ERROR] : string not proper")
+        return
+        if c_from_stack is "(" and c is not ")":
+        print("[ERROR] : string not proper")
+        return 
+        if not stack.is_empty():
+        print("[ERROR] : string not proper")
+        print("All Good !!!")
+        */
 
-        //Q-5 What is the observation made in the following Javascript mode?
-        /* 
+        // If my String is {{[([{}])]
 
-         */
-        // A) 
-        // B) 
-        // C) 
-        // D) 
-        // Out: 
+        // What will be the number of times the stack is being popped?
+        
+        // A) 3
+        // B) 5 
+        // C) 4 
+        // D) 2 
+        // Res: C) 4
+
+        //Q-5 Name the operation which will return the topmost value of Stack without popping the stack?
+
+        // A) peek()
+        // B) pop()
+        // C) push()
+        // Res:  A) peek()
         // Reason:  
-        // Res:  A) 
 
         //Q-6 Consider a given function which takes a single link list & does some updates on the same:
         /* 

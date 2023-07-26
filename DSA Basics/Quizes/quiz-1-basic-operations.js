@@ -1,98 +1,66 @@
-        //Q-1 How will you select the following element in JS?
-        // A) 
-        // B) 
-        // C) 
-        // D) 
-        // Res: C) 
+        //Q-1 Various types of data structures?
+        // A) Linear
+        // B) Non-Linear
+        // C) Physical
+        // D) Logical
+        // E) All of the above
+        // Res: E) Linear, Non-Linear, Physical & Logical
 
-        //Q-2 How will you select all paragraphs from an HTML page using JS?
-        // A) 
-        // B) 
-        // C) 
-        // D) 
-        // Res: D) 
+        //Q-2 We can increase the size of the Linked List at runtime?
+        // A) True
+        // B) False
+        // Res: A) True
 
-
-        //Q-3 What will happen when you run the following code?
+        //Q-3 What is the time complexity for traversal in Link List?
          
-        // A) 
-        // B) 
-        // C) 
-        // D)  
-        // Res: D) 
+        // A) O(n)
+        // B) O(1)
+        // C) O(n*n)
+        // D) O(nlogn)
+        // Res: A) O(n) 
+        // Reason: Only 1 time looping through Linked List
 
-        //Q-4 What will happen when you run the following code?
-        //
-        // A) 
-        // B) 
-        // C)
-        // D) 
-        // Res: C) 
+        //Q-4 Logical DS use Physical DS when storing in memory?
+        // A) True
+        // B) False
+        // Res: A) True 
 
-        //Q-5 What is the observation made in the following Javascript mode?
-        /* 
+        //Q-5 Select the various types of linked list?
+        // A) Single
+        // B) Stack
+        // C) Circular
+        // D) Double
+        // Res:  A), C) & D) 
+        // Reason: Single, circular & Double LL 
 
-         */
-        // A) 
-        // B) 
-        // C) 
-        // D) 
-        // Out: 
-        // Reason:  
-        // Res:  A) 
+        //Q-6 We can pop when the stack is empty??
+        // A) True
+        // B) False
+        // Res: B) False 
+        // Reason: Already stack is empty, then why we need to pop.
 
-        //Q-6 What will happen on button click?
-        /* 
-
-         */
-        // A) 
-        // B) 
-        // C) 
-        // D) 
-        // Res: C) 
-        // Reason: .
-
-        //Q-7 In general, event handler is nothing but ______?
-        // A) 
-        // B) 
-        // C) 
-        // D) 
-        // Res: D) 
+        //Q-7 Select the uses of stacks?
+        // A) Tower of Hanoi
+        // B) Posfix Evaluation
+        // C) Back Button implementations
+        // Res: A), B) & D) 
         // Reason: 
 
+        //Q-8 We can implement never-ending stacks using?
+        // A) Only Arrays
+        // B) Only Linked Lists
+        // C) Either Arrays or Linked List
+        // Res: B) Only Linked Lists 
 
-        //Q-8 What will be printed in the console?
-        /* 
-        {
+        //Q-9 Stacks is a linear DS?
+        // A) True
+        // B) False
+        // Res: A) True 
+        // Reason: Arrays, Stacks, Queues & Linked Lists are linear DS
 
-        }
-        
-         */
-        // A) 
-        // B) 
-        // C) 
-        // D) 
-        // Res: C) 
-
-        //Q-9 In the following syntax, the ?
-        /* 
-        {
-            
-        }
-         */
-        // A) 
-        // B) 
-        // C) 
-        // D) 
-        // Res: B) 
-        // Reason: 
-
-        //Q-10 What will be printed in the console?
-        /* 
-        
-         */
-        // A) 
-        // B) 
-        // C) 
-        // D) 
-        // Res: C) 
+        //Q-10 What is the time complexity of searching a given element in Arrays?
+        // A) O(n)
+        // B) O(1)
+        // C) O(n^2)
+        // D) O(logn)
+        // Res: A) O(n) 

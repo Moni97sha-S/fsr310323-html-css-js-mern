@@ -118,11 +118,15 @@ Alt + Z folds a long line in vs code
 ALT+CTRL+L -> Inserts console.log(); in VS Code for Javascript Developer
 CTRL + Shift + D -> Removes console.log()
 embed means copy the youtube link and merge in our website
+
 JS:-
  - 'clg' -> shortcut for Console.log 
  - Inserts console.log(); in VS Code for Javascript Developer in .js files
+
 REACT:-
- - 'rfce' shortcut to create react functional component export in .js & .jsx files 
+ - 'rfce' shortcut to create react functional component which creates along with default export in .js & .jsx files 
+ - 'rfc means creates with named export
+ - 'rafce means creates with arrow function & default export
 --------
 💡NOTES
 --------
