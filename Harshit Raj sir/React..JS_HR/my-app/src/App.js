@@ -1,4 +1,4 @@
-import MovieCard from "./MovieCard";
+import State from "./State";
 import "./App.css";
 import { useState } from "react";
 import React from "react";
@@ -265,7 +265,7 @@ export function App1() {
       {/* Instead of 10 lines of code we use Map function inside JSX {} */}
       {data.map((element) => {
         // console.log(element);
-        return <MovieCard mov = {element} />
+        return <State mov = {element} />
       })}
     </div>
   );

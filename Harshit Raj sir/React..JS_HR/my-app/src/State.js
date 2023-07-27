@@ -1,6 +1,6 @@
 import React from "react";
 
-const MovieCard = (props) => {
+const State = (props) => {
     // console.log(props);
     // console.log(props.moni);
     return (
@@ -17,4 +17,4 @@ const MovieCard = (props) => {
         </div>
     );
 }
-export default MovieCard;
+export default State;
