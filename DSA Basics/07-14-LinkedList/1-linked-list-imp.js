@@ -142,7 +142,7 @@ class LinkedList {
                 }
             }
         } else {
-            console.log("Index is Invalid...");
+console.log("Index is Invalid...");
         }
     }
 }

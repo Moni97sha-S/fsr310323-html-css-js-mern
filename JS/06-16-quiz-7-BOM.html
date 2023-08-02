@@ -13,115 +13,127 @@
     // D) document.body.clientWidth
     // E) window.body.clientWidth
 
-    // Res:
+    // Res: A) window.innerWidth & D) document.body.clientWidth
     // Reason:
 
-    // Q-2
+    // Q-2 Which of the following is/are correct syntax?
         
-    // A)
-    // B)
-    // C)
-    // D)
+    // A) window.history.goBack()
+    // B) window.location.pathname
+    // C) document.navigator.userAgent
+    // D) navigator.connection
 
-    // Res:
+    // Res: B) window.location.pathname & D) navigator.connection
     // Reason:
 
-    // Q-3
+    // Q-3 What are the syntax rules of JSON?
         
-    // A)
-    // B)
-    // C)
-    // D)
+    // A) The data is in name/value pairs
+    // B) Curly braces hold objects
+    // C) The data is separated by semicolon
+    // D) Square brackets hold arrays
 
-    // Res:
+    // Res: A), B) & D)
     // Reason:
 
-    // Q-4
+    // Q-4 Which of the following will print true in console?
         
-    // console.log(NaN === NaN)
-    // console.log(null === null )
-    // console.log(!('x' === 'x'))
-    // console.log(undefined === undefined)
-    // A)
-    // B)
-    // C)
-    // D)
+    // A) console.log(NaN === NaN)
+    // B) console.log(null === null )
+    // C) console.log(!('x' === 'x'))
+    // D) console.log(undefined === undefined) 
 
-    // Res:
-    // Reason:
+    // Res: B) & D)
+    // Reason: console.log(null === null ) &  D) console.log(undefined === undefined) are true in console as conditions are true.
 
     // Q-5 How do you get the query parameters from the url?
         
-    // A)
-    // B)
-    // C)
-    // D)
+    // A) location.query
+    // B) history.query
+    // C) location.search
+    // D) history.search
 
-    // Res:
+    // Res: C) location.search
     // Reason:
 
-    // Q-6
+    // Q-6 What will be the result of following code?
+
     /* const cardElem=document.getElementById('main-card');
     cardElem.className='VideoCard';
     cardElem.classList.add('HomePageCard');
     cardElem.className = 'LightCard';
 
     console.log(cardElem.classList); */
-    // A)
-    // B)
-    // C)
-    // D)
 
-    // Res:
+    // A) ['VideoCard', 'HomePageCard', 'LightCard']
+    // B) ['LightCard']
+    // C) LightCard
+
+    // D) None of the above.
+    // Res: B) ['LightCard']
     // Reason:
 
-    // Q-7
-       /* var cardElem=document.getElementById('main-card');
-        var coverImg="<div><img src='some-utl'/></div>";
+    // Q-7 What will be the result of following code?
+
+    /* 
+    //In HTML Code ---
+        <div id='main-card'><div>
+    //In JS Code ---
+        var cardElem=document.getElementById('main-card');
+        var coverImg="<div><img src='some-utl'/><div>";
         cardElem.innerHTML = coverImg;
         cardElem.appendChild(coverImg);
-        console.log(cardElem); */
 
-    // A)
-    // B)
-    // C)
-    // D)
+        console.log(cardElem); 
+    */
 
-    // Res:
-    // Reason:
+    // A) Will append a new image element in main-card div
+    // B) Will append the text "<div><img src='some-utl'/><div>" in main-card div
+    // C) Nothing will happen
+    // D) Error
 
-    // Q-8
+    // Res: D) Error
+    // Reason: As div element's close tag not closed properly at line no 80 & 83
+
+    // Q-8 What will be the result of the following code?
+
         num1=10;
         console.log(num1)
         var num1;
         console.log(num1)
-    // A)
-    // B)
-    // C)
-    // D)
+    // A) 10 and 10
+    // B) Undefined and 10
+    // C) 10 and warning
+    // D) 10 and error
 
-    // Res:
-    // Reason:
+    // Res: D) 10 and 10
+    // Reason: As var is functional block keyword which allows hoisting also, so it memory manager(MM) 1st define num1 as undefined at line no 100 & var keyword found for num1 at line no 102 and then code execution manager(CEM) will come into picture. 
+    //CEM asks MM whether you know who is num1? 
+    //MM say yes I know num1 as var 
+    // Then CEM reassigns num1 from undefined to 10 by line no 100 & prints as 10 at line no 101 & 103.
+    // NOTE: MM always checks only for var, let & const keywords at LHS.
+    //       CEM checks for right hand side(RHS) values
 
-    // Q-9
+    // Q-9 Which of the following is not an operator in Javascript?
         
-    // A)
-    // B)
-    // C)
-    // D)
+    // A) ||
+    // B) *=
+    // C) !
+    // D) this
+    // E) None of above
 
-    // Res:
-    // Reason:
+    // Res: D) this
+    // Reason: 'this' is a keyword denotes current objects.
 
-    // Q-10
+    // Q-10 How do you make a get request using jQuery?
         
-    // A)
-    // B)
-    // C)
-    // D)
+    // A) $.get("url", function(){})
+    // B) $.get("url", function(){}).error(function(){})
+    // C) $.get("url", function(){}).fail(function(){})
+    // D) None of the above
 
-    // Res:
-    // Reason:
+    // Res: A) & C)
+    // Reason: 
     </script>
 </head>
 <body>

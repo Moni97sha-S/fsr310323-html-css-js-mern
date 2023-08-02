@@ -1,6 +1,9 @@
 
 JS Fundamental Concepts:
-
+    - for..of loop is for array not object
+    - As array is iterable but object is not iterable
+    - If you need to iterate over object, u can use for..in loop
+    
 JS Advanced Concepts:
 1.
 - Execution context
@@ -2346,13 +2349,73 @@ Day 30 : 27.06.2023 -----------------------------
 Curriculum:
     - Live Project 1 - Video Player Application like YouTube
     - Fetch API using async-await functions
-    - 
-    - 
-    - 
-
+ 
+[Time Stamp: 01:51:01] 
 ------------------------------------------------
-    async keyword gives response as promise
-    await keyword unwraps promise
+Live Prject 1 - Video Player App
+    -> Sprint means in a MNC company a developer will develop only a feature till it's deadline.
+    -> Each feature is a sprint.
+    -> We have a player section with 2 wrappers
+        1. Player Wrapper [Main Video]
+            - iframe tag with src, allowfullscreen, frameborder=0 attributes contains video
+            - video actions: 
+                viewsCount, icons, 
+            - title & description
+        2. Playlist Wrapper [Thumbnails]
+            - List of videos to select which to display at Player Wrapper.
+            - Initially, we kept placeholder image on load.
+            - Then videos getting called from API & diplay over here.
+            - For that we need to create a HTML structure at JS file & then render videos & its contents.
+    -> Implementation of Javascript Functionalities [Need]:
+        1. Render the playlist dynamically.
+        2. Render the first video from the playlist automatically and dynamically.
+        3. The video card click from the playlist should load the video and data in the video player section.
+        4. On the video card click, the current video should get the highlighted border.
+    -> We have 2 JSONs contains static data from which we dynamically render.
+        1. playlistData: 
+            - It is for Thumbnail Cards [side-list].
+            - It contains Array of objects(json-javascript object notation).
+            - Each object contains id, title, thumbnail
+        2. videoPlaySectionData:
+            - It is for Main videos to play at player section.
+            - It contains Array of objects(json-javascript object notation).
+            - It contains list of videos with its contents.
+            - Each object contains some details of each video id, title, description, views, vimeoId and isLiked, isSaved.
+    -> We should start build real video player app with functionalities.
+        1. Build Video Cards:
+            - We need to create html structure for the cards to render from static data.
+        2. Fetching static data:
+            - Using JS function we need to fetch the static data.
+    -> How to render the cards dynamically / create it?
+    > 1st functionality:
+        - Let's focus on the first card only by creating a function only for it.
+        - After create a card in function now we will run a loop and call that function & append it to DOM div element.
+    > 3rd Functionality: OnClick
+        - For this we need to grab all cards from playlist-wrapper div
+        - This can be done by querySelectorAll() which returns NodeList(10) of elements which can be loops through each using forEach/for loop. Here we used forEach.
+        - forEach performs specific action for each node in an list.
+            SYNTAX:
+                NodeListOf<Element>.forEach(callbackfn: (value: Element, key: number, parent: NodeListOf<Element>))
+        - callbackfn: A function that acceps upto 3 arguments.
+        - forEach calls callbackfn function 1 time for each element in the nodelist. 
+        - Always in companies they use querySelctorAll() only instead of getElementByClassname(). So we will follow also it.
+        - We attached event listener on every cards.
+        - Now onclick of each card bring it to play at player along with its content.
+        - On click of each card gather it's source url from videoplayer iframe tag's src by getElementById()
+    > 4th functionality:
+        - Gather all cards by querySelctorAll()
+        - Run a loop over cards and remove the border
+        - And then add border to only clicked video 
+    > 3rd functionality:
+        - Render the 1st video from the Playlist automatically and dynamically
+        - There is somthing called DOMContentLoaded.
+        - When ur DOM content is fully loaded, then do the thing u want.
+
+Fetch API using async-await functions
+    -> async keyword gives response as promise
+    -> await keyword unwraps promise
+
+[Time Stamp: 01:51:01] 
 
 Day 31 : 28.06.2023 -----------------------------
 Curriculum:
@@ -4049,7 +4112,7 @@ Eg:-
     } else {
        console.log("else");
     }
- Output: else (part executes)
+ Output: else (part executes) [null -> false]
  Explanation: !true -> false | !!true -> !false -> true 
               !!!true -> !true -> false
  Reasons: Shortcut to memorize this is Even no of ! means same
@@ -4595,8 +4658,33 @@ Export & Import:
     - Component Conventions (Everyone follows):
         > Usually, people often use default exports if the file exports only one component.
         > And use named exports if it exports multiple components & values.
+    - Eg:-
+        // Parent.js file
+        import Child from './Child';
+        export default function Parent (){
+            return (
+                <div>
+                <h1>Parent to Child</h1>
+                <br />
+                <Child messages = {"Messages from Parent"} />
+                </div>
+            );
+        }
+
+        //Child.js file
+        export default function Child(props){
+            return (
+                <div>
+                    <p>I got this msg from Parent - {props.message}</p>
+                </div>
+            );
+        }
+    - In above program, can we write named export with default keyword like first line?
+    - “export default function Child (props){}” instead of “export default Child;” at last line
+    - Yes it’s same thing.
 
 JSX with Javascript within Curly Brackets {}:
+        > {} is used to evaluate a JavaScript expression during compilation .
         > JSX lets you write HTML-like markup inside a JavaScript file.
         > Browser cannot understand JSX. Babel is a compiler/transpiler.
         > Ther comes Babel into picture which converts JSX into Browser's language
@@ -4613,7 +4701,17 @@ Component:
     > function body, return statement & parameters.
 
 What is Props in Components? [Time Stamp:- 01:12:50]
-    - Props means Properties
+    - Props means Properties. They are read-only components.
+    - It is an object which stores the value of attributes of a tag and work similar to the HTML attributes.
+    - It gives a way to pass data from one component to other components. It is similar to function arguments.
+    - Props are passed to the component in the same way as arguments passed in a function.
+    - When you are passing data from parent component to child component , you can use props to transfer the data. The Child will access the data in the props
+    - Props allow you to pass data from one component to other components as an argument. Props can be accessed by the child component.
+    - Passing properties from parent to child component using functional components
+        i. Embed the child component to the parent component.
+        ii. Pass the props to the child component as an argument while embedding it to the parent component.
+        ii. In the child component, access the data variable value by writing the name or variable only.
+    - Pass the data variable (props) with an assigned value to the child component as an argument while embedding it to the parent component. So to pass props into the child component we need to import it in App.
     - React Components communicate with each other using props
     - rfce means React Functional Component Export [ShortCut]
     - Parent Component - App.js
@@ -4794,11 +4892,6 @@ useState [Let's learn 1st Hook]:-
     -> The state setter function (setIndex) which can update the state variable 
     -> Not only updating value but also trigger by rerender the React components by changing DOM (inspect-code under Elements tab) also.
     -> It helps by triggering React to render the component again (Re-render).
-    -> You can have as many state variables of as many types as you like in one component.
-    -> But only ONE argument is passed as useState parameter which can be of any datatype.
-    -> (IMP🚨) State variables are immutable/cannot change. If we want to change, we need to assign new value to state variables.
-    [Time Stamp: 01:37:46]
-    -> 🚨All Hooks starts with 'use'
 
 VS Code Git pushCode:- [ Under  Terminal ]
     -> git add .
@@ -4818,7 +4911,300 @@ __________________________________________________
 Revise useState Hook:- 
     -> Passing only ONE which can be of different datatypes.
     -> Like Number, String, Array, Object etc.
+    -> You can have as many state variables of as many types as you like in one component.
+    -> But only ONE argument is passed as useState parameter which can be of any datatype.
+    -> (IMP🚨) State variables are immutable/cannot change. If we want to change, we need to assign new value to state variables.
+    [Time Stamp: 01:37:46]
+    -> 🚨All Hooks starts with 'use'
+    -> How may state variables can be create in a component?
+    Ans: Infinite times
+    -> How may arguments can we pass in a useState hook of a component?
+    Ans: Only ONE
+ Eg1:- 
+    const [detailObj, setDetailObj] = useState({ n1:"Pratik" });
+    <h1>{detailObj❌}</h1> -> JSX (Obj)
+ - Throws Error: Objects are not valid as a React Child (found: objects with keys {n1}). If you meant to render a collection of children, use an array instead.
+    <h1>{detailObj.n1✅}</h1> -> JSX (Obj with keyName)
+ Eg2:- 
+      const [detailObj, setDetailObj] = useState({n1:"Pratik", country:"India"});
+      <input onChange={() => {
+        setDetailObj({ n1: event.target.value, country:"India" })
+      }}
+      />
+ - We cannot print our Object directly without accessing keyName. [Obj.key]
+ - State variables are not mutable every time we need to assign even old values newly & complete new value in Object. 
+ - If one key only we need to update & other is old value, in this case also we need to assign whole object newly with 1st key as new value & append same 2nd key as old value.
+ - As we need to assign completely.
+
+[Time Stamp: 01:13:50] 
 
 Class Based Components:
     -> It were the traditional way of components in React.
     -> It may be you will never use it(unless we are working on old code)
+
+Day 55 : 27.07.2023 -----------------------------
+Curriculum: 
+   -
+   -
+   -
+   - Lifecycle of class-based components
+   - (1) Mounting stage
+__________________________________________________
+
+Lifecycle of class-based components:-
+    -> There are 3 stages in lifecycle of class-based components.
+      1. Mounting
+      2. Updating
+      3. Unmounting
+
+-> There are 2 phases in lifecycle of class based components.
+      - Render phase: Pure and has no side effects. May be paused, aborted or restarted by React.:
+      - Commit phase: Can work with DOM, run side effects, schedule updates.
+
+-> There are 6 methods in Lifecycle of class-based components. They are:-
+    i) Under Mounting stage:
+         - constructor, render, componentdidmount in Mounting phase 
+
+          (1) constructor(props)
+          (2) render()
+          (3) componentDidMount()
+
+    ii) Under Updating stage:
+        - NewProps, setState(), forceUpdate()
+        - Never forceUpdate() 
+        - render(), componentdidupdate, shouldComponentUpdate(nextProps,nextState)
+          (4) componentDidUpdate()
+          (5) shouldComponentUpdate(nextProps, nextState)
+
+    iii) Under Unmounting stage:
+         (6) componentWillMount()
+
+NOTE: 
+     - While console logging always 2 times printed. 
+     - Due to we render <App/ > within <React.StrictMode> in index.js file. 
+     - This makes React to check for two times each components are pure or not.
+     - While updating at UI & DOM & triggers the rerender the components .
+
+Day 55 : 28.07.2023 -----------------------------
+Curriculum: 
+    - Updating stage:
+        componentdidupdate() &
+        shouldComponentUpdate() 
+    - Unmounting phase:
+        componentWillUnmount()
+    - Synchronize with Effects
+    - useEffect Hooks
+    - Live Project on Google News API call(GNews.io) by fetching in async-await using useEffect() Hook
+    
+__________________________________________________
+Updating stage:
+    componentdidupdate() &shouldComponentUpdate()
+    
+Unmounting phase:-
+    componentWillUnmount();
+        -> This will be used mostly while routing in Node.js
+        -> So we will see on 31st july or 1st august class.
+
+Synchronize with Effects:-
+    -> Some time we want to Synchronize our react component with external effects.
+    -> Example - API CALLS etc.
+    -> useEffect() is a React Hook that lets you synchronize a component with an external system.
+    
+useEffect Hooks:-
+    -> From 305 slide [IMP]
+    -> useEffect(setup_function, dependencies_Array) and returns undefined.
+    -> React will render the component or jsx 1st.
+    -> Then call the callback function or setup functions.
+    -> If we don't have 2nd argument, then setup_function will be called after every time state or props changed.
+    -> Let's write the useHook & use Google News API [took from GNews.io site]. In that API key is important after signup click on click "Search Endpoint" under Dashboard.
+    -> SYNTAX: useEffect(() => {},[]);
+    -> 2 Arguments in useEffext(): setter function & dependencies_Array
+    -> 2nd argument is optional
+    -> When useEffect calls, 2nd argument as array have 3 cases.
+        CASE 1: If we don't have 2nd argument (dependencies_Array)
+            - setup function called once after (initial) 1st render AND then every time when state & props changes.
+        CASE 2: If we have an empty array = [],
+            - setup function called only once after (initial) 1st render
+            - In general, setup function is useEffect 1st argument
+            - In our example, console.log("useEffect called"); inside useEffect as 1st parameter {}.
+        CASE 3: If we have some state variable in [],
+            - setup function called only once after (initial)1st render and after any change in given state variable.
+    -> MORE THINGS RELATED TO useEffect
+        - Setup function also returns the cleanup function but this optionally.
+        - After ur component is removed from the DOM, React will run your cleanup function one last time.
+        - Maybe🚨QUESTION: You can't make the useEffect function itself async. WHY????
+        - Answer: We know that useEffect returns undefined. If we add async keyword to it, then useEffect will return Promise.object.
+        So in order to avoid it, we use nested/inner function inside useEffect's arrow function.
+        - You can implement debouncing and throttling techniques with useEffect to control.
+
+Day 57 : 31.07.2023 -----------------------------
+Curriculum: 
+   - Google Auth Project
+   - O Auth 2.0 
+        Refer [authO.com/intro-to-iam/what-is-oauth-2]
+   - Saving Gmail user's data values at localStorage in React
+   - ReactStrictMode
+   - How to create a new React Project at console?
+__________________________________________________
+
+Google Authorization Project:
+ -> What we need to build for this project?
+ -> Requirements for the project
+ -> Build News Website
+    1. Get News data from Google News API
+    2. Search News functionality
+    3. Login Setup 
+        - Normal way of login (❌ userName & Password checking)
+        - Google O Auth ✅ (Login with gmail account)
+-> User can access & read News only when the user is logged in with valid gmail account.
+-> If they are not logged in, we won't allow them to access our news website.
+-> Once they logged in, we will store it at local storage & need not to ask them every time.
+-> We will ask for G O Auth again if user when logged out by themself last time. 
+
+O Auth 2.0:
+    - OAuth stands for "Open Authorization" is a standard designed
+    - To allow a website or application to access resources hosted by other web apps on behalf of user.
+    - OAuth provides consented access and restricts actions of what the client app can perform on resources on behalf of the user, without ever sharing the user's credentials.
+    - An open protocol to allow secure authorization in a simple & standard method from web, mobile and desktop applications.
+    - It is an industry standard protocol for authorization and focuses on client developer simplicity while providing specific authorization flows for each & every web, desktop, mobile phones applications & living room devices.
+    - Instead of we build our own authentication system from scratch (userId & Password) for each websites etc. We can use this OAuth system.
+    - Hey! We can login with Gmail, Linkedin, Github, Google, Microsoft account etc.
+    - Building user authentication from scratch is a good thing but as a user experience it is quiet difficult to remember all 50+ website's passwords and all.
+
+Principles of OAuth:-
+    - OAuth 2.0 is an authorization protocol and NOT an authentication protocol
+    - Authentication means Checking for userId & password - Login credentials
+    - As such, it is designed primarily as a means of granting access to a set of resources, for example, remote APIs or user data.
+    - OAuth 2.0  uses Access Tokens
+    - Access Token:-  It is a piece of data that represents to access resources on behalf of the end-user.
+    - OAuth 2.0 doesn't define a specific format for Access tokens.
+    - However, in some contexts, the JSON Web Token (JWT) format is often used.
+    - This enables token issuers to include data in the token itself. Also, for security reasons, Access Tokens may have an expiration date.
+
+Roles of OAuth 2.0:-
+    - The idea of role is part of the core specification of the OAuth 2.0 authorization framework. These define the essential components of an OAuth 2.0 system, and as follows:
+        (i) Resource Owner:> The user or system that owns the protected resources and can grant access to them.
+        (ii) Client:> The client is the system that requires access to the protected resources. To access resources, the client must hold the appropriate Access Token.
+        (iii) Authorization (G-OAuth) Server:> This server receives requests from the client for Access tokens and issues them upon successful authentication and consent by the Resource Owner. The authorization server exposes 2 endpoints:
+            1. Authorization endpoint
+                - Handles the interactive authentication & consent of the user.
+            2. Token endpoint
+                - Involves in a machine-to-machine interaction.
+        (iv) Resource Server (News Website - Local storage):> A server that protects the user's resources & receives access requests from the client. It accepts & validates an Access Token from the client & returns the appropriate resources to it.
+
+Auth.js:
+    - Refer news-website-app folder for this new React Project.
+    - We need to do google authentication sytem, for that we should go to google developer console to get out own client ID & all.
+    - Create a new prject at google developer console site.
+    - After created name go to API & Services -> Enable API & Services
+    - We want to use Google Services
+    - So click on Credentials, click on Create Credentials -> OAuth Client ID
+    - This client ID requests user consent so your app can access the user's data.
+    - To create an OAuth clientID, you must first configure your consent screen.
+    - So click on CONFIGURE CONSENT SCREEN button.
+    - Why client ID?
+    - Client ID is used to identify a single app to Google's OAuth servers.
+    - If your app runs on multiple platforms, each will need its own client ID.
+    - Select User Type as External and click CREATE button.
+    - Edit app Registration (How this info presented to users?)
+    - Here we can insert Company name & logo
+    - Give Project Name, User support email & App Logo
+    - Project Name: The name of the app asking for consent
+    - User Support email: For users to contact you with questions about their consent
+    - Logo: This is your logo. It helps people recognize your app and is displayed on the OAuth consent screen. After you upload a logo, you will need to submit your app for verification unless the app is configured for internal use only or has a publishing status of "Testing".
+    - Developer Contact Information (mail): These email addresses are for Google to notify you about any changes to your project.
+    - Now click on 'Save & Continue'.
+    - Under Scopes, Test Users & Summary Tabs just click Save & Continue button and Back to Dashboard.
+    - Now ur app is in Testing phase under Publishing Status. 
+    - Click on Publish App button
+    - Now it asks for Push to production?
+    - You say confirm.
+    - Again go to Credentials -> Create Creadentials -> OAuth Client ID
+    - It asks for Application type -> Web application
+    -> Then give name as 'Web client 1' for the name of your OAuth 2.0 client. This name is only used to identify the client in the console and will not be shown to end users. 
+    - [IMP] Authorized Javascript origins: For use with requests from a browser
+    - Add URLs like http://localhost:3000 & http://localhost
+    - Then give Authorized redirect URLs: For use with requests from a web server
+    - Add URL like http://localhost
+    - Note: It may take 5 minutes to a few hours for settings to take effect
+    - Click CREATE button.
+    - Now finally our OAuth ID created. We need to use this ID for this project only.
+    - Kindly save it somewhere for project use. Below is my client ID
+    - 441215130608-5jvm3sobckna1u36q6gvp9ojk9eoqvdv.apps.googleusercontent.com
+    - If we miss our client Id also no problem, we can collect it agin under Credentials tab at Google developer console.
+    - When we get our new project, we need to remove unneccessary files.
+    - Make components folder to keep all components inside it.
+    - Make assets folder to keep all images inside it.
+    - import and export all components with App.js file.
+    - Search 'login with google' & refer.
+    - Now we have to use pre-built ones instead of creating it.
+    - For that we are going to add dependencies which are pre-written codes.
+    - We can view them in package.json file.
+    - These like react, reactDOM etc. all are coming from npm website.
+    - In npmjs.com, we have all our dependencies. This is a central repository for ReactJS, NextJS, NodeJS, AngularJS kind of Projects.
+    - Every JS have npm packages with all dependencies.
+    - Search react in npmjs.com search box. You will see the React package.
+    - Earlier we used CDN link of React which gived pain to developers while coding pure React. 
+    - So we shifted to bundlers in which CRA have these npm packages.
+    - React is a JavaScript library for building user interfaces.
+    - Now we can search 'react-oauth/google' in Google search engine.
+    - To get OAuth dependencies, https://www.npmjs.com/package/@react-oauth/google
+    - We don't need to understand how these packages work
+    - We need to know how to utilize them that's it.
+    - Copy right side code 'npm i @react-oauth/google'.
+    - And paste it in terminal of VS code.
+    - '"@react-oauth/google": "^0.11.1",' -> It appears in package.json file as one of dependencies automatically.
+    - We need to refer https://www.npmjs.com/package/@react-oauth/google this page documentation for how to use them to get GOAuth.
+    - We need to copy GoogleOAuthProvider & GoogleLogin codes and paste it in Auth.js file.
+    SAMPLE CODE DEMO:-
+            <GoogleOAuthProvider>
+                <GoogleLogin 
+                />
+            </GoogleOAuthProvider>
+    - GoogleOAuthProvider is a component inside which have props GoogleLogin
+    - GoogleLogin is works as props. So it should be like <GoogleLogin />
+    - We get credentialResponse as below:
+        Logged In --> {
+            credential: 'eyJhbGciOiJSUzI1NiIsImtpZCI6ImZkNDhhNzUxMzhkOWQ0OG…I4g-7BeBzEKTs5boEIa_ssDpV32xskkqwabIybSlu5F--pyVg', 
+            clientId: '441215130608-5jvm3sobckna1u36q6gvp9ojk9eoqvdv.apps.googleusercontent.com', 
+            select_by: 'btn_confirm'
+            }
+
+            clientId: "441215130608-5jvm3sobckna1u36q6gvp9ojk9eoqvdv.apps.googleusercontent.com"
+            credential: "eyJhbGciOiJSUzI1NiIsImtpZCI6ImZkNDhhNzUxMzhkOWQ0OGYwYWE2MzVlZjU2OWM0ZTE5NmY3YWU4ZDYiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJuYmYiOjE2OTA5MDY5MjcsImF1ZCI6IjQ0MTIxNTEzMDYwOC01anZtM3NvYmNrbmExdTM2cTZndnA5b2prOWVvcXZkdi5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbSIsInN1YiI6IjEwMzAxOTg0NDkwMDUwOTI5ODU4NSIsImVtYWlsIjoibW9uaW15dGhpbGk5N0BnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiYXpwIjoiNDQxMjE1MTMwNjA4LTVqdm0zc29iY2tuYTF1MzZxNmd2cDlvams5ZW9xdmR2LmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwibmFtZSI6Ik1vbmlzaGEiLCJwaWN0dXJlIjoiaHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUFjSFR0ZHF1Z3drWUk2eEFuLUtOWWp4M2RiTDMtZnBrR3RzQTd3RUdDdk0zMndZPXM5Ni1jIiwiZ2l2ZW5fbmFtZSI6Ik1vbmlzaGEiLCJpYXQiOjE2OTA5MDcyMjcsImV4cCI6MTY5MDkxMDgyNywianRpIjoiMTY3NjJkNzEwYmUwYzk1ZGI0OTUwYmZkMTJkOTY3YzExYzI0MmUwMCJ9.fmp5_icNBLje_-Q2RaRjyJh0wd_0HadAkOhcDfXJQoZEoS9kfj9DDLGiP7VDOHiiyqEuO6ZekVh4QjvSvWdXumJANwHw_rd9aiFfMKofDKuqRLcDu6NZMazGLVaytpVebICcriuiKP5j5NpdgRof73vTlNSXNIhiZO0LYZeEBTLQqFwnCY0wxd3g2-loNQhPvncq4CAtcirrFjop1YH5NsRwDGLVjBRsEHQm4KbLIOzRmtXMxpSt1BlyTH3vI0rhkra1ACagz_qwB2fKK3eQMGYP6v4FUaNSwnJxaI4g-7BeBzEKTs5boEIa_ssDpV32xskkqwabIybSlu5F--pyVg"
+            select_by: "btn_confirm"
+        [[Prototype]]: Object
+        
+    => Here 'credentials' is nothing but Token.
+    - With this token, we are going to decode name, email, and password of the user.
+
+    - Decoded information names(Keys) and localStorage names are same(Values).
+        setUserData(name:name, email:email, picture:picture)
+    - Above code is bad way.
+    - When Key and Value NAMES are same IN es6 we can write as one also which is valid too. As in production we frequently use like that.
+        setUserData(name, email, picture)
+    
+Saving Gmail user's data values at localStorage in React:
+    - NOTE: Here No parse and stringify for just values to store.
+    - As we know parse and stringify are used only for json typeof data.
+    - setItem
+    - getItem
+
+ReactStrictMode
+    - <ReactStrictMode></ReactStrictMode> in index.js file
+    - React is very intelligent & evolving library.
+    - They will try to suggest or restrict something
+    - When u put React project in strict mode, each components will call for two times
+    - Why it calls twice to check if ur component is pure react or not?
+    - So strict mode offers you to check like other details(feature).
+    - This is React's best feature.
+    - When u work & build a project in individual development size, usually we don't care about strictmode.
+    - StrictMode is taken care when we works at production build code which shares across the world.
+
+How to create a new React Project at console?
+    - Go to command prompt (black screen)
+    - Type 'code .' to get into VS Code
+    - Type (make directory/folder) 'mkdir project-folder-name
+    - Type (change directory) 'cd project-folder-name
+    - To create a React Project, type 'npx create-react-app new-website-app'
+    - Press Enter
