@@ -4985,7 +4985,7 @@ NOTE:
      - This makes React to check for two times each components are pure or not.
      - While updating at UI & DOM & triggers the rerender the components .
 
-Day 55 : 28.07.2023 -----------------------------
+Day 56 : 28.07.2023 -----------------------------
 Curriculum: 
     - Updating stage:
         componentdidupdate() &
@@ -5045,6 +5045,8 @@ Curriculum:
    - Saving Gmail user's data values at localStorage in React
    - ReactStrictMode
    - How to create a new React Project at console?
+
+Time Stamp: [01:57:35]
 __________________________________________________
 
 Google Authorization Project:
@@ -5177,16 +5179,78 @@ Auth.js:
         
     => Here 'credentials' is nothing but Token.
     - With this token, we are going to decode name, email, and password of the user.
+    - We need to capture these 3 data before that we have to decode token.
+    - JWT means passing the data/information via token.
+  Q: How to Decode the token?
+  A: For decoding this token also, we have a npm package called 'jwt-decode'.
+    - Search jwt-decode in npmjs website, copy 'npm i jwt-decode' code.
+    - Install that piece of code in your React project via terminal in VS code.
+    - You can see "jwt-decode":'^3.1.2'; in package.json file of your React project.
+    - Start to import jwt_decode from 'jwt-decode'; at your component where you use to decode.
+    - You can refer npmjs site for jwt-decode.
+    - Successfully decoded the encoded data using jwt_decode method.
+  
+  FRONTEND Process:-
+    - First, we encoded the data, then we decoded the TOKEN (encoded data) successfully.
+    - Encoding:- All Data is converted into one Token [ENCRYPTION]
+  BACKEND Process:-
+    - Decoding:- Token is converted into data [DECRYPTION]
+    - In order to collect useful & required data (user's name, email & picture) from user's entire data.
+    - We use stateVariable & its setter functino in useState Hook.
+    - Then passing decoded token value into the state setter function.
+    - We want to display the user's name, email & picture using state variable.
 
+ Local Storage:- 
+    - We going to store these 3 data by using state variable.
+    - setItem things before return jsx statements in Auth.js
+    - At User component receive props and get state variable's values.
+    - At User component, return statement have fragments <>...</> instead of div jsx tag.
+    - Inside fragment, instead of h1 jsx tag & then give some other tags needed.
+    - We are going to pass information from user.js to auth.js file using 'props'.
+    - If we don't have user's data at localstorage, then only we ask user to enter login detail.
+    - If we have their data, we hide login detail from user.
+    - Once you get data from localstorage, then only User component should be called.
+    - If not having data, user component should not be called.
+    - Initially, we set useState as false "".
+    - Now after updation by setter function 'setUserData', it will set the rerendered values at localStorage.
+    - Once you have data successfully stored at localstorage.
+    - Next get the stored information from localstorage.
+    - Once user logged in, we should not show again log-in details from line no 34.
+    - We have to show only User component to users after logged in.
+    {IMP}
+    - If we have open a new tab with data already stored at localStorage, then we need to get data from LS & have to update state variable with it's setter function which retriggers & return User component values to UI by fetching from LS.
+    - So to hide Login details, we use to check with condition that LS getItems are present to be true.
+    - CONDITION: if we have name, email & pwd at LS, it means user is already logged in.
     - Decoded information names(Keys) and localStorage names are same(Values).
         setUserData(name:name, email:email, picture:picture)
     - Above code is bad way.
     - When Key and Value NAMES are same IN es6 we can write as one also which is valid too. As in production we frequently use like that.
         setUserData(name, email, picture)
-    
+    - If we open in new tab freshly start, 'userData' ==> local state variable will be empty.
+    - If we open in new tab even after one month,, 'userData' ==> local state variable will get updated from LS using 'setUserData' setter function.
+    - If userData get updated to be true, then call User Component.
+    - If we don't have any data at LS, then only we will get Login details.
+    - Checking whether n, e & p are !== undefined
+        Eg to check truthy value:- 
+            const name = undefined;
+             if(name){
+                console.log("if");
+             } else {
+                console.log("else");
+             }
+        Output:- else
+        Reason:- As name is undefined/null/zero (falsy value), it will execute else condition.
+    - In ES6, line no 37 at Auth component, we can write as setUserData({ name, email, password })
+    - As per ES6, if we have name & value both are with same names, then we can write as one name.
+
+Log Out Feature:-
+    -> On click of Log Out button, we will just clear the local storage information.
+    -> How? localStorage.clear(); & we should redirect to initial position of the same page.
+    -> To redirect, we use window.location.assign instead of useNavigate() Hook.
+
 Saving Gmail user's data values at localStorage in React:
     - NOTE: Here No parse and stringify for just values to store.
-    - As we know parse and stringify are used only for json typeof data.
+    - As we know parse and stringify are used only for json * Object typeof data.
     - setItem
     - getItem
 
@@ -5208,3 +5272,52 @@ How to create a new React Project at console?
     - Type (change directory) 'cd project-folder-name
     - To create a React Project, type 'npx create-react-app new-website-app'
     - Press Enter
+
+Day 58 : 01.08.2023 -----------------------------
+Curriculum: 
+   -
+   -
+   -
+   - 
+__________________________________________________
+
+Day 59 : 02.08.2023 -----------------------------
+Curriculum: 
+   -  Important Extensions
+   -  What is routing in general?
+   -  What is URL & important things?
+   - 
+   - 
+__________________________________________________
+
+Importantcchrome Extensions:-
+    (1) React developer tool
+    (2) JSON Formatter
+    (3) Wappalyzer - technology
+    (4) Pesticides for Strucute map & CSS
+    (5) Colourpick Eyedropper for CSS
+
+Routing:-
+    -> It refers to the process of determining how the application should respond to a specific URL or path entered by a user in their web browser.
+    -> URL (Uniform Resource Locator) is a string of characters 
+
+Routing Techniques in React JS:-
+    -> Routing refers to the process of navigating betweeen different pages.
+    -> But Routing in React refers to the process of navigating between different components or pages of a single page application (SPA) without actually loading a new HTML page.
+    -> React Router DOM (Library) is a popular npm package used to implement routing in React applications.
+    -> 
+
+URL:
+    Eg:-
+    https://www.flipkart.com:8080/products/widgets?category=electronics&page=2
+    Breakdown:
+        Schema/Protocol: http or https
+        DomainName/Host: www.flipkart.com
+        Port: 8080
+        Path (Routing): products/widgets
+        Query Parameters [after ?]: category=electronics&page=2
+
+    -> Domain Name can be fetch using it's IP address also.
+    -> To get IP address of google.com / facebook.com, we use cmd prompt 'ping google.com'
+    -> 
+
