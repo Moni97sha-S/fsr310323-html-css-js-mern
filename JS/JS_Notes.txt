@@ -4236,6 +4236,22 @@ ________________________
 |  -> !null = true      |🚩
 -------------------------
 
+NewNode MIDDLE INSERTION using insertAt():-
+ - Insertion of newNode at middle position of Linked List using insertAt() method.
+ - We pass 2 arguments: newNode's newPosition/Index as index, newNode's newValue as value.
+ - MISTAKE: this.length will not append, we need to call it by adding () to this.length
+ - Creating new node to add at middle.
+ - Just set a variable currentNode as head & currentIndex as 0.
+ - We need to iterate till index - 1 by moving forward.
+ - While condition is true, then we need to shift out currentNode to nextNode & incrementing currentIndex for next iteration.
+ - To loop through the linked list, we shift currentNode.
+ - And once we reached before user given index (index - 1)
+ - Let's say index given by user is 2, then we need to stop at 1st index.
+ - And change pointer from 1st index(currentNode) to newNode & newNode to 2nd index.
+ - This chain will help to add newNode automatically into LL.
+ - Then we need to shift next(address) of newNode to 1st index's next (address of 2nd index node) to make newNode as 2nd index & nextNode as 3rd index.
+ - And we need to mention 1st index's next as newNode's address
+
 Difference betweeen Array & Linked List?
 🌟Array List:-
 ⏹️ Array/Stack/Queue are contiguously (Tamil Meaning for contiguous - aduthuaduthu) stores in the memory.
@@ -5038,7 +5054,7 @@ useEffect Hooks:-
         - You can implement debouncing and throttling techniques with useEffect to control.
 
 Day 57 : 31.07.2023 -----------------------------
-Curriculum: 
+Curriculum: Assignment Discussion | Project 1 Starting - Google OAuth Integration Saving User Data in Local Storage
    - Google Auth Project
    - O Auth 2.0 
         Refer [authO.com/intro-to-iam/what-is-oauth-2]
@@ -5046,7 +5062,9 @@ Curriculum:
    - ReactStrictMode
    - How to create a new React Project at console?
 
-Time Stamp: [01:57:35]
+API URL:  https://api.themoviedb.org/3/movie/popular?api_key=cfe422613b250f702980a3bbf9e90716
+Reference URL:  https://codepen.io/Mustafa-Ispahani25/full/MERMWG
+REACT TODO Application: https://www.youtube.com/watch?v=e_ZibOe77yo
 __________________________________________________
 
 Google Authorization Project:
@@ -5248,6 +5266,8 @@ Log Out Feature:-
     -> How? localStorage.clear(); & we should redirect to initial position of the same page.
     -> To redirect, we use window.location.assign instead of useNavigate() Hook.
 
+🪄🚩 SHORTCUT: Redirect to Component's file by CTRL + click on componentName from it's parent component.
+
 Saving Gmail user's data values at localStorage in React:
     - NOTE: Here No parse and stringify for just values to store.
     - As we know parse and stringify are used only for json * Object typeof data.
@@ -5271,53 +5291,309 @@ How to create a new React Project at console?
     - Type (make directory/folder) 'mkdir project-folder-name
     - Type (change directory) 'cd project-folder-name
     - To create a React Project, type 'npx create-react-app new-website-app'
-    - Press Enter
+    - Press Enter & cd new-website-app
+    - npm start
+    - 🪄🚩SHORTCUT: To stop terminal, press ctrl+c represented as ^c in terminal.
+
+FAQs:
+    1. Which npm package we used to integrate Google OAuth?
+    A: @react-oauth/google - {GoogleOAuthProvider, GoogleLogin}
+    2. Which npm package we used to decode the response?
+    A: jwt-decode - jwt_decode()
+    3. Where we have saved our user data info?
+    A: localStorage - setItem & getItem
+*********************************** AUTHENTICATION PART ENDS *********************************************
 
 Day 58 : 01.08.2023 -----------------------------
-Curriculum: 
-   -
+Curriculum: Connecting to Backend | Project - 1 Completing | Building News Website
+Sub-topics: 
+    -> HTTP requests in React
+    -> Installing & understanding Axios
+    -> Fetching data from Server
+    -> Handling Network Errors
+
+   - 
    -
    -
    - 
 __________________________________________________
 
 Day 59 : 02.08.2023 -----------------------------
-Curriculum: 
+Curriculum: Routing (Next.js routing technique needs to be taught)
+Sub-Topics: 
+    -> Setting up React-Router
+    -> Links instead of anchor tag
+    -> Routes with Route components
+    -> Passing Route Parameters
+    -> Redirecting requests
+    -> Conditional redirects
+    -> Handling 404 
    -  Important Extensions
    -  What is routing in general?
    -  What is URL & important things?
-   - 
-   - 
+   -  How to do Routing in React JS?
+   -  Which npm package to use for Navigation[Redirection] & params?
+
+Time Stamp: [01:26:09]
 __________________________________________________
 
-Importantcchrome Extensions:-
+Important chrome Extensions:-
     (1) React developer tool
+        -> If we go to any websites like Instagram, airbnb, Edyoda digital university etc. running on React code, after pin extension up on web browser extension's color changes from White to Black background.
+        -> This extension is very helpful to know which website is built with React code.
+        -> Even we get components list at browser's inspect area.
     (2) JSON Formatter
-    (3) Wappalyzer - technology
-    (4) Pesticides for Strucute map & CSS
+        -> This extension helps to view JSON in Parsed neat manner.
+    (3) Wappalyzer - technology profiler
+        -> This extension tells us what technology & what frameworks are used to built their platform.
+        -> In airbnb website, we can able to view all technologies & frameworks they used.
+    (4) Pesticides for Chrome
+        -> Structure of HTML & CSS
     (5) Colourpick Eyedropper for CSS
 
 Routing:-
     -> It refers to the process of determining how the application should respond to a specific URL or path entered by a user in their web browser.
-    -> URL (Uniform Resource Locator) is a string of characters 
+    -> URL (Uniform Resource Locator) is a string of characters that provides a way to identify a resource on the internet and specifies how to retrieve it.
+
+Important things in a URL:-
+    * Scheme/Protocol: 
+        -> This specifies the protocol or method used to access the resource. 
+        -> Common examples include: "http", "https", "ftp", "mailto" & "file".
+    * Domain/Host:
+        -> This is the domain name or IP address of the server where the resource is located.
+        -> IP address can be fetch from command promp black screen.
+        -> Every Domain Name has IP address & can be fetch using it's IP address also.
+        -> To get IP address of google.com / facebook.com, we use cmd prompt 'ping google.com' command in windows.
+        -> For MAC 'nslookup google.com' -> This command will tell exact IP address of google.com.
+        -> Ex- google.com, fb.com etc.
+        -> Now-a-days fb, insta are not allowing[Restricted] to access their site via IP address which is good.
+        -> Companies can restrict this power to access via IP address.
+    * Port:
+        -> This optional component specifies the port number to connect to on the server. 
+        -> There 65,000 ports are there.
+        -> Some ports are free. 
+        -> Some applications like MongoDB, postgres runs on different ports which have reserve ports in our system.
+        -> Every application runs on several ports in any specified port.
+        -> When we do npm start, our React application runs on 3000 port.
+        -> If 3000 is busy with running some other project, then asks for user permission to open in other port like 3001.
+        -> Ex: 3000, 3001, 8080 etc.
+    * Path:
+        -> The path represents the specific location of (application) the resource on the server's file system or within its structure.
+        -> Path is to find which page of site.
+    * Query Parameters:
+        -> These are optional key-value pairs that are appended to the URL after a question mark "?".
+        -> Query Parameters will be after ?q= whatever we search in google will attach after ?q=
 
 Routing Techniques in React JS:-
-    -> Routing refers to the process of navigating betweeen different pages.
-    -> But Routing in React refers to the process of navigating between different components or pages of a single page application (SPA) without actually loading a new HTML page.
-    -> React Router DOM (Library) is a popular npm package used to implement routing in React applications.
-    -> 
+    -> Routing refers to the process of navigating betweeen different web pages.
+    -> Technique for Routing in React slightly changes.
+    -> But Routing in React refers to the process of navigating between different components or pages of a single page application (SPA) without actually loading a new (only ONE) HTML page -> index.html in our each React project.
+    -> 'React Router DOM' (Library) is a popular & famous npm package used to implement routing in React applications.
+    -> Router is not like a tag but kindof anchor tag.
 
 URL:
     Eg:-
     https://www.flipkart.com:8080/products/widgets?category=electronics&page=2
     Breakdown:
-        Schema/Protocol: http or https
-        DomainName/Host: www.flipkart.com
+        Schema/Protocol (Hidden but it's there when we copy paste visible): http (or) https
+        DomainName/Host: flipkart.com
         Port: 8080
-        Path (Routing): products/widgets
+        Path (Routing): /products/widgets
         Query Parameters [after ?]: category=electronics&page=2
 
-    -> Domain Name can be fetch using it's IP address also.
-    -> To get IP address of google.com / facebook.com, we use cmd prompt 'ping google.com'
-    -> 
+Example Code:-
+    - 1st we need to download & install npm package known as 'react-router-dom' from npmjs site.
+    - Copy this piece of code from site 'npm i react-router-dom' & paste in VS code terminal after ur Project folder name.
+    - To come outside of current folder type cd ..
+    - After installation, we can check at package.json file under dependencies "react-router-dom": "^6.14.2" is installed.
+    - The react-router-dom package contains bindings for using React Router in web applications. Please see the Getting Started guide for more information on how to get started with React Router.
+    - First, we need to go to index.js
+    - In index.js, we need to wrap this App component with something called as BrowserRouter like below:
+                <BrowserRouter> 
+                    <App /> 
+                </BrowserRouter>
+    - So we need to import BrowserRouter from react-router-dom
+    - Now come to App component & import Routes & Route from react-router-dom
+    - Then add Route as component inside Routes component inside return JSX.
+    - In Route, we pass path & element as props.
+    - If you Route path is /, display Header component via element.
+    - Here '/' means "http://localhost:3000/", then display Header component.
+    - If you Route path is /sachin, display Sachin component via element.
+    - If you Route path is /dhoni, display Dhoni component via element.
+    - If you Route path is /kohli, display Kohli component via element.
+    - If you Route path is /rohit, display Rohit component via element.
+    - Path & elements are kind of attributes which are props passed through Route component to its children.
+    - But one problem is there, while all this redirections loading to new HTML page also occurs.
+    - In React, components should not reload as React is SPA (Single Page Application) do not reload page.
+    - It should not reload the entire page.
+    - If a page reload can be found by carefully look reload symbol changes from reload symbol to X symbol. Then again to reload symbol.
+    - 🔄️-->❎-->🔄️
+    - React was all about creating single page application without reload the entire page again & again.
+    - Reloading the pages is not allowed in React.
+    - But here it is happening because of anchor tag.
+    - By default, <a></a> tags refresh/reloads a web page when redirecting from one page to another.
+    - To overcome this in React, we have link which also comes from react-router-dom.
+    - So we replace anchor (html) tag with Link (jsx) tag which have 'to' props which have path instead of 'href' attribute.
+    - Now components/pages are redirecting without (NOT) refresh/reload.
+    - But we see a surprise that in DOM at Web Browser under Elements tab after inspecting that page.
+    - We see Link changes automatically into anchor tags finally.
+    - But Link will not refresh ur page which is similar to airbnb website built with React code.
+    - If unknown path is given, we need to create 404 Not Found page.
+    - For that we put * in it's route's path.
+    - Here * means everything other than mentioned Routes, should shows not found.
 
+Nested Routes:-
+    - Nested Routes example car with model & color component.
+    - In Car component, we use ul > li > Link tag with "to" for color & model.
+    - We also created Car Model & Car Color which are child component of Car component.
+    - So instead of creating both seperately at App component, we created Nested inside Route of Car component.
+    - As Color & Model are part of Car, we nested them inside Car's Route.
+    - After this also only path changes, we cannot view Color component's things or Model Component's things at Car Website Page.
+    - [IMP🚨] Because we need to do one more thing  called "Outlet" should be import from react-router-dom & added at Car component always at last after all tags.
+    - And Beauty of this is when u click color or model, car will also appear along with it due to nesting & outlet from npm package.
+    - Here Outlet says this parent component [Car] + it's child component [Color or Model]
+    - [IMP🚨] To Add & import 'Outlet'in Nest Routes to render component in same page of it's parent. Otherwise only it's path will change.
+
+useParams Hook:-
+    - Create a User component at Header Component.
+    - After clicking User, it shows as Oops! URL is Wrong.
+    - Why? As no User component available at this time + no route defined for slash user (/user) at App component
+    - After creating componet & route for user. It displayed.
+    - Now we need to add some params like https://localhost:3000/user/Monisha
+    - Monisha is not Route/path, it is just a param what user searches in search bar.
+    - Or when you go to your profile page URL added with your userName.
+    - [IMP🚨] To pass Params, we need to add /:param 'colon' after a slash then userId, userName etc.
+    - Eg:- 
+        <Route path="/user/:userId"
+    - If you remove ":", then it becomes Route.
+    - After adding ONE param, we can't use https://localhost:3000/user only.
+    - This from now will give Not Found component thing. ("Oops! URL is Wrong").
+    - In order to grab random value after /user/, we add a hook called "useParams" at User component.
+    - SYNTAX: (Inside function before jsx return statements)
+        const params = useParams();
+        console.log(params);
+        console.log(params.userId);
+                [OR]
+      // Better syntax
+        const { userId } = useParams();
+        console.log({ userId }); // {userId: Monisha}
+        console.log({ userId }.userId); // Monisha
+    - We can also add many params at same time.
+    - MULTIPLE params:-
+        -> Eg: <Route path="/user/:userId/:userName" element={<User />} />
+        -> Make sure seperate each params by "/:"
+        -> After adding MULTIPLE params, we can't use https://localhost:3000/user/Monisha only.
+        -> This from now will give Not Found component thing. ("Oops! URL is Wrong").
+        -> We need to give complete path with all Params also.
+        -> Eg for URL: https://localhost:3000/user/4444/Monisha
+            const { userId, userName } = useParams();
+            console.log({ userId, userName }); // {userId: '4444', userName: 'Monisha'}
+            console.log({ userId }.userId); // 4444
+            console.log({ userName }.userName); // Monisha
+            return (
+              <>
+                <h1>User Page</h1>
+                <h2>User Id is {userId}</h2>
+                <h2>User Name is {userName}</h2>
+              </>
+            );
+    - Query Parameter is divided by q= after ?
+    - This params is different from Query Params.
+    - How we will check if it is not route?
+    - Go to App component & check for colon & then say no it is not route. It is Param.
+    -> At User component, we destructure keys using params.
+    -> This useParams will return us as an Object which consists of id, name, and country.
+        eg:-   const { userId, userName, userCountry } = useParams();
+               console.log(useParams());
+
+useNavigate Hook:-
+    -> If user use wrong URL, we wait for 2 seconds with display Not Found component & then we redirect user to Header page (HOME PG) after 2 seconds.
+    -> For that we need to use 2 Hooks in NotFound component.
+    -> One is useNavigate & another is useEffect to make setTimeOut (2secs delay).
+    -> Eg:- 
+            import React, { useEffect } from 'react';
+            import { useNavigate } from 'react-router-dom';
+
+            export default function NotFound() {
+                const navigate = useNavigate();
+                useEffect(() => {
+                    setTimeout(() => {
+                        navigate("/");
+                    }, 2000)
+                })
+                return (
+                    <>
+                      <h1>Oops! URL is Wrong.</h1>
+                    </>
+                );
+            }
+                            [OR]
+    // This below code is also correct but it displays count at UI.(2 -> 8)
+    // To avoid this we use as above code with useEffect() hook.
+            export default function NotFound() {
+                const navigate = useNavigate();
+                return (
+                    <>
+                      <h1>Oops! URL is Wrong.</h1>
+                      {
+                        setTimeout(() => {
+                            navigate("/");
+                        }, 2000)
+                      }
+                    </>
+                );
+            }
+
+useEffect Hook:-
+    - useEffect hook not only used for API call but also used for setTimeout() & many others.
+    - With useEffect we can use lots of things not just API call & setTimeout().
+
+Avoid to make silly mistakes like below:-
+    - Don't forget to import Link, Outlet, Routes, Route, useParams hook & useNavigate hook within {} as they are built-in name exports from react-router-dom npm package.
+    - Use Link instead of anchor tag in React.
+    - As <a></a> tag will reload/refresh our page which we don't want to occur, to avoid it we use Link along with to props instead of href attribute.
+    - We should use useNavigate hook to redirect without reload page instead of window.location.assign which will refresh our React (SPA) component/page.
+
+SHORTCUTS:-
+    - command + click on child component name from parent component in MAC
+    - ctrl + click on child component name from parent component in Windows to redirect from parent to child component immediately.
+    - We use ctrl + c to stop the VS Code terminal server immediately in Windows using GITHUB
+    - Another Git commands are:
+        -> To go back from current folder, type "cd .."
+        -> Then type "your GitHub folder name"
+        -> To bring & open that folder into VS code, we type "code ."
+
+CONCLUSION:-
+    - We used 2 hooks with react-router-dom downloaded & installed in our React Project at package.json under dependencies from npm package (npmjs site).
+    - useParams used in User component & useNavigate used in NotFound component.
+    - We are going to build Responsive HTML & CSS website along with Google Keep in REACT but not using Tailwind CSS/Material UI only with normal CSS external files & some context API also.
+
+
+Day 60 : 03.08.2023 -----------------------------
+Curriculum: Forms | Prop Types | Movie Booking Form and Sending Email Confirmation
+Sub-Topics: 
+    -> Controlled and Uncontrolled Components
+    -> Sending data to Server
+    -> Deleting data on Server
+    -> Code Structure
+    -> PropTypes
+    -> Conditional redirects
+    -> Handling 404 
+   -  Important Extensions
+   -  What is routing in general?
+   -  What is URL & important things?
+   -  How to do Routing in React JS?
+   -  Which npm package to use for Navigation[Redirection] & params?
+
+Time Stamp: [01:06:14]
+
+Forms in React.js: https://legacy.reactjs.org/docs/forms.html
+PropTypes: https://legacy.reactjs.org/docs/typechecking-with-proptypes.html
+__________________________________________________
+
+FormData:-
+    - If you don't update state setter function, values will be 
+    - Line no 15 is spread operator in MovieBookForm.js 
+    - In prevData, we upadate only name.
+    - In const {name, value}, name denotes all keyNames (name, email, movie, time, tickets) comes from input tag's attribute name.
+    - eventValue denotes all key's values.

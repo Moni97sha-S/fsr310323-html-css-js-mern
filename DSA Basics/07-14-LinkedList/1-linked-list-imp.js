@@ -101,11 +101,13 @@ class LinkedList {
         console.log(`Your Linked List having ${counter} Nodes`);
         return counter;
     }
+
     clear(){
         this.head = null;
         this.tail = null;
         console.log("Your Linked List is now cleared");
     }
+
     delete(index) {
         //? Before deleting we need to check if LL is null or not
         if(index >= 0 && index < this.length()){
@@ -142,12 +144,43 @@ class LinkedList {
                 }
             }
         } else {
-console.log("Index is Invalid...");
+            console.log("Index is Invalid...");
+        }
+    }
+
+//! insertAt()
+    insertAt(index, value){
+        if(index === 0){
+            this.prepend(value);
+        } else if(index === this.length()){
+            this.append(value);
+        } else if(index !== 0 && index !== this.length()){
+            console.log("Middle insertion");
+            // Creating new node to add at middle.
+            const newNode = new Node(value);
+
+            let currentNode = this.head;
+            let currentIndex = 0;
+            while(currentIndex < index - 1){
+                currentNode = currentNode.next;
+                currentIndex++;
+            }
+            console.log(newNode.value); // 4444
+            console.log(currentNode.value); // 200
+
+            //Shifting nextNode's address's place from currentNode to newNode
+            newNode.next = currentNode.next;
+            //Assigning address of newNode to currentNode.next part
+            currentNode.next = newNode;
+
+        } else {
+            console.log("Invalid index: " + index);
         }
     }
 }
 
 const llObject = new LinkedList();
+/* 
 llObject.isEmpty();
 llObject.append(10);
 llObject.append(20);
@@ -162,7 +195,23 @@ llObject.print(); // 40 -> 10 -> 20 -> 30 -> 50
 
 llObject.delete(0);
 llObject.print(); // 10 -> 20 -> 30 -> 50
+*/
 
+//? Insertion at middle
+llObject.append(10);
+llObject.append(20);
+llObject.append(30);
+llObject.append(40);
+llObject.prepend(100);
+llObject.prepend(200);
+llObject.print(); // 200 -> 100 -> 10 -> 20 -> 30 -> 40
+llObject.insertAt(0, 999); // 1st index
+llObject.length();
+llObject.print(); //999 -> 200 -> 100 -> 10 -> 20 -> 30 -> 40
+llObject.insertAt(7, 1000); // last index
+llObject.print(); //999 -> 200 -> 100 -> 10 -> 20 -> 30 -> 40 -> 1000
+llObject.insertAt(2, 4444); // insert at middle 
+llObject.print(); // 999 -> 200 -> 4444 -> 100 -> 10 -> 20 -> 30 -> 40 -> 1000
 
 
 

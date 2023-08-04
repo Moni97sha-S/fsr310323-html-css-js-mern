@@ -36,7 +36,11 @@
 // D) 30 and Error
 
 // Res: D) 30 and Error
-// Reason:
+// Reason: mNum value 10 passed to data & then data=10+20=30 returns 30 to 2nd .then which consoles it. 2nd .then returns undefined to 3rd .then(mProm2) -> this calls mProm2 & passes data as undefined. data = undefined + 20 = NaN. Now mProm2 returns rejected value which passed to .catch() & prints Error as err.
+// Eg for data = undefined + 20 = NaN:-
+const a = undefined + 20;
+console.log(a); // NaN
+// Reason: Prints Not a Number because it is not valid value here.
 
 // Q-2 What will be printed in the console?
 /*
@@ -65,7 +69,8 @@
 // D) "John works as a Shooter"
 
 // Res: A) "John works as a Shooter" and "John"
-// Reason:
+// Reason: When we create obj for Athlete(), we come to constructor & call this super() keyword will actually call this Athlete constructor's parent constructor which is Person's constructor here. For mObj, now name will be John & age is 30. Calling getDetails() will getName() returns 'John' + works as a + Shooter. Now again calling getName() with mObj.getName() inside console.log which returns John.
+// Explanation: super(); calls your parent's constructor to get parent's propertirs and methods.
 
 // Q-3 What will the following function do?
 /*
@@ -95,7 +100,7 @@
 // D) Takes a JSON array as an input and return a JSON object
 
 // Res: B) Takes a JSON object as an input and returns a JSON array
-// Reason:
+// Reason: 1st see if & else conditions finally this program return an array only. Then inside if's return statement Object.keys(arg) --> this tells arg is typeof Object. Rest all are traps. Finally JSON object returns JSON array. 
 
 // Q-4 Which statement best describes Spread and Rest operator?
     
@@ -105,7 +110,7 @@
 // D) None of the above.
 
 // Res: B) Spread operator is used to manipulate arrays. Rest operator is used to create dynamic arguments.
-// Reason:
+// Reason: Spread operator used to manipulate arrays & expands multiple arguments into an array. Rest operator used to create dynamic arguments & merges argument into an array. But best describes is 3rd point. Actually 4th point also correct in terms of array
 
 // Q-5 How do you write an inline style specifying the font-size:12px and color:red; in JSX
     
