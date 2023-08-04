@@ -5597,3 +5597,78 @@ FormData:-
     - In prevData, we upadate only name.
     - In const {name, value}, name denotes all keyNames (name, email, movie, time, tickets) comes from input tag's attribute name.
     - eventValue denotes all key's values.
+
+Day 61 : 04.08.2023 -----------------------------
+Curriculum: PropTypes | React Production Build | Cloud | Deployment Netlify | Project - 2 | Part -1 | Building Responsive Navbar
+Sub-topics: 
+    -> ES6: Async and await
+    -> Creating a Production Build
+    -> Practice Problems + Thought Process + Coding Challenge
+    -> Promises
+Production Build: https://www.copycat.dev/blog/reactjs-build-production/
+Async Await: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function
+   - 🚨PropTypes in React [Time Stamp: 00:21:58]
+   - Code in PropTypes
+   - Kickstart Project 2  [Time Stamp: 01:22:17]
+   - Part-1 Building Responsive NavBars in React
+   x Let's talk about Production build
+   x Deployment on Netlify
+
+Refer for PropTypes: https://www.npmjs.com/package/prop-types
+__________________________________________________
+
+Glimpse of AWS [Trending & Marketing]:-
+    -> AWS Account Creation & debit card from scratch
+    -> If you want to create AWS account, we need to give debit card details & they will deduct Rs.2 and after 7-10 days refund that 2 rupees back to our account.
+    -> Just to check you're valid user or not.
+    -> We have to consume free tier products and after 10-12 months close your account before getting expired.
+    -> How to Create & close your AWS account?
+    -> Every services of AWS a developer cannot master
+    -> They just learn some of the services like S3, vc2s, ctl Lamda etc. & implement it.
+    -> As AWS is vast like ocean. Everyday new features will be introduced.
+    -> But as a developer what we should know in AWS will be teach by sir.
+    -> At Production level, we use only AWS to deploy our project codes.
+    -> Not Github or Netlify.
+
+Last Project by Sir:-
+    -> Chat Application in React with 50-60 lines of Backend Code
+    -> In NodeJS module, we will make another project like Group Chat & One-on-One chat application like Whatsapp service.
+
+Created a new React responsive-navbar project:-
+    -> Added react-router-dom, react-icons & PropTypes npm packages.
+
+🚨PropTypes:-
+  -> It is a defense mechanism.
+  -> They are mechanisms that ensures that the passed props values are of correct data type.
+  -> We can check datatype of passed props and handle errors if not what we expected. 
+
+Need of PropTypes:-
+    -> 
+
+Project2 - Part-1 Building Responsive NavBars in React:-
+    -> 
+
+Day 62 : 05.08.2023 -----------------------------
+Curriculum: Learning Cloud | AWS | React Deployment on AWS S3 service
+Agenda:
+    - Let's talk about Production build
+    - Deployment on Netlify
+    - Cloud
+    - AWS
+    - 
+    - 
+
+__________________________________________________
+
+AWS [Trending & Marketing]:-
+    -> AWS Account Creation & debit card from scratch
+    -> If you want to create AWS account, we need to give debit card details & they will deduct Rs.2 and after 7-10 days refund that 2 rupees back to our account.
+    -> Just to check you're valid user or not.
+    -> We have to consume free tier products and after 10-12 months close your account before getting expired.
+    -> How to Create & close your AWS account?
+    -> Every services of AWS a developer cannot master
+    -> They just learn some of the services like S3, vc2s, ctl Lamda etc. & implement it.
+    -> As AWS is vast like ocean. Everyday new features will be introduced.
+    -> But as a developer what we should know in AWS will be teach by sir.
+    -> At Production level, we use only AWS to deploy our project codes.
+    -> Not Github or Netlify.
