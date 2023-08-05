@@ -4813,6 +4813,7 @@ Curriculum:
     - Let's build a counter components
     - VS Code Git pushCode 3 Command Lines 
     - 📢[Backend Watch After Node.JS] Json Web tokens Youtube URL: https://youtube.com/watch?v=YxMIhGZlrTM
+    - API call: https://omdbapi.com/?s=iron&apikey=44c0b96f
 --------------------------------------------------
 Apply Style or CSS on Components:-
     (3) External file 
@@ -4910,9 +4911,10 @@ useState [Let's learn 1st Hook]:-
     -> It helps by triggering React to render the component again (Re-render).
 
 VS Code Git pushCode:- [ Under  Terminal ]
+    -> cd ..
     -> git add .
-    -> git c "useState Added"
-    -> git push origin main
+    -> git commit -m "useState Added"
+    -> git push origin main/master
 
 Day 54 : 26.07.2023 -----------------------------
 Curriculum: 
@@ -5660,15 +5662,88 @@ Agenda:
 
 __________________________________________________
 
+Production build:-
+    -> React developer Tools [COLORS Differentiation]
+        - White color means that webpage not built with React codes.
+        - Orange means that webpage built with React code & PRODUCTION Build
+        - Black means that webpage built with React code & DEVELOPMENT Build
+    -> 'npm run build' command at terminal changes our project from development stage to production build.
+    -> This command creates build folder inside ur project.
+    -> To start production build project in localhost => 'server -s build'
+    -> npm i dependency => 'i' denotes install
+    -> https://create-react-app.dev/docs/deployment/
+    -> 
+
+Deployment on Netlify:-
+    -> Deployment only build folder into Netlify by dragging orelse via github.
+    -> But not recommended to upload ur production React code into Netlify.
+    -> As it is not utilized by companies, to upload the large production projects.
+    -> They prefer AWS cloud storage to store them now-a-days.
+    -> https://dapper-axolotl-6fbf3f.netlify.app/
+
+Cloud:-
+    -> AWS is one of cloud company.
+    -> Cloud history 2002 internally launched
+
 AWS [Trending & Marketing]:-
-    -> AWS Account Creation & debit card from scratch
-    -> If you want to create AWS account, we need to give debit card details & they will deduct Rs.2 and after 7-10 days refund that 2 rupees back to our account.
-    -> Just to check you're valid user or not.
-    -> We have to consume free tier products and after 10-12 months close your account before getting expired.
-    -> How to Create & close your AWS account?
-    -> Every services of AWS a developer cannot master
-    -> They just learn some of the services like S3, vc2s, ctl Lamda etc. & implement it.
-    -> As AWS is vast like ocean. Everyday new features will be introduced.
-    -> But as a developer what we should know in AWS will be teach by sir.
-    -> At Production level, we use only AWS to deploy our project codes.
-    -> Not Github or Netlify.
+    -> PPT: https://docs.google.com/presentation/d/1BZztq0bLdNc-DAsNAthxIdMbeBaVoW0IZJty__EwGQc/edit#slide=id.g23901a669b0_0_0
+    -> AWS stands for Amazon Web Services is a cloud service provider.
+    -> Hardwares are costly to buy when compare to take in softwares rents.
+    -> Use cloud services instead of buying resources
+    -> Only few companies/industries are using data center, others are using AWS cloud only.
+    -> Remote access possible when using cloud.
+    -> Netflix, Zoom, Airbnb, Dropbox, NASA & Amazon uses AWS services
+    -> Live streaming Video splitted into chunks are captured at youtube server
+    -> All streaming data sent to youtube server in chunks continuously
+    -> 
+
+AWS Use cases:-
+  * Use cases include
+    -> Enterprise IT, Backup & Storage, Big Data analytics
+    -> Website hosting, Mobile & Social Apps	
+    -> Gaming
+  * Applicable to a almost all industries.
+
+AWS Global Infrastructure:-
+    -> Divided into 4 parts:
+    -> AWS Regions
+        - AWS has regions all over around the world 
+        - A region is a cluster of data centers.
+    -> AWS Availability Zones
+        - Each region has many availability zones (usually 3, Min is 3, Max is 6)
+        - Example
+            ap-southeast-2a 
+            ap-southeast-2b 
+            Ap-southeast-2c
+        - AZ’s separate from each other, so that they’re isolated from disasters.
+        - They’re connected with high bandwidth, ultra-low latency networking
+    -> AWS Data center
+        - 
+    -> AWS Edge locations
+
+How to choose an AWS Region?
+    -> Proximity to customers: reduced latency
+
+    -> Pricing: pricing varies region to region and is transparent in the service pricing page
+
+    -> Compliance with data governance and legal requirements: data never leaves a region without your explicit permission
+
+    -> Available services within a Region: new services and new features aren’t available in every Region
+
+Download AWS for Free (Personal Use):-
+    ->  Refer Website: https://aws.amazon.com/free 
+
+Amazon S3 Service:- 
+    -> Amazon Simple Storage Service
+    -> Amazon S3 allows people to store objects (files) in “buckets” (directories)
+    -> Amazon S3 Use cases:
+       * Backup and storage 
+       * Disaster Recovery 
+       * Archive 
+       * Hybrid Cloud storage 
+       * Application hosting 
+       * Media hosting Data lakes & big data analytics 
+       * Software delivery 
+       * Static website
+    -> We need to create a bucket. Every bucket name should be unique.
+    -> http://harshit-71-responsive-website.s3-website-us-east-1.amazonaws.com/
