@@ -1,12 +1,15 @@
 import React from 'react';
+import Header from './Header.js';
+import NewsComponent from './NewsComponent.js';
 
 export default function User(props) {
-    console.log(props);
+    // console.log(props);
     return (
-        <>
+        <div>
+            {/* //! This is to refer for 31st july class
             <h1>{props.info.name}</h1>
             <h1>{props.info.email}</h1>
-            <img src={props.info.picture} />
+            <img src={props.info.picture} alt="" />
             <br />
             <br />
             <button 
@@ -19,7 +22,9 @@ export default function User(props) {
                 }}
             >
             Logout
-            </button>
-        </>
+            </button> */}
+            <Header data={props}/>
+            <NewsComponent />
+        </div>
     );
 }

@@ -11,3 +11,6 @@ Resume Building:
 https://www.overleaf.com/latex/templates/resume-template-by-anubhav/dhmkrwtksdgy
 
 Resume ATS Scan: https://www.jobscan.co/resume-scanner
+
+Assignment-1 (static website)
+https://unique-mermaid-b2f9df.netlify.app/

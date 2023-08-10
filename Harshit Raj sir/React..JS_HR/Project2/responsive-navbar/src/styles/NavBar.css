@@ -1,0 +1,68 @@
+.header {
+  /* position:fixed; */
+  position: sticky;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  height: 80px;
+}
+.siteLogo {
+  cursor: pointer;
+  font-size: 30px;
+  border: 1px solid green;
+  padding: 20px;
+  border-radius: 50%;
+  background-color: black;
+  color: red;
+}
+.nav-menu {
+  display: flex;
+  padding-inline: 3rem;
+  margin-inline: 25rem;
+}
+
+.nav-menu li {
+  padding-inline: 1rem;
+  margin: 1.5rem;
+}
+
+.nav-menu a {
+  font-size: 1.5rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+.hamburger {
+  margin: 60px;
+  cursor: pointer;
+  display: none;
+}
+
+@media screen and (max-width: 1100px) {
+  .hamburger {
+    display: block;
+  }
+  .nav-menu {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    z-index: 100;
+    transition: 0.5s;
+  }
+}
+.nav-menu li {
+  padding-block: 1rem;
+}
+.nav-menu.active {
+  left: 0;
+  z-index: -1;
+}

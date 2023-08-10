@@ -5141,7 +5141,7 @@ Auth.js:
     - Click on Publish App button
     - Now it asks for Push to production?
     - You say confirm.
-    - Again go to Credentials -> Create Creadentials -> OAuth Client ID
+    - Again go to Credentials -> Create Credentials -> OAuth Client ID
     - It asks for Application type -> Web application
     -> Then give name as 'Web client 1' for the name of your OAuth 2.0 client. This name is only used to identify the client in the console and will not be shown to end users. 
     - [IMP] Authorized Javascript origins: For use with requests from a browser
@@ -5313,12 +5313,112 @@ Sub-topics:
     -> Installing & understanding Axios
     -> Fetching data from Server
     -> Handling Network Errors
-
-   - 
-   -
-   -
-   - 
+    -> Reference Materials
+        * Frontend vs Backend: https://www.pluralsight.com/blog/software-development/front-end-vs-back-end
+        * Http Requests: https://javascript.plainenglish.io/the-4-http-request-types-you-need-to-know-about-b15af2ae54
+   - Build a news website
+   - NavBar
+   - News Section 
 __________________________________________________
+
+Build a news website => NavBar:-
+   -> NavBar (Header.js) consists of logo HOME GOAuth & Log Out Button
+   -> User component has Header component & pass props as data to Header component.
+   -> 🚨What is Props drilling?
+   -> 1stly, From Auth component we render User component.
+   -> Then we also Pass props from User component to Header component as data.
+   -> This is called as Props drilling.
+   -> Props drilling means we take data from one component(Auth) to its child component(User).
+   -> From User also we rendering & calling a component (Header) to which we again passing the same information as data.
+   -> Passing informatin indirectly called as prop drilling
+
+News Section:-
+    -> We fetch news from API call and make search bar to search news related to topics.
+    -> To get google news api, we need to go to https://gnew.io/dashboard
+    -> API Key should be changed for each time usage: https://gnews.io/api/v4/search?q=india&lang=en&country=us&max=10&apikey=427bf738f7f568e213071713f4a8dbee
+    -> Now we will do API call at NewsComponent.js
+    -> We will take help of useEffect, Async-await & Immediately invoked function expression to fetch API data & then json it.
+    -> After that we utilize useState variable & setter function to get updated & rerendered News to UPDATE STATE VARIABLES.
+    -> As our response is in Array format, we pass empty array at useState initially.
+    -> This API returns totalArticles & articles in array.
+    -> So we set our newsData using setter function.
+    -> In useEffect, we pass empty array as 2nd parameter.
+    -> 📢Don't forget to call IIFE function of API by adding '()' brackets after IIFE function.
+    -> If not added, we get below error.
+    -? [eslint] src/components/NewsComponent.js
+    Line 7:5: Expected an assignment or function call and instead saw an expression no-used-expressions
+    -> In NewsComponent.js, we use to render using map on stateVariable newsData instead of rendering NewsCard component multiple times.
+    -> 🚨While getting data directly from API call, don't forget to use "optional chaining" while mapping on API state variable.
+    -> Optional chaining in Javascript is used to map only when the data is available from API call.
+    -> Optional Chaining (?.) checks for data is available and then only do map on API state variable.
+    -> It is an operator accesses an object's property or calls a function. If the object accessed or function called using this operator is undefined or null, the expression short circuits & evaluates to undefined instead of throwing an error.
+    -> Why Optional chaining?
+    -> Sometimes during API call the data will not available due to delay in server-side processing or internet connection slow etc. 
+    -> At that point of time, we should not iterate over an empty array (map on empty array -> state variable).
+    -> In order to make sure (?) that the state variable having data with it & then only we should iterate over that data.🚩
+    -> So in NewsComponent.js file, we call an API data & capturing that data in state variable by updating data in state setter function.
+    -> We are mapping state varible which has all data to render then on UI fo that we passed data as props to NewsCard component.
+    -> We are running a loop on state varible which is an array & everytime we returning as NewCard component.
+    -> So that we receive data at NewsCard component and utilize data to render on UI/webpage.
+    -> Inititally useState array will be null/empty, what will happen in this case it'll say map is not defined.
+    -? This throws an error like Uncaught: TypeError: stateVariable.map is not an function
+    -> To overcome this error, we use optional chaining (?) to iterate over empty array which passed as argument to useState.
+    -> In order to handle undefined or null conditions, 
+    -> But we have to handle this kind of errors & all we are just putting this question mark.
+    -> If my null array added to state variable (newsData) [ERROR], then do not iterate over it. 
+    -> If my data array added to state variable (newsData), then only iterate over it. 
+    -> useEffect will be called once after 1st render of NewsCard. 
+
+Search Bar Feature:-
+    -> Create an input tag at NewsComponent & give some style in object 2nd way of styling.
+    -> NOTE:- Only for inline CSS we give 2 {{}}. For object CSS, we use only 1 {ObjName} at JSX & outside return statement within function we give an let ObjName={color: "#ccc", bgc:"white"}.
+    -> Then we create a state variable using useState for search text given by user.
+    -> To re-render news based on user input.
+    -> For that we create a state variable & state setter function.
+    -> We pass initial value at useState() as string & change url with backticks to make a template string.
+    -> In that template string, we use ${search} to get stateVariable's value [state variable => search]
+    -> Now on user input change, we need to re-render news related to user search input.
+    -> For that, we need to use setter function onChange of input pass an event to arrow function with that we will update setter function using e.target.value.
+    -> Here e.target means input tag
+    -> So e.target.value means input tag's value given by user.
+    -> In useEffect, we gave 2nd parameter as Empty array.
+    -> This leads to useEffect not getting triggered on user search input after pressing enter.
+    -> This useEffect triggers only one time as it's 2nd parameter has empty array.
+    -> Refer 308 page in FSR ppt of sir's 3 cases for useEffect()'s 2nd parameter [dependencies_Array].
+        (1) If we don't have 2nd argument (array), then setup function called only once after 1st render & every time same occurs when state & prop changes.
+        (2) If we have empty array = [], then setup function called only once after 1st render.
+        (3) If we have some state variable (in this case search) in [], then setup function called only once after 1st render & after any change in given state variable.
+    -> We need to give the state variable as per above 3rd condition, to change news data according to user input.
+    -> What we want is everytime User changes input at state variable (search), useEffect should call this callbacks.
+    -> So we mention state variable 'search' inside empty array as 2nd argument of useEffect hook.
+    -> So whenever user types input and press enter, useEffect called and then hit an API which will give latest news information based on typed user current input.
+    -> By default, we given "tech" news to render from API at useState by passing as argument.
+    -> search stateVariable is dependent on dependencies_Array of useEffect.
+
+Steps to check Test API works:-
+ => API Check is working or not after 100 attempts of refreshing and calling it.
+ => After inspect ur web page, under Network tab, go to leftside Name tab & select ur API 
+ => Then rightSide we find Response tab where it shows any error occurs for Test API or shows API data if success.
+ => Under Headers tab, we can check even status code as 200 means success, 403 means error -> failed to call API as API reached 100 times limit in gnews.io dashboard / exceeded the limit.
+
+Calc function in css:-
+ => calc(75vw / 2); -> This makes our search bar position at center of the system screen.
+ => 1vw = 10px
+ => 150vw = 1500px
+ => Here 
+    - vw -> viewport width
+    - px -> pixel
+
+Change in Date format:-
+ -> This publishedAt is not in readable format.
+ -> Below code gives error due to date is in Object
+    let date = new Date(props.data.publishedAt);
+    return(<h6 className="card-timestamp">{date}</h6>);
+ -? Uncaught Error: Objects are not valid as a React child (found: [Object Date]). If you meant to render a collection of children, use array instead.
+ -> To overcome this error, we add .toString() to the {date.toString()}
+
+Flow of components in News Application Project:-
+    * App -> Auth -> User -> Header & NewsComponent -> NewsCard
 
 Day 59 : 02.08.2023 -----------------------------
 Curriculum: Routing (Next.js routing technique needs to be taught)
@@ -5609,14 +5709,14 @@ Sub-topics:
     -> Promises
 Production Build: https://www.copycat.dev/blog/reactjs-build-production/
 Async Await: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function
-   - 🚨PropTypes in React [Time Stamp: 00:21:58]
+   - 🚨PropTypes in React [Refer in my-app folder]
+        Refer for PropTypes: https://www.npmjs.com/package/prop-types/v/15.8.1       
    - Code in PropTypes
-   - Kickstart Project 2  [Time Stamp: 01:22:17]
+   - Kickstart Project 2 [refer in Project2 folder]  [Time Stamp: 01:22:17]
    - Part-1 Building Responsive NavBars in React
    x Let's talk about Production build
    x Deployment on Netlify
 
-Refer for PropTypes: https://www.npmjs.com/package/prop-types
 __________________________________________________
 
 Glimpse of AWS [Trending & Marketing]:-
@@ -5634,21 +5734,130 @@ Glimpse of AWS [Trending & Marketing]:-
 
 Last Project by Sir:-
     -> Chat Application in React with 50-60 lines of Backend Code
+    -> This application consists of both Front & Back End parts of code.
     -> In NodeJS module, we will make another project like Group Chat & One-on-One chat application like Whatsapp service.
+
+Example code & uses for PropTypes:-
+    -> At user component file, we are passing 1000 as string for salary and adding number 200 with it.
+    -> Both "1000" + 200 => 1000200 gets concatenated together. (Not added)
+    -> Which not even tells as error at browser console & VS code terminal also. 
+    -> 1000's of components in same project is simple now-a-days.
+    -> Sir currently works on 2000 no.of components
+    -> In that cases, it is very difficult to know what goes wrong which can become weird thing when we run big applications with lots of components.
+    -> To overcome it, we have defense mechanism (PropTypes) which can check what goes wrong
+    -> Even in case of not passing props from parent component, no error reflect only at UI get NaN.
+    -> This is really bad code without PropTypes as we don't have any defense mechanism to cross check our small mistakes at Production level. Debugging them will be worsens.
+    -> Like this name, salary are required must. Without passing them error should occur.
+    -> Now after installation of proptypes, use its method by importing it.
+    -> import PropTypes from 'prop-types';
+    -> Method: ComponentName.propTypes = {name: PropTypes.string.isRequired};
+    -> Now we will get error for 1000200 at browser console.
+    -? ERROR: "Warning: Failed prop type: Invalid prop 'salary' of type 'string' supplied to `User`, expected `number`. 
+    at User 
+    at App
+    -> To overcome this warning, we pass salary prop as number within {}. And instead of concat now it adds.
+    -> Now is we don't pass one of props value, React should warn me atleast.
+    -> But not warning as we didn't mention them as required one.
+    -> If I say as isRequired at User component. Now if we miss country props to pass, it will warn us.
+    -? Warning: Failed prop type: The prop `country` is marked as required in `User`, but its value is `undefined` at App component.
+    -> After adding isRequired to the user component of country prop, now it will clear warning.
+    -> Not passing props also gives below error as warning.
+    -? react-dom.development.js:86 Warning: Failed prop type: The prop `info` is marked as required in `User`, but its value is `undefined`.
+    at User (http://localhost:3000/main.799f69ecf88cdd14375e.hot-update.js:41:3)
+    at div
+    at App 
+    -> Now we created id for each user, for one user id with string type within "str" & another with number type within {7}.
+    -> Sometime type of id can be changed. So we use oneOfType([PropTypes.string, PropTypes.number]) function within array we pass what types for type flexibility like below code:
+        User.propTypes = { id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]) }
+    -> Instead of above code, we hardcode it as {id: PropTypes.string} & passed as number type, then we get warning as below:
+    -? Warning: Failed prop type: Invalid prop 'id' of type `number` supplied to `User`, expected `string`.
+    -> Now for gender we have only 2 options male or female: So we have to use oneOf function in PropTypes.
+        Code:   gender: PropTypes.oneOf("male", "female").isRequired -> This code is without [] in oneOf[]
+    -? Warning: Invalid arguments supplied to oneOf, expected an array, got 2 arguments. A common mistake is to write oneOf(x, y, z) instead of oneOf([x, y, z]).
+        Code:   gender: PropTypes.oneOf(["male", "female"]).isRequired -> This code is for 3rd "other"
+    -? Warning: Failed prop type: User: prop type `gender` is invalid; it must be a function, usually from the `prop-types` package, but received `undefined`.This often happens because of typos such as `PropTypes.function` instead of `PropTypes.func`.
+    at User (http://localhost:3000/static/js/bundle.js:141:3)
+    at App
+    -> If we give extra 3rd option as other which is not provided at user component, then it shows as below warning.
+    -? Warning: Failed prop type: Invalid prop `gender` of value `other` extra supplied(passed as props) to `User`(child) from `App`(parent), expected one of ["male","female"].
+    at User (http://localhost:3000/static/js/bundle.js:141:3)
+    at App
+    -> gender only can be either "male" or "female; It cannot be other than these.
+    -> To show this as warning we use oneOf function in PropTypes.
+    -> CONCLUSION: So using this PropTypes, we can restrict our codes & get some warnings wherever go wrong.
+    -> Remember GoogleLogin was one open source component which was developed by senior coders.
+    -> They highly provide codes for world to use freely using PropTypes.
+    -> We also have shape function which shapes an object in particular each keys. (refer in website)
+    
+
+Need of PropTypes:-
+    -> In Javascript, we don't need to tell type of variables statically.
+    -> Typescript developed by Microsoft Corporation 
+    -> In Typescript, we can define what should be variable type as well like c, c++, Java etc.
+    -> Now we can decide the type of the props should be passed from parent components.
+    -> If we want salary to be type of number but passed as string, that time react will throw some error.
+    -> Code expects salary to be number but passes as string & if we not even passing then that time also it will throws error. 
+    -> Facebook develops React & prop-types npm packages
+    -> If you do not put PropTypes in code, then ur code will behave in unexpected way. [Unexpected Behaviours]
+    -> When ur no of lines of code grows from 10 to 10,000 lines, then it will hard to manage ur code.
+    -> This makes sense of provide as we want.
+    -> Real life scenario: A person lending Rs1000 to B. Then B returns Rs500 to A. A gets it without checking which leads to balance Rs500 loss for A.
+
+CONCLUSION for need of PropTypes:-
+    -> Type checking is literally very important for developers. It will reduce complexity of code & energy as developer & increases performance.
+    -> When we work for very big projects where we get NaN or undefined issues. We need to spend more time and effort to find where this occurs.
+    -> Instead, we get as error/warnings, developers can easily keep track of errors to find and solve it.
+    -> This will reduce unneccessary confusions while debug our code by us or others.
+
+🚨PropTypes:-
+  -> It is a defense mechanism which has a npm package as prop-types at npmjs site.
+  -> This is very important package in React projects.
+  -> They are mechanisms that ensures that the passed props values are of correct data type.
+  -> We can check datatype of passed props and handle errors if props are not passed what we expected. 
+  -> At npmjs site, Runtime type checking for React props and similar objects.
+  -> You can use prop-types to document the intended types of properties passed to components. 
+  -> React (and potentially other libraries—see the checkPropTypes() reference below) will check props passed to your components against those definitions, and warn in development if they don’t match.
+
+Movie.js file:-
+    -> Within Movie component, we pass another Demo component as a prop.
+    -> Already we did similar thing in Route as 
+        <Route path="/dhoni" element={ <Dhoni /> } />
+    -> There react-router-dom developer also done this same thing.
+    -> Prop received & destructured as element in Movie Component & returned that element.
+    -> This element is Demo Component only.
+    -> 🚨 Whenever we pass props as component, we should give PropTypes as "node".
+    -> Otherwise, it will as warning.
+    -> If we give string instead of node like below code, we get error. 
+            Movie.propTypes = {
+                element: PropTypes.string
+            }
+    -? We get Warning: Failed prop type: Invalid prop `element` of type `object` supplied to `Movie`, expected `string`.
+    at Movie (http://localhost:3000/main.9dd2f94e5bb79f732dce.hot-update.js:24:3)
+    at div
+    at App
+    -> When we pass prop element as Object, we get error as "Objects are not valid as a React child".
+    -> In <Movie element={{ a : 10, b : 20 }} /> case, we get warning & error like below as we given PropTypes as node.
+    -? Warning: Failed prop type: Invalid prop `element` supplied to `Movie`, expected a ReactNode (component).
+    at Movie (http://localhost:3000/static/js/bundle.js:205:3)
+    at App
+    -? Uncaught Error: Objects are not valid as a React child (found: object with keys {a, b}). If you meant to render a collection of children, use an array instead.
+    -> When we pass prop element = "Monisha" as string or element, we won't get error.
+    -> CONCLUSION: "node" can be of any type.
+
+Project2 - Part-1 Building Responsive NavBars in React:-
+    -> We create good folder structures like components, styles & pages.
+        => components folder contains all components .js files
+        => styles folder contains all styles .css files
+        => pages folder contains all pages .js files but Routes
+    -> HomePage route have NavBar component.
+    -> NavBar contains logo, pages & instead of log-in button we create GOAuth user profile with log-out button.
+    -> We have installed two packages react-router-dom for BrowserRoute, Routes, Route & Link and react-icons for Hamburger icon to comprise nav-menu items.
+    -> Then search hamburger icon react icons: https://react-icons.github.io/react-icons/
+    -> Search FaBars for Hamburger icon & FaTimes for X close icon in above site.
+    -> 📢z-index in CSS property is very IMPORTANT one to make z-index: -1 to nav-menu screen to make it go behind header of navbar at home page.
 
 Created a new React responsive-navbar project:-
     -> Added react-router-dom, react-icons & PropTypes npm packages.
-
-🚨PropTypes:-
-  -> It is a defense mechanism.
-  -> They are mechanisms that ensures that the passed props values are of correct data type.
-  -> We can check datatype of passed props and handle errors if not what we expected. 
-
-Need of PropTypes:-
-    -> 
-
-Project2 - Part-1 Building Responsive NavBars in React:-
-    -> 
 
 Day 62 : 05.08.2023 -----------------------------
 Curriculum: Learning Cloud | AWS | React Deployment on AWS S3 service
@@ -5747,3 +5956,176 @@ Amazon S3 Service:-
        * Static website
     -> We need to create a bucket. Every bucket name should be unique.
     -> http://harshit-71-responsive-website.s3-website-us-east-1.amazonaws.com/
+
+Day 63 : 07.08.2023 -----------------------------
+Curriculum: Learning Cloud | AWS | React Deployment on AWS S3 service
+Agenda:
+    - Last Project Discussion
+    - Project 2 Responsive Navbar continuation 
+    - Build a project on crytocurrency website
+    - Home Page
+    - 
+    - 
+NOTE:- 
+    -> In React, there is no ❌ id attribute in css files.
+    -> If node modules missing, just enter npm install at vs code terminal
+__________________________________________________
+
+Home Page:-
+    -> We installed 2 packages for image/video carousel.
+    -> They are react-slick & slick-carousel.
+
+Day 64 : 08.08.2023 -----------------------------
+Curriculum: Learning Cloud | AWS | React Deployment on AWS S3 service
+Agenda:
+    - Project 2 Responsive Navbar continuation 
+    - Build a project on crytocurrency website
+    - Chart in Buy page
+    - Footer Section
+    - 
+__________________________________________________
+
+Chart in Buy page:-
+    -> Chart.js is a popular JavaScript library
+    -> Recharts is also similar to Chart.js library.
+    -> React chartjs 2 is very popular superset of chart.js library. Here we get each chart in components.
+    -> We install 2 packages. They are chart.js & react-chartjs-2
+    -> NOTE: Don't forget to use optional chaining during API call
+    -> Then sir used Final React assignment's API & fetch using axios package for 3 various charts.
+        => Pie Chart
+            * We need dashBoardPage -> stored -> 3 data
+        => Line Chart
+        => Horizontal Bar Chart
+    -> Axios is used to fetch API call with useEffect & Async function embed inside Immediately Invoked Function Expression (IIFE) function
+
+Day 65 : 09.08.2023 -----------------------------
+Curriculum: Redux (using useSelector/useDispatch hooks or Redux Toolkit) Part - 1
+Sub-topics: (1) Updating State Immutably (2) Handling Multiple Reducers 
+Agenda:
+    - What is Redux?
+    - Why should we use Redux?
+    - Understanding Global State Management
+    - Terminology related to Redux
+    - Building store, creating Slices and Reading data.
+__________________________________________________
+
+Let's assume a Situation:-
+    -> Let's say you building an e-commerce website.
+    -> We will have different components like:-
+        (i) Product component
+        (ii) Cart component
+        (iii) Payment component
+    -> While adding Product to Cart, we need to Product data.
+    -> Same way if we are on Payment page, we need to Cart data.
+    -> So here we will pass the information from component to component using props.
+    -> (Product => Cart => Payment) Data passed from Product to Payment page is called Props drilling.
+
+This is called as Props Drilling:-
+    -> Prop drilling in React refers to the practice of passing data from a parent component down to a child component through multiple components.
+    -> Let's check this in Code.
+    -> Doing Props drilling till 3-4 component is kind of OK.
+    -> But when projects grow, it'll become very hard to work.
+    -> Repeating same steps passing same function as props for different components to update.
+    -> When no of components increases, then it becomes hell.
+    -> Now to overcome this problem in large projects, Redux comes into picture. Even 10-15 solutions currently for this problem.
+
+Multiple Solutions:-
+    (1st solution) Context API
+    (2nd solution) Redux
+    (3rd solution) MobX -> npm package
+    (4th solution) Recoil -> npm package
+    => They all are Global State Management Solution.
+    => They enables you to maintain a single centralized store that manages the state of your entire application.
+    => All components in your application can access this store and update or retrieve data from it as needed.
+
+What is Redux?
+    -> Redux allows you to store all data in one central location where they can easily be accessible & updated.
+    -> This makes it easier to manage complex states and keep your application organized.
+    -> It's important to note that Redux is not limited to React & you can use it with other frameworks or even vanilla Javascript.
+    -> Redux is a library can be used with React JS, Angular JS, Next JS, Vue Js etc. Even with Vanilla JS.
+
+Why should we use Redux?
+    * Centralized state management:
+        => With Redux, you can maintain the state of your entire application in a single store.
+        => Making it easier to manage & access data across components.
+    * Better performance:
+        => By minimizing the number of state updates & reducing the need for prop drilling.
+        => Redux helps improve your application's performance.
+        => Just for one click, changes multiple components at same time by multiple rerendering which crashes your application.
+        => Multiple rerendering unneccessarily causes crash in your app.
+
+Terminologies related to Redux:-
+    (1) Store / Global store [Container]:
+        - Redux store is like a big container that holds all the data for your application.
+        - (Main store): The center of every Redux application in the store.
+        - This means that any component in ur application can access it to retrieve and update data.
+        - A Store is a JavaScript object with a few special functions & abilities that make it different than a plain global object.
+
+    (2) Slice:
+        - A slice is the portion of Redux store that relates to a specific set of data & actions within the store's state.
+        - In Slice, we create the actual data and define reducers.
+        - Example: UserSlice, CartSlice, PaymentSlice.
+        - Store can have multiple Slice.
+        - We have various slice like login slice, logout slice, etc.
+
+    (3) Actions (Update):
+        - An action is an object that describes what changes need to be made to the state of you application.
+        - It sends data from your application to the Redux store and serves as the only way to update the store.
+        - (to update redux store/slice - what action need to provide - we will despatch an action)
+        - Eg:- Add/Removing a product cards is part of our actions.
+    
+    (4) Dispatch (Throws action):
+        - In Redux, useDispatch React Hook.
+        - How to send data from your application to the Redux store by above Hook.
+        - This hook will allow us to send an action to update the state of your application.
+        - You can think of dispatch as a mail carrier (action) who delivers mail to different departments in a large company.
+    
+    Refer Websites: https://www.redux-toolkit.js.org/api/createSlice
+    Now-a-days instead of pure Redux, developers use redux in packages.
+    Install 2 packages: react-redux & redux-toolkit npm packages from npmjs site or redux-toolkit site.
+
+    (5) Reducer:
+        - In Redux, a reducer is a function that takes in the current state of an application and an action as arguments, and returns a new state based on the action.
+
+Example code:-
+    - Watch & ProductContainer components.
+    - Used @reduxjs/toolkit npm package => configureStore, createSlice, 
+    - redux:
+        -> Big Container (Store)  - store.js [Global Store]
+        -> Piece of code (Slice)  - ProductSlice.js & UserSlice.js files are part of store.
+        -> To connect Slice to ur Store and keep slice inside big container
+        -> We need to export slice default ProductSlice.reducer & import at store as exported defaultly we can give any name while importing it.
+        -> reducer function comes form createSlice.
+        -> Above export & import statement connects
+        -> Dispatch an action will call/trigger reducer function.
+        -> In ProductSlice.js we defines & pass as 3 objects:
+            KeyNames: name, initialState & reducers 
+        -> Inside reducers key we give more no.of reducer functions in object type as value to update slice inside our store data.
+        -> This reducers key is a collection of multiple reducer functions.
+        -> In App.js, we should import {Provider} from react-redux package.
+        -> 📢And then wraps App component by Provider component. This is very important to connect React with Redux.
+        -> At Watch.js file, useSelector() Hook has passed complete store as callback function is used to store complete store.
+        -> From this store we get product details from data object to return
+        -> useSelector hook comes from react-redux package is used to read data from UserSlice, ProductSlice store etc.
+        -> How to update your store values on button click?
+        -> We want to dispatch an action.
+        -> How to dispatch an action?
+        -> By utilizing useDispatch hook from react-redux package.
+        -> increasePrice, decreasePrice actions passed in dispatch method comes from ProductSlice.actions
+
+Day 66 : 10.08.2023 -----------------------------
+Curriculum: Redux continuation | Part-2 | E-commenrce Applications
+Sub-topics: (1)  (2)  
+Agenda:
+    - Redux Continuation (useSelector Hook)
+    - 
+    - 
+    - 
+    - 
+__________________________________________________
+
+useSelector hook:-
+ -> This is used to read the store by using it's callback functionality
+ -> Reading the data from store is "Subscribe".
+ -> useSelector not only used to read ur information. It also helps to subscribe global store.
+ -> Any change to this data, will retrigger / rerender your data.
