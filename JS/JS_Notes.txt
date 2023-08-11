@@ -5687,13 +5687,49 @@ Sub-Topics:
    -  How to do Routing in React JS?
    -  Which npm package to use for Navigation[Redirection] & params?
 
+Agenda:- [Time Stamp: 00:46:04]
+    -> What is Form and when to use it?
+    -> How to build & handle forms in React JS?
+    -> Let's build Movie Booking Form
+    -> Send an email on successful ticket Booking
+    -> Discuss about Formik library
+    -> What is PropTypes in React?
+
 Time Stamp: [01:06:14]
 
 Forms in React.js: https://legacy.reactjs.org/docs/forms.html
 PropTypes: https://legacy.reactjs.org/docs/typechecking-with-proptypes.html
 __________________________________________________
+What is Form?
+    => A form is a crucial part of web that allows users to input and submit data to a server.
+    => Forms are used for various purposes, such as user registration, login, data submission, and more.
+    => A form typically consists of input fields, checkboxes, radio buttons, dropdowns, and buttons for submission or reset.
 
-FormData:-
+How to build & handle forms in React JS?
+    => Data input wise like how we use to put user data in that form those things will be exactly same 
+    => But how we handle data by taking those data, how we use state variables and change the state & all is very important thing to know.
+FormData (let's build a Movie form):-
+    - We will build movie form from which collects data like name email address & time & no.of tickets. 
+    - Once user submit our form, we trigger an email to user's mail address given in movie form on ticket booking confirmation.
+    - Once we created a form, we cannot type in input due to value attribute was given as empty strings.
+    - In order to type input, we create state variables by useState Hook.
+    - Initial value we set as an object with sample values at useState() argument.
+    - But still we can't see or type in input area as we given value attr as "".
+    - Now we give attr value as {formData.name} etc. using state variable.
+    - Then we able to see the sample values at UI.
+    - But still we can't enter anything, because when user types input tag's onChange event is triggered.
+    - Still we didn't defines onChange handleChange() function.
+    - So we cannot give input by typing.
+    - Now we console log event at handleChange function, we can see our typed letters are shown at console.
+    - Here e.target means target event at which tag
+    - And e.target.value means targeting value of tag after it's event takes place.
+    - Now we can Destructure our props (attr) as they are located inside e.target which has those values.
+    - Why default initial values stick with new values still because we didn't update our state (function value).
+    - When we update our state, then it will change.
+    - Now the problem is if we update UserName & then email both are getting same updation.
+    - As we updated only name in setter function.
+    - To overcome this problem, we give callback [Arrow function] to setter function.
+    - We just spreading our prevData object & updating new values.
     - If you don't update state setter function, values will be 
     - Line no 15 is spread operator in MovieBookForm.js 
     - In prevData, we upadate only name.
@@ -6129,3 +6165,86 @@ useSelector hook:-
  -> Reading the data from store is "Subscribe".
  -> useSelector not only used to read ur information. It also helps to subscribe global store.
  -> Any change to this data, will retrigger / rerender your data.
+
+
+Day 67 : 11.08.2023 -----------------------------
+Curriculum: Virtual DOM | Reconciliation | React Fragments | Event | Project -3 | Chat Application | React | Node | Socket.io
+
+Session Details: Find the demo of the ReactJs auto-graded exam below in the "PREWATCH VIDEOS" for React Certification.
+
+Agenda:
+    - Diff Virtual DOM & Real DOM
+    - Reconciliation -> Diffing algorithm
+    - Why JSX within React Fragments <> </>
+    - Event based handling
+    - Project-3 Chat Application (one-to-one & group chat)
+__________________________________________________
+
+Diff Virtual DOM & Real DOM? 
+    -> Virtual DOM is pseudo (imaginary DOM) which is replica of our real DOM.
+    -> This DOM helps for minimal changes to overcome the decrease in performance of code.
+    -> In Real DOM (JavaScript), we use to refresh the entire DOM for each changes/event occurs.
+    -> This leads to massive performance breakdown.
+    -> To overcome this situation, developers created virtual DOM to maintain the performance in same level without decreasing it.
+    ->
+
+Reconciliation 
+    -> Diffing algorithm is used to find how to perform minimal changes at the DOM for good performance.
+    -> 
+
+Why JSX within React Fragments <> </>:-
+    -> This exactly located at all components of React project within return statement of JSX tags wrapped by <React.Fragment></React.Fragment>
+    -> This also has shorthand <> </> instead of <React.Fragment></React.Fragment>
+    -> This tag doen't shows itself in real DOM.
+    -> 
+
+Event-based handling:-
+    -> It has 2 things. One is message consuming (receive msg by receiving end user from server / server from client-end [sender] user) denotes by ".on()" from Global Node.js package.
+
+    -> Another is message emiting (sends by user to server / server to other users) denotes by ".emit()" from Global Node.js package require.
+
+    -> .on(MessageName, ExactMessage);
+    -> .listen() is used to arrange server's port at 4000.
+
+Project-3 Chat Application (one-to-one & group chat):-
+    -> STRUCTURE: In this project, we use three folders.
+        (1) chat-frontend 
+            => This contains all frontend application like React CRA app.
+        (2) chat-backend 
+            => This contains all backend application like package.json, package-lock.json, node-modules & server.js files
+        (3) node-events
+            => This contains all event (Link) application like package.json & server.js files.
+
+    -> EXTENSION & PACKAGES:-
+    -> Here we use various npm packages and a chrome extension to overcome from cross-orgin error occuring [cors - add✅ & setup Test CORS❌🚩 (still pending)].
+    -> The full name of chrome extension is "Allow CORS: Access-Control-Allow-Origin"
+    -> How to install this chrome extension?
+    -> Refer this link: https://mybrowseraddon.com/access-control-allow-origin.html?v=0.1.8&type=install
+
+    -> List of npm packages in this project listed in their respective package.json under dependencies (visually) are:
+        (1) Front-End packages:
+            => socket.io-client
+
+        (2) Back-End packages:
+            => express
+            => socket.io
+    -> Object creation & its Flow of working:
+        * At node-events (server.js), myEvents object is created from Event class created with the help of events from require global package of Node.js
+        * At chat-backend (server.js), 
+            => 'http' class created with the help of http from require global package of Node.js, 
+
+            => 'express' class created with the help of express from require global package of Node.js,
+
+            => 'socketIo' class created with the help of socket.io from require global package of Node.js
+
+            => Created an 'app' from express() class
+
+            => Created an 'server' from http.createServer(app) using app.
+
+            => Then 'io' object is created from socketIo class created with the help of socket.io from require global package of Node.js
+
+            =>  We created an initial connection using io object using a callback function via socket variable pass as argument. This socket goes to App component.
+        * At chat-frontend (App.js),
+            => 'socket' object is created from io component imported (through which we pass server's port 4000) from "socket.io-client" npm package
+
+            => We also imported named Socket component from "socket.io-client" npm package
