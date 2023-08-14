@@ -6248,3 +6248,154 @@ Project-3 Chat Application (one-to-one & group chat):-
             => 'socket' object is created from io component imported (through which we pass server's port 4000) from "socket.io-client" npm package
 
             => We also imported named Socket component from "socket.io-client" npm package
+
+Day 68 : 12.08.2023 -----------------------------
+Curriculum: Project-3 Chat Application continuation
+
+Sub-topics: 
+
+Agenda:
+    - Performance optimization when hampered
+    - useMemo
+    - useCallback
+    - useRef
+   
+__________________________________________________
+
+Performance optimization when hampered:-
+-> Rerendering means again & again calling
+-> But we also do the expensive calculation again n again on click of button which takes some time to executes.
+-> Here the scope of performance happens.
+-> Now our web application becomes slow as it don't want to be rerenders by recalculated.
+-> To overcome this kind of situations, a hook is introduced.
+
+useMemo():-
+-> This hook is a powerful tool in React that allows you to optimize the performance of your components.
+-> 'memoizing' means remembering what we've done in past/catch the results of .
+-> Refer site: react.dev/reference/react/useMemo
+-> It helps to memoizing the results of expensive 
+-> useMemo only returns when it dependencies_Array (2nd argument instead of empty array) updates.
+-> Value get updates only when dependencies changes.
+-> If any change in state variable 
+
+useCallback:-
+    -> useCallback Hook is used to memoize the functions, which can help optimize the performance of your components.
+    -> Father & childComponent are used for this Hook.
+    -> If there is no use at all for child component then why rerender again & again.
+    -> To overcome this, we use 'memo' keyword before export of child component. Due to memo lets you skip re-rendering a component when its props are unchanged.
+    -> Refer site: react.dev/reference/react/memo
+    -> 'memo' imported from react package.
+    -> But after this, if we try to pass a function asa props also again rerendering happens.
+    -> To overcome this, we try to remember this printStatus function using useCallback().
+    -> Now only father component is rerenders without child component.
+    -> But to skip the rerender of child component, we should use memo keyword along with useCallback.
+    -> If there is any change in 2nd argument (dependencies_Array), then child component is rerendered.
+    -> It's especially useful when dealing with child components that receive functions as props.
+    -> AS it ensures that these functions are not recreated on every render unless their dependencies change.
+    -> 
+
+useState:-
+    -> useState change applied only in next time rerenders.
+
+useRef:-
+    -> This triggers
+    -> Types of variables in React.
+    -> (1) Local variable & state Variable
+    -> Create buttons for them
+    -> Refer site: react.dev/reference/react/useRef
+    -> useRef is a React Hook that lets you reference a value that’s not needed for rendering.
+    -> const ref = useRef(initialValue)
+    -> useRef will only update the value & will not rerender when they change
+    -> If we give only variable name, it throws an error.
+    -> To overcome this situation, if we check using console.log(RefVariable);.
+    -> We can see value stored inside keyName current in an object.
+    -> useRef will return values in an object at current key.
+    -> Rerender happens only when there is updation on state variable.
+    -> Local Variable shows changes only at console but state variable shoes changes both at UI & console but not remember before value increased using local variable.
+    -> But useRef will remembers the last rendered value & continues from there.
+    -> To rerender we just store the value in useRef.
+    -> This used to remember the last value by continue from where we left by storing the last value without retrigger from first.
+
+Use Cases of useRef:-
+    => DOM Manipulation:
+    => Previous Values:
+    => Avoid rerenders:
+    => Catching values:
+
+Context API:-
+    -> Alternative Redux, MobX & Recoil are various libraries not coming from React.
+    -> But Context API comes from React 
+    -> https://react.dev/reference/react/createContext#createcontext
+    -> Require (in ES6) is same as import (in ES7)
+    -> Wrap App component codes inside UserContext.Provider and pass a value as props.
+    -> Then import useContext at User component.
+    -> We are reading userContext and passing value in provider.
+    -> 1st user change the name then c1 or any component will get rendered values.
+    -> On change in User component, on click of button renders at every components.
+
+Disadvantage of Cntext API:-
+    -> We as developers not feel like use from Global store.
+    -> So there is 2 types of variable in React. State & useRef.
+
+Leftout topics:-
+(1) Tailwind CSS | Material userId
+(2) HOC | Lefting state up
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

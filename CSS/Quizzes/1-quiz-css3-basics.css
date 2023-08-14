@@ -1,0 +1,101 @@
+/*
+Q-1 What is the full form of CSS?
+
+A) Concatenated Style Sheets
+B) Cascaded Style Sheets
+C) Concatenating Style Sheets
+D) Cascading Style Sheets
+
+Res: D) Cascading Style Sheets
+Reason: Cascading means replacing before line's style with style of latest line of code while executing the code.
+
+Q-2 What is the correct way to add an external stylesheet "style.css" in your HTML?
+
+A) <link href="style.css">
+B) <link rel="style.css" type="text/css">
+C) <link href="style.css" rel="stylesheet" type="text/css">
+D) <link href="style.css" rel="text/css" type="stylesheet">
+
+Res: C) <link href="style.css" rel="stylesheet" type="text/css">
+Reason:
+
+Q-3 Given below are the three ways to add CSS to an HTML file (i) Inline style (ii) Internal Styles (iii) External styles.
+Assume the same style properties are added in all three ways. Arrange the options in INCREASING order of priority.
+
+A) (i), (ii) and (iii)
+B) (i), (iii), (ii)
+C) (ii), (i), (iii)
+D) (iii), (ii), (i)
+
+Res: D) (iii), (ii), (i)
+Reason: External styles < Internal styles < Inline style
+
+Q-4 Which of the following is used to select elements to bind styles to?
+
+A) id
+B) class
+C) HTML tag
+D) All of the above
+
+Res: D) All of the above
+Reason: id, class, & HTML tag
+
+Q-5 Which of the following property defines the border-width, border-style and border-color of an element's top border in a single declaration?
+
+A) border
+B) border-top
+C) border-style
+D) border-top-style
+
+Res: B) border-top
+Reason: border-top: 1px solid black;
+
+Q-6 Which CSS property and value would you use so that you can change the height and width of an inline element?
+
+A) display: none;
+B) display: inline;
+C) float: right;
+D) display: inline-block;
+
+Res: D) display: inline-block;
+Reason: Inline-block is used to change the height and width of an inline element
+
+Q-7 What is the default value of the position property in CSS?
+A) absolute
+B) relative
+C) static
+D) fixed
+
+Res: C) static
+Reason: Default position property is always Static in CSS.
+
+Q-8 What effect does happen on an element, if it's left and right margin is set to 'auto'?
+A) Element can be moved around by the mouse
+B) Element inherits the left and right margin values of its parent element.
+C) The available space is split equally as margin on left and right
+D) Element can allocate its left and right margin values to its sibling elements
+ 
+Res: C) The available space is split equally as margin on left and right
+Reason:
+
+Q-9 How do you select an element with id 'sample'?
+
+A) .sample
+B) sample
+C) &sample
+D) #sample
+
+Res: D) #sample
+Reason: 'id' notation to indicate that is Hash # in CSS.
+
+Q-10: How will you apply padding to an element with the following measurements:
+Top padding = 50px, Bottom padding = 35px, Left padding = 20px, Right padding = 45px
+
+A) padding: 50px 35px 20px 45px
+B) padding: 50px 20px 35px 45px
+C) padding: 20px 50px 45px 35px
+D) padding: 50px 45px 35px 20px
+
+Res: D) padding: 50px 45px 35px 20px
+Reason: top -> right -> bottom -> left
+*/
