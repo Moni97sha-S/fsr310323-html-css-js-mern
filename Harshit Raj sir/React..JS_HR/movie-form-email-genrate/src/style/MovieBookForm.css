@@ -55,3 +55,15 @@
   /* Smooth BGC Transition on Hover */
   transition: background-color 0.3s ease;
 }
+.submitted {
+  animation: fadeout 2s;
+}
+@keyframes fadeout {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+}

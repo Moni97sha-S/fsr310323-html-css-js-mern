@@ -5695,10 +5695,14 @@ Agenda:- [Time Stamp: 00:46:04]
     -> Discuss about Formik library
     -> What is PropTypes in React?
 
-Time Stamp: [01:06:14]
+Time Stamp: [01:40:07] about undefined for props not defined in React overcome by PropTypes.
 
+Reference Material:-
 Forms in React.js: https://legacy.reactjs.org/docs/forms.html
 PropTypes: https://legacy.reactjs.org/docs/typechecking-with-proptypes.html
+
+Pre-Watch Videos: 
+    1. Forms | PropTypes: https://classroom.edyoda.com/program-modules/FSR310323/React/38115/?type=topic
 __________________________________________________
 What is Form?
     => A form is a crucial part of web that allows users to input and submit data to a server.
@@ -5718,7 +5722,7 @@ FormData (let's build a Movie form):-
     - Now we give attr value as {formData.name} etc. using state variable.
     - Then we able to see the sample values at UI.
     - But still we can't enter anything, because when user types input tag's onChange event is triggered.
-    - Still we didn't defines onChange handleChange() function.
+    - Still we didn't defines new values onChange handleChange() function.
     - So we cannot give input by typing.
     - Now we console log event at handleChange function, we can see our typed letters are shown at console.
     - Here e.target means target event at which tag
@@ -5726,15 +5730,140 @@ FormData (let's build a Movie form):-
     - Now we can Destructure our props (attr) as they are located inside e.target which has those values.
     - Why default initial values stick with new values still because we didn't update our state (function value).
     - When we update our state, then it will change.
+            setFormData({ name: value });
     - Now the problem is if we update UserName & then email both are getting same updation.
     - As we updated only name in setter function.
     - To overcome this problem, we give callback [Arrow function] to setter function.
     - We just spreading our prevData object & updating new values.
-    - If you don't update state setter function, values will be 
+    - If you don't update state setter function, new values will not updates at UI.
     - Line no 15 is spread operator in MovieBookForm.js 
-    - In prevData, we upadate only name.
+    - In prevData, we update only name.
     - In const {name, value}, name denotes all keyNames (name, email, movie, time, tickets) comes from input tag's attribute name.
     - eventValue denotes all key's values.
+    - How we update our state variables?
+    - Whenever we have objects, we don't just update our current varaible.
+    - We use to take all the previous data of object by using spread operator so that prevData should be there. 
+    - We will just change its name with some other value.
+    - Then why we are in need of square barckets [name].
+    - Is this neccessary?
+    - So whenever we start typing at username, it writes but when comes to email and type means it is not changing.
+    - Without [] name variable, e.target's name variable becomes local variable only for object's 1st key & do not update individually for other keys.
+    - If we do not put name variable within [], it'll change before variable's value too along with current one.
+    - So finally conclusion is that input tag's name attribute's value is passed as object keyNames at useState hook.
+    - That we destructured at e.target & used to update state setter function.
+    - 📢 In order to update each key individually, we need to pass genral keyName within array [].
+    - Every field should have a unique name in a form to type values in each field individually. Without causing problems to other input fields.
+    - We don't want to hardCode obj's key everytime.
+    - We want particular value to be changed based on which e.target name attr's value as key at useState.
+    - So if we do not want to just give as a key, we will provide in an array to give it's value [username / emailId / movieName / timeVal / ticketNum] = [name]
+    - It is actually Javascript concept,
+            const obj1 = {
+                name: "Monisha",
+                email: "moni@gmail.com",
+                movieName: "jawan"
+            }
+            name = "email";
+    - To update above object, 
+        const obj2 = {...obj1, name: "monisha@gmail.com" }
+        console.log(obj2);
+    - Output:
+        {
+            name: "monisha@gmail.com",
+            email: "moni@gmail.com",
+            movieName: "jawan"
+        }
+    - Now if we see clearly that 1st key's value got changed into new email address.
+    - But we want 2nd key's value to be changed with new email address
+    - For that we enclose name within [] while updating above object.
+    -     - To update above object,
+        const obj2 = {...obj1, [name]: "monisha@gmail.com" }
+        console.log(obj2);
+    - Output:
+        {
+            name: "Monisha",
+            email: "monisha@gmail.com", => This exactly changes
+            movieName: "jawan"
+        }
+    - So this general name should be used as a value. So I will drop in the array.
+        // This[name] is just = "email" key here.
+    
+How to stop Refresh Page when we submit out form by click?
+    - Refresh a page happens due to default behavior of submit form button.
+    - Use e.preventDefault();
+    - This will prevent the page from getting refresh by default.
+
+Trigger a mail after click event from ReactJS application:-
+    -> Using npm package emailjs-com deprecated from npmjs site but we still can use it. 
+    -> Need to install 'npm i emailjs-com' at ur React Project in VSCode Integrated terminal.
+    -> Create an account at https://emailjs.com site with Login Credentials.
+    -> Your Name: Monisha | Your Email: moni97kumar@gmail.com | Your Password: Moni97sha$
+  Under Email Services:
+    -> Click on Add a service button => Select Gmail => Click on Connect Account button => GAuth opens select Your Email in which u registered => Check this checkbox "Send email on your behalf." => Then click on Continue => Click Create Service button
+    -> Service is now created with Service ID
+    -> We can even refer https://emailjs.com/docs/examples/reactjs/ site.
+  Under Email Templates:
+    -> To create a new template, click on Create New Template button
+    -> We need to give subject with content.
+    -> Always give values of names given same as per our code variables for: to, from, message & reply_to(mailId) are enclosed within {{}}.
+    -> Now we give input tag's name attributes (keyNames) accordingly.
+  Email Template/Format:- 
+    [Left]
+    Subject: 
+        Movie Booking confirmation {{from_name}}
+    Content: 
+        Hello {{username}},
+          Your movie {{movieName}} booking confirmed with {{ticketNum}} number of tickets. Enjoy your Movie {{movieName}}!!
+        //{{message}}
+
+        Best wishes,
+        Monisha S
+        [CEO of BookMyCinema]
+    [Right]
+    To Email (Sender email address)
+        moni97kumar@gmail.com IMPORTANT to change into {{emailId}}
+    From Name
+        Monisha
+    From Email
+        Checkbox: Use Default Email Address
+    Reply To
+        {{reply_to}}
+    Bcc
+        {{otherMailIds who need to reply or acknowledge it}}
+    Cc
+        {{otherMailIds who we need to only view}}
+    
+    -> Click on SAVE button.
+    -> Now very important things to be noted are API key under General tab, Service ID under Email Services tab & Template ID under Email Templates tab.
+    -> After npm pkge installation, need to import at MovieBookForm.js 'import emailjs from "emailjs-com";'
+    -> Only with Service ID, Template ID, form.current => e.target, API key passes as argument of response= emailjs.sendForm() by making form tag's onsubmit function as async-await function. Refer documentation.
+    
+OUTPUT at Console on click of "Book Ticket" button:-
+    => Email sent successfully 
+    => EmailJSResponseStatus {status: 200, text: 'OK'}
+    => status: 200
+    => text: "OK"
+    => [[Prototype]]: Object
+
+    -> This emailjs (only Learning feature) is not suitable for production applications as it is free tier & very easy to code.
+    -> For production purpose, there is something called AWS(Cloud Provider) SES (Amazon Simple Email Service) is a real-time implementation using paid-account for sending email addresses automatically.
+    -> We can send only emails to verified number / email addresses.
+    -> Even for AWS SES, they have documentation "Getting started"
+    -> Even we can google and learn "Aws ses nodejs send mail"
+
+CSS Animation on Form after Submission:-
+    -> On click of Book Ticket button, className of form Tag is changed from movieBookingForm to submitted.
+    -> For that, let's define a state variable submitted using useState Hook.
+    -> If submitted state variable is true after email sent successfully, then add submitted class to form tag.
+
+How to add React project in Github as new repo?
+    -> Create a normal Repository and copy the https link and come to vscode terminal and go to a folder by change/make directory (cd/mkdir) here directory means folder and type 'git clone (https link)'
+    -> Then type cd UrProjectName
+    -> Then create ur React App using command 'npx create-react-app moni-app'.
+    -> Now we can code a project inside 'cd moni-app' using VSCode.
+    -> Before upload 'cd ..' to come back to main folder UrProjectName from moni-app.
+    -> And upload in Github clone folder using 'git add .'
+    -> Then type 'git commit -m "message"'
+    -> Then type 'git push origin main/master'
 
 Day 61 : 04.08.2023 -----------------------------
 Curriculum: PropTypes | React Production Build | Cloud | Deployment Netlify | Project - 2 | Part -1 | Building Responsive Navbar
@@ -6018,7 +6147,7 @@ Agenda:
     - Build a project on crytocurrency website
     - Chart in Buy page
     - Footer Section
-    - 
+    - List of npm packages for React Final Assignment 
 __________________________________________________
 
 Chart in Buy page:-
@@ -6033,7 +6162,46 @@ Chart in Buy page:-
         => Line Chart
         => Horizontal Bar Chart
     -> Axios is used to fetch API call with useEffect & Async function embed inside Immediately Invoked Function Expression (IIFE) function
+Q1: Write all the packages we have used.
+A:- 
+       1. react-router-dom:
+              -> For Routes and Route in App component.
+              -> For Link in Header component
 
+       2. react-icons/fa:
+              -> For FaBars & FaTimes icons at Header & NavBar components.
+              -> For FaInstagram, FaFacebook, FaTwitter & FaWhatsapp at Footer component.
+
+       3. react-slick:
+             -> For Slider at VideoCarousel component.
+
+       4. slick-carousel/slick/slick.css:
+             ->  For Slider at VideoCarousel component.
+
+       5. slick-carousel/slick/slick-theme.css:
+            -> For Slider at VideoCarousel component.
+      
+       6. emailjs-com:
+            -> For emailjs at Checkout component.
+
+       7. chart.js/auto:
+            -> For Chart at PieChart component.
+            -> For Chart at LineChart component.
+
+       8. react-chartjs-2:
+            -> For Pie at PieChart component.
+            -> For Line at LineChart component.
+
+      9. axios:
+            -> For axios at BuyPage pages.
+
+Q2: Write all the feature we have build.
+A:  List of features in Responsive Crypto Website are:-
+       (1) Video Carousel is used to show video related to cryptocurrency.
+       (2) Email JS is used to send mail confirmation on successful orders to Crypto Buyer's mail.
+       (3) Chart JS and React chart JS 2 are used to build various charts like Pie chart, Smooth Line Chart & Horizontal Bar chart etc.
+       (4) Axios used to fetch API call easily.
+       (5) Even we can include Google OAuthorization to login this website.
 Day 65 : 09.08.2023 -----------------------------
 Curriculum: Redux (using useSelector/useDispatch hooks or Redux Toolkit) Part - 1
 Sub-topics: (1) Updating State Immutably (2) Handling Multiple Reducers 
@@ -6333,7 +6501,7 @@ Context API:-
     -> 1st user change the name then c1 or any component will get rendered values.
     -> On change in User component, on click of button renders at every components.
 
-Disadvantage of Cntext API:-
+Disadvantage of Context API:-
     -> We as developers not feel like use from Global store.
     -> So there is 2 types of variable in React. State & useRef.
 
@@ -6342,26 +6510,588 @@ Leftout topics:-
 (2) HOC | Lefting state up
 
 
+Day 69 : 13.08.2023 -----------------------------
+Curriculum: Project-3 Chat Application continuation
+
+Sub-topics: 
+
+Agenda:
+    - Performance optimization when hampered
+    - useMemo
+    - useCallback
+    - useRef
+   
+__________________________________________________
+
+Day 70 : 14.08.2023 [My SQL Module] -----------------------------
+Curriculum: Database Fundamentals
+
+Sub-topics: 
+    (1) What is Database?
+    (2) Types of Databases
+    (3) Introduction to DBMS
+    (4) Installation of MySQL
+    (5) DBMS Architecture
+    (6) Tables in MySQL
+    (7) Create DB, Tables
+    (8) Constraints
+    (9) Example of Queries
+
+Agenda:
+    - 
+    - 
+    -     
+    - 
+Pre-Watch Videos: https://classroom.edyoda.com/program-modules/FSR310323/MySQL/38126/?type=topic
+
+Edyoda PPT: https://docs.google.com/presentation/d/1A4U8Q6s6NIW0q-AjAQCQXRl40dPL_RL5FLtxuiTGRVI/edit#slide=id.g6d83c41cf6_1_206
+
+﻿Master PPT - https://docs.google.com/presentation/d/18filyiHB3bKs4MJZ4m0PX3vWm7Dv7wrsV1UvvhcGy_4/edit#slide=id.p
+
+﻿Comunity Class - https://community.edyoda.com/t/learning-database-fundamentals/8539
+_________________________________________________
+
+How to show list of databases in MySQL command line client?
+    => show databases;
+How to create a database in MySQL command line client?
+    => create database employee;
+How to get into a database in MySQL command line client?
+    => use databaseName; -> Eg:- use employee;
+How to create multiple tables inside a created database in MySQL command line client?
+    => create table employee_details(
+        -> id int,
+        -> name varchar(20),
+        -> salary int
+       );
+    => show tables; // Tables_in_employee -> employee_details
+
+Day 71 : 16.08.2023 -----------------------------
+Curriculum: Tables | Queries
+Sub-topics: 
+    (1) Operators
+    (2) Logical Operators
+    (3) Drop Table
+    (4) Insert into Table
+    (5) Select from Table
+    (6) Where filter
+    (7) Delete from Table
+    (8) Transactions in DBMS
+
+Agenda:
+    - Revision Databases, Columns, SQL
+    - MySQL commands
+    - 
+    - Type 'system cls' and then enter to clear screen my SQL commmand line client.
+
+Pre-Watch Videos: https://classroom.edyoda.com/program-modules/FSR310323/MySQL/38127/?type=topic
+
+Community Class = https://community.edyoda.com/t/tables-queries/8569
+
+PPT: https://docs.google.com/presentation/d/1A4U8Q6s6NIW0q-AjAQCQXRl40dPL_RL5FLtxuiTGRVI/edit#slide=id.g6d83c41cf6_1_206
+_____________________________________________
+
+REVISION:
+    Databases:- Cassandra is column based database.
+    Columns:- Are called as Attributes in SQL but in MongoDB (NoSQL) called as fields.
+    SQL:- MySQL & Postgress are popular SQL.
+
+MySQL commands:-
+    -> To get into / open 'mysql -u root'
+    -> We can create multiple databases 1st 'show databases;' | Response: 6 rows in set
+    -> To create a table 'create database employee;' | Response: Query OK,  1 row affected [Here tableName is employee]
+    -> Again 'show databases' to check if our table is added | Response: 7 rows in set
+    -> use employee; | Response: Database changed
+    -> create table employee(id int, name varchar(20), salary int); | Response: Query OK,  0 rows affected
+    -> create table student(id int, name varchar(20), class int); | Response: Query OK,  0 rows affected
+    -> show tables; | Response: 2 rows in set
+    -> select * from employee; | Response: Empty set
+    -> describe employee;
+
+    -> To insert some values: 'insert into employee(id,name,salary)values(101,'Monisha',1000);
+    -> To view all inserted rows: 'select * from employee;'
+    -> 'insert into employee(id,name,salary)values(102,'Abhi',1500);
+    -> select * from employee;
+    -> 'insert into employee(id,name,salary)values(103,'Suraj',2000);
+    -> select * from employee;
+    -> 'insert into employee(id,name,salary)values(104,'Navya',2500);
+    -> select * from employee;
+    -> To insert multiple rows separate with comma after values: 'insert into employee(id,name,salary)values(105,'Akhila',3000),(106,'Harshit',3500);
+    -> select * from employee;
+    -> How to get name & salary from ur data table not entire?
+    -> select name,salary from employee;
+    -> select name from employee;
+    -> Shortcut to get previous commands just up arrow key & down arrow key
+    -> select * from employee where id=105;
+    -> select * from employee where salary=9000;
+
+Logical operator:-
+    -> select * from employee where salary>5000;
+    -> select * from employee where salary>=4000;
+    -> select * from employee where id=106 and salary=6000; // harshit
+    -> select * from employee where salary=6000; // harshit
+    -> select * from employee where name='harshit'; // harshit
+- and command says both condition to be true then return
+- or command says any one condition is true then return
+    -> select * from employee where id=106 and salary=9000; // nothing Empty set | Reason: As there is no row satisfies this both condition
+    -> select * from employee where salary between 4000 and 9000;
+    -> select * from employee where salary in(2000,3000,4000);
+- Pattern Matching:
+    * To open new terminal in new tab => ctrl + T
+    -> insert into employee(id,name,salary)values(111,'mythili',30000);
+    -> insert into employee(id,name,salary)values(112,'Harshit',60000);
+    -> insert into employee(id,name,salary)values(113,'Harshita',50000);
+    -> insert into employee(id,name,salary)values(114,'harshita',40000);
+    * PAttern Match:
+    -> select * from employee where name like 'h%';
+        - This returns all values starting with from H & h
+    -> select * from employee where name like '%h';
+        - This returns all values ends with from H & h
+    -> select * from employee where name like 'harsh%';
+    -> select * from employee where name like 'har_hit';
+        - If there is missing keyword, then we can use underscore.
+    -> select * from employee where name like 'har_hi%';
+        - If there is missing keyword, then we can use underscore and % for after hi can be anything.
+    -> select * from employee where name like 'har_%';
+        - Only 106 harshit, Harish, 112 & 113 we get
+    -> select * from employee where name like 'ha_s%';
+        - Only 106 harshit, 112 & 113 we get
+    -> select * from employee where name like 'ha_i%';
+        - Only 106 Harish we get
+- Update table:
+    -> update employee set salary=5000 where id=112; | Response: Query Rows: 1 matched Changed:1
+    -> update employee set salary=salary+50 where id=112; | Response: Query Rows: 1 matched Changed:1
+    -> Update the id: 'update employee set id=120 where name='Pavan';'
+    -> Update the every person's salary by +1: 'update employee set salary=salary+1 where id>100;' => In case of table shown to us
+    -> Update the every person's salary by +1: 'update employee set salary=salary+1 where 1>0;' => In case of table NOT shown to us
+        - To get truthy value (1>0) always be true.
 
 
 
+Day 72 : 17.08.2023 -----------------------------
+Curriculum: Limit Offset | Alter | OrderBy | Aggregate Function | GroupBy | Having | Keys | Primary | Foreign | JOIN
+
+Sub-topics: 
+(1) Sorting using OrderBy (ascending order/descending order using DESC keyword)
+(2) Group By
+(3) Limit & Offsets
+(4) Alter Table
+(5) Indexes in MySQL
+(6) Update
+(7) Joins
+
+Agenda:
+    - Alter
+    - OrderBy
+    - Aggregate Functions
+    - Nested Query
+    - GroupBy
+    - Having
+    - Keys
+
+Community Class - https://community.edyoda.com/t/limit-offset-alter-orderby-aggregate-function-groupby-having-keys-primary-foreign-join/8607
+   
+PPT DB03: https://drive.google.com/file/d/1x3Isr-eXiD6PrlRMvPDT_PA7nInrcpjq/view
+   
+DISCLAIMER:- We should know only Existence of concepts(topics)
+__________________________________________________
+Alter:-
+        -> 
+OrderBy:-
+        -> 
+Aggregate Functions:- 
+        -> (total, sum, avg, max, min) for sales like attribute.
+
+Nested Query:- 
+        -> 
+GroupBy:-
+        -> We can group by rows based on column/attribute name.
+        -> If we have COMMON column values like same names/category etc then we can use Group By.
+
+    Calculate the average/(total/count) sales of each category?
+        => select category, avg(sales) from product group by category;
+        -> Above command gives avg sales of Mobile, Laptop & Shoes category.
+
+    Calculate the sum/total sales of each category?
+        => select category, sum(sales) from product group by category;
+        -> Above command gives sum of sales of Mobile, Laptop & Shoes category.
+
+    Calculate the maximum sales of each category?
+        => select category, max(sales) from product group by category;
+        -> Above command gives max of sales of Mobile, Laptop & Shoes category.
+
+    Group by location attribute(column):-
+        => select location, sum(sales) from product group by location;
+
+Having:-
+        -> When we apply more operation on aggregated data ( already applied some operations like Group By, etc) this is used.
+        -> This clause filters on group by aggregated data.
+        -> Example:
+            - group by average rating
+            => select m-name, avg(rating) from movie group by m_name;
+            - Having clause is used below
+            => select m-name, avg(rating) from movie group by m_name having avg(rating) > 7;
+Keys:-
+    -> In SQL, keys are fields in a table that are used to identify specific row in a table.
+    -> Also to find or create relationship between tables.
+    -> Helps in data integrity, Relationships between 2 or more tables.
+    -> And ensuring that each row in a table has a unique identifier.
+    -> In facebook/Meta, currently active users are 2.6 billion (290 crores)
+    -> They optimization of every user's data in database.
+    -> Handles them without hangs/crash using with supercomputers 
+    -> Relationships means Department table we have deptId, deptName, deptLocation & in Employee table we have empId, empName, empSal, deptId, empAge etc.
+    -> This employee belongs to which department can be getting by linked by using deptID inside empTable.
+
+    Types of Key:-
+        - Primary Key [IMP🚨]
+        - Foreign Key (IMP)
+        - Candidate Key -> Comes under Primary Key
+        - Composite Key
+        - Super Key -> Comes under Primary Key
+    (1) Primary Key:-
+        -> A key
+
+Day 73 : 18.08.2023 -----------------------------
+Curriculum: Primary and Foreign Key | Different Types of Joins in MYSQL | Indexes | Views
+
+Sub-topics: 
+    (1) Views
+    (2) Example on views and joins
+    (3) Stored Procedure
+    (4) Candidate Key
+    (5) Composite Keys
+    (6) Normalization in DBMS
+
+Agenda:
+    - 
+    - 
+    - 
+
+PPT DB04: https://drive.google.com/file/d/1hlS3UCd1ByO882JD8KVmO5DFheea-K5z/view
+
+Community Class - https://community.edyoda.com/t/primary-and-foreign-key-different-types-of-joins-in-mysql-views/8646
+__________________________________________________
+
+Day 74 : 19.08.2023 -----------------------------
+Curriculum: Indexes | View | DELIMITER | Stored Procedure | Candidate Key | Transactions
+
+Sub-topics: 
+    (1) Views
+    (2) Examples on Views and Joins
+    (3) Candidate Key
+    (4) Composite Keys
+    (5) Normalization in DBMS
+
+Practice Resources: 
+    -> View of Data in DBMS: https://beginnersbook.com/2015/04/view-in-dbms/
+
+PPT DB04: https://drive.google.com/file/d/1hlS3UCd1ByO882JD8KVmO5DFheea-K5z/view
+
+Agenda:
+    - 
+    - 
+    - 
+    - 
+   
+__________________________________________________
 
 
+Day 75 :21.08.2023 -----------------------------
+Curriculum: Transactions | ER diagram | World Cup 2023 ER Diagram | Normalization
+
+Sub-topics: 
+(1) Normalization 1NF,2NF,3NF
+(2) entity Relationship Diagrams
+(3) Cardinality
+
+Agenda:
+    - Transactions
+    - 
+    -  
+    -  
+    - 
+    - 
+    - 
+   
+PPT DB05:- https://drive.google.com/file/d/1pJtldVoIsu6dIkYBiOjVRJ0-LdYhZsxR/view
+
+Community Class - https://community.edyoda.com/t/transactions-er-diagram-world-cup-2023-er-diagram-normalization/8758
+__________________________________________________
+
+Transactions
+    -> A transaction is a sequence of 1 or more SQL statements that are treated as a single unit of work.
+    -> Transactions ensure that a series of operations are executed successfully or not at all.
+    -> One transaction can have multiple SQL queries.
+
+Why we need Transactions?
+    -> Transactions are crucial
+
+ACID Properties:-
+    (1) Atomicity:
+        -> Only when we press commit, updation takes place at both (Debit & Credit) ends.
+        -> 100% success or 100% Rolled Back
+        -> Roll back means no operations takes place or it will retain as it is | after debit but not credited @receiver end then they will refund to sender's account [Partial Transaction 50%].
+
+    (2) Consistency: 
+        -> Eg:- Money Transfer: T is equal to a matrix of (1) Update A amount = amount - 100; & (2) Update A amount = amount + 100;
+        -> 1st operation is for Debit amount by deducting from sender account & 2nd operation is for Credit amount by adds to receiver account.
+        -> Both Debit & Credit side should works together to become success orelse no transaction should start.
+        -> If it is NOT either SUCCESS or FAILURE, then this falls into data inconsistency from ACID 'C' for Consistency.
+
+    (3) Isolation:
+        -> No interference
+        -> Changes made by 1 transaction aren't visible to others until the transaction is committed.
+        -> First comes given 1st preference in case of similar to movie booking tickets scenarios.
+        -> If 2 differen person books the ticket at same time, the ticket will be provides based in milliseconds difference. Otherwise refund happens for 2nd person.
+
+    (4) Durability:
+        -> Once transaction is committed, it's changes are permanent and won't be lost, even in the event of a system failure or power loss.
+
+ER Diagram:-
+    => 1. ER stands for Entity-Relationship which is a digramatic graphical representation of the entities, relationships, attributes and cardinalities in a database.
+    => Entity means real-time world representations in form of tables (Rectangle). Relationship between 2 systems using Entities.
+    => Relationship means one-to-one / One-to-Many / Many-to-one / Many-to-Many etc.
+    => ER diagram is completely like a roadmap.
+    => 2. Weak Entity represented by Double Reactangle nested within one other.
+    => Eg:- Installment weak entity only exists when Loan (normal entity exists) & depnds on Loan entity
+    => 3. Attribute: 
+            (1) Key
+            (2) Composite
+            (3) 
+    => 4. Relationship:
+            (1) One-to-One
+                Eg:-
+            (2) One-to-Many
+                Eg:-
+            (3) Many-to-One
+                Eg:-
+            (4) Many-to-Many
+                Eg:- 
+                    (i) In companies, staff belongs to department and each department have many staffs
+                    (ii) 
+                    (iii)
+                    (iv)
+Eg: Worls Cup 2023 ER diagram:-
+    > 
 
 
+Day 76 : 22.08.2023 -----------------------------
+Curriculum:- Candidate & Alternate & Super Key | Normalization (1NF, 2NF, 3NF) | Prime & Non Prime | Full Dependency | Partial Dependency | Transitive Dependency
+
+INTERVIEW QUESTIONS & Practice Resources Links:-
+    (1) MySQL Revision: https://www.interviewbit.com/mysql-interview-questions/
+    (2) Basic MySQL Interview Questions: https://www.interviewbit.com/mysql-interview-questions/#mysql-basic-questions
+    (3) Intermediate MySQL Interview Questions: https://www.interviewbit.com/mysql-interview-questions/#mysql-intermediate-questions
+    
+Agenda:
+    - Super Key
+    - Candidate key
+    - Alternate Key
+    - Composite Primary Key
+    - Foreign Key Glimpse
+    - Prime Attribute
+    - Non-prime Attribute
+    - 🚨Normalization
+   
+Practice Resources:
+    MySQL Revision: https://www.interviewbit.com/mysql-interview-questions/
+
+    Basic MySQL Interview Questions: https://www.interviewbit.com/mysql-interview-questions/#mysql-basic-questions
+
+    Intermediate MySQL Interview Questions: https://www.interviewbit.com/mysql-interview-questions/#mysql-intermediate-questions
+__________________________________________________
+
+Super key:-
+    -> Purpose of key is to find unique row/tuple of a table.
+    -> Super key is a set of one or more attributes that helps us to find a row from table.
+    -> There can be multiple super keys per table & can have unneccessary attributes (not required) as well.
+    -> Every Candidate key cannot be Super Key
+
+Candidate Key:-
+    -> by default index created while we create a primary key or others too.
+    -> Candidate Key is a minimal of super key.
+    -> Meaning it is a set of attributes that can uniquely identify a row without unneccessary attributes (Not Required).
+    -> Every Super keys can be Candidate Key
+    -> There can be lots of Candidate Key but only one primary key in a table
+    -> Only one (who similar to winning candidate) will be Primary key among Candidate Keys.
+    -> Alternate Key are also Candidate Key those were not chosen as Primary Key. Eg:- RollNo, id, rollno
+    -> Every PK can be SK & CK
+    -> Every AK is CK
+    -> Not every PK is AK
+    -> Every AK is SK
+
+Composite Primary Key:-
+    -> Id is primary key | RollNo can beunique primary key
+    -> But Id & RollNo can be composite key
+
+Foriegn Key:-
+    -> The purpose of FK is to make Releaionship between 2 tables.
+    -> Foreign key is primary key in another table.
+
+Composite Key:-
+    -> Composite key is also candidate key as it consists of Primary Key.
+
+Prime attributes:-
+    -> It is part of primary key.
+
+Non-Prime attributes:-
+    -> It is not part of primary key.
+
+🚨 Normalization:-
+    -> Make sure there should nto be Data redundency (repeating same info twice or more times) while updations.
+    -> To avoid Data redundancy & Data Consistency, we use the following Normalization process.
+    -> This helps us to reduce Data redundancy & Data Consistency
+    -> To create nicely designed using Normal Forms (NF).
+    -> We achieve this Normalization suing labels.
+    -> There are labels: 1NF, 2NF, 3NF & BCNF
+(i)   1NF  [Level-1]:
+        => 1NF stands for First Normal Forms
+        => Rules:
+            - Each attribute must be Atomic value.
+            - Atomic Value means Single value
+            - MultiValue attribute (cell) enclosed within Double nested eclipse (elongated circles).
+            - If our table has anyone multi-value, then it will not fall under level-1
+
+(ii)  2NF  [Level 2]: Already in 1Nf & no partial dependency
+        => It should already exist in 1NF.
+        => Table should not have any partial dependency.
+        => Partial Dependency means when non-prime attribute depends on part of prime attributes.
+        -> Eg:- OrderId, CustId, CustName & ProductName are column names of a table.
+        -> OrderId & CustId are Primary Key & Prime Attributes.
+        -> CustName & ProductName are non-prime attributes.
+        -> 'CustName' is a non-prime attribute depends only on 'CustId' which is one of prime attributes.
+        => This can be overcome by decompose this one table into 2 tables to convert into 2NF.
+        -> Eg:- OrderId, ProductName & CustId are in one table where CustId is foreign key.
+        -> CustId & CustName are resided in another table with CustId as Primary key.
+        => Separation of tables based on our concern.
+        => We no need to club everything in one table.
+        =? How to check if there is any Partial Dependency or not?
+        => 
+
+(iii) 3NF  [Level-3]:
+        => It should already exist in 2NF.
+        => Table should not have any Transitive dependency 
+    Note: Non-prime attribute depends on part of Prime attribute is called Partial Dependency.
+        => Transitive dependency means when a non-prime attribute finds/depends on another non-prime attributes.
+        -> Eg:- teacher_id, teacher_name, department_id & department_HOD are column names in a table.
+        -> teacher_id is Primary & prime attribute
+        -> teacher_name, department_id & department_HOD are non-prime attribute.
+        -> To know who is dept_HOD of some dept, we need only dept_name.
+        => Department_HOD is non-prime attribute which depends only on Department_name which is another non-prime attribute.
+        => If there is any Transitive Dependency, then our table will not fall under 3NF.
+        => This can be overcome by decompose this one table into 2 tables to convert into 3NF.
+        -> Eg:- teacher_id, teacher_name, department_name & department_HOD are in one table where department_name is foreign key.
+        -> Department_name & Department_HOD are resided in another table with department_name as Primary key.
+
+(iv)  BCNF:
+
+Revision: 
+    1NF  - Only Atomic Value & No multi-value
+    2NF  - Already in 1NF & No P.D
+    3NF  - Already in 2NF & No T.D
+
+Day 77 : 23.08.2023 -----------------------------
+Curriculum: Interview Preparation Part 1 | Writing Sub Queries | Complex Queries | CASE
+
+Sub-topics:
+    (1) SQL Concepts
+    (2) SubQuery
+    (3) CASE
+    (4) Practice Problem
+     
+Agenda:
+    - SubQuery (nested within () circular brackets)
+    - Joins
+    - Practice questions for Examples
+
+Practice Resources: 
+   Basic MySQL Interview Questions: https://www.interviewbit.com/mysql-interview-questions/#mysql-basic-questions
+   Intermediate MySQL Interview Questions: https://www.interviewbit.com/mysql-interview-questions/#mysql-intermediate-questions
+__________________________________________________
+
+SubQuery:-
+    -> One or more Sub-queries are nested within a query to solve single table for normal simple operations.
+
+Joins:-
+    -> Joins is used to solve among multiple tables for complex operations.
+
+Practice questions for Examples:-
 
 
+Day 78 : 24.08.2023 -----------------------------
+Curriculum: Interview Preparation part 2 | MySQL Completion | FAQs | Revisiting JS - 1
+
+Sub-topics: 
+    (1) Procedures in detail and examples
+    (2) Interview Questions
+    (3) Python and MySQL
+
+Agenda:
+    - Scaling
+    - Virtual Server in EC2 of AWS
+    - BCNF
+
+Practice Resources:
+    Basic MySQL Interview Questions: https://www.interviewbit.com/mysql-interview-questions/#mysql-basic-questions
+    Intermediate MySQL Interview Questions: https://www.interviewbit.com/mysql-interview-questions/#mysql-intermediate-questions
+    Advanced MySQL Interview Questions: https://www.interviewbit.com/mysql-interview-questions/#mysql-advanced-questions
+__________________________________________________
+Scaling:- 
+    -> Vertical Scaling: Increase size of database from 1 TB to 3TB.
+    -> Horizontal Scaling: Instead Extend size we can buy completely separate to setup new db/RAM/LapTop etc.
+    -> Due to cost-cutting strategy, vertical is best when we have small user database.
+    -> Horizontal is best when we have larger no of user databases.
+    -> 
+
+Virtual Server in EC2 of AWS:-
+
+BCNF:-
+    -> BCNF stands for Boyce Codd Normal Forms.
+    -> 2 rules:
+        1. Should be already in 3NF.
+        2. Only super keys in non-prime or prime attributes.
+        => Any relationship who is having leftside not as super key. Therefore, table is NOT in BCNF.
+        => Calculate all possible super keys & then check all Relationships.
+        => Leftside of Relationship should be super key.
+
+Day 79 : 25.08.2023 -----------------------------
+Curriculum: Interview Preparation part 3 | MySQL FAQs | Revisiting JS - 2
+
+Sub-topics: 
+    (1) 
+    (2) 
+    (3)
+    (4) 
+    (5) 
+    (6) 
+    (7) 
+
+Agenda:
+    - 
+    - 
+    - 
+    - 
+   
+__________________________________________________
 
 
+Day 80 : 26.08.2023 -----------------------------
+Curriculum: 
+Sub-topics: 
+    (1) 
+    (2) 
+    (3)
+    (4) 
+    (5) 
+    (6) 
+    (7) 
 
-
-
-
-
-
-
-
-
+Agenda:
+    - 
+    - 
+    - 
+    - 
+   
+__________________________________________________
 
 
 
