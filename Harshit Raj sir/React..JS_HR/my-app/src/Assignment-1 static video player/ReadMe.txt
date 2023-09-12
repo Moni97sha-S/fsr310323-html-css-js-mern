@@ -34,3 +34,21 @@ https://docs.google.com/presentation/d/1p2EICvYd1F7p7NTAX-oMIKR_L35I9HmAQYmuI30E
 
 SQL Assignments submission tutorial:-
 https://community.edyoda.com/t/how-to-upload-sql-file-on-github-repositories/8212/2
+
+MySQL Assignment-1:-
+https://github.com/Moni97sha-S/mysql-assignment1-queries
+https://codepen.io/Moni97sha-S/pen/rNoVymy?editors=1100
+
+DSA Advanced:-
+(MASTER CLASS NOTES) Notion Link - https://determined-persimmon-687.notion.site/Harshit-Speaks-168fad5159d947918574aaca16d5908c
+Ass1 (Ref): https://www.youtube.com/watch?v=tss5biw6ctI
+
+Ass1: Linear Data Structures
+Ass2: Searching & Sorting: https://codepen.io/Moni97sha-S/pen/OJrXmVo
+Ass3: Trees: https://codepen.io/Moni97sha-S/pen/YzdGeBL?editors=0011
+Ass4: Graph: https://codepen.io/Moni97sha-S/pen/qBLRZwR
+
+Hashmap: 
+https://www.enjoyalgorithms.com/blog/most-frequent-element-in-array
+https://www.enjoyalgorithms.com/blog/longest-consecutive-sequence
+https://www.enjoyalgorithms.com/blog/largest-subarray-with-zero-sum

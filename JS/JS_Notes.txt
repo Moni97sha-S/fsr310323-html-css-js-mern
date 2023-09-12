@@ -6034,6 +6034,7 @@ Agenda:
     - 
     - 
 
+Time Stamp: (full Video)
 __________________________________________________
 
 Production build:-
@@ -6122,26 +6123,50 @@ Amazon S3 Service:-
     -> We need to create a bucket. Every bucket name should be unique.
     -> http://harshit-71-responsive-website.s3-website-us-east-1.amazonaws.com/
 
+React Deployment on AWS S3:-
+
 Day 63 : 07.08.2023 -----------------------------
-Curriculum: Learning Cloud | AWS | React Deployment on AWS S3 service
+Curriculum: Assignment Discussion | Project - 2 - Completing
 Agenda:
-    - Last Project Discussion
-    - Project 2 Responsive Navbar continuation 
-    - Build a project on crytocurrency website
+    - Last Project Discussion on React Final Assignment
+    - Completing Project 2 Responsive Navbar continuation 
+    - Build a project on cryptocurrency website by adding interesting features to Project-2
     - Home Page
     - 
     - 
+Reference Material:-
+    -> Making an app using routing: https://www.youtube.com/watch?v=JE3w48KeSZ8
+
 NOTE:- 
     -> In React, there is no ❌ id attribute in css files.
     -> If node modules missing, just enter npm install at vs code terminal
 __________________________________________________
 
 Home Page:-
+    -> NavBar Responsive
     -> We installed 2 packages for image/video carousel.
     -> They are react-slick & slick-carousel.
+    -> It is a Hero section on (Landing Page)
+    -> By building Hero component and import it at Hom Page.
+    -> For VideoCarousel, 2 npm package are 'npm i react-slick' & 'npm i slick-carousel'
+    -> Import statements for js file: import React from "react"; & import Slider from "react-slick";
+    -> Import statements for css file: import "slick-carousel/slick/slick.css"; & import "slick-carousel/slick/slick-theme.css";
+    -> Make a json of Video URL at HomePage.js & pass them as props to Video Carousel component.
+    -> Search for "youtube video embed link"
+    -> To change dots color with/without CSS Module refer: https://codesandbox.io/s/react-slick-css-modules-2jb57?file=/src/slick.css
+
+Explore Page:-
+    -> Req: We shows currency/prices, graphs built
+
+Latest Page:-
+    -> Req: We shows the latest news built using an API call for crypto currency news [Replica of NEWS website]
+
+Buy Page:-
+    -> Show a form to buy Bitcoins with ur email address.
+    -> After submission of form automatic email generated to the user's mail regarding Bitcoins bought successfully.
 
 Day 64 : 08.08.2023 -----------------------------
-Curriculum: Learning Cloud | AWS | React Deployment on AWS S3 service
+Curriculum: Completing Project - 2 Crypto Website | Building Charts & Graphs | Virtual DOM | Reconciliation | React Fragments
 Agenda:
     - Project 2 Responsive Navbar continuation 
     - Build a project on crytocurrency website
@@ -7066,16 +7091,117 @@ Sub-topics:
     (7) 
 
 Agenda:
+    - Execution Context
     - 
     - 
     - 
-    - 
-   
+Master PPT (from 111 pg): https://docs.google.com/presentation/d/18filyiHB3bKs4MJZ4m0PX3vWm7Dv7wrsV1UvvhcGy_4/edit#slide=id.g24d0818cf10_0_65
 __________________________________________________
 
+Execution Context:-
+    -> Two phases: Memory & Code Execution phases
+        1. Memory phase: 
+            - Checks only for 1st word like var, let, const & function keywords.
+            - Only Left Hand Side check
+            - This phase waits/stops only when keywords found & assigns as undefined
+        2. Code Execution phase: 
+            - 
+    -> Example:-
+        var age = 10;
+        console.log(age);
+        var data = "monisha";
+        for(let i=0; i < 5; i++){
+            console.log();
+        }
+    -> Memory Mgr(MM) stops only at 1st & 3rd line of above examples & assigns it as undefined.
+    -> Code Execution Mgr(CEM) asks MM What is age?
+    -> MM says I have age then CEM req to MM if u have age then change that age value to 10.
+    -> MM changes undefined to 10 for age.
+    -> CEM see console.log(age); & prints it's value.
+    -> Similar to var data = "monisha";
+    -> Example:-
+        console.log(age); // undefined
+        var age = 10;
+        console.log(data); // undefined
+        var data = "monisha";
+
+Scoping:-
+    -> This is similar to passport or aadhaar card accessible only within country.
+    -> Every scope have separate Memory  & Code Execution Manager.
+    -> 2 types of scope: 
+        (1) Global Scope: (MM & CEM)
+        (2) Local/Functional Scope: (FMM & FCEM)
+    -> Global Scope: Are accessible anywhere in ur code.
+    -> Functional Scope: Are only accessible within inside ur specific function/block & not accessible outside of it.
+    -> Functional scope created only when we call (after calling) that function. Unless we call it, this scope not created.
+    -> After function execution over, it will destroyed.
+
+var:-
+    -> It is functional/local with function keyword or Global scoping of variables.
+    -> If var is not declared inside functional scope, it is considered as resides in Global scope only even we declared it inside block scope like if statements etc.
+    -> var supports Hoisting in global scope & reassigns
+
+let:-
+    -> Intro in ES6
+    -> It is block scoping {} includes switch, if, for, while, do-while, class, function of variables.
+    -> let not supports Hoisting & reassigns 
+    -> Example 1:-
+        if(true){
+            let a =10;
+            const b =10;
+            console.log(a); // 10
+            console.log(b); // 20
+        }
+        console.log(a); // Ref err
+        console.log(b); // Ref Err
+
+const:-
+    -> Intro in ES6
+    -> It is block scoping of variables & NOT supports Hoisting & cannot reassigns.
+
+global MM @ Functional scope:-
+    -> Example1:
+        function f1() {
+            console.log("inside function");
+        }
+        f1(); // GCEM calls & create functional scope along with FMM & FCEM.
+    -> Global MM sees function keyword not assigns as undefined. It assigns as all the code from { to }.
+    -> Example2:
+        function f1(a) {
+            console.log("inside function");
+            console.log(a); // 10
+        }
+        f1(10);
+        console.log(a); // Ref Err:
+    -> In this example2, 'a' behaves like block scope variable.
+    -> Therfore, it throws Reference Error when we try to access outside block.
+
+Function:-
+    -> Functions are also hoisted.
+    -> Example:-
+        f1();
+        function f1() {
+            console.log("inside function"); // inside function
+        }
+
+Auto Global:-
+    -> Example1 :-
+        function f1() {
+            a=10;
+        }
+        f1();
+        console.log(a); // 10
+    -> Example2 :-
+        function f1() {
+            if (true){
+                a=10;
+            }        
+        }
+        f1();
+        console.log(a); // 10
 
 Day 80 : 26.08.2023 -----------------------------
-Curriculum: 
+Curriculum: Doubt Class - MySQL | Revisit JS - 3
 Sub-topics: 
     (1) 
     (2) 
@@ -7086,36 +7212,1337 @@ Sub-topics:
     (7) 
 
 Agenda:
+    - Lexical Scope (Scope chaining)
+    - Auto Global
+    - Closures
     - 
+   
+__________________________________________________
+Lexical Scope:-
+    -> Local Scope + Parent Scope + Global Scope
+    -> Example 1 :
+        function f1() {
+            var a = 10;
+            console.log(a);
+        }
+        f1();
+    -> Example 2 :
+        var a = 10;
+        function f1() {
+            console.log(a); // 10 It checks in Global/Parent scope
+        }
+        f1();
+    -> Example 3 :
+        let a = 10;
+        function f1() {
+            console.log(a); // 10 It checks in Global/Parent scope
+        }
+        f1();
+    -> Example 4 :
+        function f1() {
+            function f2() {
+                var a = 10;
+            console.log(a); // No Output as f2() not called
+            }
+            console.log("Inside f1 function);
+        }
+        f1();
+        f2(); // Cannot call nested function in Global instead call it inside f1
+    -> Example 4 :
+        function f1() {
+            var a = 10;
+            function f2() {
+            console.log(a); 
+            }
+            f2();
+            console.log("Inside f1 function);
+        }
+        f1();
+        Reason: f1CEM asks MM Do u know f2() & if yes then create f2 scope along with f2MM & f2CEM
+
+Auto Global:-
+    -> Example 1:
+        function f1() {
+            a= 10;
+            console.log(a); // 10 due to auto global
+        }
+        f1();
+    -> f1CEM asks GMM to create 'a' value to 10
+
+Closures:-
+    -> Example 1:
+        function f1() {
+            console.log("I'm f1 function");
+
+            function f2() {
+                console.log("I'm f2 function");
+                console.log(a);
+            }
+            return f2;
+        }
+        let x = f1();
+        x();
+
+
+
+
+Day 81 : 28.08.2023 (DSA Advanced)-----------------------------
+Curriculum: 
+Sub-topics: 
+    (1) Linear Search
+    (2) Binary Search
+    (3) Selection sort
+     
+
+Agenda:
+    - Searching [Time Stamp: 00:06:46 ]
+    - Sorting [Selection Sort]
+
+ (MASTER CLASS NOTES) Notion Link - https://determined-persimmon-687.notion.site/Harshit-Speaks-168fad5159d947918574aaca16d5908c
+ SEARCHING:https://www.geeksforgeeks.org/searching-algorithms/
+ SORTING:https://www.geeksforgeeks.org/sorting-algorithms/
+ SORTING:https://www.programiz.com/dsa/bubble-sort
+__________________________________________________
+
+Searching:- 
+    -> Searching is a fundamental operation in computer science that involves finding the presence specific target element within a collection of data.
+    -> The primary goal of a search algorithm is to determine whether the target element exists in the data and, if it does, to locate its position within the data.
+    -> ## **Problem Statement:**
+    -> Given an array (or list) of elements and a target element to be searched.
+    -> [IMP] The task is to find whether the target element exists in the array and, if it does, return true if not return false.
+
+Linear Search(Approach - 1):-
+    -> Linear search is also known as "sequential search".
+    -> It is one of the simplest search algorithms.
+    -> It works by sequentially checking each element of the array.
+ Algorithm:
+    - Start at the beginning of the array.
+    - Compare the current element with the target element.
+    - If the current element matches the target, return true.
+    - If the current element doesn't match, move to the next element.
+    - If the end of the array is reached without finding a match.
+    - return false
+## **Time Complexity:**
+The time complexity of linear search is O(n), where 'n' is the number of elements in the array.
+This is because in the worst-case scenario.
+The algorithm might need to traverse through all 'n' elements of the array to find the target element.
+
+## **Space Complexity:**
+The space complexity of linear search is O(1).
+Which is constant.
+This is because the algorithm doesn't use any additional data structures that grow in size with the input.
+
+Binary Search (Approach - 2):-
+    -> start index should be less than endIndex
+    -> Math.floor
+    -> Binary search is a more efficient search algorithm compared to linear search. Only works with **sorted arrays.**
+    -> It follows a "divide-and-conquer approach" to find a target element in a sorted array by repeatedly dividing the search range in half.
+
+ ## **Algorithm**:
+    - Considering, we have sorted array.
+    - Calculate the middle index of the search range.
+    - Compare the middle element with the target element.
+    - If the middle element matches the target. "Return True"
+    - If the middle element is less than the target.
+        -> Crop the search range to the right half of the current range.
+        -> Meaning - Eliminate the left half of the current search range.
+    - If the middle element is greater than the target
+        -> Crop the search range to the left half of the current range.
+        -> Meaning - Eliminate the right half of the current search range.
+    - Repeat until the target is found or the search range becomes empty.
+
+## **Time Complexity of Binary Search:**
+    => The time complexity of binary search is O(log n). 'n' is the number of elements in the sorted array.
+    => This is because, with each comparison, binary search eliminates half of the remaining search range.
+    => Solving for k gives k = log2(n).
+    => Here -  k = no. of comparison and n = length of array
+
+## **Space Complexity of Binary Search:**
+    => The space complexity of binary search is O(1).
+    => Which is constant.
+    => Binary search doesn't require additional memory that grows with the input size.
+
+Sorting:-
+    -> Sorting is the process of arranging elements in order, either in ascending or descending.
+    -> It is a fundamental operation in computer science.
+
+  ## **Let’s Talk About Where we need sorting.**
+    1. In Javascript, We have sort function already.
+    2. Then Why should we are learn sorting ?
+
+  ## **Because**
+    1. Interviews and Coding Challenges
+    2. Understanding Hidden Algorithms
+    3. For better developer
+
+  ## **Different Types of Sorting**
+    1. Selection Sort
+    2. Bubble Sort
+    3. Insertion Sort
+    4. Merge Sort
+    5. Quick Sort
+
+# **Selection Sort**
+    => Selection sort is a simple sorting algorithm that repeatedly selects the smallest element from the array.
+    => And places it at the beginning of array.
+
+  ## **Algorithm**
+        - Find the minimum element in the unsorted portion of the array.
+        - Swap the found minimum (or maximum) element with the first element of the unsorted portion.
+        - Repeat until the entire array is sorted.
+
+  **First Let’s Code to find out Minimum Element from Array.**
+  **Now Let’s Code Selection Sort.**
+
+  ## **Time Complexity of Selection Sort:**
+    => The time complexity of Selection Sort is O(n^2). Where 'n' is the number of elements in the array.
+
+  ## **Space Complexity of Selection Sort:**
+    => The space complexity of Selection Sort is O(1).
+    => Which is constant.
+    => This means that the amount of extra memory used by the algorithm doesn't grow with the input size.
+
+
+Day 82 : 29.08.2023 -----------------------------
+Curriculum: TA Live Discussion on Linear Data Structures
+Sub-topics: 
+    (1) Hashmap
+    (2) Pair Bracket Problem 
+
+Agenda:
+    - HashMap
+    - Its functions .get .set .has 
+    - Stack for Bracket Problem
+   
+__________________________________________________
+
+Hashmap:-
+    ->
+    ->
+    ->
+    -> Example:-
+
+
+Day 83 : 30.08.2023 -----------------------------
+Curriculum: Sorting | Recursion
+Sub-topics: 
+    (1) Bubble Sort
+    (2) Insertion Sort
+    (3) Quick Sort
+    (4) Merge Sort
+    (5) Recursion 
+
+Agenda: # Sorting Algorithms - Selection, Bubble, Insertion
+    - Bubble Sort
+    - Insertion Sort
+    - Recursion
+    - Microservices
+   
+__________________________________________________
+
+Bubble Sort:-
+    -> Find Max element & pass it to its correct position.
+    -> Check & swap if its > than current element.
+    -> 1st loop is to iterate over no.of passes
+    -> 2nd loop is for iteration to check
+    # **Bubble Sort**
+        ## **Main Idea**
+            -> In every iteration, Place the max elements at its correct position
+
+        ## **Algorithm**
+            1. Start from the beginning of the array.
+            2. Compare each pair of adjacent elements.
+            3. If the elements are out of order (i.e., the larger element comes before the smaller one) swap them.
+            4. Repeat the process for every pair of adjacent elements until the end of the array is reached.
+            5. After the first pass, the largest element will be at the end of the array.
+
+        ## **Time Complexity of Bubble Sort:**
+            => The time complexity of Bubble Sort is O(n^2).
+            => Where 'n' is the number of elements in the array.
+            => This means that the time it takes for the algorithm to sort the array grows quadratically with the number of elements.
+
+        ## **Space Complexity of Bubble Sort:**
+            => The space complexity of Bubble Sort is O(1).
+            => Which is constant.
+            => This means that the amount of extra memory used by the algorithm doesn't grow with the input size.
+
+Insertion Sort:-
+    -> Consider left half as sorted array & right half is unsorted array.
+    -> Take unsorted element & place in its correct sorted position.
+    -> Like Deck of cards.
+    -> array[j] means rightmost element of sorted array.
+    -> Best Case: Already every elements are sorted in best case (Whatever we want to do already done). Order(n) => n time X 1 = n
+    -> Worst Case: Completely decreasing order.
+    -> # **Insertion Sort** 
+            ## **Main Idea**
+                -> In Insertion Sort, Think like you have sort portion of array and unsorted portion of array.
+                -> It takes each element from the unsorted portion of the array and inserts it into its correct position within the sorted portion of the array.
+                -> It's like sorting a deck of cards by picking cards one by one and inserting them into the appropriate position in your hand.
+            ## **Algorithm**
+                1. Start with the second element (index 1) of the array.
+                2. Compare the current element with the previous elements in the sorted portion.
+                3. Shift elements to the right until the correct position for the current element is found.
+                4. Insert the current element into its correct position in the sorted portion.
+                5. Repeat this process for each element in the unsorted portion of the array.
+
+            ## **Time Complexity of Insertion Sort:**
+                => When the input array is in reverse order, Insertion Sort performs roughly O(n^2) comparisons and shifts.
+
+            ## **Space Complexity of Insertion Sort:**
+                => The space complexity of Insertion Sort is O(1).
+                => Which is constant.
+                => This means that the amount of extra memory used by the algorithm doesn't grow with the input size.
+
+Best Case & Worst Case:-
+    => BEST CASE: Already every elements are sorted in best case (Whatever we want to do already done).
+    => WORST CASE: Completely decreasing order. Not sorted already totally a new random unsorted array.
+    => AVERAGE CASE: It is a better case between BEST CASE and WORST CASE.
+
+# **Best-case & Worst-case Time complexity**
+    1. ## **Selection Sort:**
+                Best Case Time Complexity: O(n^2)
+                Worst Case Time Complexity: O(n^2)
+
+    2. ## **Bubble Sort:**
+                Best Case Time Complexity: O(n^2)
+                Worst Case Time Complexity: O(n^2)
+
+    3. ## **Insertion Sort:**
+                Best Case Time Complexity: O(n)
+                Worst Case Time Complexity: O(n^2)
+
+## **Best Case Time Complexity:**
+    => In the **best case scenario, When the input array is already sorted.**
+    => Both **Selection Sort and Bubble Sort still require O(n^2) comparisons and swaps, leading to their best-case time complexity being O(n^2).**
+    => However, **Insertion Sort's best-case time complexity is O(n)** because it on**ly needs to perform linear comparisons to determine that the array is already sorted.**
+
+## **Worst Case Time Complexity:**
+    => Both Selection Sort and Bubble Sort have a worst-case time complexity of O(n^2), as they perform a constant number of comparisons and swaps for each element.
+    => Insertion Sort's worst-case time complexity is also O(n^2), as it involves shifting elements to the beginning of the array for each element in the worst case.
+
+Recursion:-
+    -> It is magic.
+    -> Breakdown problem into smaller problems & same nature.
+    -> Before We understand recursion, Let’s solve a problem. 
+    -> Q1: Write a Program to claculate factorial of 5 => 5*4*3*2*1 => let f = 1; for(let i=1; i<=n; i++){f=f*i}
+    -> Without recursion using for loop, we can solve factorial problems too.
+    -> Fact value => 1= 1*1 | 2 = 1*2 | 6 = 2*3 | 24 = 6*4 | 120 = 24 * 5
+    -> Q2: Write a Program to print from 1 to 10 => for(let i=1; i<10; i++){console.log(i);}
+    -> So, Here we used iteration to solve problems.
+
+Microservices:-
+    -> API GateWays: https://marutitech.com/api-gateway-in-microservices-architecture/#What_is_an_API
+    -> It has many services like Order, Product, Shipping etc. via API Gateways.
+    -> REST API comes under Node.js backend.
+
+
+Day 84 : 31.08.2023 -----------------------------
+Curriculum: 
+Sub-topics: 
+    (1) Bubble Sort
+    (2) Insertion Sort
+    (3) Quick Sort
+    (4) Merge Sort
+    (5) Recursion
+    (6) 
+    (7) 
+
+Agenda:
+    - Recursion
     - 
     - 
     - 
    
 __________________________________________________
 
+Recursion:-
+    -> Let’s again solve the problem but using Recursion.
+ # Definition
+    - When the solution to a problem depends on	solutions	to smaller problem or same nature.
+    - By "same nature" we mean that the approach used to solve the original problem can also be used to solve smaller problems.
+ # SO,
+    - Recursion involves a function calling itself to solve smaller problems.
+ # How Does Recursion Work?
+    - We can define the steps of a recursive solution as follows:
+        1. **Base Case:**
+            -> A recursive function must have a "terminating condition", at which the function stops calling itself. Such a condition is known as a base case.
+
+        2. **Recursive Call:**
+            -> The recursive function will recursively invoke itself on the "smaller version of the problem". 
+            -> We need to be careful while writing this step, as it is important to correctly figure out the smaller problem on whose solution the original problem's solution depends.
+
+        3. **Small Calculation:**
+            -> Generally, we perform a calculation step in each recursive call. We can perform this calculation step before or after the recursive call, depending on the nature of the problem.
+    
+    ### IMPORTANT NOTE
+        => Recursion uses a stack to store the recursive calls.
+        => If our recursive function doesn't have termination condition, it ends up in infinite loop.
+        => Which ends up in RangeError: Maximum call stack size exceeded
+        => PMI Recursion
+    
+    Recursion:-
+        -> First one + Rest Calculation is recursion's part
+    
+    Merge Two Sorted Array into One:-
+        -> 
+
+Day 85 : 01.09.2023 -----------------------------
+Curriculum: Merge And Quick Sort | Tree 
+Sub-topics: 
+    (1) Basic Operations: Traversing, Searching
+    (2) Application
+    (3) Quick Sort
+    (4) Merge Sort
+    (5) Recursion
+    (6) 
+    (7) 
+
+Session Details:
+    1. Implementation.
+    2. Basic Operations: Traversing, Searching
+    3. Application
+
+Practice resources:
+https://www.geeksforgeeks.org/graph-data-structure-and-algorithms/
+https://www.programiz.com/dsa/graph
+
+Agenda:
+    - Merge Sort
+    - Quick Sort
+    - 
+    - 
+   
+__________________________________________________
+
+Merge Sort:-
+  ## Q 1. **Merging two sorted arrays into a single sorted array**
+    **Algorithm**
+        1. Initialize three pointers:
+            - **`i`** for the first array (initialized to 0).
+            - **`j`** for the second array (initialized to 0).
+            - **`k`** for the merged array (initialized to 0).
+        2. Create a new array **`merged`** to store the merged result.
+        3. Loop while both **`i`** and **`j`** are within their respective array bounds.
+            - Compare the elements at positions **`i`** and **`j`** in the two arrays.
+            - If the element at index **`i`** in the first array is smaller or equal, add it to the **`merged`** array and increment **`i`** and **`k`**.
+            - Otherwise, add the element at index **`j`** in the second array to the **`merged`** array and increment **`j`** and **`k`**.
+        4. After the loop, if there are any remaining elements in either array, add them to the **`merged`** array.
+        5. Return the **`merged`** array as the merged and sorted result.
+
+    Now We know how to merge two sorted array into a single sorted array, So let’s learn MERGE SORT now.
+
+    # Main **Idea behind Merge Sort Algorithm**
+        - **Merge Sort is a divide-and-conquer sorting algorithm.**
+        - **That divides the input array into smaller halves, sorts those halves.**
+        - **Then merges them back together to achieve a fully sorted array.**
+
+    ## Now Let’s Visualize this on Board
+    **Merge Sort Algorithm:**
+        1. **STEP 1 :** Divide the unsorted array into two halves.
+        2. **STEP 2 :** Recursively sort each half.
+        3. **STEP 3 :** Merge the sorted halves to produce a single sorted array.
+
+    Now Let’s write code for Merge Sort
+
+    ## Time Complexity
+        The time complexity of the Merge Sort algorithm is **O(n log n),** where "n" is the number of elements in the array to be sorted. 
+
+        **Reasons**
+        - The **divide step takes O(log n)** time as the array is repeatedly divided in half.
+        - And the **merge step takes O(n) time** as each element is involved in exactly one comparison.
+
+    ## **Space Complexity**
+        - The space complexity of the Merge Sort algorithm is O(n), where "n" is the number of elements in the array being sorted. 
+
+        **Reasons**
+            - This space complexity is due to the **additional space needed for the temporary arrays** during the merging process.
+
+    Explanation:-
+        -> We have 2 sorted array & we are merging these 2 arrays into single array.
+        -> A is [20, 40, 60, 80] & B[30, 50, 70, 75]
+        -> Res=[]
+        -> We try to merge sort by try to divide your input array into half.
+        -> And then after sort them, merge them back to the fully sorted array.
+        -> Why many sorting algos? means we try to find many options/way to sort by select an option and walk.
+        -> Merge is quite better than Bubble, Insertion and Selection Sort due to time complexity.
+        -> 1st time divide input array & then again divide both array into half & again divide into single element 
+        -> We divide by knowing index => Start+End / 2 => 0+7 / 2 = 3.5 => Math.floor(3.5) = 3
+        -> So divide by 0-3 as 1st half & 4-7 as 2nd half.
+        -> Once we reached single element, we stop breaking/dividing using divide & conquer approach.
+        -> Recursively merge single elements into sorted manner.
+        -> Then we merge two sorted array into single sorted array.
+                                    Input Array
+                                        /\
+                                       /  \
+                            leftUnsortArr   rightUnsortArr
+                                /\               /\
+                               /  \             /  \               _
+                            ¦_¦_¦ ¦_¦_¦      ¦_¦_¦ ¦_¦_¦            ¦
+                             /\     /\        /\    /\              ¦
+                            /  \   /  \      /  \  /  \             ¦
+                           /    \ /    \    /    \/    \            ¦  RECURSION     
+                          ¦_¦  ¦_¦¦_¦  ¦_¦ ¦_¦  ¦_¦¦_¦  ¦_¦         ¦
+                            \   /   \   /   \   /    \   /          ¦
+                             \ /     \ /     \ /      \ /           ¦
+                            ¦_¦_¦   ¦_¦_¦   ¦_¦_¦    ¦_¦_¦          ¦_
+                              \       /       \       /
+                               \     /         \     / 
+                                \   /           \   /
+                                 \ /             \ /
+                              ¦_¦_¦_¦_¦       ¦_¦_¦_¦_¦
+                            LeftSortedArr   RightSortedArr
+                                  \               / 
+                                   \             / 
+                                    \           /
+                                     \         /
+                                      \       /
+                                       \     /
+                                        \   /
+                                         \ /
+                                  ¦_¦_¦_¦_¦_¦_¦_¦_¦  ==>  FINAL_MERGE_SORTED_ARRAY
+[TimeStamp: 00:41:14]
+                                   
+
+                                                                
+Quick Sort:-
+
+Day 86 : 02.09.2023 -----------------------------
+Curriculum: Tree
+Sub-topics: 
+    (1) Bubble Sort
+    (2) Insertion Sort
+    (3) Quick Sort
+    (4) Merge Sort
+    (5) Recursion
+    (6) 
+    (7) 
+
+Agenda:
+    - Recursion
+    - 
+    - 
+    - 
+   
+__________________________________________________
+Post Order:
+    Left, Right & Root
+Pre Order:
+    Root, Left & Right 
+In Order:
+    Left, Root & Right
+
+Day 87 : 03.09.2023 -----------------------------
+Curriculum: Graph | HashMap
+Sub-topics: 
+    (1) Graph
+    (2) 
+    (3)
+    (4) 
+    (5) 
+    (6) 
+    (7) 
+
+Agenda:
+    - Graph
+    - Binary First Search
+    - Depth First Search
+    - Hashmap
+    - DSA Advanced Ass 1 Ques 1 Solution
+   
+__________________________________________________
+Graph:-
+    -> A graph is a non-linear data structure, Used to represent the relationship.
+    -> Mainly & mostly, to find shortest route or path.
+
+## **Components of a Graph**
+
+1. **Vertices (Nodes):**  
+    1. Each vertex represents an entity or Node.
+    2.  **For example.** In a social network, vertices could represent users.
+    3.  **For example. I**n a transportation system, they could represent locations.
+2. **Edges:** 
+    1. Edges are the connections between vertices and represent the relationships or interactions between them.
+
+## **Graphs are used in diverse industries and fields.**
+    - **GPS systems and Google Maps** use graphs to find the shortest path from one destination to another.
+    - **Social Networks** use graphs to represent connections between users.
+    - **The Google Search** algorithm uses graphs to determine the relevance of search results.
+    - **Even Chemistry** uses graphs ****to represent molecules
+
+# Terms related to Graphs
+    - **Path →** Route or walk from one vertex to another vertex.
+    - **Cycle →** Path which starts and end at same vertex.
+    - **Adjacent Nodes →** Reachable via single edges ( Neighbour Nodes )
+    - **Incoming Edges →** Edges coming to you. In Case of undirected graph incoming and outgoing edge are same.
+    - **InDegree →** No. of incoming edges.
+    - **OutDegree →** No. of outgoing edges.
+
+# Types of Graph
+    ## **1. Undirected Graphs**
+    - They consist of nodes (vertices) and edges, where edges have no direction.
+    - In an undirected graph, the connection between two nodes is bidirectional, meaning you can traverse the edge in both directions **( means bi-directional relationships ).**
+    - If node A is connected to node B, then node B is also connected to node A.
+    - **Example** -
+        - Social networks.
+        - Where nodes represent individuals, and edges represent friendships.
+    
+    ## **2. Directed Graphs**
+    - In a directed graph, edges have a direction, indicating a one-way relationship from one node to another.
+    - If there is an edge from node A to node B, it does not necessarily mean there is an edge from B to A.
+    - Directed graphs represent with ( Edges + Arrow ).
+
+    ## **3. Weighted Graphs**
+    - In a weighted graph, each edge has an associated weight or cost.
+    - These weights are used to represent strongness of a relationship.
+    - Weighted graphs are commonly used in algorithms like Dijkstra's algorithm for finding shortest paths.
+    - Weight can be positive-negative values.
+
+    **Use Cases:**
+    - Transportation networks, where edges have weights representing travel times or distances.
+    - Financial networks, where edges have weights representing transaction amounts or risks.
+
+    ## 4. **Cyclic Graph:**
+    - Cyclic Graph will have atleast one path which starts at a node and ends at same node.
+
+    ## 5. Acyclic Graph:**
+    - An acyclic graph is a graph that does not contain any cycles
+    - If not cycle then acyclic graph.
+
+    ## 6**. Directed Acyclic Graphs (DAGs)**
+    - Directed Graph + Acyclic Graphs
+
+    ## 7**. Tree**
+    - A tree is a **special type of graph** with no cycles.
+    - It's has a single root node and a unique path connecting any two nodes.
+
+    ## 8. **Forest**
+    - A forest is a **type of graph** that consists of **multiple disjoint trees**.
+
+# How are we going to represent Graph in Code ?
+    ### Solution 1 - Using Adjacency matrix  &  Solution 2 - **Using Adjacency List**
+        - Adjacency matrix is a common way to represent a graph using a 2D matrix (a table).
+        - Where each cell (i, j) in the matrix indicates whether there is an edge between vertex i and vertex j.
+        - It's a straightforward way to represent the connectivity of vertices in a graph.
+
+    ## **Main Ideas for** Adjacency matrix:
+        1. **Matrix Dimensions:** For a graph with n vertices, the adjacency matrix is an n x n matrix.
+        2. **Vertex Mapping:** Each row and each column in the matrix represents a vertex in the graph.
+        3. **Edge Representation:** The value in cell (i, j) represents whether there is an edge from vertex i to vertex j. 
+        4. Common representations are:
+            - 1 or true to indicate the presence of an edge.
+            - 0 or false to indicate the absence of an edge.
+    Let’s Code → How to implements graphs using Adjacency matrix.
+        class AdjacencyMatrix {
+            // Properties
+            constructor(vertices) {
+                this.vertices = vertices;
+                this.matrix = [];
+                for (let i = 0; i < vertices; i++) {
+                this.matrix[i] = new Array(vertices).fill(0);
+                }
+            }
+            // Methods
+            printGraph() {
+                for (let i = 0; i < this.vertices; i++) {
+                console.log(this.matrix[i].join(" "));
+                }
+
+                console.log();
+                console.log();
+                console.log();
+            }
+
+            addEdge(fromVertex, toVertex) {
+                this.matrix[fromVertex][toVertex] = 1;
+                this.matrix[toVertex][fromVertex] = 1;
+            }
+        };
+
+        //Object Creation - n Vertices => nXn AdjacencyMatrix
+        const graph = new AdjacencyMatrix(4);
+        graph.printGraph();
+
+        graph.addEdge(0, 1);
+        graph.addEdge(0, 2);
+        graph.addEdge(0, 3);
+
+        // graph.addEdge(1, 0);
+        graph.addEdge(1, 2);
+
+        // graph.addEdge(2, 0);
+        // graph.addEdge(2, 1);
+
+        graph.addEdge(2, 2);
+        graph.addEdge(2, 3);
+
+        // graph.addEdge(3, 0);
+        // graph.addEdge(3, 2);
+
+        graph.printGraph(); 
+    
+    ## **Main Ideas for** Adjacency List:
+        - An adjacency list is a data structure used to represent a graph.
+        - It is a collection of lists, where each list corresponds to a vertex in the graph and contains the vertices adjacent to that vertex.
+
+    **Here's how an adjacency list works:**
+        1. **Adjacency Lists:** For each vertex, maintain an array that stores the vertices connected by edges of that vertex.
+        2. **Vertex List:** Create an array where each element represents a vertex in the graph. 
+
+    ### **Let’s Code → How to implements graphs using Adjacency List.**
+        class AdjacencyList {
+            constructor() {
+                this.AdjacencyList = {};
+            }
+
+            addVertex(vertex) {
+                this.AdjacencyList[vertex] = [];
+            }
+
+            addEdge(fromVertex, toVertex) {
+                this.AdjacencyList[fromVertex].push(toVertex);
+            }
+        }
+
+        const graph = new AdjacencyList();
+
+        graph.addVertex("A");
+        graph.addVertex("B");
+        graph.addVertex("C");
+        graph.addVertex("D");
+
+        graph.addEdge("A", "B");
+        graph.addEdge("A", "C");
+
+        graph.addEdge("B", "A");
+        graph.addEdge("B", "C");
+
+        graph.addEdge("C", "A");
+        graph.addEdge("C", "B");
+        graph.addEdge("C", "D");
+
+        graph.addEdge("D", "C");
+
+        console.log(graph.AdjacencyList);
+
+# **Traversing Graphs**
+    - Traversing a graph means visiting all the vertices of the graph in a specific order or manner.
+    - There are two common methods for graph traversal:
+        1. **Depth-First Search (DFS)**
+        2. **Breadth-First Search (BFS).**
+
+    ## **Depth-First Search (DFS)**
+            - DFS, or Depth-First Search, is a graph traversal algorithm used to explore all the nodes and edges of a graph in a depthward motion before backtracking (Deep).
+            - It starts at a selected node and explores as far as possible (until graph length got over) along each connected branches with that node before backtracking.
+
+        // Let’s Code → How to implements Depth First Search (DFS) graphs using Adjacency List.
+        class AdjacencyList {
+            constructor() {
+                this.AdjacencyList = {};
+            }
+
+            addVertex(vertex) {
+                this.AdjacencyList[vertex] = [];
+            }
+
+            addEdge(fromVertex, toVertex) {
+                this.AdjacencyList[fromVertex].push(toVertex);
+            }
+
+            dfs(startVertex) {
+                const visited = {};
+                const result = [];
+
+                const visitNodes = (vertex) => {
+                if (!vertex) {
+                    return;
+                }
+
+                visited[vertex] = true;
+                result.push(vertex);
+
+                for (const neighbor of this.AdjacencyList[vertex]) {
+                    if (!visited[neighbor]) {
+                    visitNodes(neighbor);
+                    }
+                }
+                };
+
+                visitNodes(startVertex);
+                return result;
+            }
+        }
+
+        const graph = new AdjacencyList();
+
+        graph.addVertex("A");
+        graph.addVertex("B");
+        graph.addVertex("C");
+        graph.addVertex("D");
+        graph.addVertex("E");
+        graph.addVertex("F");
+
+        graph.addEdge("A", "B");
+        graph.addEdge("A", "C");
+
+        graph.addEdge("B", "E");
+
+        graph.addEdge("C", "D");
+
+        graph.addEdge("E", "F");
+
+        // console.log(graph.AdjacencyList);
+
+        let DFSResult = graph.dfs("A");
+
+        console.log(DFSResult);
+
+    ## Breadth-First Search **( BFS )**
+        - Breadth-First Search, is a graph traversal algorithm used to explore all the nodes and edges of a graph systematically.
+        - It starts at a selected node and explores all its neighbors before moving to their neighbors.
+        - In other words, it explores nodes level by level, visiting all nodes at the current level before moving to the next level.
+
+    // Let’s Code → How to implements Breadth First Search(BFS) graphs using Adjacency List.
+        class AdjacencyList {
+            constructor() {
+                this.AdjacencyList = {};
+            }
+
+            addVertex(vertex) {
+                this.AdjacencyList[vertex] = [];
+            }
+
+            addEdge(fromVertex, toVertex) {
+                this.AdjacencyList[fromVertex].push(toVertex);
+            }
+
+            bfs(startVertex) {
+                const visited = {};
+                const queue = [startVertex];
+
+                const result = [];
+
+                // Mark start vertex as visited.
+                visited[startVertex] = true;
+
+                while (queue.length > 0) {
+                const currentVertex = queue.shift(); // Dequeue the first vertex from the queue.
+
+                result.push(currentVertex); // Pushed the result here.
+
+                // iterate through the neighbors of the current vertex.
+                for (const neighbor of this.AdjacencyList[currentVertex]) {
+                    // if neighbor has't been visited yet.
+                    // mark it as visited and enqueue it.
+                    if (!visited[neighbor]) {
+                    visited[neighbor] = true;
+                    queue.push(neighbor);
+                    }
+                }
+                }
+
+                return result;
+            }
+        };
+
+        const graph = new AdjacencyList();
+
+        graph.addVertex("A");
+        graph.addVertex("B");
+        graph.addVertex("C");
+        graph.addVertex("D");
+        graph.addVertex("E");
+        graph.addVertex("F");
+
+        graph.addEdge("A", "B");
+        graph.addEdge("A", "C");
+
+        graph.addEdge("B", "A");
+        graph.addEdge("B", "C");
+        graph.addEdge("B", "E");
+
+        graph.addEdge("C", "A");
+        graph.addEdge("C", "B");
+        graph.addEdge("C", "D");
+
+        graph.addEdge("D", "C");
+
+        graph.addEdge("E", "F");
+
+        // console.log(graph.AdjacencyList);
+
+        let bfsResult = graph.bfs("A");
+
+        console.log(bfsResult);
 
 
+    ## Let’s write code to Search Operation on Graph
+    ## **Let’s write code to Detect Cycle in a Directed Graph**
 
+Let’s Learn Map and Set in Javascript:-
+    1.
+        const m1 = new Map();
 
+        m1.set("name", "Harshit");
+        m1.set("age", 40);
+        m1.set("country", "India");
 
+        console.log(m1);
+        console.log(m1.get("name"));
 
+        console.log(m1.has("country"));
+        console.log(m1.has("city"));
 
+        m1.delete("age");
+        console.log(m1);
 
+        console.log(m1.size);
 
+        for (const arr of m1) {
+        console.log(arr[0], arr[1]);
+        }
 
+        m1.clear();
+        console.log(m1);
 
+        console.log(m1.entries());
+        console.log(m1.keys());
+        console.log(m1.values());
 
+        for (const entry of m1.entries()) {
+        console.log(entry);
+        }
 
+        const m2 = new Map([
+        ["name", "harshit  "],
+        ["age", "24"],
+        ["city", "India  "],
+        ]);
 
+        const e1 = m2.entries();
+        console.log(e1);
 
+        console.log(e1.next());
+        console.log(e1.next());
+        console.log(e1.next());
 
+        console.log(e1.next());
+        console.log(e1.next());
+        console.log(e1.next());
 
+    2. DSA Advanced Ass 1 Ques 1 Solution: 
+        -> Delete the elements in an linked list whose sum is equal to zero
+        ->  // Input: head = [1,2,-3,3,1]
+            // Output: [3,1]
 
+            // Input: head = [1,2,3,-3,4]
+            // Output: [1,2,4]
 
+            // Input: head = [1,2,3,-3,-2]
+            // Output: [1]
+        -> Implementation for Above program.
+            function ListNode(value1, next) {
+                this.value1 = value1;
+                this.next = null; 
+            };
 
+    class linkedList {
+        deleteSumZero() {
+            let current = this.head;
 
+            while (current) {
+            let sum = 0;
+            let tempNode = current;
 
+            while (tempNode) {
+                sum = sum + tempNode.data;
 
+                if (sum == 0) {
+                // delete nodes from current to temp inclusive()
+
+                this.helpDelete(current, tempNode);
+                }
+
+                tempNode = tempNode.next;
+            }
+
+            current = current.next;
+            }
+        }
+
+        helpDelete(start, end) {
+            let current = this.head;
+
+            let prev = null;
+
+            // finding the node before start node
+            while (current != start) {
+            prev = current;
+            current = current.next;
+            }
+
+            // skip node from start to end...
+            while (current != end.next) {
+            current = current.next;
+            }
+
+            if (prev) {
+            prev.next = end.next;
+            } else {
+            this.head = end.next;
+            }
+        }
+    }
+
+Day 88 : 04.09.2023 [NoSQL Module] -----------------------------
+Curriculum:  Intro to NoSQL
+Sub-topics: 
+    (1) What is NoSQL?
+    (2) Architecture of NoSQL: Sharding and Replica Sets
+    (3) Taxonomy of NoSQL
+    (4) NoSQL Assumptions and the CAP theorem
+    (5) NoSQL vs RDBMS
+    (6) Benefits and Drawbacks of NoSQL
+    (7) NoSQL BASE
+
+Agenda:
+    - NoSQL
+    - 
+    - 
+    - 
+    - 
+
+Practice Resources:-
+    What is NoSQL ? https://www.mongodb.com/nosql-explained
+    Basic Questions: https://www.sanfoundry.com/mongodb-questions-answers-nosql-databases/
+    Relational vs. NoSQL data | Microsoft Docs: https://learn.microsoft.com/en-us/dotnet/architecture/cloud-native/relational-vs-nosql-data
+    SQL vs NoSQL: https://algodaily.com/lessons/a-beginners-reference-to-sql-vs-nosql
+    Consistent Backend and UX : Why should you care:- https://css-tricks.com/consistent-backends-and-ux:-why-should-you-care/
+    Consistent Banckend and UX : What can go wrong ? https://css-tricks.com/consistent-backends-and-ux-what-can-go-wrong/
+    Barriers to adoption: https://css-tricks.com/consistent-backends-and-ux-what-are-the-barriers-to-adoption/
+__________________________________________________
+
+SQL:-
+    -> RDBMS: Relational Database Management System
+    -> Fixed Schemas/Tables/entities
+    -> Long Joins
+    -> Scaling means reducing problems via Horizontal & Vertical Scalings
+    -> There is no types of SQL.
+    -> Transaction & ACID Property
+    -> Relational Databases
+    -> Stored data in Tables 
+    -> Tables stored in Database.
+    -> Database have many tables.
+    -> Every table will have rows(data/re) & columns (attributes).
+
+NoSQL:-
+    -> Non-Relational Databases
+    -> Flexible Schemas
+    -> Avoid joins
+    -> Easy to scale
+    -> Types of No SQL Databses:
+        1. Document Databases -> Eg: SOFTWARES uses Document DB:- MongoDB, AWS - Simple DB, Couch DB
+        2. Key Value Databases -> Eg: Redis, AWS - Dynamo DB, 
+        3. Column-oriented Databases -> Eg: Apache Cassandra(Discord Application uses this DB), HBase etc.
+        4. Graph Databases -> Eg: Neo4j, Orient DB, Nebula Graph, Oracle NoSQL DB etc.
+    -> Benefits/Advantage:-
+        => Fast access
+    -> Drawbacks of NoSQL:-
+        => Let's see as senior engineer
+        => CAP Theorem
+            1. C stands for Consistency:
+                * Delay means here data inconsistency.
+                *  While launching rocket, Trading stock exchange can we tolerate 2 seconds of delay in those case?
+                * This delay at some point is not acceptable as it leads to huge lossin temrs of money invested in rocket launch, trading stocks etc.
+                * Whereas delay is acceptable in small scenarios where loss is less like zoom call, whatsapp video call, 
+            2. A stands for Availability
+                - Flipkart(mobile products) for 4 sec delay: A or C
+                    -> People switch to Amazon or other apps to shop, if Flipkart's availability stops.
+                - Youtube: A or C
+                    -> It is down for some time due to availability issues.
+                - Whatsapp, Telegram, Insta Messenger, Meta Messenger etc.
+                    -> In any chatting Applications, consistency is more important.
+                    -> Ordering also matters like msg2 from B after msg1 from A person.
+                - Hospital
+                    -> Availability matters a lot than consistency.
+                - IRCTC, Bank, GPay etc.
+                    -> Availability is okay for just 1 hour
+                    -> But 100% Consistency should be there.
+                - Instagram is a big application. So we need to see Feature-wise.
+                    -> Post, Story, Reels: Availability
+                    -> Like or Comment: Availability
+                    -> Messenger/Chat: Consistency 
+                - Examples: 
+                    i) Video chat app
+                    ii) Voice Chat app
+                    iii) Live Streaming
+                    iv) Comments (open chat)
+            3. P stands for partition
+                - How our application quickly transform from down phase to up phase?
+                - Fault-oriented /Partition-oriented
+                - P always be there.
+                - Only between C & A, we as senior engineers choose C along with P or  A along with P
+        How we ensure that out application is available highly?
+            -> Using Replication
+        Why Availibility & Consistency can't be together in MongoDB?
+            -> 
+        Why Availibility & Consistency can be together in Casssandra?
+            -> 
+            -> Discord Application Moved to Cassandra DB from Mongo DB due to this both available at same time
+        How we ensure that out application is consistent highly?
+            -> Not by replicates data in multiple places.
+
+Document Databases:-
+    -> Files
+    -> Data stored in JSON look-alike Format
+
+🚨Core Terminology Differernces:
+SQL:-
+    -> Relational Databases
+    -> Stored data in Tables 
+    -> Tables stored in Database which have many tables.
+    -> Every table will have rows(data/re) & columns (attributes).
+NoSQL Document DB:-
+    -> Non-Relational Databases
+    -> Actual data is stored in Documents(rows).
+    -> Instead of Tables, many collections used.
+    -> Attributes/Columns are called as Fields.
+
+Mongo DB:-
+    -> Focus
+    -> Data stored in BSON look-alike Format (Binary Javascript Object Notation)
+    -> When we need Availability over consistency, we use Mongo DB. A increase, C decrease
+    -> Master DB & Slave1 DB, Slave2 DB03
+    -> All write happens in Master & Read application happens in Slaves.
+    -> May be we will get to read old data at slave. (During Not updated times)
+
+Day 89 : 05.09.2023  -----------------------------
+Curriculum: Intro to MongoDB
+Sub-topics: 
+    (1) What is MongoDB?
+    (2) Functionality of MongoDB
+    (3) Why MongoDB?
+    (4) MongoDB: CAP Approach
+    (5) MongoDB: Hierarchical Objects
+    (6) RDB Concepts to NoSQL
+    (7) Choices made for Design of MongoDB
+    (8) Installing MongoDB on Windows/Mac/Linux
+
+Agenda:
+    - Installation: https://www.mongodb.com/try/download/shell
+    - Insertion
+    - Updation
+    - Deletion
+    - MongoDB Comparison operators
+    - MongoDB Logical operators
+    - MongoDB Regex operators: $regex
+
+Reference Material:
+    (MASTER CLASS NOTES) Notion Link - https://determined-persimmon-687.notion.site/Harshit-Speaks-168fad5159d947918574aaca16d5908c
+    MongoDB MCQ & Online Quiz: https://www.interviewmocks.com/mongodb-mcq/
+    Interview Questions: https://github.com/learning-zone/mongodb-basics
+    MongoDB Explained in 10 Minutes | SQL vs NoSQL | Jumpstart | MongoDB:
+    https://www.mongodb.com/developer/videos/mongodb-explained-in-10-minutes---sql-vs-nosql---jumpstart/
+    MongoDB Schema Design Best Practices: https://www.mongodb.com/developer/products/mongodb/mongodb-schema-design-best-practices/
+__________________________________________________
+
+Query:
+    -> db.movie.find() - This query is nearly similar to Javascript code. So only MongoDB is famous.
+    -> 
+
+MongoDB Comparison operators:-
+    -> $lt means less than (<)
+    -> $gt means greater than (>)
+    -> $lte means less than & equal to (<=)
+    -> $gte means greater than (>=)
+    -> $eq means equal (=)
+    -> $ne means less than (!=)
+
+MongoDB Logical operators:-
+    -> $or: Performs Logical OR operations on an array of expressions.
+    -> $and: Performs Logical AND operations on an array of expressions.
+    -> $not: Inverts 
+        Eg query:- db.movie.find({year: {$not: {$eq: 2023}}})
+    -> $nor: Performs Logical NOR operations on an array of expressions.
+
+MongoDB Regex operators:-
+    -> $regex: Matches documents based on regular expression.
+        Eg query:- db.movie.find({name: {$regex: /va/}})
+            [{
+                _id:ObjectId(""),
+                name:'Eva',
+                age: 15,
+                grade: 'C'
+            }]
+        Eg query:- db.movie.find({name: {$regex: /^a/}}) => Caret symbol ^ means Start with 'a' NOT 'A'
+        Eg query:- db.movie.find({name: {$regex: /^a/i}}) => Start with 'a' & 'A'
+                                            [OR]
+        Eg query:- db.movie.find({name: {$regex: /^a/, $options: 'i'}}) => Start with 'a' & 'A'
+        Eg query:- db.movie.find({name: {$regex: /n$/i}}) => Ends with 'n' => Aman
+
+Dropping a Collection:-
+    Query: show collections
+           db.students.drop()
+
+Dropping a Database:-
+    Query:  db.dropDatabase('films')
+            show databases;
+
+Day 90 : 06.09.2023  -----------------------------
+Curriculum:  MongoDB Features & Operations
+Sub-topics: 
+    (1) JSON & BSON Format
+    (2) Schema Free
+    (3) MongoDB Features
+    (4) Index Functionality
+    (5) Data types - terminal and non-terminal
+    (6) CRUD Operations - Create and Read
+
+Session Details (MongoDB Features to be covered):
+    1. Document-Oriented Storage
+    2. Full Index Support
+    3. Replication & High Availability
+    4. Auto-sharding
+    5. Querying
+    6. Fast in-place Updates
+    7. Map-reduce Functionality
+
+Agenda:
+    - for loop in MongoDB
+    - 
+    - 
+    - 
+    - 
+
+Reference Material:-
+    CRUD Operations: https://www.mongodb.com/developer/languages/javascript/node-crud-tutorial/
+    Getting Started with MongoDB & Mongoose | MongoDB: https://www.mongodb.com/developer/languages/javascript/getting-started-with-mongodb-and-mongoose/
+    MongoDB Compass: https://www.youtube.com/watch?v=YBOiX8DwinE
+__________________________________________________
+
+for loop:-
+    -> 
+
+Without Index created on price:-
+    -> db.product.find({price: 2000}).explain('executionStats') => executionTimeMillis: 67; totalDocsExamined: 91812
+    -> 
+Index created on price:-
+    -> db.product.createIndex({price: 1}) 
+    -> db.product.getIndexes()
+    -> db.product.find({price: 2000}).explain('executionStats') => executionTimeMillis: 11; totalDocsExamined: 1
+    -> Indexes works along with id 
+    -> Whenever we create index, value should be unique
+Drop index:-
+    -> db.product.dropIndex('price_1')
+SEARCH again after frop time increases:-
+    -> db.product.find({price: 2000}).explain('executionStats') => executionTimeMillis: 67; totalDocsExamined: 91812
+Map & Reduce:-
+    Map:
+        -> Data-processing paradigm & a set of functions in MongoDB used for processing & aggregating large volumes of data.
+        -> db.createCollection('students')
+        -> db.students.insertMany([{name:'Monisha',marks:100},{name:'Navya',marks:90},{name:'Suraj',marks:70},{name:'Abhi',marks:80}])
+        -> db.students.find()
+            [{},{},{},{}] => Output
+        -> db.creayeCollection('mobile')
+        -> db.mobile.insertMany([{name:'iPhone',price:90,quantity:2},{name:'onePlus',price:60,quantity:8},{name:'samsung',price:50,quantity:5},{name:'redmi',price:40,quantity:4}])
+        -> db.mobile.find()
+        (Q1) Extract output as mobileName & TotalRevenue(qty + price) :
+            -> iPhone, 180
+            -> onePlus, 480
+            -> samsung, 250
+            -> redmi, 160
+        -> We used to run over every document using map function in js & return in new array (name, price+quantity).
+        -> arr.map((item)=> return item.name, item.price * item.quantity)
+        (Q2) Sum of all Revenue for mobile
+        -> REDUCE function : (180 + 480 + 250 + 160)
+        -> let total = arr.reduce((acc,values)=> {
+            return sum = sum + values;
+        },0)
+
+Day 91 : 07.09.2023  -----------------------------
+Curriculum:  MongoDB Operations
+Sub-topics: 
+    (1) CRUD Operations - Update and Delete
+    (2) SQL vs MongoDB entities
+    (3) Aggregated functionality
+    (4) Map-reduce functionality
+    (5) Indexes: High performace read ops
+    (6) Replication & Consistency of data
+    (7) Memory mapped files
+
+Agenda:
+    - Aggregation
+    - 
+    - 
+    - 
+    - 
+
+Reference Material:
+    Connecting to MongoDB using Node.js: https://www.mongodb.com/developer/languages/javascript/node-connect-mongodb/
+    Performing CRUD Operations https://classroom.edyoda.com/program-modules/FSR310323/MongoDB/38144/MongoDB%20and%20Node.js%20Tutorial%20-%20CRUD%20Operations%20%7C%20MongoDB
+__________________________________________________
+Day 92 : 08.09.2023  -----------------------------
+Curriculum:  MongoDB Atlas
+Sub-topics: 
+    (1) What is Atlas?
+    (2) Benefits of using Atlas
+    (3) Creating an Atlas account
+    (4) Configuring DB on Atlas
+    (5) Assignment-1
+    (6) 
+    (7) 
+
+Agenda:
+    - NoSQL
+    - 
+    - 
+    - 
+    - 
+   
+Reference Material:
+    MongoDB Atlas Serverless Instances: Quick Start | MongoDB
+    https://www.mongodb.com/developer/products/atlas/atlas-serverless-quick-start/
+
+    Introduction to MongoDB Atlas
+    https://www.mongodb.com/developer/videos/intro-to-mongodb-atlas-in-10-mins---jumpstart/
+__________________________________________________
+Day 93 : 09.09.2023  -----------------------------
+Curriculum:  Live Project Building Session
+Sub-topics: 
+    (1) 
+    (2) 
+    (3)
+    (4) 
+    (5) 
+    (6) 
+    (7) 
+
+Agenda:
+    - NoSQL
+    - 
+    - 
+    - 
+    - 
+   
+__________________________________________________
+Day 94 : 10.09.2023  -----------------------------
+Curriculum:  Regex from JS
+Sub-topics: 
+    (1) 
+    (2) 
+    (3)
+    (4) 
+    (5) 
+    (6) 
+    (7) 
+
+Agenda:
+    - NoSQL
+    - 
+    - 
+    - 
+    - 
+   
+__________________________________________________
 
 
 
