@@ -8536,6 +8536,175 @@ Sub-topics:
     (7) 
 
 Agenda:
+    - Beginner Naive way of backend codes
+    - 
+    - 
+    - 
+    - 
+   
+__________________________________________________
+
+Day 100 : 15.09.2023  -----------------------------
+Curriculum:  Backend Project Folder Structure | Node Internals
+
+Agenda:
+    - Folder Structure
+    - Node Internals
+    
+   
+__________________________________________________
+
+Start a Node:-
+    -> npm init
+    -> This command gives node_modules & utils folders
+
+NodeJS Folder Structure:-
+    -> Node project with below folders are under SRC
+    -> configs
+    -> models
+    -> routes - API endpoints requests
+    -> controllers
+    -> services
+
+How to tell our app to use Router?
+    -> Use postman to see result
+    -> In code, app is nothing but just express.js to use , get, put, post(to add), delete & update
+    -> First page is server.js
+    -> In controller.js, we have the main code where we sending response after router call each of multiple functions get triggered with json responses.
+    -> Controller should read and write json responses.
+    -> All business logics shld not be thr in controller.
+    -> Only service folder holds all our business logics where we write multiple functions and export them using modules.exports
+    -> In models folder's file (player.model.js), 
+    -> When we return json response, we need to pass json response at server.js.
+    -> Above thing is commmonly everyone miss to do.
+    -> This leads to addAPlayer
+
+Node Internals:-
+    -> Non-blocking code
+    -> AsynchronousI/O operations (LIBUV library built in c & c++ codes)
+    -> NodeJS system
+    -> Single thread
+    -> Worker thread pool (Async I/O) -> Non-Block
+
+Console.log:-
+    -> log is not part of Javascript
+    -> It is part of Browser runtime and nodejs
+
+setTimeOut:-
+    -> Also not part of JS but make sync code into async
+
+Day 101 : 16.09.2023  -----------------------------
+Curriculum:  
+Sub-topics: 
+    (1) 
+    (2) 
+    (3)
+    (4) 
+    (5) 
+    (6) 
+    (7) 
+
+Agenda:
+    - NoSQL
+    - 
+    - 
+    - 
+    - 
+   
+__________________________________________________
+
+Day 102 : 18.09.2023  -----------------------------
+Curriculum:  
+Sub-topics: 
+    (1) 
+    (2) 
+    (3)
+    (4) 
+    (5) 
+    (6) 
+    (7) 
+
+Agenda:
+    - NoSQL
+    - 
+    - 
+    - 
+    - 
+   
+__________________________________________________
+
+Day 103 : 19.09.2023  -----------------------------
+Curriculum:  
+Sub-topics: 
+    (1) 
+    (2) 
+    (3)
+    (4) 
+    (5) 
+    (6) 
+    (7) 
+
+Agenda:
+    - NoSQL
+    - 
+    - 
+    - 
+    - 
+   
+__________________________________________________
+
+Day 104 : 20.09.2023  -----------------------------
+Curriculum:  
+Sub-topics: 
+    (1) 
+    (2) 
+    (3)
+    (4) 
+    (5) 
+    (6) 
+    (7) 
+
+Agenda:
+    - NoSQL
+    - 
+    - 
+    - 
+    - 
+   
+__________________________________________________
+
+Day 105 : 21.09.2023  -----------------------------
+Curriculum:  
+Sub-topics: 
+    (1) 
+    (2) 
+    (3)
+    (4) 
+    (5) 
+    (6) 
+    (7) 
+
+Agenda:
+    - NoSQL
+    - 
+    - 
+    - 
+    - 
+   
+__________________________________________________
+
+Day 106 : 22.09.2023  -----------------------------
+Curriculum:  
+Sub-topics: 
+    (1) 
+    (2) 
+    (3)
+    (4) 
+    (5) 
+    (6) 
+    (7) 
+
+Agenda:
     - NoSQL
     - 
     - 
